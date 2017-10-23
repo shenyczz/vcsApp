@@ -1,0 +1,19 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Amrs"
+    xmlns:cskAnchor="http://schemas.csharpkit.com/windows/anchoring/xaml">
+    
+    <!--文档头模板-->
+    <DataTemplate x:Key="DocumentHeaderTemplate">
+        <StackPanel Orientation="Horizontal">
+            <Image Source="{Binding IconSource}" Margin="0,0,3,0" Width="18" Height="18"/>
+            <TextBlock Text="{Binding Title}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
+        </StackPanel>
+    </DataTemplate>
+    
+    <!--转换器-->
+    <local:ActiveDocumentConverter x:Key="ActiveDocumentConverter"/>
+    <cskAnchor:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+
+</ResourceDictionary>

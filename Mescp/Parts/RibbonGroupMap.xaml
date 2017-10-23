@@ -1,0 +1,39 @@
+﻿<RibbonGroup
+    x:Class="Mescp.Parts.RibbonGroupMap"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Header="地理信息">
+
+    <RibbonRadioButton
+        x:Name="Cancel"
+        Label="取消"
+        SmallImageSource="../Assets/Arrow.png"
+        Command="{Binding MapViewModel.CancelCommand}"/>
+    <RibbonButton
+        x:Name="Home"
+        Label="复位"
+        SmallImageSource="../Assets/Home.png"
+        Command="{Binding MapViewModel.ResetCommand}"/>
+    <RibbonButton
+        x:Name="Refresh"
+        Label="刷新"
+        SmallImageSource="../Assets/Refresh.png"
+        Command="{Binding MapViewModel.RefreshCommand}"/>
+    <RibbonRadioButton
+        x:Name="ZoomIn"
+        Label="放大"
+        SmallImageSource="../Assets/ZoomIn.png"
+        Command="{Binding MapViewModel.ZoomInCommand}"/>
+    <RibbonRadioButton
+        x:Name="ZoomOut"
+        Label="缩小"
+        SmallImageSource="../Assets/ZoomOut.png"
+        Command="{Binding MapViewModel.ZoomOutCommand}"/>
+    <RibbonRadioButton
+        x:Name="ZoomPan"
+        Label="移动"
+        SmallImageSource="../Assets/ZoomPan.png"
+        IsChecked="True"
+        Command="{Binding MapViewModel.ZoomPanCommand}"/>
+    
+</RibbonGroup>

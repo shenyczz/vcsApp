@@ -1,0 +1,72 @@
+﻿<Window x:Class="Mescp.AboutBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="321" Width="505"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        ShowInTaskbar="False"
+        Title="关于"
+        >
+    
+    <Window.Resources>
+        <XmlDataProvider x:Key="aboutProvider" XPath="ApplicationInfo">
+            <x:XData>
+                <ApplicationInfo xmlns="">
+                    <Title>永优玉米种植布局和生长气象评价系统</Title>
+                    <Product>永优玉米种植布局和生长气象评价系统</Product>
+                    <Version>版本 1.0</Version>
+                    <Copyright>Copyright (C) 2015 - 2016</Copyright>
+                    <Company>河南省气象科学研究所</Company>
+                    <Link Uri="http://www.shenyc.com">More Info</Link>
+                    <Description>这里是产品描述</Description>
+                </ApplicationInfo>
+            </x:XData>
+        </XmlDataProvider>
+    </Window.Resources>
+
+    <Border Margin="5" BorderBrush="Black" BorderThickness="1" DataContext="{StaticResource aboutProvider}">
+        
+        <Grid  ShowGridLines="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <Border Grid.Row="0" Background="White">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Assets/LargeIcon.png"/>
+                    <TextBlock
+                        Margin="15,0,0,0"
+                        Text="永优玉米种植布局和生长气象评价系统"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        TextTrimming="CharacterEllipsis"
+                        VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+            
+            <Border Grid.Row="1" Background="AntiqueWhite">
+                <StackPanel Margin="10" Orientation="Vertical">
+                    <TextBlock Margin="0,5,0,0" FontSize="12" Text="{Binding Source={StaticResource aboutProvider},XPath=Product}"/>
+                    <TextBlock Margin="0,0,0,0" FontSize="12" Text="{Binding Source={StaticResource aboutProvider},XPath=Version}"/>
+                    <TextBlock Margin="0,9,0,0" FontSize="12" Text="{Binding Source={StaticResource aboutProvider},XPath=Copyright}"/>
+                    <TextBlock Margin="0,0,0,0" FontSize="12" Text="All Rights Reserved."/>
+                    <TextBlock Margin="0,9,0,0" FontSize="12" Text="{Binding Source={StaticResource aboutProvider},XPath=Company}"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="2" Background="AntiqueWhite">
+                <Button Content="确定(_O)"
+                        Margin="5"
+                        Background="AntiqueWhite"
+                        Width="100" Height="30"
+                        HorizontalAlignment="Right"
+                        Click="Button_Click"/>
+            </Border>
+
+        </Grid>
+
+    </Border>
+    
+</Window>

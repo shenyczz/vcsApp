@@ -1,0 +1,18 @@
+﻿<RibbonGroup
+    x:Class="Mescp.Parts.RibbonGroupSys"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Header="系统">
+
+    <RibbonButton
+        Label="保存图像"
+        LargeImageSource="../Assets\LargeIcon.png"
+        Command="{Binding MapViewModel.SaveImageCommand}"/>
+    
+    <RibbonButton
+        Label="测试"
+        LargeImageSource="../Assets\LargeIcon.png"
+        Command="{Binding AppCommands.TestCommand}"/>
+
+
+</RibbonGroup>

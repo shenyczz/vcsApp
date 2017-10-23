@@ -1,0 +1,20 @@
+﻿<RibbonApplicationMenu
+    x:Class="Mescp.Parts.RibbonApplicationMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    SmallImageSource="..\Assets\Property.png">
+    
+    <RibbonApplicationMenuItem
+        Header="永优玉米种植布局和生长气象评价系统"
+        ImageSource="{Binding}"
+        Command="{Binding}"/>
+        <!--ImageSource="..\Assets\5211.png"/>-->
+    
+    <RibbonSeparator/>
+    
+    <RibbonApplicationMenuItem
+        Header="关于"
+        ImageSource="../Assets/help.ico"
+        Command="{Binding AppCommands.AboutCommand}"/>
+
+</RibbonApplicationMenu>

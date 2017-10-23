@@ -1,0 +1,9 @@
+﻿/****** Script for SelectTopNRows command from SSMS  ******/
+
+SELECT [iiiii]
+	 ,[ObvDate],[P],[T],[Tmax],[Tmin],[U],[E],[R],[S]
+ FROM [MeteDay2010S]
+ WHERE [ObvDate]>=20170601 AND [ObvDate]<=20170930 AND ([S]<0 OR [S]>240)
+ ORDER BY [ObvDate],[iiiii]
+
+

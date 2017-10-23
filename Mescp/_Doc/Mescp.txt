@@ -1,0 +1,30 @@
+﻿
+【玉米种植布局和生长气象评价系统】
+Meteorological evaluation system for maize(corn) planting distribution and growth - MESCP
+
+1.评价区域管理(Evaluation of regional management - ERM)
+2.评价时段管理(Evaluation period management - EPM)
+3.玉米品种管理(Corn Variety Management - CVM)
+4.种植布局区划(Planting layout zoning - PLZ)
+5.生长适宜评价(Growth suitability evaluation - GSE)
+
+【评价区域管理】
+410000	河南
+130000	河北
+370000	山东
+340000	安徽
+320000	江苏
+
+
+地理信息42-湖北
+
+
+提取各站点整个发育阶段的气象资料
+	提取当日气象要素数据
+	1、建立气温适宜度Ft
+	2、建立降水适宜度Fr
+	3、建立日照适宜度Fs
+	4、取得当日适宜度Fc
+	5、取得各个生育阶段适宜度Fg
+	6、取得整个生育阶段适宜度Fa
+	7、根据Fa绘制区划图

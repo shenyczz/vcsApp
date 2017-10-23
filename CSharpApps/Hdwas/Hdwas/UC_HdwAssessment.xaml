@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Hdwas.UC_HdwAssessment"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <DataGrid x:Name="dataGridHdwAssess" Margin="5" AutoGenerateColumns="False">
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="区站号" Width="68" IsReadOnly="True"
+                                Binding="{Binding Path=Id}"/>
+            <DataGridTextColumn Header="站点名称" Width="100" IsReadOnly="True"
+                                Binding="{Binding Path=Name}"/>
+            <DataGridTextColumn Header="减产率(%)" Width="*" IsReadOnly="True"
+                                Binding="{Binding Path=CurrentElementValue}"/>
+        </DataGrid.Columns>
+    </DataGrid>
+    
+</UserControl>

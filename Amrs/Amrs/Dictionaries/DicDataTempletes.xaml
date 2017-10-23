@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Amrs"
+    xmlns:ve="clr-namespace:Amrs.Views"
+    xmlns:cskAnchor="http://schemas.csharpkit.com/windows/anchoring/xaml">
+    
+    <!--地图视图模板-->
+    <DataTemplate x:Key="MapViewTemplate">
+        <ve:MapView Map="{Binding Map,Mode=OneTime}" Background="White"/>
+    </DataTemplate>
+
+    <!--图层模板-->
+    <DataTemplate x:Key="LayerViewTemplate">
+        <ve:LayerView/>
+    </DataTemplate>
+    
+    <!--图层模板-->
+    <DataTemplate x:Key="PropertyGridViewTemplate">
+        <ve:PropertyGridView/>
+    </DataTemplate>
+
+</ResourceDictionary>

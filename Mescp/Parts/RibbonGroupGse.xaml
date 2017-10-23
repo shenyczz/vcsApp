@@ -1,0 +1,12 @@
+﻿<RibbonGroup
+    x:Class="Mescp.Parts.RibbonGroupGse"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Header="生长适宜评价">
+
+    <RibbonButton
+        Label="Waiting for GSE"
+        LargeImageSource="../Assets\m.png"
+        Command="{Binding}"/>
+
+</RibbonGroup>

@@ -1,0 +1,32 @@
+﻿<ribbon:Ribbon 
+    x:Class="Mescp.Parts.CRibbon"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:ribbon="clr-namespace:System.Windows.Controls.Ribbon;assembly=System.Windows.Controls.Ribbon"
+    xmlns:p="clr-namespace:Mescp.Parts"
+    mc:Ignorable="d"
+    Background="{StaticResource AppBackGround}"
+    Margin="0,6,0,0">
+
+    <!--应用菜单-->
+    <ribbon:Ribbon.ApplicationMenu>
+        <p:RibbonApplicationMenu/>
+    </ribbon:Ribbon.ApplicationMenu>
+
+    <!--Help 按钮-->
+    <ribbon:Ribbon.HelpPaneContent>
+        <p:RibbonHelpPaneContent/>
+    </ribbon:Ribbon.HelpPaneContent>
+
+    <!--快速访问工具栏-->
+    <ribbon:Ribbon.QuickAccessToolBar>
+        <p:RibbonQuickAccessToolBar/>
+    </ribbon:Ribbon.QuickAccessToolBar>
+    
+    <!--Ribbon 标签-->
+    <p:RibbonTabStart/>
+
+
+</ribbon:Ribbon>

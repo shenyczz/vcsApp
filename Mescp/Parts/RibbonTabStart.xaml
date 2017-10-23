@@ -1,0 +1,27 @@
+﻿<RibbonTab
+    x:Class="Mescp.Parts.RibbonTabStart"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:p="clr-namespace:Mescp.Parts"
+    Header="开始">
+
+    <!--地理信息管理-->
+    <p:RibbonGroupMap/>
+
+    <!--1.评价区域管理-->
+    <p:RibbonGroupErm/>
+    <!--2.评价时段管理-->
+    <p:RibbonGroupEpm/>
+    <!--3.玉米品种管理-->
+    <p:RibbonGroupCvm/>
+    <!--4.种植布局区划-->
+    <p:RibbonGroupPlz/>
+    <!--5.生长适宜评价-->
+    <p:RibbonGroupGse/>
+
+    <!--系统-->
+    <p:RibbonGroupSys/>
+    <!--帮助-->
+    <p:RibbonGroupHelp/>
+
+</RibbonTab>

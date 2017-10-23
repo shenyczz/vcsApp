@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Hdwas.Views.HdwProcessDataGridView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="574.603">
+    <Grid>
+        <DataGrid Margin="5" AutoGenerateColumns="False"
+                  ItemsSource="{Binding HdwProcessStations}">
+            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="区站号" Width="68" IsReadOnly="True"
+                                Binding="{Binding Path=Station.Id}"/>
+                <DataGridTextColumn Header="站点名称" Width="100" IsReadOnly="True"
+                                Binding="{Binding Path=Station.Name}"/>
+                <DataGridTextColumn Header="过程统计" Width="200" IsReadOnly="True"
+                                Binding="{Binding Path=HdwProcessCountInfo}"/>
+                <DataGridTextColumn Header="干热风过程" Width="800" IsReadOnly="True"
+                                Binding="{Binding Path=HdwProcessesInfo}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
