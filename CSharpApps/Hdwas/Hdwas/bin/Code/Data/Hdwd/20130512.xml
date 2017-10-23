@@ -1,0 +1,850 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MeteoElementCollection>
+  <MeteoElement>
+    <StationId>53889</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>22.000</F14>
+    <T14>385.000</T14>
+    <U14>10.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53898</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>48.000</F14>
+    <T14>329.000</T14>
+    <U14>35.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53972</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>38.000</F14>
+    <T14>362.000</T14>
+    <U14>17.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53974</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>30.000</F14>
+    <T14>342.000</T14>
+    <U14>26.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53978</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>37.000</F14>
+    <T14>381.000</T14>
+    <U14>13.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53979</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>43.000</F14>
+    <T14>355.000</T14>
+    <U14>22.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53982</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>34.000</F14>
+    <T14>363.000</T14>
+    <U14>18.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53983</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>34.000</F14>
+    <T14>330.000</T14>
+    <U14>39.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53984</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>48.000</F14>
+    <T14>355.000</T14>
+    <U14>18.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53985</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>38.000</F14>
+    <T14>338.000</T14>
+    <U14>22.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53986</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>52.000</F14>
+    <T14>356.000</T14>
+    <U14>19.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53987</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>35.000</F14>
+    <T14>363.000</T14>
+    <U14>20.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53988</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>43.000</F14>
+    <T14>353.000</T14>
+    <U14>16.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53989</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>32.000</F14>
+    <T14>356.000</T14>
+    <U14>19.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53990</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>64.000</F14>
+    <T14>318.000</T14>
+    <U14>38.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53991</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>82.000</F14>
+    <T14>337.000</T14>
+    <U14>29.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53992</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>49.000</F14>
+    <T14>321.000</T14>
+    <U14>42.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53993</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>47.000</F14>
+    <T14>335.000</T14>
+    <U14>29.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53994</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>31.000</F14>
+    <T14>350.000</T14>
+    <U14>28.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53995</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>52.000</F14>
+    <T14>335.000</T14>
+    <U14>38.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53997</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>38.000</F14>
+    <T14>338.000</T14>
+    <U14>31.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>53998</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>35.000</F14>
+    <T14>329.000</T14>
+    <U14>41.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>54817</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>32.000</F14>
+    <T14>335.000</T14>
+    <U14>26.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>54900</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>58.000</F14>
+    <T14>325.000</T14>
+    <U14>33.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>54901</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>52.000</F14>
+    <T14>321.000</T14>
+    <U14>38.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>54902</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>38.000</F14>
+    <T14>338.000</T14>
+    <U14>28.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>54903</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>48.000</F14>
+    <T14>329.000</T14>
+    <U14>35.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57051</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>31.000</F14>
+    <T14>347.000</T14>
+    <U14>17.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57056</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>14.000</F14>
+    <T14>360.000</T14>
+    <U14>15.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57063</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>46.000</F14>
+    <T14>358.000</T14>
+    <U14>12.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57065</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>53.000</F14>
+    <T14>363.000</T14>
+    <U14>15.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57066</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>13.000</F14>
+    <T14>364.000</T14>
+    <U14>17.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57067</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>38.000</F14>
+    <T14>344.000</T14>
+    <U14>8.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57070</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>55.000</F14>
+    <T14>369.000</T14>
+    <U14>11.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57071</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>36.000</F14>
+    <T14>365.000</T14>
+    <U14>15.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57072</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>46.000</F14>
+    <T14>372.000</T14>
+    <U14>14.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57074</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>52.000</F14>
+    <T14>372.000</T14>
+    <U14>16.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57075</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>35.000</F14>
+    <T14>335.000</T14>
+    <U14>30.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57076</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>41.000</F14>
+    <T14>370.000</T14>
+    <U14>13.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57077</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>35.000</F14>
+    <T14>332.000</T14>
+    <U14>14.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57078</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>17.000</F14>
+    <T14>366.000</T14>
+    <U14>12.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57079</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>49.000</F14>
+    <T14>360.000</T14>
+    <U14>14.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57080</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>31.000</F14>
+    <T14>370.000</T14>
+    <U14>12.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57081</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>15.000</F14>
+    <T14>381.000</T14>
+    <U14>8.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57082</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>58.000</F14>
+    <T14>349.000</T14>
+    <U14>8.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57083</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>38.000</F14>
+    <T14>352.000</T14>
+    <U14>17.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57084</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>52.000</F14>
+    <T14>299.000</T14>
+    <U14>8.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57085</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>33.000</F14>
+    <T14>371.000</T14>
+    <U14>8.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57086</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>48.000</F14>
+    <T14>342.000</T14>
+    <U14>18.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57087</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>36.000</F14>
+    <T14>336.000</T14>
+    <U14>21.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57088</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>42.000</F14>
+    <T14>347.000</T14>
+    <U14>21.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57089</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>51.000</F14>
+    <T14>325.000</T14>
+    <U14>35.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57090</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>34.000</F14>
+    <T14>350.000</T14>
+    <U14>17.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57091</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>59.000</F14>
+    <T14>327.000</T14>
+    <U14>29.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57093</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>40.000</F14>
+    <T14>334.000</T14>
+    <U14>29.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57094</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>35.000</F14>
+    <T14>329.000</T14>
+    <U14>41.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57095</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>25.000</F14>
+    <T14>334.000</T14>
+    <U14>32.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57096</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>33.000</F14>
+    <T14>327.000</T14>
+    <U14>42.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57098</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>55.000</F14>
+    <T14>323.000</T14>
+    <U14>37.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57099</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>27.000</F14>
+    <T14>313.000</T14>
+    <U14>41.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57156</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>18.000</F14>
+    <T14>330.000</T14>
+    <U14>32.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57162</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>17.000</F14>
+    <T14>363.000</T14>
+    <U14>9.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57169</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>24.000</F14>
+    <T14>334.000</T14>
+    <U14>26.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57171</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>48.000</F14>
+    <T14>339.000</T14>
+    <U14>23.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57173</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>38.000</F14>
+    <T14>340.000</T14>
+    <U14>25.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57175</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>30.000</F14>
+    <T14>323.000</T14>
+    <U14>32.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57176</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>27.000</F14>
+    <T14>323.000</T14>
+    <U14>32.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57177</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>42.000</F14>
+    <T14>336.000</T14>
+    <U14>26.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57178</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>37.000</F14>
+    <T14>321.000</T14>
+    <U14>36.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57179</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>45.000</F14>
+    <T14>309.000</T14>
+    <U14>43.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57180</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>29.000</F14>
+    <T14>346.000</T14>
+    <U14>18.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57181</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>44.000</F14>
+    <T14>352.000</T14>
+    <U14>16.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57182</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>38.000</F14>
+    <T14>334.000</T14>
+    <U14>39.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57183</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>43.000</F14>
+    <T14>322.000</T14>
+    <U14>38.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57184</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>12.000</F14>
+    <T14>338.000</T14>
+    <U14>29.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57185</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>34.000</F14>
+    <T14>342.000</T14>
+    <U14>28.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57186</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>41.000</F14>
+    <T14>337.000</T14>
+    <U14>25.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57187</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>39.000</F14>
+    <T14>313.000</T14>
+    <U14>39.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57188</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>25.000</F14>
+    <T14>338.000</T14>
+    <U14>29.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57189</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>38.000</F14>
+    <T14>341.000</T14>
+    <U14>27.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57190</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>42.000</F14>
+    <T14>312.000</T14>
+    <U14>47.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57191</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>18.000</F14>
+    <T14>327.000</T14>
+    <U14>41.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57192</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>26.000</F14>
+    <T14>317.000</T14>
+    <U14>43.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57193</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>10.000</F14>
+    <T14>315.000</T14>
+    <U14>48.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57194</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>48.000</F14>
+    <T14>321.000</T14>
+    <U14>45.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57195</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>19.000</F14>
+    <T14>320.000</T14>
+    <U14>42.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57196</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>22.000</F14>
+    <T14>307.000</T14>
+    <U14>51.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57197</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>34.000</F14>
+    <T14>326.000</T14>
+    <U14>38.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57198</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>19.000</F14>
+    <T14>323.000</T14>
+    <U14>41.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57261</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>18.000</F14>
+    <T14>321.000</T14>
+    <U14>30.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57271</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>27.000</F14>
+    <T14>324.000</T14>
+    <U14>42.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57273</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>37.000</F14>
+    <T14>314.000</T14>
+    <U14>35.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57274</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>19.000</F14>
+    <T14>329.000</T14>
+    <U14>36.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57281</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>32.000</F14>
+    <T14>321.000</T14>
+    <U14>33.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57285</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>32.000</F14>
+    <T14>318.000</T14>
+    <U14>31.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57290</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>35.000</F14>
+    <T14>334.000</T14>
+    <U14>32.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57292</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>28.000</F14>
+    <T14>326.000</T14>
+    <U14>34.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57293</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>35.000</F14>
+    <T14>316.000</T14>
+    <U14>37.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57294</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>36.000</F14>
+    <T14>337.000</T14>
+    <U14>28.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57295</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>35.000</F14>
+    <T14>326.000</T14>
+    <U14>42.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57296</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>26.000</F14>
+    <T14>322.000</T14>
+    <U14>34.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57297</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>41.000</F14>
+    <T14>306.000</T14>
+    <U14>41.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57298</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>43.000</F14>
+    <T14>320.000</T14>
+    <U14>33.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57299</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>33.000</F14>
+    <T14>306.000</T14>
+    <U14>39.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57390</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>52.000</F14>
+    <T14>250.000</T14>
+    <U14>50.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>57396</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>81.000</F14>
+    <T14>292.000</T14>
+    <U14>35.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58001</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>34.000</F14>
+    <T14>310.000</T14>
+    <U14>47.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58004</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>32.000</F14>
+    <T14>318.000</T14>
+    <U14>42.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58005</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>33.000</F14>
+    <T14>301.000</T14>
+    <U14>52.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58006</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>31.000</F14>
+    <T14>298.000</T14>
+    <U14>51.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58007</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>30.000</F14>
+    <T14>300.000</T14>
+    <U14>51.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58008</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>32.000</F14>
+    <T14>305.000</T14>
+    <U14>41.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58017</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>25.000</F14>
+    <T14>305.000</T14>
+    <U14>44.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58100</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>30.000</F14>
+    <T14>305.000</T14>
+    <U14>44.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58101</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>19.000</F14>
+    <T14>306.000</T14>
+    <U14>47.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58104</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>32.000</F14>
+    <T14>305.000</T14>
+    <U14>51.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58111</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>31.000</F14>
+    <T14>311.000</T14>
+    <U14>39.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58205</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>24.000</F14>
+    <T14>320.000</T14>
+    <U14>32.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58207</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>37.000</F14>
+    <T14>310.000</T14>
+    <U14>32.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58208</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>29.000</F14>
+    <T14>317.000</T14>
+    <U14>31.000</U14>
+  </MeteoElement>
+  <MeteoElement>
+    <StationId>58301</StationId>
+    <DateTime>2013-05-12 00:00:00</DateTime>
+    <F14>49.000</F14>
+    <T14>311.000</T14>
+    <U14>28.000</U14>
+  </MeteoElement>
+</MeteoElementCollection>
