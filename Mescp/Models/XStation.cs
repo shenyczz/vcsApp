@@ -15,15 +15,18 @@ namespace Mescp.Models
         {
             this.Region = "";
             this.Year = 0;
-            this.Fa = -1;
-            this.Fz = -999;
+            this.Fa = -999;
+            //this.Famax = -999;
+            //this.Famin = -999;
+
+            this.Fac = -1;
         }
 
         #region Private Fields
 
         private List<Double> _Fcs = new List<Double>(); //日适宜度集合
         private List<Double> _Fgs = new List<Double>(); //各发育阶段适宜度集合
-        private List<Double> _Gws = new List<Double>(); //各发育阶段权重
+        private List<Double> _Gws = new List<Double>(); //各发育阶段权重(配置文件)
 
         #endregion
 
@@ -47,7 +50,13 @@ namespace Mescp.Models
         /// <summary>
         /// 整个发育期适宜度
         /// </summary>
-        public Double Fz { get; set; }
+        public Double Fa { get; set; }
+
+        ///// <summary>
+        ///// 所有站点发育期适宜度最大,最小值
+        ///// </summary>
+        //public Double Famax { get; set; }
+        //public Double Famin { get; set; }
 
 
         /// <summary>
@@ -57,14 +66,14 @@ namespace Mescp.Models
         ///  1：次适宜
         ///  2：适宜
         /// </summary>
-        public int Fa { get; set; }
+        public int Fac { get; set; }
 
-        public string FaStrting
+        public string FacStrting
         {
             get
             {
                 string s = "";
-                switch(Fa)
+                switch(Fac)
                 {
                     case 0:
                         s = "不适宜";
@@ -118,8 +127,6 @@ namespace Mescp.Models
 
                 DateTime dtBeg = cropGrwp.GrwpBeg(year);    //发育阶段开始日期
                 DateTime dtEnd = cropGrwp.GrwpEnd(year);    //发育阶段结束日期
-                //TimeSpan ts = dtEnd - dtBeg;
-                //int nDays = (int)ts.TotalDays;
 
                 // 计算该发育阶段的日适宜度Fc，并保存到_Fcs
                 _Fcs.Clear();
@@ -160,11 +167,10 @@ namespace Mescp.Models
             }
 
             // 计算整个发育期适宜度
-            //if (_Fgs.Count == _Fws.Count)
             if (_Fgs.Count > 0)
             {
-                this.Fz = App.Workspace.AppMethod.Fz(_Fgs, _Gws);
-                this.Fa = App.Workspace.AppMethod.Fa(this.Fz, fgMax, fgMin);
+                this.Fa = App.Workspace.AppMethod.Fa(_Fgs, _Gws);
+                this.Fac = App.Workspace.AppMethod.Fac(this.Fa, fgMax, fgMin);
             }
 
             return;
@@ -176,7 +182,7 @@ namespace Mescp.Models
 
         public override string ToString()
         {
-            return string.Format("{0} {1} {2} {3:f3}", Id, Name, FaStrting, Fz);
+            return string.Format("{0} {1} {2} {3:f3}", Id, Name, FacStrting, Fa);
         }
     }
 

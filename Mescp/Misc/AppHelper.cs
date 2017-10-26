@@ -461,7 +461,7 @@ namespace Mescp
                                        ;
                 });
 
-                // 设置站点参数
+                //设置站点参数
                 xStations.ForEach(p =>
                 {
                     p.Year = year;                      //评估年份
@@ -475,18 +475,38 @@ namespace Mescp
                     p.DoIt();
                 });
 
+                double max, min;
+                max = double.NegativeInfinity;
+                min = double.PositiveInfinity;
+                xStations.ForEach(p =>
+                {
+                    if (p.Fa > 0)
+                    {
+                        max = Math.Max(max, p.Fa);
+                        min = Math.Min(min, p.Fa);
+                    }
+                });
+                xStations.ForEach(p =>
+                {
+                    p.Fac = App.Workspace.AppMethod.Fac(p.Fa, max, min);
+                });
+
                 //======================
-                XStation[] xa0 = xStations.FindAll(p => p.Fa == 0).ToArray();     //不适宜
-                XStation[] xa1 = xStations.FindAll(p => p.Fa == 1).ToArray();     //次适宜
-                XStation[] xa2 = xStations.FindAll(p => p.Fa == 2).ToArray();     //适宜
-                XStation[] xa3 = xStations.FindAll(p => p.Fa == -1).ToArray();    //未知
+                XStation[] xa0 = xStations.FindAll(p => p.Fac == 0).ToArray();     //不适宜
+                XStation[] xa1 = xStations.FindAll(p => p.Fac == 1).ToArray();     //次适宜
+                XStation[] xa2 = xStations.FindAll(p => p.Fac == 2).ToArray();     //适宜
+                XStation[] xa3 = xStations.FindAll(p => p.Fac == -1).ToArray();    //未知
                 //======================
                 //下面绘图
-                this.FillCountyColor(xStations);    //绘图
+                //this.FillCountyColor(xStations);    //绘图
 
                 //图例怎么办?
                 //
                 //
+                //下面输出站点文件
+                //
+                string s = System.IO.Path.Combine(App.OutputPath, "1.txt");
+                OutputStationFile(xStations, s);
             }
             catch (Exception)
             {
@@ -521,7 +541,7 @@ namespace Mescp
                     List<IFeature> features = shapeFile.Features.FindAll(f => f.Id == xs.Id);
                     features.ForEach(p =>
                     {
-                        int f = xs.Fa;    //站点适宜度值
+                        int f = xs.Fac;    //站点适宜度值
                         System.Drawing.Color clr = palette.GetColor(f, System.Drawing.Color.Green);
                         p.Tag = clr;
                     });
@@ -535,6 +555,12 @@ namespace Mescp
             {
                 throw;
             }
+        }
+
+        private void OutputStationFile(List<XStation> xStations, string fileName)
+        {
+            AxinStationFile f = new AxinStationFile("");
+            //AxinStationFile.Lo
         }
 
 

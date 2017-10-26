@@ -98,7 +98,7 @@ namespace Mescp
         /// <param name="fgs">各个发育阶段适宜度</param>
         /// <param name="gws">各个发育阶段适宜度系数(对应Weight)</param>
         /// <returns></returns>
-        public double Fz(IList<double> fgs, IList<double> gws)
+        public double Fa(IList<double> fgs, IList<double> gws)
         {
             double v = 0;
 
@@ -121,7 +121,7 @@ namespace Mescp
         /// <param name="fmax"></param>
         /// <param name="fmin"></param>
         /// <returns></returns>
-        public int Fa(double fz, double fmax, double fmin)
+        public int Fac(double fz, double fmax, double fmin)
         {
             int v = -1;
 

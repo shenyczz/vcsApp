@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,7 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SQLite;
 using Mescp.ViewModels;
+using System.Reflection;
 
 namespace Mescp
 {
@@ -37,6 +39,12 @@ namespace Mescp
         public MainWindow()
         {
             InitializeComponent();
+
+            Assembly a = Assembly.GetExecutingAssembly();
+            string s = a.Location;
+            FileInfo fi = new FileInfo(s);
+            DirectoryInfo di = fi.Directory;
+            string fn = di.FullName;
 
             App.Workspace = Workspace.Instance;
             this.DataContext = Workspace.Instance;

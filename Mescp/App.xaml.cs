@@ -44,6 +44,10 @@ namespace Mescp
             get { return System.IO.Path.Combine(StartupPath, "Image"); }
 
         }
+        public static String OutputPath
+        {
+            get { return System.IO.Path.Combine(StartupPath, "Output"); }
+        }
 
         #endregion
 
