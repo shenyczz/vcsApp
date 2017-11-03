@@ -14,7 +14,9 @@
 ******************************************************************************/
 using System;
 using System.Windows.Input;
+using CSharpKit;
 using CSharpKit.Data;
+using CSharpKit.Data.Axin;
 using CSharpKit.Data.Esri;
 using CSharpKit.Vision;
 using CSharpKit.Vision.Mapping;
@@ -36,11 +38,15 @@ namespace Mescp.ViewModels
         }
 
         private readonly string _LayerID = "a123456789";
-
         public String LayerID
         {
             get { return _LayerID; }
         }
+
+
+
+
+
 
         #region Map
 
@@ -67,6 +73,7 @@ namespace Mescp.ViewModels
 
             // 图层清零
             map.LayerManager.Clear();
+
             // 区域代码
             string regionCode = this.RegionCode;
 
@@ -74,13 +81,16 @@ namespace Mescp.ViewModels
 
             try
             {
-                // 添加图元图层
-                IProvider provider = null;
-                IRenderer renderer = new WfmGeometryVisionRenderer();
-                IVision vision = GeometryVision.CreateGeometryVision("GeometryVision", provider, renderer);
-                vision.Comment = "图元图层";
-                vision.IsAllowDeleted = false;
-                vision.RenderPriority = RenderPriority.Topmost;
+                //1.添加图源图层
+                IVision vision = new GeometryVision("图元图层")
+                {
+                    Provider = null,
+                    Renderer = new WfmGeometryVisionRenderer(),
+
+                    IsAllowDeleted = false,
+                    RenderPriority = RenderPriority.Topmost,
+                };
+
                 map.LayerManager.PrimiviteLayer = new Layer(vision);
             }
             catch (Exception ex)
@@ -94,18 +104,20 @@ namespace Mescp.ViewModels
 
             try
             {
-                // 河南省县界
+                //2.河南省县界
                 String fileName = System.IO.Path.Combine(App.MapPath, string.Format("{0}\\县市界.shp", regionCode));
-                IProvider provider = new ShapeFileProvider(fileName);
-                IRenderer renderer = new WfmShapeVisionRenderer();
-                IVision vision = new ShapeVision("县界", provider, renderer);
-                vision.IsAllowDeleted = false;
-                vision.Transparency = 0;
-                vision.IsFill = true;   // 设置填充
-                //(vision as ShapeVision).IsClipPathData = true;
-                //ILayer layer = new Layer(TheApp.MapLayerId_County, vision);
-                ILayer layer = new Layer(_LayerID, vision);
-                map.LayerManager.Add(layer);
+                IVision vision = new ShapeVision("县界")
+                {
+                    Provider = new ShapeFileProvider(fileName),
+                    Renderer = new WfmShapeVisionRenderer(),
+
+                    IsAllowDeleted = false,
+                    IsClipPathData = true,
+                    IsFill = true,
+                    Transparency = 0,
+                };
+
+                map.LayerManager.Add(new Layer(_LayerID, vision));
             }
             catch (Exception ex)
             {
@@ -120,11 +132,17 @@ namespace Mescp.ViewModels
             {
                 // 河南省县标注
                 String fileName = System.IO.Path.Combine(App.MapPath, string.Format("{0}\\县市点.shp", regionCode));
-                IProvider provider = new ShapeFileProvider(fileName);
-                IRenderer renderer = new WfmShapeVisionRenderer();
-                IVision vision = new ShapeVision("县标注", provider, renderer);
-                vision.FontSize = 9;
-                (vision as VisionBase).Foreground = System.Drawing.Color.Blue;
+                IVision vision = new ShapeVision("县标注")
+                {
+                    Provider = new ShapeFileProvider(fileName),
+                    Renderer = new WfmShapeVisionRenderer(),
+
+                    IsVisible = true,
+
+                    Foreground = System.Drawing.Color.Blue,
+                    FontSize = 9,
+                };
+
                 map.LayerManager.Add(new Layer(vision));
             }
             catch (Exception ex)
@@ -133,6 +151,34 @@ namespace Mescp.ViewModels
             }
 
             #endregion
+
+            #region 测试数据
+
+            try
+            {
+                //String fileName = @"e:\temp\302.txt";
+                //String fileName = System.IO.Path.Combine(App.OutputPath, "300.txt");
+                String fileName = System.IO.Path.Combine(App.OutputPath, "30_9999.txt");
+                IProvider provider = new AxinFileProvider(fileName);
+                IVision vision = new AxinVision(provider.DataInstance?.DataInfo.Comment)
+                {
+                    Provider = provider,
+                    Renderer = new WfmAxinVisionRenderer(),
+
+                    IsClip = true,
+                    //IsColorContour = false,
+                    IsFillContour = true,
+                    //IsLabelContour = false,
+                    //IsDrawContour = false,
+
+                    Foreground = System.Drawing.Color.White,
+                };
+                map.LayerManager.Add(new Layer("t123", vision));
+            }
+            catch { }
+
+            #endregion
+
         }
 
         private void Map_Rendered(object sender, EventArgs e)
@@ -160,7 +206,7 @@ namespace Mescp.ViewModels
         #region RegionCode
 
         string _RegionCode = "";
-        public string RegionCode
+        public String RegionCode
         {
             get { return _RegionCode; }
             set
@@ -170,7 +216,7 @@ namespace Mescp.ViewModels
                     _RegionCode = value;
                     OnRegionCodeChanged();
 
-                    RaisePropertyChanged("Map");
+                    RaisePropertyChanged("RegionCode");
                 }
             }
         }

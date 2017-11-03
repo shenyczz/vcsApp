@@ -1,0 +1,411 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharpKit.Win32Api</name>
+    </assembly>
+    <members>
+        <member name="F:CSharpKit.Win32Api.DeviceCap.BITSPIXEL">
+            <summary>
+            Number of bits per pixel
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.DeviceCap.PLANES">
+            <summary>
+            Number of planes
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.FillMode">
+            <summary>
+            FillMode - 填充模式
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.HitTestOptions">
+            <summary>
+            WM_NCHITTEST and MOUSEHOOKSTRUCT Mouse Position Codes
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.HookType">
+            <summary>
+            Window Hook Type
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Contants.MF_BYCOMMAND">
+            <summary>
+            Indicates that uIDEnableItem gives the identifier of the menu item.
+            If neither the MF_BYCOMMAND nor MF_BYPOSITION flag is specified, the MF_BYCOMMAND flag is the default flag.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Contants.MF_ENABLED">
+            <summary>
+            Indicates that the menu item is enabled and restored from a grayed state so that it can be selected.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Contants.MF_GRAYED">
+            <summary>
+            Indicates that the menu item is disabled and grayed so that it cannot be selected.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Contants.MF_DISABLED">
+            <summary>
+            Indicates that the menu item is disabled, but not grayed, so it cannot be selected.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Contants.MF_BYPOSITION">
+            <summary>
+            Indicates that uIDEnableItem gives the zero-based relative position of the menu item.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.Raster2Operations">
+            <summary>
+            BinaryRasterOperations - 二元光栅操作
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.SwpOptions">
+            <summary>
+            SwpOptions - 设置窗口位置选项(SetWindowPosition)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_NOSIZE">
+            <summary>
+            Retains current size (ignores the cx and cy members).
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_NOMOVE">
+            <summary>
+            Retains current position (ignores the x and y members).
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_NOZORDER">
+            <summary>
+            Retains current ordering (ignores the hwndInsertAfter member).
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_NOREDRAW">
+            <summary>
+            Does not redraw changes. 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_NOACTIVATE">
+            <summary>
+            Does not activate the window. 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_FRAMECHANGED">
+            <summary>
+            Sends a WM_NCCALCSIZE message to the window, even if the window's size is not being changed.
+            If this flag is not specified, WM_NCCALCSIZE is sent only when the window's size is being changed.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_SHOWWINDOW">
+            <summary>
+            Displays the window. 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_HIDEWINDOW">
+            <summary>
+            Hides the window. 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_NOCOPYBITS">
+            <summary>
+            Discards the entire contents of the client area.
+            If this flag is not specified, the valid contents of the client area are saved and
+            copied back into the client area after the window is sized or repositioned.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_NOOWNERZORDER">
+            <summary>
+            Does not change the owner window's position in the Z-order. 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_NOSENDCHANGING">
+            <summary>
+            Prevents the window from receiving the WM_WINDOWPOSCHANGING message.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_DRAWFRAME">
+            <summary>
+            Draws a frame (defined in the class description for the window) around the window.
+            The window receives a WM_NCCALCSIZE message. 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_NOREPOSITION">
+            <summary>
+            Same as SWP_NOOWNERZORDER.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_DEFERERASE">
+            <summary>
+            Prevents generation of the WM_SYNCPAINT message. 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SwpOptions.SWP_ASYNCWINDOWPOS">
+            <summary>
+            If the calling thread and the thread that owns the window are attached to different input queues,
+            the system posts the request to the thread that owns the window.
+            This prevents the calling thread from blocking its execution while other threads process the request. 
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.SC">
+            <summary>
+            WM_SYSCOMMAND . wParam
+            The type(wParam) of system command requested.
+            This parameter can be one of the following values. 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_SIZE">
+            <summary>
+            Sizes the window.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_MOVE">
+            <summary>
+            Moves the window.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_MINIMIZE">
+            <summary>
+            Minimizes the window.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_MAXIMIZE">
+            <summary>
+            Maximizes the window.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_NEXTWINDOW">
+            <summary>
+            Moves to the next window.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_PREVWINDOW">
+            <summary>
+            Moves to the previous window.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_CLOSE">
+            <summary>
+            Closes the window.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_VSCROLL">
+            <summary>
+            Scrolls vertically.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_HSCROLL">
+            <summary>
+            Scrolls horizontally.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_MOUSEMENU">
+            <summary>
+            Retrieves the window menu as a result of a mouse click.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_KEYMENU">
+            <summary>
+            Retrieves the window menu as a result of a keystroke.
+            For more information, see the Remarks section.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_RESTORE">
+            <summary>
+            Restores the window to its normal position and size.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_TASKLIST">
+            <summary>
+            Activates the Start menu.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_SCREENSAVE">
+            <summary>
+            Executes the screen saver application specified in the [boot] section of the System.ini file.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_HOTKEY">
+            <summary>
+            Activates the window associated with the application-specified hot key.
+            The lParam parameter identifies the window to activate.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_DEFAULT">
+            <summary>
+            Selects the default item; the user double-clicked the window menu.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_MONITORPOWER">
+             <summary>
+             Sets the state of the display.
+             This command supports devices that have power-saving features, such as a battery-powered personal computer. 
+            
+             The lParam parameter can have the following values:
+             -1 (the display is powering on)
+              1 (the display is going to low power)
+              2 (the display is being shut off)
+             </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SC_CONTEXTHELP">
+            <summary>
+            Changes the cursor to a question mark with a pointer.
+            If the user then clicks a control in the dialog box, the control receives a WM_HELP message.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.SC.SCF_ISSECURE">
+            <summary>
+            SCF_ISSECURE
+            Indicates whether the screen saver is secure. 
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.Raster3Operations">
+            <summary>
+            TernaryRasterOperations - 三元光栅操作
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.Messages">
+            <summary>
+            Messages
+            </summary>
+            <summary>
+            Messages - 
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.NativeMethods">
+            <summary>
+            NativeMethods_Gdi32
+            </summary>
+            <summary>
+            NativeMethods - Kernel32.dll
+            </summary>
+            <summary>
+            NativeMethods - User32.dll
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Win32Api.NativeMethods.IsAppStillIdle">
+            <summary>
+            应用程序仍然闲置
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Win32Api.NativeMethods.PeekMessage(CSharpKit.Win32Api.Structs.MSG@,System.IntPtr,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            The PeekMessage function dispatches incoming sent messages, 
+            checks the thread message queue for a posted message, 
+            and retrieves the message (if any exist).
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.Structs.BITMAP">
+            <summary>
+            BITMAP - 定义了一个逻辑位图.的高度、宽度、颜色和格式位值 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Structs.BITMAP.bmType">
+            <summary>
+            指定位图类型。此成员必须为 0。
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Structs.BITMAP.bmWidth">
+            <summary>
+            以像素为单位指定位图的宽度。  此宽度都必须大于 0。 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Structs.BITMAP.bmHeight">
+            <summary>
+            光栅行指定位图的高度。  该高度都必须大于 0。 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Structs.BITMAP.bmWidthBytes">
+            <summary>
+            在每光栅行指定字节数。
+            此值必须是偶数，因为图形设备(GDI)接口，假设位图的位值窗体整数 (2 字节) 值。
+            换言之， bmWidthBytes * 8 必须是下的倍数 16 大于或等于获取的值，当 bmWidth 成员乘以 bmBitsPixel 成员时。 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Structs.BITMAP.bmPlanes">
+            <summary>
+            在位图指定颜色产生的数目。 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Structs.BITMAP.bmBitsPixel">
+            <summary>
+            在必要的每帧的结束平面指定相邻颜色的位数定义像素。 
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.Structs.MINMAXINFO">
+            <summary>
+            MINMAXINFO - 包含有关窗口的最大大小的信息和位置及其最小和最大跟踪的范围。 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Structs.MINMAXINFO.ptReserved">
+            <summary>
+            保留以供内部使用
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Structs.MINMAXINFO.ptMaxSize">
+            <summary>
+            指定该最大化的宽度 (point.x) 和 " 最大化的高度 (point.y) 窗口。
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Structs.MINMAXINFO.ptMaxPosition">
+            <summary>
+            指定最大化的窗口 (point.x) 的左边的位置和最大化的窗口 (point.y) 顶部的位置。
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Structs.MINMAXINFO.ptMinTrackSize">
+            <summary>
+            指定最低履带宽度 (point.x) 和最小跟踪的高度 (point.y) 窗口。
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32Api.Structs.MINMAXINFO.ptMaxTrackSize">
+            <summary>
+            指定最大履带宽度 (point.x) 和最大值跟踪的高度 (point.y) 窗口。
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.Structs.MSG">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.Structs.SYSTEMTIME">
+            <summary>
+            SystemTime
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.Structs.WINDOWPLACEMENT">
+            <summary>
+            WindowPlacement
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.PenStyle">
+            <summary>
+            PenStyle - GDI 画笔风格
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.WindowStyleEx">
+            <summary>
+            WindowStyleEx - 扩展的窗口风格
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32Api.WindowStyle">
+            <summary>
+            WindowStyle - 窗口风格
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Win32Api.Utility.DllInvoke.Invoke(System.String,System.Type)">
+            <summary>
+            调用
+            </summary>
+            <param name="apiName"></param>
+            <param name="t">委托函数的类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Win32.Messages">
+            <summary>
+            Messages - mouse
+            </summary>
+            <summary>
+            Messages - sys
+            </summary>
+        </member>
+    </members>
+</doc>

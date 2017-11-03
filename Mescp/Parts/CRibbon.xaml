@@ -25,8 +25,11 @@
         <p:RibbonQuickAccessToolBar/>
     </ribbon:Ribbon.QuickAccessToolBar>
     
-    <!--Ribbon 标签-->
+    <!--开始标签-->
     <p:RibbonTabStart/>
+    
+    <!--图元标签-->
+    <p:RibbonTabPrimivite/>
 
 
 </ribbon:Ribbon>

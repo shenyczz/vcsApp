@@ -23,6 +23,10 @@ using Mescp.ViewModels;
 
 namespace Mescp.Selectors
 {
+    /// <summary>
+    /// 数据模板选择器把数据模板和ViewModel联系起来
+    /// 在数据模板字典中把数据模板和View联系起来
+    /// </summary>
     public class PaneDataTemplateSelector : DataTemplateSelector
     {
         // 
@@ -32,10 +36,24 @@ namespace Mescp.Selectors
         //        MapDataTemplate="{StaticResource MapViewDataTemplate}"
         //        ></sl:PaneDataTemplateSelector>
         //</anchor:DockingManager.LayoutItemTemplateSelector>
+        //
         //把本类属性 MapDataTemplate 绑定到定义好的数据模板资源 MapViewDataTemplate
         //
+
+        /// <summary>
+        /// 地图数据模板
+        /// </summary>
         public DataTemplate MapDataTemplate { get; set; }
+
+        /// <summary>
+        /// 图层数据模板
+        /// </summary>
         public DataTemplate LayerDataTemplate { get; set; }
+
+        /// <summary>
+        /// 属性数据模板
+        /// </summary>
+        public DataTemplate PropertyDataTemplate { get; set; }
 
         public override System.Windows.DataTemplate SelectTemplate(object item, DependencyObject container)
         {
@@ -44,6 +62,9 @@ namespace Mescp.Selectors
 
             if (item is LayerViewModel)
                 return LayerDataTemplate;
+
+            if (item is PropertyViewModel)
+                return PropertyDataTemplate;
 
             return base.SelectTemplate(item, container);
         }

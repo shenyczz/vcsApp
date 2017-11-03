@@ -16,8 +16,6 @@ namespace Mescp.Models
             this.Region = "";
             this.Year = 0;
             this.Fa = -999;
-            //this.Famax = -999;
-            //this.Famin = -999;
 
             this.Fac = -1;
         }

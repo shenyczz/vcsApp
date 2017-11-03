@@ -30,4 +30,10 @@
         <TextBlock>fkfkfkfkfkfk</TextBlock>
     </DataTemplate>
 
+    <!--属性视图 DataTemplate-->
+    <DataTemplate x:Key="PropertyViewDataTemplate">
+        <!--依赖属性 Properties 绑定到 ViewModel的VisionProperties属性-->
+        <v:PropertyView Properties="{Binding VisionProperties}"/>
+    </DataTemplate>
+
 </ResourceDictionary>

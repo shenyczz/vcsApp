@@ -44,8 +44,8 @@
             <!--布局-->
             <anchor:LayoutRoot>
                 <anchor:LayoutPanel>
-                    <anchor:LayoutDocumentPane/>
                     <anchor:LayoutAnchorablePane DockWidth="260"/>
+                    <anchor:LayoutDocumentPane/>
                 </anchor:LayoutPanel>
             </anchor:LayoutRoot>
 
@@ -54,6 +54,7 @@
                 <sl:PaneDataTemplateSelector
                     MapDataTemplate="{StaticResource MapViewDataTemplate}"
                     LayerDataTemplate="{StaticResource LayerViewDataTemplate}"
+                    PropertyDataTemplate="{StaticResource PropertyViewDataTemplate}"
                     ></sl:PaneDataTemplateSelector>
             </anchor:DockingManager.LayoutItemTemplateSelector>
 

@@ -40,11 +40,11 @@ namespace Mescp
         {
             InitializeComponent();
 
-            Assembly a = Assembly.GetExecutingAssembly();
-            string s = a.Location;
-            FileInfo fi = new FileInfo(s);
-            DirectoryInfo di = fi.Directory;
-            string fn = di.FullName;
+            //Assembly a = Assembly.GetExecutingAssembly();
+            //string s = a.Location;
+            //FileInfo fi = new FileInfo(s);
+            //DirectoryInfo di = fi.Directory;
+            //string fn = di.FullName;
 
             App.Workspace = Workspace.Instance;
             this.DataContext = Workspace.Instance;
@@ -52,10 +52,6 @@ namespace Mescp
             Console.WriteLine("MainWindow()");
         }
 
-        void Test()
-        {
-            App.Workspace.AppHelper.Test();
-        }
     }
 }
 

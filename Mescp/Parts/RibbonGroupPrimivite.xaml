@@ -1,0 +1,32 @@
+﻿<RibbonGroup
+    x:Class="Mescp.Parts.RibbonGroupPrimivite"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Header="图元操作">
+
+    <RibbonRadioButton
+        x:Name="SelectTarget"
+        Label="选择"
+        ToolTip="选择图形"
+        LargeImageSource="../Assets/Tools.png"
+        Command="{Binding PrimiviteViewModel.SelectTargetCommand}"/>
+
+
+    <RibbonRadioButton
+        x:Name="DrawRect"
+        Label="矩形"
+        ToolTip="绘制矩形"
+        LargeImageSource="../Assets/Tools.png"
+        Command="{Binding PrimiviteViewModel.DrawRectCommand}"/>
+
+    <!--<RibbonSeparator Width="100" Background="Aqua"/>-->
+
+    <RibbonRadioButton
+        x:Name="DrawLabel"
+        Label="标注"
+        ToolTip="添加标注"
+        LargeImageSource="../Assets/Tools.png"
+        Command="{Binding PrimiviteViewModel.DrawLabelCommand}"/>
+
+
+</RibbonGroup>

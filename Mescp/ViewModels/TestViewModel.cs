@@ -36,18 +36,21 @@ namespace Mescp.ViewModels
             {
                 if (_TestCommand == null)
                 {
-                    _TestCommand = new RelayCommand(p => OnTestCommand(p));
+                    _TestCommand = new RelayCommand(p => OnTest(p), p => CanTest(p));
                 }
 
                 return _TestCommand;
             }
         }
 
-        private void OnTestCommand(Object parameter)
+        private void OnTest(Object parameter)
         {
-            System.Windows.Controls.Ribbon.RibbonGallery rg = parameter as System.Windows.Controls.Ribbon.RibbonGallery;
-            Region xs = rg.SelectedItem as Region;
-            //App.Workspace.MapViewModel.RegionCode = xs.Code;
+            //System.Windows.Controls.Ribbon.RibbonGallery rg = parameter as System.Windows.Controls.Ribbon.RibbonGallery;
+            //Region xs = rg.SelectedItem as Region;
+        }
+        private Boolean CanTest(Object parameter)
+        {
+            return true;
         }
 
         #endregion

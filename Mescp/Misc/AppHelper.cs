@@ -6,9 +6,11 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using CSharpKit;
 using CSharpKit.Data;
 using CSharpKit.Data.Axin;
 using CSharpKit.Data.Esri;
+using CSharpKit.Maths.ContourTracing;
 using CSharpKit.Palettes;
 using CSharpKit.Vision;
 using CSharpKit.Vision.Mapping;
@@ -270,20 +272,6 @@ namespace Mescp
     /// </summary>
     partial class AppHelper
     {
-        /*
-        提取当日气象要素数据
-        1、建立气温适宜度F(Ti)
-        2、建立降水适宜度F(Ri)
-        3、建立日照适宜度F(Si)
-        4、取得当日适宜度F(Ci)
-        5、取得各个生育阶段适宜度F(Cj)
-        6、取得整个生育阶段适宜度F(C)
-        7、根据F(C)绘制区划图
-
-        Data Source=MASC-I7-3770\SQLEXPRESS;User ID=syc
-        Data Source=MASC-I7-3770\SQLEXPRESS;Initial Catalog=HenanClimate;User ID=nqzx;Password=KyCen5946;
-        */
-
         #region Private Fields
 
         private DataSet _dsHenanClimate = new DataSet("HenanClimate");
@@ -306,9 +294,23 @@ namespace Mescp
             return new DateTime(year, month, day, hour, minute, 0);
         }
 
+        public void Test()
+        {
+            IMap map = App.Workspace.MapViewModel.Map;
+            ILayer layer = map.LayerManager.Layers.Find(l => l.Id == "t123");
+            IVision vision = layer.Vision;
+            App.Workspace.PropertyViewModel.VisionProperties = vision.CustomProperties;
+
+            //MessageBox.Show("Test");
+            //PingGu();
+        }
+
 
         // 取得指定站点集多天的气象数据
-        public void Test()
+        /// <summary>
+        /// 评估
+        /// </summary>
+        public void PingGu()
         {
             // 1.区域(当前)
             Region currentRegion = App.Workspace.AppData.CurrentRegion;
@@ -505,7 +507,7 @@ namespace Mescp
                 //
                 //下面输出站点文件
                 //
-                string s = System.IO.Path.Combine(App.OutputPath, "1.txt");
+                string s = System.IO.Path.Combine(App.OutputPath, "30.txt");
                 OutputStationFile(xStations, s);
             }
             catch (Exception)
@@ -557,109 +559,94 @@ namespace Mescp
             }
         }
 
+        /*
+            第30类文件 – 离散点数据
+            [文件头]
+            FID  FormatCode  Comment
+            yyyy mm dd HH MM SS MS
+            TimePeriod  Layer  ProductCode  ElementCode
+            TotalNum  ElementNum  Flag
+            CID C1  C2  C3 … Cn  Cb
+            ClipArea  X1 Y1  X2 Y2 … Xn Yn
+
+            [数据]
+            站点  经度  纬度  海拔  站点级别 要素值1…N  站点名称
+         */
+         /// <summary>
+         /// 输出站点数据文件
+         /// </summary>
+         /// <param name="xStations"></param>
+         /// <param name="fileName"></param>
         private void OutputStationFile(List<XStation> xStations, string fileName)
         {
-            AxinStationFile f = new AxinStationFile("");
-            //AxinStationFile.Lo
+            AxinStationFile f = new AxinStationFile();
+            xStations.ForEach(p =>
+            {
+                StationInfo si = new StationInfo();
+                {
+                    si.Id = p.Id;
+                    si.Name = p.Name;
+                    si.Lon = p.Lon;
+                    si.Lat = p.Lat;
+
+                    si.ElementCount = 1;            //要素数量
+                    si.ElementValues[0] = p.Fa;     //要素值
+                    si.CurrentElementIndex = 0;
+                    si.CurrentElementValue = si.ElementValues[0];
+                }
+
+                if (si.CurrentElementValue != -999)
+                {
+                    f.StationInfos.Add(si);
+                }
+            });
+
+            AxinStationFileDataInfo axin30di = f.DataInfo as AxinStationFileDataInfo;
+            {
+                axin30di.FileId = AxinConstants.FileLogo;
+                axin30di.FormatCode = AxinConstants.FormatCode_Tin;
+                axin30di.Comment = "永优玉米评估";
+                axin30di.DateTime = DateTime.Now;
+                axin30di.TimePeriod = 0;
+                axin30di.Layer = 999;
+                axin30di.ProductCode = 0;
+                axin30di.ElementCode = 0;
+                axin30di.StationCount = f.StationInfos.Count;
+                axin30di.ElementCount = 1;
+                axin30di.Flag = 1;
+
+                axin30di.ContourInfo.ContourNums = 3;
+                axin30di.ContourInfo.ContourValues[0] = 5;
+                axin30di.ContourInfo.ContourValues[1] = 10;
+                axin30di.ContourInfo.ContourValues[2] = 15;
+                //axin30di.ContourInfo.ContourValues[3] = 20;
+                axin30di.ContourInfo.ContourBoldValue = 0;
+
+                //axin30di.ContourInfo.ContourNums = 9999;
+                //axin30di.ContourInfo.ContourInterval = 1;
+                //axin30di.ContourInfo.ContourMin = 5;
+                //axin30di.ContourInfo.ContourMax = 35;
+                //axin30di.ContourInfo.ContourBoldValue = 15;
+
+                axin30di.ClipArea.Id = 9999;
+                axin30di.ClipArea.XClipMin = 110.33;
+                axin30di.ClipArea.XClipMax = 116.66;
+                axin30di.ClipArea.YClipMin = 31.36;
+                axin30di.ClipArea.YClipMax = 36.38;
+            }
+
+            /*
+             4 110.37 31.36	116.66 31.36  116.66 36.38  110.37 36.38
+             9999    1.000    5.000   35.000   15.000
+             */
+
+            f.DataProcessor.SaveAs(fileName);
+
+
+            MessageBox.Show("ok");
         }
 
 
-
-
-
-        public void Test0()
-        {
-            string cnnString =
-                string.Format(@"Data Source=10.10.10.100; Initial Catalog=HenanClimate; User ID=nqzx; Password=KyCen5946;");
-
-            try
-            {
-                // 1.Connection
-                SqlConnection cnn = new SqlConnection(cnnString);
-                cnn.Open();
-
-                // 2.CommandText
-                string strFields = string.Format("[iiiii],[ObvDate],[ObvTime],[P],[T],[Tmax],[Tmin],[U],[E],[R]");
-                string strTables = string.Format("[MeteHour{0}]", "2016");
-                string strWheres = string.Format("[ObvDate]>=20160601 AND [ObvDate]<=20160610 AND [ObvTime]=1100");
-                string strOders = string.Format("[ObvDate],[iiiii]");
-
-                string sqlText = string.Format("SELECT {0} FROM {1} WHERE {2} ORDER BY {3}",
-                    strFields, strTables, strWheres, strOders);
-
-                //SELECT [iiiii],[ObvDate],[ObvTime],[P],[T],[Tmax],[Tmin],[U],[E],[R] FROM [MeteHour2016] WHERE [ObvDate]>=20160601 AND [ObvDate]<=20160610 AND [ObvTime]=1100 ORDER BY [ObvDate],[iiiii]
-
-                // 3.Command
-                SqlCommand cmd = new SqlCommand()
-                {
-                    Connection = cnn,
-                    CommandType = CommandType.Text,
-                    CommandText = sqlText,
-                };
-
-                // 4.DataAdapter
-                SqlDataAdapter da = new SqlDataAdapter()
-                {
-                    SelectCommand = cmd
-                };
-
-                // 5.填充数据集
-                string tabName = "tabMeteInfo";
-                da.Fill(_dsHenanClimate, tabName);
-
-                // 使用配置站点
-                List<XStation> xStations = App.Workspace.AppData.XStations;
-                List<MeteoElement> meteoElements = new List<MeteoElement>();
-                meteoElements.Clear();
-                foreach (XStation sta in xStations)
-                {
-                    MeteoElement me = new MeteoElement()
-                    {
-                        StationId = sta.Id,
-                        StationName = sta.Name,
-                    };
-                    meteoElements.Add(me);
-                }
-
-                // 数据行
-                DataRowCollection rows = _dsHenanClimate.Tables[tabName].Rows;
-                if (rows.Count > 0)
-                {
-                    foreach (DataRow row in rows)
-                    {
-                        string stationId = row["iiiii"].ToString();
-                        int index = meteoElements.FindIndex(p => p.StationId == stationId);
-                        if (index < 0)
-                            continue;
-
-                        MeteoElement me = meteoElements[index];
-                        {
-                            me.ObvDate = int.Parse(row["ObvDate"].ToString());
-                            me.ObvTime = int.Parse(row["ObvTime"].ToString());
-                            me.DateTime = this.ToDateTime((int)me.ObvDate, (int)me.ObvTime);
-
-                            me.P = 0.1 * double.Parse(row["P"].ToString());
-
-                            me.T = 0.1 * double.Parse(row["T"].ToString());
-                            me.Tmax = 0.1 * double.Parse(row["Tmax"].ToString());
-                            me.Tmin = 0.1 * double.Parse(row["Tmin"].ToString());
-
-                            me.U = 0.1 * double.Parse(row["U"].ToString());
-                            me.E = 0.1 * double.Parse(row["E"].ToString());
-                            me.R = 0.1 * double.Parse(row["R"].ToString());
-                        }
-                    }
-                }
-
-                int xxx = 0;
-                xxx++;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
 
 
     }

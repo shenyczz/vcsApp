@@ -8,6 +8,8 @@
     <!--地理信息管理-->
     <p:RibbonGroupMap/>
 
+    <!--RibbonTabPrimivite-->
+
     <!--1.评价区域管理-->
     <p:RibbonGroupErm/>
     <!--2.评价时段管理-->

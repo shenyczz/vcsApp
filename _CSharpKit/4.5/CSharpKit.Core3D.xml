@@ -1,0 +1,1071 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharpKit.Core3D</name>
+    </assembly>
+    <members>
+        <member name="T:CSharpKit.Media3D.BoundingBox">
+            <summary>
+            BoundingBox
+            </summary>
+            <summary>
+            The closed volume that completely contains a set of objects.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Media3D.BoundingBox.#ctor(Microsoft.DirectX.Vector3,Microsoft.DirectX.Vector3,Microsoft.DirectX.Vector3,Microsoft.DirectX.Vector3,Microsoft.DirectX.Vector3,Microsoft.DirectX.Vector3,Microsoft.DirectX.Vector3,Microsoft.DirectX.Vector3)">
+            <summary>
+            Initializes a new instance of the <see cref= "T:WorldWind.BoundingSphere"/> class.
+            </summary>
+            <param name="v0"></param>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <param name="v3"></param>
+            <param name="v4"></param>
+            <param name="v5"></param>
+            <param name="v6"></param>
+            <param name="v7"></param>
+        </member>
+        <member name="M:CSharpKit.Media3D.BoundingBox.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref= "T:WorldWind.BoundingSphere"/> class
+            from a set of lat/lon values (degrees)
+            </summary>
+            <param name="south"></param>
+            <param name="north"></param>
+            <param name="west"></param>
+            <param name="east"></param>
+            <param name="radius1"></param>
+            <param name="radius2"></param>
+        </member>
+        <member name="M:CSharpKit.Media3D.BoundingBox.CalculateCenter">
+            <summary>
+            计算中心
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.BoundingBox.CalcRelativeScreenArea(CSharpKit.Media3D.ICamera)">
+            <summary>
+            Calculate the screen area (pixels) covered by the bottom of the bounding box.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Media3D.BoundingSphere">
+            <summary>
+            BoundingSphere
+            </summary>
+            <summary>
+            Bounding sphere.  The tightest sphere that will fit the bounded object, 
+            that is, the smallest radius sphere that all points lie within. 
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Media3D.BoundingSphere.#ctor(Microsoft.DirectX.Vector3,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref= "T:WorldWind.BoundingSphere"/> class
+            from a center point and a radius.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Media3D.BoundingSphere.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref= "T:WorldWind.BoundingSphere"/> class
+            from a set of lat/lon values (degrees)
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Media3D.Font3D">
+            <summary>
+            Font3D - 3D字体
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Media3D.Frustum">
+            <summary>
+            Frustum - 截头体
+            See: http://en.wikipedia.org/wiki/Viewing_frustum
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.Frustum.Planes">
+            <summary>
+            截头体6面
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Media3D.Frustum.Update(Microsoft.DirectX.Matrix)">
+            <summary>
+            更新矩阵
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="M:CSharpKit.Media3D.Frustum.Contains(Microsoft.DirectX.Vector3)">
+            <summary>
+            是否包含三维矢量点
+            </summary>
+            <returns>true when the point is inside.</returns>
+            <param name="v">XYZ in world coordinates of the point to test.</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.Frustum.Contains(CSharpKit.Media3D.BoundingBox)">
+            <summary>
+            Tests if the view frustum fully contains the bounding box.
+            </summary>
+            <returns>true when the box is complete enclosed by the frustum.</returns>
+            <remarks>
+            Code taken from Flip Code Article:
+            http://www.flipcode.com/articles/article_frustumculling.shtml
+            </remarks>
+        </member>
+        <member name="M:CSharpKit.Media3D.Frustum.Intersects(CSharpKit.Media3D.BoundingBox)">
+            <summary>
+            Tests if the bounding box specified intersects with or is fully contained in the frustum.
+            </summary>
+            <returns>true when the box intersects with the frustum.</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.Frustum.Intersects(CSharpKit.Media3D.BoundingSphere)">
+            <summary>
+            Test if a sphere intersects or is completely inside the frustum.
+            </summary>
+            <returns>true when the sphere intersects.</returns>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.WorldRadius">
+            <summary>
+            天体半径
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.Altitude">
+            <summary>
+            海拔高度(米)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.TargetAltitude">
+            <summary>
+            目标海拔高度(米) (after travel)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.Distance">
+            <summary>
+            眼睛到目标的距离.Distance to target position on ground.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.TargetDistance">
+            <summary>
+            Distance to target position on ground (after traveling to target)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.TerrainElevation">
+            <summary>
+            地形高度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.Longitude">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.Latitude">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.Heading">
+            <summary>
+            ??
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.Tilt">
+            <summary>
+            倾斜角度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.Bank">
+            <summary>
+            ??
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.Fov">
+            <summary>
+            Field of view (degrees)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.ViewRange">
+            <summary>
+            观察范围
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.TrueViewRange">
+            <summary>
+            Angle from horizon - center earth - horizon in opposite directon
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.ReferenceCenter">
+            <summary>
+            参考中心
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.Position">
+            <summary>
+            摄像机位置
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.Frustum">
+            <summary>
+            截头体
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.Viewport">
+            <summary>
+            视口
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.AbsoluteViewMatrix">
+            <summary>
+            绝对观察矩阵
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.AbsoluteWorldMatrix">
+            <summary>
+            绝对世界矩阵
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.AbsoluteProjectionMatrix">
+            <summary>
+            绝对投影矩阵
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.ViewMatrix">
+            <summary>
+            观察矩阵
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.WorldMatrix">
+            <summary>
+            世界矩阵
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Media3D.ICamera.ProjectionMatrix">
+            <summary>
+            投影矩阵
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Media3D.ICamera.Update(Microsoft.DirectX.Direct3D.Device)">
+            <summary>
+            更新
+            </summary>
+            <param name="device"></param>
+        </member>
+        <member name="M:CSharpKit.Media3D.ICamera.Pan(CSharpKit.Angle,CSharpKit.Angle)">
+            <summary>
+            Pan the camera using delta values
+            </summary>
+            <param name="lat">Latitude offset</param>
+            <param name="lon">Longitude offset</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.ICamera.Zoom(System.Single)">
+            <summary>
+            Zoom camera in/out (distance) 
+            </summary>
+            <param name="percent">Positive value = zoom in, negative=out</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.ICamera.ZoomStepped(System.Single)">
+            <summary>
+            Digital zoom (keyboard/mouse wheel style)
+            </summary>
+            <param name="ticks">Positive value for zoom in, negative for zoom out.</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.ICamera.PickingRayIntersection(System.Int32,System.Int32,CSharpKit.Angle@,CSharpKit.Angle@)">
+            <summary>
+            Calculates latitude/longitude for given screen coordinate.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Media3D.ICamera.PointGoto(System.Double,System.Double)">
+            <summary>
+            Sets camera position.
+            </summary>
+            <param name="lat">Latitude in decimal degrees</param>
+            <param name="lon">Longitude in decimal degrees</param>
+            <param name="heading">Heading in decimal degrees</param>
+            <param name="_altitude">Altitude in meters</param>
+            <param name="tilt">Tilt in decimal degrees</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.ICamera.PointGoto(CSharpKit.Angle,CSharpKit.Angle)">
+            <summary>
+            Sets camera position.
+            </summary>
+            <param name="lat">Latitude in decimal degrees</param>
+            <param name="lon">Longitude in decimal degrees</param>
+            <param name="heading">Heading in decimal degrees</param>
+            <param name="_altitude">Altitude in meters</param>
+            <param name="tilt">Tilt in decimal degrees</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.ICamera.Project(Microsoft.DirectX.Vector3)">
+            <summary>
+            投影
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.ICamera.RotationYawPitchRoll(CSharpKit.Angle,CSharpKit.Angle,CSharpKit.Angle)">
+            <summary>
+            旋转
+            </summary>
+            <param name="yaw"></param>
+            <param name="pitch"></param>
+            <param name="roll"></param>
+        </member>
+        <member name="T:CSharpKit.Media3D.MathEngine">
+            <summary>
+            MathEngine - 数学引擎
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.#ctor">
+            <summary>
+            This class has only static methods.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.SphericalToCartesian(System.Double,System.Double,System.Double)">
+            <summary>
+            Converts position in spherical coordinates (lat/lon/altitude) to cartesian (XYZ) coordinates.
+            转换球坐标(lat/lon/altitude)到笛卡儿坐标(XYZ)
+            </summary>
+            <param name="latitude">Latitude in decimal degrees</param>
+            <param name="longitude">Longitude in decimal degrees</param>
+            <param name="radius">Radius (OBS: not altitude)</param>
+            <returns>Coordinates converted to cartesian (XYZ)</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.SphericalToCartesian(CSharpKit.Angle,CSharpKit.Angle,System.Double)">
+            <summary>
+            Converts position in spherical coordinates (lat/lon/altitude) to cartesian (XYZ) coordinates.
+            </summary>
+            <param name="latitude">Latitude (Angle)</param>
+            <param name="longitude">Longitude (Angle)</param>
+            <param name="radius">Radius (OBS: not altitude)</param>
+            <returns>Coordinates converted to cartesian (XYZ)</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.SphericalToCartesianD(CSharpKit.Angle,CSharpKit.Angle,System.Double)">
+            <summary>
+            Converts position in spherical coordinates (lat/lon/altitude) to cartesian (XYZ) coordinates.
+            </summary>
+            <param name="latitude">Latitude (Angle)</param>
+            <param name="longitude">Longitude (Angle)</param>
+            <param name="radius">Radius (OBS: not altitude)</param>
+            <returns>Coordinates converted to cartesian (XYZ)</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.CartesianToSpherical(System.Single,System.Single,System.Single)">
+            <summary>
+            Converts position in cartesian coordinates (XYZ) to spherical (lat/lon/radius) coordinates in radians.
+            </summary>
+            <returns>Coordinates converted to spherical coordinates.  X=radius, Y=latitude (radians), Z=longitude (radians).</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.CartesianToSphericalD(System.Double,System.Double,System.Double)">
+            <summary>
+            ???
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.DegreesToRadians(System.Double)">
+            <summary>
+            Converts an angle in decimal degrees to angle in radians
+            </summary>
+            <param name="degrees">Angle in decimal degrees (0-360)</param>
+            <returns>Angle in radians (0-2*Pi)</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.RadiansToDegrees(System.Double)">
+            <summary>
+            Converts an angle in radians to angle in decimal degrees 
+            </summary>
+            <param name="radians">Angle in radians (0-2*Pi)</param>
+            <returns>Angle in decimal degrees (0-360)</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.SphericalDistanceDegrees(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Computes the angle (seen from the center of the sphere) between 2 sets of latitude/longitude values.
+            计算球面距离
+            </summary>
+            <param name="latA">Latitude of point 1 (decimal degrees)</param>
+            <param name="lonA">Longitude of point 1 (decimal degrees)</param>
+            <param name="latB">Latitude of point 2 (decimal degrees)</param>
+            <param name="lonB">Longitude of point 2 (decimal degrees)</param>
+            <returns>Angle in decimal degrees</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.SphericalDistance(CSharpKit.Angle,CSharpKit.Angle,CSharpKit.Angle,CSharpKit.Angle)">
+            <summary>
+            Computes the angular distance between two pairs of lat/longs.
+            Fails for distances (on earth) smaller than approx. 2km. (returns 0)
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.Azimuth(CSharpKit.Angle,CSharpKit.Angle,CSharpKit.Angle,CSharpKit.Angle)">
+            <summary>
+            Calculates the azimuth from latA/lonA to latB/lonB
+            Borrowed from http://williams.best.vwh.net/avform.htm
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.EulerToQuaternion(System.Double,System.Double,System.Double)">
+            <summary>
+            Transforms a set of Euler(欧拉) angles to a quaternion
+            </summary>
+            <param name="yaw">Yaw (radians)</param>
+            <param name="pitch">Pitch (radians)</param>
+            <param name="roll">Roll (radians)</param>
+            <returns>The rotation transformed to a quaternion.</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.QuaternionToEuler(Microsoft.DirectX.Quaternion)">
+            <summary>
+            Transforms a rotation in quaternion form to a set of Euler angles 
+            </summary>
+            <returns>The rotation transformed to Euler angles, X=Yaw, Y=Pitch, Z=Roll (radians)</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.GetRowFromLatitude(System.Double,System.Double)">
+            <summary>
+            Compute the tile number (used in file names) for given latitude and tile size.
+            </summary>
+            <param name="latitude">Latitude (decimal degrees)</param>
+            <param name="tileSize">Tile size  (decimal degrees)</param>
+            <returns>The tile number</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.GetRowFromLatitude(CSharpKit.Angle,System.Double)">
+            <summary>
+            Compute the tile number (used in file names) for given latitude and tile size.
+            </summary>
+            <param name="latitude">Latitude (decimal degrees)</param>
+            <param name="tileSize">Tile size  (decimal degrees)</param>
+            <returns>The tile number</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.GetColFromLongitude(System.Double,System.Double)">
+            <summary>
+            Compute the tile number (used in file names) for given longitude and tile size.
+            </summary>
+            <param name="longitude">Longitude (decimal degrees)</param>
+            <param name="tileSize">Tile size  (decimal degrees)</param>
+            <returns>The tile number</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.GetColFromLongitude(CSharpKit.Angle,System.Double)">
+            <summary>
+            Compute the tile number (used in file names) for given longitude and tile size.
+            </summary>
+            <param name="longitude">Longitude (decimal degrees)</param>
+            <param name="tileSize">Tile size  (decimal degrees)</param>
+            <returns>The tile number</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.DistancePlaneToPoint(Microsoft.DirectX.Plane,Microsoft.DirectX.Vector3)">
+            <summary>
+            Computes the distance between a point and a plane.
+            </summary>
+            <param name="p">Plane</param>
+            <param name="v">Point (XYZ coordinates)</param>
+            <returns>The shortest distance between the point and the plane.</returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.MathEngine.Hypot(System.Double,System.Double)">
+            <summary>
+            Computes the hypotenuse (sqrt(x?y?).
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Media3D.TextureHelper">
+            <summary>
+            TextureHelper
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.LoadTexture(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="textureFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.LoadTexture(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="textureFileName"></param>
+            <param name="colorKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.LoadTexture(System.String,System.Int32,System.Int32)">
+            <summary>
+            Loads an image file from disk into a texture and makes a color range transparent.
+            </summary>
+            <param name="textureFileName">Path/filename to the image file</param>
+            <param name="transparentRangeDarkColor">Color for start of transparent range.</param>
+            <param name="transparentRangeBrightColor">Color for end of transparent range.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.LoadTexture(System.IO.Stream)">
+            <summary>
+            Creates a texture from a data stream.
+            </summary>
+            <param name="textureFileName">Stream containing the image file</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.LoadTexture(System.IO.Stream,System.Int32)">
+            <summary>
+            Creates a texture from a data stream.
+            </summary>
+            <param name="textureFileName">Stream containing the image file</param>
+            <param name="textureStream"></param>
+            <param name="colorKey">Transparent color. Any pixels in the image with this color will be made transparent.</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.LoadImage(System.String)">
+            <summary>
+            Loads image from file. Returns dummy image on load fail.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.LoadCursor(System.String)">
+            <summary>
+            Loads a custom mouse cursor from file
+            </summary>
+            <param name="relativePath">Path and filename of the .cur file relative to Data\Icons\Interface</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.LoadIconTexture(System.String)">
+            <summary>
+            Loads an icon texture from a file
+            </summary>
+            <param name="relativePath">Path and filename relative to Data\Icons</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.FindResource(System.String)">
+            <summary>
+            Tries it's best to locate an image file specified using relative path.
+            </summary>
+            <param name="relativePath"></param>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.CreateAlphaPngFromBrightness(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="srcFilePath"></param>
+            <param name="destinationPngFilePath"></param>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.ConvertToDxt1(System.String,System.String,System.Boolean)">
+            <summary>
+            Converts an image in any format readable by GDI+ to a DXT1 DDS file.
+            </summary>
+            <param name="originalImagePath">Input file (any supported format).</param>
+            <param name="outputDdsPath">Output file to be created.</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.ConvertToDxt1(System.IO.Stream,System.String)">
+            <summary>
+            Converts an image in any format readable by GDI+ to a DXT1 DDS file.
+            </summary>
+            <param name="originalImageStream">Stream containing a bitmap.</param>
+            <param name="originalImagePath">Input file (any supported format).</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.ConvertToDxt3(System.String,System.String,System.Boolean)">
+            <summary>
+            Converts an image in any format readable by GDI+ to a DXT3 DDS file.
+            </summary>
+            <param name="originalImagePath">Input file (any supported format).</param>
+            <param name="outputDdsPath">Output file to be created.</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.ConvertToDxt3(System.IO.Stream,System.String)">
+            <summary>
+            Converts an image in any format readable by GDI+ to a DXT3 DDS file.
+            </summary>
+            <param name="originalImageStream">Stream containing a bitmap.</param>
+            <param name="outputDdsPath">Output file to be created.</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.ConvertToDds(System.String,System.String,Microsoft.DirectX.Direct3D.Format,System.Boolean)">
+            <summary>
+            Converts an image in any format readable by GDI+ to a DDS file.
+            </summary>
+            <param name="originalImagePath">Input file (any supported format).</param>
+            <param name="outputDdsPath">Output file to be created.</param>
+            <param name="format">DirectX format of file.</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.ConvertToDds(System.IO.Stream,System.String,Microsoft.DirectX.Direct3D.Format)">
+            <summary>
+            Converts an image in any format readable by GDI+ to a DDS file.
+            </summary>
+            <param name="originalImagePath">Input file (any supported format).</param>
+            <param name="outputDdsPath">Output file to be created.</param>
+            <param name="format">DirectX format of file.</param>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.IsGdiSupportedImageFormat(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="imageFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Media3D.TextureHelper.CreateDefaultImage">
+            <summary>
+            Makes a default image to use when the requested bitmap wasn't available.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision3D.ImageStore">
+            <summary>
+            ImageStore - 图像储存器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.ImageStore.LevelZeroTileSizeDegrees">
+            <summary>
+            Coverage of outer level 0 bitmaps (decimal degrees)
+            Level 1 has half the coverage, level 2 half of level 1 (1/4) etc.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.ImageStore.ServerLogo">
+            <summary>
+            Server Logo path for Downloadable layers
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.ImageStore.LevelCount">
+            <summary>
+            Number of detail levels
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.ImageStore.ImageExtension">
+            <summary>
+            File extension of the source image file format
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.ImageStore.CacheDirectory">
+            <summary>
+            Cache subdirectory for this layer
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.ImageStore.DataDirectory">
+            <summary>
+            Data directory for this layer (permanently stored images)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.ImageStore.DuplicateTexturePath">
+            <summary>
+            Default texture to be used (always ocean?)
+            Can be either file or url
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision3D.ImageStore.ConvertImage(Microsoft.DirectX.Direct3D.Texture,System.String)">
+            <summary>
+            Converts image file to DDS
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision3D.Configuration.ConfigurationLoader">
+            <summary>
+            ConfigurationLoader - 配置装载器
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Configuration.ConfigurationLoader.Load(CSharpKit.Vision3D.Configuration.SettingBase,System.String)">
+            <summary>
+            装载配置
+            </summary>
+            <param name="defaultSetting"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Configuration.ConfigurationLoader.ParseBoolean1(System.String)">
+            <summary>
+            解析布尔型数据
+            </summary>
+            <param name="booleanString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Vision3D.Configuration.ProgramSetting">
+            <summary>
+            ProgramSetting - 程序配置
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.ProgramSetting.DefaultWorld">
+            <summary>
+            默认天体
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision3D.Configuration.SettingBase">
+            <summary>
+            SettingBase - 设置基类
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.SettingBase.FileName">
+            <summary>
+            配置文件名称
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.SettingBase.FormatVersion">
+            <summary>
+            应用程序文件格式版本
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.SettingBase.DefaultName">
+            <summary>
+            取得保存该类数据的默认文件名(以.xml作为扩展名,不包含路径).
+            如果没有重载ToString(),默认文件名是类名称.
+            Example: "CSharpKit.Configuration.SettingsBase.xml"
+            </summary>
+            <returns>默认文件名</returns>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.SettingBase.ConfigPath">
+            <summary>
+            配置路径
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.SettingBase.DataPath">
+            <summary>
+            数据路径
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.SettingBase.CachePath">
+            <summary>
+            高速缓存路径
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Configuration.SettingBase.DefaultLocation(CSharpKit.UserType)">
+            <summary>
+            配置默认位置
+            </summary>
+            <param name="locationType">用户位置类型</param>
+            <returns>配置默认位置</returns>
+        </member>
+        <member name="T:CSharpKit.Vision3D.Configuration.WorldSetting">
+            <summary>
+            WorldSetting
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.AlwaysRenderWindow">
+            <summary>
+            总是渲染3D窗口即使窗口没有焦点
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.EnableSunShading">
+            <summary>
+            启用太阳羽
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.StandardAmbientColor">
+            <summary>
+            标准环境光颜色
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraResetsAtStartup">
+            <summary>
+            启动时摄像机复位
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraSmooth">
+            <summary>
+            平滑移动摄像机
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraHasInertia">
+            <summary>
+            摄像机是否具有惯性
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraHasMomentum">
+            <summary>
+            摄像机是否具有动量
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraTwistLock">
+            <summary>
+            摄像机旋转锁定
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraBankLock">
+            <summary>
+            摄像机转弯锁定?
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraIsPointGoto">
+            <summary>
+            CameraIsPointGoto ??
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.ElevateCameraLookatPoint">
+            <summary>
+            提高摄像机观察点(??)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraLatitude">
+            <summary>
+            摄像机纬度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraLongitude">
+            <summary>
+            摄像机经度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraAltitude">
+            <summary>
+            摄像机海拔(米)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraHeading">
+            <summary>
+            摄像机天顶角(??)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraTilt">
+            <summary>
+            摄像机倾角
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraFov">
+            <summary>
+            摄像机视域角
+            </summary>
+            <remarks>默认是45度</remarks>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraFovMin">
+            <summary>
+            摄像机视野角度最小值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraFovMax">
+            <summary>
+            摄像机视野角度最大值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraDoubleClickZoomFactor">
+            <summary>
+            鼠标双击时摄像机缩放因子
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraRotationSpeed">
+            <summary>
+            摄像机旋转速度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraSlerpPercentage">
+            <summary>
+            摄像机移动的响应性能
+            Responsiveness of movement when inertia is enabled.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraSlerpInertia">
+            <summary>
+            摄像机具有惯性时移动的响应性能
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraSlerpStandard">
+            <summary>
+            摄像机不具有惯性时移动的响应性能
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraZoomAcceleration">
+            <summary>
+            摄像机缩放加速度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraZoomAnalogFactor">
+            <summary>
+            摄像机缩放模拟因子.同时按下左键和右键前后移动模拟摄像机变焦
+            </summary>
+            <remarks>同时按下左键和右键前后移动=>模拟摄像机变焦</remarks>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraZoomStepFactor">
+            <summary>
+            摄像机缩放步长因子
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.CameraZoomStepKeyboard">
+            <summary>
+            摄像机缩放键盘步长
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.LatLonLinesColor">
+            <summary>
+            经纬度网格颜色
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.EquatorLineColor">
+            <summary>
+            赤道纬度线颜色
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.VerticalExaggeration">
+            <summary>
+            垂直夸大
+            </summary>
+            <remarks>
+            地形高度放大倍数,取值范围在[Epsilon,20]
+            </remarks>
+        </member>
+        <member name="F:CSharpKit.Vision3D.Configuration.WorldSetting._ShowPlanetAxis">
+            <summary>
+            Whether to display the planet axis line (through poles)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.SkyColor">
+            <summary>
+            海平面的天空颜色
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Configuration.WorldSetting.MaxSimultaneousDownloads">
+            <summary>
+            最大同时下载数量(max=20)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Presentation.IMapEngine3D.Device">
+            <summary>
+            3D设备
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Presentation.IMapEngine3D.Camera">
+            <summary>
+            摄相机
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Presentation.IMapEngine3D.CurrentWorld">
+            <summary>
+            当前天体
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Presentation.IMapEngine3D.IsRenderDisabled">
+            <summary>
+            禁止渲染
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Presentation.IMapEngine3D.InitializeDevice3d(CSharpKit.Windows.Forms.Controls.IMapControl)">
+            <summary>
+            初始化3D设备
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision3D.Terrain.TerrainAccessor">
+            <summary>
+            TerrainAccessor - 地形存取器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Terrain.TerrainAccessor.Name">
+            <summary>
+            Terrain model name
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Terrain.TerrainAccessor.North">
+            <summary>
+            North boundary
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Terrain.TerrainAccessor.South">
+            <summary>
+            South boundary
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Terrain.TerrainAccessor.West">
+            <summary>
+            West boundary
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Terrain.TerrainAccessor.East">
+            <summary>
+            East boundary
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision3D.Terrain.TerrainTile">
+            <summary>
+            TerrainTile - 地形瓦片
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Terrain.TerrainTile.Initialize">
+            <summary>
+            This method initializes the terrain tile add switches to
+            Initialize floating point/int 16 tiles
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision3D.Terrain.TerrainTileService">
+            <summary>
+            TerrainTileService - Provides elevation data (BIL format)
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Terrain.TerrainTileService.#ctor(System.String,System.String,System.Double,System.Int32,System.String,System.Int32,System.String,System.TimeSpan,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref= "T:WorldWind.Terrain.TerrainTileService"/> class.
+            </summary>
+            <param name="serverUrl">服务器地址</param>
+            <param name="dataSet">数据集</param>
+            <param name="levelZeroTileSizeDegrees"></param>
+            <param name="samplesPerTile"></param>
+            <param name="fileExtension"></param>
+            <param name="numberLevels"></param>
+            <param name="terrainTileDirectory"></param>
+            <param name="terrainTileRetryInterval"></param>
+            <param name="dataTyle">Terrain Tiles Data type</param>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Terrain.TerrainTileService.GetTerrainTile(System.Double,System.Double,System.Double)">
+            <summary>
+            Builds terrain tile containing the specified coordinates.
+            </summary>
+            <param name="latitude">Latitude in decimal degrees.</param>
+            <param name="longitude">Longitude in decimal degrees.</param>
+            <param name="samplesPerDegree"></param>
+            <returns>Uninitialized terrain tile (no elevation data)</returns>
+        </member>
+        <member name="P:CSharpKit.Vision3D.IVision3D.DistanceAboveSurface">
+            <summary>
+            距表面距离(用于3D)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.IVision3D.Position">
+            <summary>
+            对象位置
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.IVision3D.Orientation">
+            <summary>
+            四元数
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.IVision3D.IsUseZBuffer">
+            <summary>
+            使用Z缓冲区
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.IWorld.EquatorialRadius">
+            <summary>
+            赤道半径
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision3D.IWorld.PerformSelectionAction(CSharpKit.Vision.Presentation.IRenderEngine)">
+            <summary>
+            
+            </summary>
+            <param name="renderEngine"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CSharpKit.Vision3D.IWorldChild.MinLon">
+            <summary>
+            最小经度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.IWorldChild.MaxLon">
+            <summary>
+            最大经度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.IWorldChild.MinLat">
+            <summary>
+            最小纬度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.IWorldChild.MaxLat">
+            <summary>
+            最大纬度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.IWorldChild.WorldRadius">
+            <summary>
+            天体半径
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.IWorldChild.LayerRadius">
+            <summary>
+            图层半径
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Vision3DBase.Device">
+            <summary>
+            Direct3D 设备
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Vision3DBase.DistanceAboveSurface">
+            <summary>
+            距表面距离
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Vision3DBase.Position">
+            <summary>
+            对象位置
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Vision3DBase.Orientation">
+            <summary>
+            四元数
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision3D.Vision3DBase.IsUseZBuffer">
+            <summary>
+            使用Z缓冲区
+            </summary>
+        </member>
+    </members>
+</doc>

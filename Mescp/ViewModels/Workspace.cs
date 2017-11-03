@@ -36,9 +36,8 @@ namespace Mescp.ViewModels
 
             this.Documents.Add(this.MapViewModel);
 
-            //this.Tools.Add(new LayerViewModel());
-
-            //this.TestViewModel = new TestViewModel();
+            this.Tools.Add(this.PropertyViewModel);
+            this.Tools.Add(this.LayerViewModel);
 
             _MapHelper = new MapHelper();
         }
@@ -241,29 +240,57 @@ namespace Mescp.ViewModels
         {
             get
             {
-                //if (_LayerViewModel == null)
-                //{
-                //    System.Windows.Media.Imaging.BitmapImage bi = new System.Windows.Media.Imaging.BitmapImage();
-                //    bi.BeginInit();
-                //    bi.UriSource = new Uri("pack://application:,,,/Assets/globe.png");
-                //    bi.EndInit();
-                //    _LayerViewModel = new LayerViewModel()
-                //    {
-                //        Title = "地理信息",
-                //        ToolTip = null,
-                //        IconSource = bi,
-                //    };
-                //}
+                if (_LayerViewModel == null)
+                {
+                    _LayerViewModel = new LayerViewModel()
+                    {
+                        Title = "图层管理",
+                    };
+                }
 
-                //return _LayerViewModel;
-                _LayerViewModel = new LayerViewModel();
                 return _LayerViewModel;
             }
        }
 
         #endregion
 
-        public TestViewModel TestViewModel { get; set; }
+        #region PropertyViewModel
+
+        private PropertyViewModel _PropertyViewModel;
+        public PropertyViewModel PropertyViewModel
+        {
+            get
+            {
+                if (_PropertyViewModel == null)
+                {
+                    _PropertyViewModel = new PropertyViewModel()
+                    {
+                        Title = "属性窗口",
+                    };
+                }
+                return _PropertyViewModel;
+            }
+        }
+
+        #endregion
+
+        //
+        #region PrimiviteViewModel
+
+        private PrimiviteViewModel _PrimiviteViewModel;
+        public PrimiviteViewModel PrimiviteViewModel
+        {
+            get
+            {
+                if (_PrimiviteViewModel == null)
+                {
+                    _PrimiviteViewModel = new PrimiviteViewModel();
+                }
+                return _PrimiviteViewModel;
+            }
+        }
+
+        #endregion
 
     }
 }

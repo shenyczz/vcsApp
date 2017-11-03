@@ -1,0 +1,1086 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharpKit.Resources</name>
+    </assembly>
+    <members>
+        <member name="T:CSharpKit.Resources.Icons">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Icons.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Icons.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Icons.Earth">
+            <summary>
+              查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Icons.Leaf">
+            <summary>
+              查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Resources.Images">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Arrow">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.ArrowDown">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.ArrowLeft">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.ArrowRight">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.ArrowUp">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Balance">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Brush">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Camera">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Computers">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Copy">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Cut">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Delete">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.DeleteLayer">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.DeleteStar">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.DrawShape">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Ellipse">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.EyeClose">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.EyeOpen">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.F1">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.F10">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.F11">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.F12">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.F2">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.F3">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.F4">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.F5">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.F6">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.F7">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.F8">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.F9">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.FileNew">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Filter">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Find">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Flag">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Folder">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.FolderNew">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Fx">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Hand">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Help">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.HelpItem">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Home">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Hotmail">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Key">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Label">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Layer">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Layer00">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Layer01">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Layer10">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Layer11">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Layer20">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Layer21">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Layer30">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Layer31">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Led">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Led_selected">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Legend">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Lightning">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Line">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Lock">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Magnifier">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Mail">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Measure">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Microphone">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.MobileTelephone">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.New">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Open">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.PaintKettle">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Paste">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Pause">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Pen">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Person">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Persons">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Plus">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Polygon">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Polyline">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.PrimiviteClearAll">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.PrimiviteDeleteTarget">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.PrimiviteDrawEllipse">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.PrimiviteDrawLabel">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.PrimiviteDrawLegend">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.PrimiviteDrawLine">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.PrimiviteDrawPolygon">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.PrimiviteDrawPolyline">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.PrimiviteDrawRect">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.PrimiviteMoveTarget">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.PrimiviteSelectTarget">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Print">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.PrintPreview">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Property">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.RadarChart">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Record">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Rect">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Recycle">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Redo">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Refresh">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Save">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Search">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Segma">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Speaker">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Star">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Start">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Stop">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Subtraction">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Telphone">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Thumbs">
+            <summary>
+              查找 System.Byte[] 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Thumbs1">
+            <summary>
+              查找 System.Byte[] 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Tool">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Undo">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Voc">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Voc_selected">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Wave">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.Word">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.ZoomIn">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.ZoomOut">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Images.ZoomPan">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Resources.Strings">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.CSK_Information">
+            <summary>
+              查找类似 Information 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.CSK_Override_This_Method">
+            <summary>
+              查找类似 Please override this method. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.CSK_Override_This_Method_Document">
+            <summary>
+              查找类似 Please override this method in which class derive from &quot;Document&quot;. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuEdit">
+            <summary>
+              查找类似 &amp;Edit 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuEdit_Item_Copy">
+            <summary>
+              查找类似 &amp;Copy 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuEdit_Item_Copy_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuEdit_Item_Cut">
+            <summary>
+              查找类似 Cu&amp;t 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuEdit_Item_Cut_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuEdit_Item_Delete">
+            <summary>
+              查找类似 &amp;Delete 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuEdit_Item_Delete_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuEdit_Item_Paste">
+            <summary>
+              查找类似 &amp;Paste 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuEdit_Item_Paste_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuEdit_Item_Redo">
+            <summary>
+              查找类似 &amp;Redo 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuEdit_Item_Redo_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuEdit_Item_Undo">
+            <summary>
+              查找类似 &amp;Undo 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuEdit_Item_Undo_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile">
+            <summary>
+              查找类似 &amp;File 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_Close">
+            <summary>
+              查找类似 &amp;Close 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_Close_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_Exit">
+            <summary>
+              查找类似 E&amp;xit 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_Exit_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_New">
+            <summary>
+              查找类似 &amp;New 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_New_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_Open">
+            <summary>
+              查找类似 &amp;Open 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_Open_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_Print">
+            <summary>
+              查找类似 &amp;Print 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_Print_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_PrintPreview">
+            <summary>
+              查找类似 Print Pre&amp;view 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_PrintPreview_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_PrintSetup">
+            <summary>
+              查找类似 Print Set&amp;up 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_PrintSetup_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_Save">
+            <summary>
+              查找类似 &amp;Save 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_Save_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_SaveAs">
+            <summary>
+              查找类似 Save &amp;As ... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuFile_Item_SaveAs_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuHelp">
+            <summary>
+              查找类似 &amp;Help 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuHelp_Item_About">
+            <summary>
+              查找类似 &amp;About 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuMapRoam">
+            <summary>
+              查找类似 Map &amp;Roam 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuMapRoam_Item_Cancle">
+            <summary>
+              查找类似 &amp;Cancle 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuMapRoam_Item_Cancle_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuMapRoam_Item_Refresh">
+            <summary>
+              查找类似 Refres&amp;h 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuMapRoam_Item_Refresh_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuMapRoam_Item_Reset">
+            <summary>
+              查找类似 &amp;Reset 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuMapRoam_Item_Reset_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuMapRoam_Item_ZoomIn">
+            <summary>
+              查找类似 Zoom &amp;In 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuMapRoam_Item_ZoomIn_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuMapRoam_Item_ZoomOut">
+            <summary>
+              查找类似 Zoom &amp;Out 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuMapRoam_Item_ZoomOut_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuMapRoam_Item_ZoomPan">
+            <summary>
+              查找类似 Zoom P&amp;an 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuMapRoam_Item_ZoomPan_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite">
+            <summary>
+              查找类似 Pr&amp;imivite 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_ClearAll">
+            <summary>
+              查找类似 Clear &amp;All 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_ClearAll_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DeleteTarget">
+            <summary>
+              查找类似 &amp;Delete Target 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DeleteTarget_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawAnyPolygon01">
+            <summary>
+              查找类似 Draw Any Po&amp;lygon 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawAnyPolygon01_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawAnyShape">
+            <summary>
+              查找类似 Draw Any S&amp;hape 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawAnyShape_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawAnyShapeClose">
+            <summary>
+              查找类似 Draw Any Close S&amp;hape 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawAnyShapeClose_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawCurve">
+            <summary>
+              查找类似 Draw C&amp;urve 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawCurve_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawCurveClose">
+            <summary>
+              查找类似 Draw Clo&amp;se Curve 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawCurveClose_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawEllipse">
+            <summary>
+              查找类似 Draw &amp;Ellipse 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawEllipse_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawLabel">
+            <summary>
+              查找类似 Draw La&amp;bel 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawLabel_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawLegend">
+            <summary>
+              查找类似 Draw Lege&amp;nd 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawLegend_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawLine">
+            <summary>
+              查找类似 Draw &amp;Line 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawLine_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawPolygon">
+            <summary>
+              查找类似 Draw Poly&amp;gon 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawPolygon_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawPolyline">
+            <summary>
+              查找类似 Draw Pol&amp;yline 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawPolyline_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawRect">
+            <summary>
+              查找类似 Draw &amp;Rect 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_DrawRect_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_MoveTarget">
+            <summary>
+              查找类似 &amp;Move Target 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_MoveTarget_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_SelectTarget">
+            <summary>
+              查找类似 &amp;Select Target 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuPrimivite_Item_SelectTarget_Tooltip">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuTool">
+            <summary>
+              查找类似 &amp;Tool 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuTool_Item_Options">
+            <summary>
+              查找类似 &amp;Options 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuView">
+            <summary>
+              查找类似 &amp;View 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuView_Item_01">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuWindow">
+            <summary>
+              查找类似 &amp;Window 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Resources.Strings.MenuWindow_Item01">
+            <summary>
+              查找类似  的本地化字符串。
+            </summary>
+        </member>
+    </members>
+</doc>

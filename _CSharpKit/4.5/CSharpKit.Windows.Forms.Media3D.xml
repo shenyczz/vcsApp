@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharpKit.Windows.Forms.Media3D</name>
+    </assembly>
+    <members>
+        <member name="P:CSharpKit.Windows.Forms.Controls.MapControl3D.Map">
+            <summary>
+            地图
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Windows.Forms.Controls.MapControl3D.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Controls.MapControl3D.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Controls.MapControl3D.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener3D.OnRotation(System.EventArgs)">
+            <summary>
+            绕X/Z轴旋转
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener3D.OnZoom(System.EventArgs)">
+            <summary>
+            按下左右双键上下移动(放大)
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Presentation.WfmMapEngine3D.InitializeDevice3d(CSharpKit.Windows.Forms.Controls.IMapControl)">
+            <summary>
+            初始化3D设备
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Presentation.WfmMapEngine3D.Render(System.Object,System.EventArgs)">
+            <summary>
+            绘制 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Presentation.WfmMapEngine3D.OnApplicationIdle(System.Object,System.EventArgs)">
+            <summary>
+            应用程序空闲
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Presentation.WfmMapEngine3D.BeginRender">
+            <summary>
+            开始渲染
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Presentation.WfmMapEngine3D.EndRender">
+            <summary>
+            结束渲染
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Presentation.WfmMapEngine3D.Rendering">
+            <summary>
+            渲染
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Presentation.WfmMapEngine3D.Present">
+            <summary>
+            显示缓冲区内容
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Presentation.WfmMapEngine3D.AttemptRecovery">
+            <summary>
+            尝试恢复Direct3D设备
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Presentation.WfmMapEngine3D.OnDeviceReset(System.Object,System.EventArgs)">
+            <summary>
+            设备复位
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Vision3D.Presentation.WfmMapEngine3D.OnDeviceResizing(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            设备尺寸改变
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+    </members>
+</doc>

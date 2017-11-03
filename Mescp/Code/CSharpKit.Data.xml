@@ -1,0 +1,1078 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharpKit.Data</name>
+    </assembly>
+    <members>
+        <member name="T:CSharpKit.Data.Axin.AxinConstants">
+            <summary>
+            AxinConstants - Axin 常量
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Axin.AxinFile.Values">
+            <summary>
+            数据值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Axin.AxinFile.IsContourReady">
+            <summary>
+            等值线准备好
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Axin.AxinFile.IsRebuildContour">
+            <summary>
+            重新构造等值线
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Axin.AxinFile.IsTarceContour">
+            <summary>
+            是否追踪等值线
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinFile.IsAxinFile(System.String)">
+            <summary>
+            是否 AXIN 数据
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinFile.GetFormatCode(System.String)">
+            <summary>
+            取得格式代码
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinFile.GetFormatCode_txt(System.String)">
+            <summary>
+            取得格式代码 - 文本文件
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinFile.GetFormatCode_bin(System.String)">
+            <summary>
+            取得格式代码 - 二进制文件
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CSharpKit.Data.Axin.AxinFileDataInfo.BaseValue">
+            <summary>
+            基本值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Axin.AxinFileDataInfo.Scale">
+            <summary>
+            缩放因子
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Axin.AxinFileDataInfo.TimePeriod">
+            <summary>
+            时效
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Axin.AxinFileDataInfo.Layer">
+            <summary>
+            层
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinFileProcessor.BuildPalette(System.String)">
+            <summary>
+            构造调色板
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinFileProcessor.BuildContours">
+            <summary>
+            建立等值线
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinFileProcessor.ComputeBoundingBox">
+            <summary>
+            计算包围盒
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinFileProvider.Open">
+            <summary>
+            打开
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinFileProvider.Close">
+            <summary>
+            关闭
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Axin.AxinGridFile.GridValues">
+            <summary>
+            数据值2D
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinGridFile.LonLat2xy(System.Double,System.Double,System.Int32@,System.Int32@)">
+            <summary>
+            经纬度坐标转换为格点坐标
+            </summary>
+            <param name="lon"></param>
+            <param name="lat"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinGridFile.xy2LonLat(System.Int32,System.Int32,System.Double@,System.Double@)">
+            <summary>
+            格点坐标转换为经纬度坐标
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="lon"></param>
+            <param name="lat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinGridFile.GetGridValue(System.Int32,System.Int32)">
+            <summary>
+            取得格点数据
+            </summary>
+            <param name="row"></param>
+            <param name="col"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinGridFile.SetGridValue(System.Int32,System.Int32,System.Double)">
+            <summary>
+            设置格点数据
+            </summary>
+            <param name="row"></param>
+            <param name="col"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinGridFile.GetGridValue(System.Double,System.Double)">
+            <summary>
+            取得格点数据
+            </summary>
+            <param name="lon"></param>
+            <param name="lat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinGridFile.SetGridValue(System.Double,System.Double,System.Double)">
+            <summary>
+            设置格点数据
+            </summary>
+            <param name="lon"></param>
+            <param name="lat"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinGridFileProcessor.BuildContours">
+            <summary>
+            建立等值线
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Axin.AxinGridFileProcessor.LookupExtremum">
+            <summary>
+            查找极小值和极大值(顺便计算平均值)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Axin.AxinStationFile.CurrentElementIndex">
+            <summary>
+            当前要素索引
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Axin.AxinStationFile.StationInfos">
+            <summary>
+            站点信息集合
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Axin.AxinStationFileDataInfo.StationCount">
+            <summary>
+            站点数量
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Axin.AxinStationFileDataInfo.ElementCount">
+            <summary>
+            要素数量
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.DataInfo">
+            <summary>
+            DataInfo
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataInfo.Owner">
+            <summary>
+            拥有者
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataInfo.DateTime">
+            <summary>
+            时间
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataInfo.Comment">
+            <summary>
+            注释
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataInfo.FormatCode">
+            <summary>
+            格式代码
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataInfo.ProductCode">
+            <summary>
+            产品代码
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataInfo.Extent">
+            <summary>
+            数据范围
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataInfo.Grid">
+            <summary>
+            网格信息
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataInfo.ContourInfo">
+            <summary>
+            等值线信息
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataInfo.Flag">
+            <summary>
+            标记
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataInfo.InvalidData">
+            <summary>
+            无效数据
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.DataInfo.IsInvalidData(System.Double)">
+            <summary>
+            是无效数据
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.DataInfo.IsSpecialData(System.Double)">
+            <summary>
+            是特定数据
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Data.DataInstance">
+            <summary>
+            DataInstance - 数据实例
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataInstance.Owner">
+            <summary>
+            拥有者
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataInstance.ConnectionString">
+            <summary>
+            连接字符串(或文件名)
+            </summary>
+            TODO:ConnectionString from provider...
+        </member>
+        <member name="P:CSharpKit.Data.DataInstance.DataProcessor">
+            <summary>
+            数据处理器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataInstance.DataInfo">
+            <summary>
+            数据信息
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataInstance.Palette">
+            <summary>
+            调色板
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.DataProcessor">
+            <summary>
+            DataProcessor - 数据处理器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataProcessor.Owner">
+            <summary>
+            拥有者
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.DataProcessor.IsLoad">
+            <summary>
+            是否装载
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.DataProcessor.Load">
+            <summary>
+            装载
+            </summary>
+            <param name="cnnString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.DataProcessor.Save">
+            <summary>
+            保存
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.DataProcessor.SaveAs(System.String)">
+            <summary>
+            另存为
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.EsriFileProvider.Open">
+            <summary>
+            打开
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.EsriFileProvider.Close">
+            <summary>
+            关闭
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.Esri.ShapeFile">
+            <summary>
+            ShapeFile - ESRI Shape 文件(*.shp)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.ShapeFile.ShapeType">
+            <summary>
+            形状类型
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.ShapeFile.Extent">
+            <summary>
+            取得数据对象范围
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.ShapeFile.Features">
+            <summary>
+            地貌集
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.ShapeFile.IndexFileName">
+            <summary>
+            索引文件名
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.ShapeFile.XBaseFileName">
+            <summary>
+            属性数据库文件名
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.ShapeFile.XBaseFile">
+            <summary>
+            ESRI 空间数据的属性数据(*.dbf)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.ShapeFile.ShapeFileIndex">
+            <summary>
+            Shape 文件索引(*.shx)
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.ShapeFile.Initialize">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.ShapeFile.IsShapeFile(System.String)">
+            <summary>
+            是否是Shape文件
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Data.Esri.ShapeFileHeader">
+            <summary>
+            ShapeFileHeader - Shape 文件头
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeFileHeader.HeaderSize">
+            <summary>
+            文件头大小
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeFileHeader.FileCode">
+            <summary>
+            文件代码(BE)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.ShapeFileHeader.FileLength">
+            <summary>
+            文件长度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.ShapeFileHeader.Length">
+            <summary>
+            文件头长度 = 100 字节
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.ShapeFileHeader.ShapeType">
+            <summary>
+            图形类型
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.ShapeFileHeader.Extent">
+            <summary>
+            范围
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.ShapeFileHeader.ParseHeader(System.IO.BinaryReader)">
+            <summary>
+            Reads and parses the header of the .shp index file(.shx)
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.Esri.ShapeFileIndex">
+            <summary>
+            ShapeFileIndex - Shape 文件索引(*.shx)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.ShapeFileIndex.ShapeFileHeader">
+            <summary>
+            Shape 文件头
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.ShapeFileIndex.ReadRecordEntries(System.String)">
+            <summary>
+            读取记录入口
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.ShapeFileProcessor.Load_bin(System.String)">
+            <summary>
+            装载二进制文件数据
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Data.Esri.ShapeRecordEntry">
+            <summary>
+            ShapeRecordEntry - Shape 记录入口
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.ShapeRecordEntry.Offset">
+            <summary>
+            Offset of the record in 16-bit words from the 
+            beginning of the shapefile.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.ShapeRecordEntry.Length">
+            <summary>
+            Number of 16-bit words taken up by the record.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.Esri.ShapeRecordHeader">
+            <summary>
+            ShapeRecordHeader
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.Esri.ShapeType">
+            <summary>
+            ShapeType
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeType.Null">
+            <summary>
+            空类型
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeType.Point">
+            <summary>
+            点类型
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeType.Polyline">
+            <summary>
+            折线
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeType.Polygon">
+            <summary>
+            多边形
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeType.MultiPoint">
+            <summary>
+            点集
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeType.PointZ">
+            <summary>
+            A 3D <see cref="F:CSharpKit.Data.Esri.ShapeType.Point">point</see>.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeType.PolyLineZ">
+            <summary>
+            A 3D <see cref="!:ShapeType.PolyLine"/>, consisting of <see cref="F:CSharpKit.Data.Esri.ShapeType.PointZ"/> points.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeType.PolygonZ">
+            <summary>
+            A 3D <see cref="F:CSharpKit.Data.Esri.ShapeType.Polygon"/>, consisting of <see cref="F:CSharpKit.Data.Esri.ShapeType.PointZ"/> points.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeType.MultiPointZ">
+            <summary>
+            A set of <see cref="F:CSharpKit.Data.Esri.ShapeType.PointZ"/>s.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeType.PointM">
+            <summary>
+            A <see cref="F:CSharpKit.Data.Esri.ShapeType.Point"/> plus a measure value as a Double-precision floating point.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeType.PolyLineM">
+            <summary>
+            A <see cref="!:ShapeType.PolyLine"/>, consisting of <see cref="F:CSharpKit.Data.Esri.ShapeType.PointM"/> points.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeType.PolygonM">
+            <summary>
+            A <see cref="!:ShapeType.PolyLine"/>, consisting of <see cref="F:CSharpKit.Data.Esri.ShapeType.PointM"/> points.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeType.MultiPointM">
+            <summary>
+            A set of <see cref="F:CSharpKit.Data.Esri.ShapeType.PointM"/>s.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.ShapeType.MultiPatch">
+            <summary>
+            A set of surface patches.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.Esri.XBaseFileProcessor">
+            <summary>
+            XBaseDataProcessor - XBase 数据处理器
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.Esri.XBaseField">
+            <summary>
+            XBaseField - XBase字段描述(32字节)
+            </summary>
+            <remarks>
+            <para>FieldName     - 字段名称(11字节)</para>
+            <para>FieldType     - 字段类型( 1字节)</para>
+            <para>FieldOffset   - 字段偏移( 4字节)</para>
+            <para>FieldLength   - 字段宽度( 1字节)</para>
+            <para>FieldDecimal  - 字段小数( 1字节)</para>
+            <para>Reserved[14]  - 字段保留(14字节)</para>
+            <para></para>
+            </remarks>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseField.#ctor(System.IO.BinaryReader)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="br"></param>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseField.FieldName">
+            <summary>
+            字段名称
+            </summary>
+            <remarks>
+            由字母、下划线、汉字、数字组成, 但第一个字符不能是数字,中间也不允许有空格
+            </remarks>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseField.FieldType">
+            <summary>
+            字段类型
+            </summary>
+            <remarks>
+            <para>'B' - Binary      FieldLength = ?      二进制</para>
+            <para>'C' - Character   FieldLength = 254    字符型字段最大值为254)</para>
+            <para>'D' - Date        FieldLength = 8      日期型</para>
+            <para>'F' - Float       FieldLength = 32     浮点型</para>
+            <para>'G' - General     FieldLength = ??     通用型/OLE</para>
+            <para>'I' - Interger    FieldLength = 4      整型</para>
+            <para>'L' - Logical     FieldLength = 1      逻辑型</para>
+            <para>'M' - Memo        FieldLength = 10     备注型存储一指针</para>
+            <para>'N' - Numeric     FieldLength = 19     数值型</para>
+            <para>'T' - DayeTime    FieldLength = 8      日期时间型</para>
+            </remarks>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseField.FieldOffset">
+            <summary>
+            字段数据相对于该记录的偏移量
+            </summary>
+            <remarks>
+            <para>第一个字段一般为00000001H</para>
+            <para>若为 00000000H 或 大于 00001000H(4096) 则需要通过计算确定</para>
+            </remarks>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseField.FieldLength">
+            <summary>
+            字段宽度
+            </summary>
+            <remarks>
+            <para>Binary    ??</para>
+            <para>Character 254 字节</para>
+            <para>Date      08H</para>
+            <para>Float     32 位</para>
+            <para>General   ??</para>
+            <para>Interger  4字节</para>
+            <para>Logical   01H</para>
+            <para>Memo:     0AH</para>
+            <para>Numeric   19 位</para>
+            <para>DayeTime  8字节</para>
+            <para></para>
+            </remarks>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseField.FieldDecimal">
+            <summary>
+            小数位数
+            </summary>
+            <remarks>
+            <para>(Character/Date/Logical/Memo 00H)</para>
+            </remarks>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseField.IsDisplayField">
+            <summary>
+            是否显示字段
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseField.ReadFild(System.IO.BinaryReader)">
+            <summary>
+            读取字段描述(32字节)
+            </summary>
+            <param name="br"></param>
+        </member>
+        <member name="T:CSharpKit.Data.Esri.XBaseFields">
+            <summary>
+            XBaseFields - 数据库字段集合
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFields.Item(System.String)">
+            <summary>
+            索引器
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFields.HasDisplayField">
+            <summary>
+            是否有显示字段
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFields.DisplayFieldName">
+            <summary>
+            显示字段名称
+            如果没有则为空字符串
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFields.EnableDisplayField(System.Int32)">
+            <summary>
+            设置显示字段
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFields.EnableDisplayField(System.String)">
+            <summary>
+            设置显示字段
+            </summary>
+            <param name="fieldName"></param>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFields.EnableDisplayField(CSharpKit.Data.Esri.XBaseField)">
+            <summary>
+            设置显示字段
+            </summary>
+            <param name="field"></param>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFields.DisableDisplayField">
+            <summary>
+            禁止显示字段
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.Esri.XBaseFile">
+            <summary>
+            XBaseFile - ESRI 空间数据的属性数据(*.dbf)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFile.Owner">
+            <summary>
+            拥有者
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFile.ConnectionString">
+            <summary>
+            连接字符串
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFile.DataProcessor">
+            <summary>
+            数据处理器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFile.DataInfo">
+            <summary>
+            数据信息
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFile.Palette">
+            <summary>
+            调色板
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFile.IsOpen">
+            <summary>
+            是否打开
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFile.Reader">
+            <summary>
+            二进制读取器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFile.XBaseFields">
+            <summary>
+            字段集合
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFile.LastUpdate">
+            <summary>
+            更新日期
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFile.HeaderLength">
+            <summary>
+            文件头长度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFile.RecordCount">
+            <summary>
+            记录数量
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFile.RecordLength">
+            <summary>
+            记录长度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFile.LanguageDriverEncoding">
+            <summary>
+            语言驱动编码
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFile.Open">
+            <summary>
+            打开
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFile.Close">
+            <summary>
+            关闭
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFile.GetXBaseLanguageDriver(System.Byte)">
+            <summary>
+            语言驱动
+            </summary>
+            <param name="dbasecode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFile.GetSchemaTable">
+            <summary>
+            取得数据表模板
+            </summary>
+            <returns>A DataTable that describes the column metadata.</returns>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFile.createTable">
+            <summary>
+            根据文件头信息创建数据表
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFile.fillTable">
+            <summary>
+            填充表
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFile.getRow(System.UInt32)">
+            <summary>
+            取得记录行
+            </summary>
+            <param name="indexRow">row index</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFile.getFieldValue(System.UInt32,System.Int32)">
+            <summary>
+            取得指定记录的指定字段值
+            </summary>
+            <param name="indexRow">object index</param>
+            <param name="indexColumn">object column id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFile.readFieldValue(CSharpKit.Data.Esri.XBaseField)">
+            <summary>
+            读取 XBase 字段数据
+            </summary>
+            <param name="field"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFile.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.Esri.XBaseFileHeader">
+            <summary>
+            XBaseFileHeader - XBase 文件头
+            </summary>
+            <remarks>
+            32 字节
+            </remarks>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFileHeader.#ctor(CSharpKit.Data.Esri.XBaseFile)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="xBaseFile"></param>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.XBaseFileHeader._Version">
+            <summary>
+            版本
+            </summary>
+            <remarks>
+            <para>02H - FoxBase</para>
+            <para>03H - DBASE III (FoxBase/CLIPPER/FoxPro 与之兼容) foxbase+, foxpro, dbase III+, dbaseIV, no memo - 0x03</para>
+            <para>04H - dBase IV w/o memo file</para>
+            <para>05H - dBase V w/o memo file</para>
+            <para>30H - Visual FoxPro / Visual FoxPro w. DBC</para>
+            <para>31H - Visual FoxPro w. AutoIncrement field</para>
+            <para>43H - .dbv memo var size (Flagship)</para>
+            <para>7BH - dBASE IV with memo</para>
+            <para>83H - FoxBase+  2.0/2.1  foxbase+, dbase III+ with memo - File with DBT</para>
+            <para>8BH - dBase IV with memo</para>
+            <para>CBH - dBase IV with SQL table - 0x8e</para>
+            <para>E5H - Clipper SIX driver w. SMT memo file.</para>
+            <para>F5H - FoxPro 2.0/2.5  foxpro with memo - 0xf5</para>
+            </remarks>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.XBaseFileHeader._Year">
+            <summary>
+            文件更新日期(yymmdd) - 年
+            </summary>
+            <remarks>
+            Base on 1900. The max year = 1900 + 255 = 2155
+            </remarks>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.XBaseFileHeader._Month">
+            <summary>
+            文件更新日期(yymmdd) - 月
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.XBaseFileHeader._Day">
+            <summary>
+            文件更新日期(yymmdd) - 日
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.XBaseFileHeader._RecordCount">
+            <summary>
+            记录数量
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.XBaseFileHeader._HeaderLength">
+            <summary>
+            文件头 + 字段结构描述部分的长度 + 1(0x0d)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.XBaseFileHeader._RecordLength">
+            <summary>
+            每条记录的长度
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.XBaseFileHeader._Reserved">
+            <summary>
+            保留
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.XBaseFileHeader._LanguageDriverId">
+            <summary>
+            语言驱动 ID
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Data.Esri.XBaseFileHeader._Flag">
+            <summary>
+            标记
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFileHeader.LastUpdate">
+            <summary>
+            上次修改日期(最大到2155年)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFileHeader.HeaderLength">
+            <summary>
+            文件头长度
+            </summary>
+            <remarks>
+            文件头 + 字段结构描述部分的长度 + 1(0x0d)
+            </remarks>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFileHeader.RecordCount">
+            <summary>
+            记录数量
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFileHeader.RecordLength">
+            <summary>
+            记录长度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFileHeader.LanguageDriverEncoding">
+            <summary>
+            语言驱动编码
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFileHeader.FieldCount">
+            <summary>
+            字段数量
+            </summary>
+            <remarks>（文件头长度 - 32 字节）/ 32 </remarks>
+        </member>
+        <member name="P:CSharpKit.Data.Esri.XBaseFileHeader.XBaseFields">
+            <summary>
+            字段集合
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Esri.XBaseFileHeader.ParseFileHeader(System.IO.BinaryReader)">
+            <summary>
+            解析文件头
+            </summary>
+            <param name="br"></param>
+        </member>
+        <member name="P:CSharpKit.Data.FileDataInfo.FileId">
+            <summary>
+            文件标识
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.FileDataInfo.ElementCode">
+            <summary>
+            要素代码
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.FileDataInfo.AverageValue">
+            <summary>
+            平均值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.FileDataInfo.ExtremumValueMin">
+            <summary>
+            极小值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.FileDataInfo.ExtremumValueMax">
+            <summary>
+            极大值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.FileDataInstance.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.FileDataInstance.ReLoad(System.String)">
+            <summary>
+            重新装载
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:CSharpKit.Data.FileDataInstance.IsBinaryFile(System.String)">
+            <summary>
+            是否二进制文件
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Data.FileDataProcessor">
+            <summary>
+            FileDataProcessor - 文件数据处理器
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.FileDataProcessor.Load">
+            <summary>
+            装载
+            </summary>
+            <param name="cnnString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.FileDataProcessor.Save">
+            <summary>
+            保存
+            </summary>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.FileDataProcessor.FillDataInfo(System.Object)">
+            <summary>
+            填充数据信息
+            </summary>
+            <param name="fileHeader"></param>
+        </member>
+        <member name="M:CSharpKit.Data.FileDataProcessor.LookupExtremum">
+            <summary>
+            查找极小值和极大值(顺便计算平均值)
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.FileDataProcessor.ComputeBoundingBox">
+            <summary>
+            计算包围盒
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.MeteoFileProcessor.ContourBuilder">
+            <summary>
+            等值线构造器
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.Micaps.MicapsFileProvider.Open">
+            <summary>
+            打开
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.Micaps.MicapsFileProvider.Close">
+            <summary>
+            关闭
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.ProviderBase.ConnectionString">
+            <summary>
+            连接字符串
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.ProviderBase.DataInstance">
+            <summary>
+            数据实例
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.ProviderBase.IsOpen">
+            <summary>
+            是否打开
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.ProviderBase.Open">
+            <summary>
+            打开
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.ProviderBase.Close">
+            <summary>
+            关闭
+            </summary>
+        </member>
+    </members>
+</doc>

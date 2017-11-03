@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using CSharpKit;
 using CSharpKit.Vision.Mapping;
 using Mescp.ViewModels;
 
@@ -13,6 +14,7 @@ namespace Mescp
         protected override void OnStartup(StartupEventArgs e)
         {
             Console.WriteLine("OnStartup");
+            base.OnStartup(e);
 
             // 闪屏
             SplashScreen splashScreen = new SplashScreen("Assets/splash.bmp");
@@ -22,7 +24,8 @@ namespace Mescp
             // 初始化工作空间
             //App.Workspace = Mescp.ViewModels.Workspace.Instance;
 
-            base.OnStartup(e);
+            //设置应用程序路径
+            KitHelper.AppPath = App.StartupPath;
         }
 
         #region Path

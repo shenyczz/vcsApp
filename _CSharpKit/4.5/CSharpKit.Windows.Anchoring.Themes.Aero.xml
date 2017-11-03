@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharpKit.Windows.Anchoring.Themes.Aero</name>
+    </assembly>
+    <members>
+        <member name="F:CSharpKit.Windows.Anchoring.Themes.Controls.SplineBorder.ThicknessProperty">
+            <summary>
+            Thickness Dependency Property
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Anchoring.Themes.Controls.SplineBorder.Thickness">
+            <summary>
+            Gets or sets the Thickness property.  This dependency property 
+            indicates the border thickness.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Windows.Anchoring.Themes.Controls.SplineBorder.FillProperty">
+            <summary>
+            Fill Dependency Property
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Anchoring.Themes.Controls.SplineBorder.Fill">
+            <summary>
+            Gets or sets the Fill property.  This dependency property 
+            indicates the fill color.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Windows.Anchoring.Themes.Controls.SplineBorder.StrokeProperty">
+            <summary>
+            Stroke Dependency Property
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Anchoring.Themes.Controls.SplineBorder.Stroke">
+            <summary>
+            Gets or sets the Stroke property.  This dependency property 
+            indicates the stroke brush.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Windows.Anchoring.Themes.Controls.SplineBorder.BottomBorderMarginProperty">
+            <summary>
+            BottomBorderMargin Dependency Property
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Anchoring.Themes.Controls.SplineBorder.BottomBorderMargin">
+            <summary>
+            Gets or sets the BottomBorderMargin property.  This dependency property 
+            indicates the adjustment for the bottom margin.
+            </summary>
+        </member>
+    </members>
+</doc>

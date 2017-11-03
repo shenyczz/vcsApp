@@ -184,6 +184,9 @@
     <Compile Include="Parts\RibbonGroupPlz.xaml.cs">
       <DependentUpon>RibbonGroupPlz.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Parts\RibbonGroupPrimivite.xaml.cs">
+      <DependentUpon>RibbonGroupPrimivite.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Parts\RibbonGroupSys.xaml.cs">
       <DependentUpon>RibbonGroupSys.xaml</DependentUpon>
     </Compile>
@@ -192,6 +195,9 @@
     </Compile>
     <Compile Include="Parts\RibbonQuickAccessToolBar.xaml.cs">
       <DependentUpon>RibbonQuickAccessToolBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Parts\RibbonTabPrimivite.xaml.cs">
+      <DependentUpon>RibbonTabPrimivite.xaml</DependentUpon>
     </Compile>
     <Compile Include="Parts\RibbonTabStart.xaml.cs">
       <DependentUpon>RibbonTabStart.xaml</DependentUpon>
@@ -208,6 +214,8 @@
     <Compile Include="ViewModels\LayerViewModel.cs" />
     <Compile Include="ViewModels\MapViewModel.cs" />
     <Compile Include="ViewModels\Base\PaneViewModel.cs" />
+    <Compile Include="ViewModels\Base\PrimiviteViewModel.cs" />
+    <Compile Include="ViewModels\PropertyViewModel.cs" />
     <Compile Include="ViewModels\TestViewModel.cs" />
     <Compile Include="ViewModels\Base\ToolViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
@@ -216,6 +224,9 @@
       <DependentUpon>MapView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\CropModelBase.cs" />
+    <Compile Include="Views\PropertyView.xaml.cs">
+      <DependentUpon>PropertyView.xaml</DependentUpon>
+    </Compile>
     <Page Include="AboutBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -280,6 +291,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Parts\RibbonGroupPrimivite.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Parts\RibbonGroupSys.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -292,6 +307,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Parts\RibbonTabPrimivite.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Parts\RibbonTabStart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -301,6 +320,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MapView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PropertyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -388,12 +411,17 @@
   <ItemGroup>
     <Resource Include="Assets\m.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="_Doc\axin.txt" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="_Doc\mescp问题.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="_Doc\Sql.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Tools.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.0\build\net451\System.Data.SQLite.Core.targets')" />

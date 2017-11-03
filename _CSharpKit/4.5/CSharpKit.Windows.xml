@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharpKit.Windows</name>
+    </assembly>
+    <members>
+        <member name="T:CSharpKit.Windows.Controls.MapCanvas">
+            <summary>
+            WpfMapCanvas - 地图画布
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Controls.MapCanvas.DrawZoomRectangle(CSharpKit.Win32.RECT)">
+            <summary>
+            绘制缩放矩形
+            </summary>
+            <param name="rect"></param>
+        </member>
+        <member name="P:CSharpKit.Windows.Framework.WpfApplication.StartupPath">
+            <summary>
+            启动路径
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Input.RelayCommand">
+            <summary>
+            RelayCommand - Relay(接力)
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Input.UIEventToCommand">
+            <summary>
+            将UI事件转化Command实现
+            直接注入到控件中使用
+            支持一次绑定多个事件到一个操作上
+            操作为“事件名称1,事件名称2,...事件名称3”
+            对于多事件绑定操作，在ViewModel层可以通过事件参数类型，判断当前执行的操作
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Windows.Input.UIEventToCommand.EventProperty">
+            <summary>
+            事件名称
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Windows.Input.UIEventToCommand.CommandProperty">
+            <summary>
+            操作属性
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Input.UIEventToCommand.GetEvent(System.Windows.DependencyObject)">
+            <summary>
+            获取事件名称属性
+            </summary>
+            <param name="obj">控件对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Windows.Input.UIEventToCommand.SetEvent(System.Windows.DependencyObject,System.String)">
+            <summary>
+            设置事件属性
+            </summary>
+            <param name="obj">控件对象</param>
+            <param name="value">事件名称</param>
+        </member>
+        <member name="M:CSharpKit.Windows.Input.UIEventToCommand.GetCommand(System.Windows.DependencyObject)">
+            <summary>
+            获取操作对象
+            </summary>
+            <param name="obj">控件对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Windows.Input.UIEventToCommand.SetCommand(System.Windows.DependencyObject,System.Windows.Input.ICommand)">
+            <summary>
+            设置操作对象
+            </summary>
+            <param name="obj">控件对象</param>
+            <param name="value">操作值</param>
+        </member>
+        <member name="M:CSharpKit.Windows.Input.UIEventToCommand.OnEventChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            事件名称回调用事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Windows.Input.UIEventToCommand.GenerateDelegate(System.Reflection.EventInfo)">
+            <summary>
+            生成代理
+            </summary>
+            <param name="eventInfo">事件信息对象</param>
+            <returns>返回创建的代理</returns>
+        </member>
+        <member name="M:CSharpKit.Windows.Input.UIEventToCommand.OnEventRaised``1(System.Object,``0)">
+            <summary>
+            调用事件
+            </summary>
+            <typeparam name="T">事件参数类型</typeparam>
+            <param name="sender"></param>
+            <param name="arg"></param>
+        </member>
+        <member name="P:CSharpKit.Windows.Media.DrawingVisualEx.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Media.DrawingVisualEx.Tag">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.DxRasterVision">
+            <summary>
+            栅格视觉
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.DxVectorVision">
+            <summary>
+            矢量视觉
+            </summary>
+        </member>
+        <member name="T:Demo_Common.Resource_Dictionaries.MacStyledWindow">
+            <summary>
+            MacStyledWindow
+            </summary>
+        </member>
+        <member name="M:Demo_Common.Resource_Dictionaries.MacStyledWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>
