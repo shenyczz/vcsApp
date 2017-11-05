@@ -296,13 +296,15 @@ namespace Mescp
 
         public void Test()
         {
-            IMap map = App.Workspace.MapViewModel.Map;
-            ILayer layer = map.LayerManager.Layers.Find(l => l.Id == "t123");
-            IVision vision = layer.Vision;
-            App.Workspace.PropertyViewModel.VisionProperties = vision.CustomProperties;
+            //IMap map = App.Workspace.MapViewModel.Map;
+            //ILayer layer = map.LayerManager.Layers.Find(l => l.Id == "t123");
+            //IVision vision = layer.Vision;
+            //App.Workspace.PropertyViewModel.VisionProperties = vision.CustomProperties;
 
             //MessageBox.Show("Test");
             //PingGu();
+            App.Workspace.MapViewModel.ClearChecked();
+            App.Workspace.PrimiviteViewModel.ClearChecked();
         }
 
 

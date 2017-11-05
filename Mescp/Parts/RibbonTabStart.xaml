@@ -8,7 +8,8 @@
     <!--地理信息管理-->
     <p:RibbonGroupMap/>
 
-    <!--RibbonTabPrimivite-->
+    <!--图元操作-->
+    <p:RibbonGroupPrimivite/>
 
     <!--1.评价区域管理-->
     <p:RibbonGroupErm/>

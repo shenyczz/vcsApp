@@ -37,7 +37,7 @@ namespace Mescp.ViewModels
             this.Documents.Add(this.MapViewModel);
 
             this.Tools.Add(this.PropertyViewModel);
-            this.Tools.Add(this.LayerViewModel);
+            //this.Tools.Add(this.LayerViewModel);
 
             _MapHelper = new MapHelper();
         }

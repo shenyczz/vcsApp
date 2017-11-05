@@ -27,7 +27,7 @@ using Microsoft.Win32;
 
 namespace Mescp.ViewModels
 {
-    public sealed class MapViewModel : DocumentViewModel
+    public sealed class MapViewModel : VmMapPrimiviteBase
     {
         public MapViewModel()
         {
@@ -152,6 +152,7 @@ namespace Mescp.ViewModels
 
             #endregion
 
+
             #region 测试数据
 
             try
@@ -173,7 +174,9 @@ namespace Mescp.ViewModels
 
                     Foreground = System.Drawing.Color.White,
                 };
+
                 map.LayerManager.Add(new Layer("t123", vision));
+                //map.LayerManager.CurrentLayer = null;
             }
             catch { }
 
@@ -183,7 +186,15 @@ namespace Mescp.ViewModels
 
         private void Map_Rendered(object sender, EventArgs e)
         {
-            Console.WriteLine("地图绘制完成事件!");
+            //IMap map = App.Workspace?.MapViewModel?.Map;
+            //if (map == null)
+            //    return;
+
+            //ILayer layer = map.LayerManager.Layers.Find(l => l.Id == "t123");
+            //IVision vision = layer?.Vision;
+            //App.Workspace.PropertyViewModel.VisionProperties = vision?.CustomProperties;
+
+            //Console.WriteLine("地图绘制完成事件!");
         }
 
         #endregion
@@ -256,6 +267,8 @@ namespace Mescp.ViewModels
         private void OnCancel(Object parameter)
         {
             this.Map.MapTool = MapTool.MapController.Cancel;
+
+            ClearChecked();
         }
 
         private Boolean CanCancel(Object parameter)
@@ -341,6 +354,8 @@ namespace Mescp.ViewModels
         private void OnZoomIn(Object parameter)
         {
             this.Map.MapTool = MapTool.MapController.ZoomIn;
+            this.ClearChecked();
+            this.IsChecked_ZoomIn = true;
         }
 
         private Boolean CanZoomIn(Object parameter)
@@ -369,6 +384,8 @@ namespace Mescp.ViewModels
         private void OnZoomOut(Object parameter)
         {
             this.Map.MapTool = MapTool.MapController.ZoomOut;
+            this.ClearChecked();
+            this.IsChecked_ZoomOut = true;
         }
 
         private Boolean CanZoomOut(Object parameter)
@@ -397,6 +414,9 @@ namespace Mescp.ViewModels
         private void OnZoomPan(Object parameter)
         {
             this.Map.MapTool = MapTool.MapController.ZoomPan;
+
+            this.ClearChecked();
+            this.IsCheckedZoomPan = true;
         }
 
         private Boolean CanZoomPan(Object parameter)

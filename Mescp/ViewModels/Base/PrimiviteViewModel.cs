@@ -10,13 +10,23 @@ using CSharpKit.Windows.Input;
 
 namespace Mescp.ViewModels
 {
-    public class PrimiviteViewModel: ViewModelBase
+    public class PrimiviteViewModel: VmMapPrimiviteBase
     {
         public PrimiviteViewModel()
         {
             App.Workspace.MapViewModel.Map.LayerManager.PrimiviteSelected += (s, e) =>
             {
                 App.Workspace.PropertyViewModel.VisionProperties = e.CurrentVision.CustomProperties;
+
+                ILayer primiviteLayer = App.Workspace.MapViewModel.Map.LayerManager.PrimiviteLayer;
+                IVision v = primiviteLayer?.Vision?.Children.Find(p => p.IsSelected);
+                if (v == null)
+                {
+                    Console.WriteLine("no target is selected!");
+                    ILayer layer = App.Workspace.MapViewModel.Map.LayerManager.Layers.Find(p => p.Id == "t123");
+                    IVision vision = layer?.Vision;
+                    App.Workspace.PropertyViewModel.VisionProperties = vision?.CustomProperties;
+                };
             };
         }
 
@@ -39,6 +49,9 @@ namespace Mescp.ViewModels
         private void OnSelectTarget(Object parameter)
         {
             App.Workspace.MapViewModel.Map.MapTool = MapTool.PrimiviteController.SelectTarget;
+
+            ClearChecked();
+            IsCheckedSelectTarget = true;
         }
         private Boolean CanSelectTarget(Object parameter)
         {
@@ -47,30 +60,59 @@ namespace Mescp.ViewModels
 
         #endregion
 
+        #region MoveTargetCommand
 
-
-        #region DrawRectCommand
-
-        private RelayCommand _DrawRectCommand;
-        public ICommand DrawRectCommand
+        private RelayCommand _MoveTargetCommand;
+        public ICommand MoveTargetCommand
         {
             get
             {
-                if (_DrawRectCommand == null)
+                if (_MoveTargetCommand == null)
                 {
-                    _DrawRectCommand = new RelayCommand(p => OnDrawRect(p), p => CanDrawRect(p));
+                    _MoveTargetCommand = new RelayCommand(p => OnMoveTarget(p), p => CanMoveTarget(p));
                 }
 
-                return _DrawRectCommand;
+                return _MoveTargetCommand;
             }
         }
 
-        private void OnDrawRect(Object parameter)
+        private void OnMoveTarget(Object parameter)
         {
-            App.Workspace.MapViewModel.Map.MapTool = MapTool.PrimiviteController.DrawRect;
+            App.Workspace.MapViewModel.Map.MapTool = MapTool.PrimiviteController.MoveTarget;
+
+            ClearChecked();
+            IsCheckedMoveTarget = true;
+        }
+        private Boolean CanMoveTarget(Object parameter)
+        {
+            return true;
         }
 
-        private Boolean CanDrawRect(Object parameter)
+        #endregion
+
+        #region DeleteTargetCommand
+
+        private RelayCommand _DeleteTargetCommand;
+        public ICommand DeleteTargetCommand
+        {
+            get
+            {
+                if (_DeleteTargetCommand == null)
+                {
+                    _DeleteTargetCommand = new RelayCommand(p => OnDeleteTarget(p), p => CanDeleteTarget(p));
+                }
+                return _DeleteTargetCommand;
+            }
+        }
+
+        private void OnDeleteTarget(Object parameter)
+        {
+            App.Workspace.MapViewModel.Map.MapTool = MapTool.PrimiviteController.DeleteTarget;
+
+            ClearChecked();
+            IsCheckedDeleteTarget = true;
+        }
+        private Boolean CanDeleteTarget(Object parameter)
         {
             return App.Workspace.MapViewModel.IsMapViewModel;
         }
@@ -86,7 +128,7 @@ namespace Mescp.ViewModels
             {
                 if (_DrawLabelCommand == null)
                 {
-                    _DrawLabelCommand = new RelayCommand(p => OnDrawLabel(p), p => CanDrawRect(p));
+                    _DrawLabelCommand = new RelayCommand(p => OnDrawLabel(p), p => CanDrawLabel(p));
                 }
 
                 return _DrawLabelCommand;
@@ -96,6 +138,9 @@ namespace Mescp.ViewModels
         private void OnDrawLabel(Object parameter)
         {
             App.Workspace.MapViewModel.Map.MapTool = MapTool.PrimiviteController.DrawLabel;
+
+            ClearChecked();
+            IsCheckedDrawLabel = true;
         }
 
         private Boolean CanDrawLabel(Object parameter)
@@ -104,5 +149,36 @@ namespace Mescp.ViewModels
         }
 
         #endregion
+
+        #region DrawLegendCommand
+
+        private RelayCommand _DrawLegendCommand;
+        public ICommand DrawLegendCommand
+        {
+            get
+            {
+                if (_DrawLegendCommand == null)
+                {
+                    _DrawLegendCommand = new RelayCommand(p => OnDrawLegend(p), p => CanDrawLegend(p));
+                }
+
+                return _DrawLegendCommand;
+            }
+        }
+
+        private void OnDrawLegend(Object parameter)
+        {
+            App.Workspace.MapViewModel.Map.MapTool = MapTool.PrimiviteController.DrawLegend;
+
+            ClearChecked();
+            IsCheckedDrawLegend = true;
+        }
+        private Boolean CanDrawLegend(Object parameter)
+        {
+            return true;
+        }
+
+        #endregion
+
     }
 }

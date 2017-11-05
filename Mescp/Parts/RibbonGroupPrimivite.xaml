@@ -4,29 +4,44 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Header="图元操作">
 
-    <RibbonRadioButton
+    <RibbonToggleButton
         x:Name="SelectTarget"
-        Label="选择"
+        Label="选择图形"
         ToolTip="选择图形"
-        LargeImageSource="../Assets/Tools.png"
+        LargeImageSource="../Assets/b10.png"
+        IsChecked="{Binding PrimiviteViewModel.IsCheckedSelectTarget}"
         Command="{Binding PrimiviteViewModel.SelectTargetCommand}"/>
 
+    <RibbonRadioButton
+        x:Name="MoveTarget"
+        Label="移动图元"
+        ToolTip="移动图元"
+        LargeImageSource="../Assets/b24.png"
+        IsChecked="{Binding PrimiviteViewModel.IsCheckedMoveTarget}"
+        Command="{Binding PrimiviteViewModel.MoveTargetCommand}"/>
 
     <RibbonRadioButton
-        x:Name="DrawRect"
-        Label="矩形"
-        ToolTip="绘制矩形"
-        LargeImageSource="../Assets/Tools.png"
-        Command="{Binding PrimiviteViewModel.DrawRectCommand}"/>
-
-    <!--<RibbonSeparator Width="100" Background="Aqua"/>-->
+        x:Name="DeleteTarget"
+        Label="删除元素"
+        ToolTip="删除图形"
+        LargeImageSource="../Assets/delete.png"
+        IsChecked="{Binding PrimiviteViewModel.IsCheckedDeleteTarget}"
+        Command="{Binding PrimiviteViewModel.DeleteTargetCommand}"/>
 
     <RibbonRadioButton
         x:Name="DrawLabel"
-        Label="标注"
+        Label="添加标注"
         ToolTip="添加标注"
-        LargeImageSource="../Assets/Tools.png"
+        LargeImageSource="../Assets/b02.png"
+        IsChecked="{Binding PrimiviteViewModel.IsCheckedDrawLabel}"
         Command="{Binding PrimiviteViewModel.DrawLabelCommand}"/>
-
+    
+    <RibbonRadioButton
+        x:Name="DrawLegend"
+        Label="添加图例"
+        ToolTip="添加图例"
+        LargeImageSource="../Assets/Tools.png"
+        IsChecked="{Binding PrimiviteViewModel.IsCheckedDrawLegend}"
+        Command="{Binding PrimiviteViewModel.DrawLegendCommand}"/>
 
 </RibbonGroup>

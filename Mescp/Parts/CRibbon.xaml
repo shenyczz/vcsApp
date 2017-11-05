@@ -29,7 +29,7 @@
     <p:RibbonTabStart/>
     
     <!--图元标签-->
-    <p:RibbonTabPrimivite/>
+    <!--<p:RibbonTabPrimivite/>-->
 
 
 </ribbon:Ribbon>
