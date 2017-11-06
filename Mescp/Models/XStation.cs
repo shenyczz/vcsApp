@@ -17,7 +17,7 @@ namespace Mescp.Models
             this.Year = 0;
             this.Fa = -999;
 
-            this.Fac = -1;
+            this.Fae = -1;
         }
 
         #region Private Fields
@@ -64,14 +64,14 @@ namespace Mescp.Models
         ///  1：次适宜
         ///  2：适宜
         /// </summary>
-        public int Fac { get; set; }
+        public int Fae { get; set; }
 
         public string FacStrting
         {
             get
             {
                 string s = "";
-                switch(Fac)
+                switch(Fae)
                 {
                     case 0:
                         s = "不适宜";
@@ -93,13 +93,15 @@ namespace Mescp.Models
 
         public void DoIt()
         {
+            //评估年份
             if (Year == 0)
                 return;
 
+            //气象要素
             if (MeteoElements.Count <= 0)
                 return;
 
-            //============================================
+            //============================================test
             if (this.Id == "57189")
             {
                 int yyy = 0;
@@ -109,7 +111,7 @@ namespace Mescp.Models
 
             // 计算各个发育阶段适宜度
             int year = this.Year;
-            int grwpCount = CropGrwps.Count;
+            int grwpCount = CropGrwps.Count;    //整个发育期发育阶段数量
             TimeSpan timeSpan = TimeSpan.FromDays(1);
 
             //发育阶段适宜度的最大、最小值
@@ -135,15 +137,17 @@ namespace Mescp.Models
                         continue;
 
                     double ft = App.Workspace.AppMethod.Ft(me.T, cropWorkspace.T0, cropWorkspace.Tl, cropWorkspace.Th); //温度适宜度
-                    double fr = App.Workspace.AppMethod.Fr();                                                           //降水适宜度
-                    double fs = App.Workspace.AppMethod.Fs(me.S, double.Parse(cropWorkspace.ThrSunlight));              //日照适宜度
+                    double fr = App.Workspace.AppMethod.Fr(this, dt);                                          //降水适宜度
+                    double fs = App.Workspace.AppMethod.Fs(me.Hos, double.Parse(cropWorkspace.ThrSunlight));              //日照适宜度
 
                     //日适宜度
                     double fc = App.Workspace.AppMethod.Fc(ft, fr, fs);
+                    //=====================================test
                     //if (double.IsNaN(fc))
                     //{
                     //    int xxx = 0;
                     //}
+                    //=====================================
                     _Fcs.Add(fc);
                 }
 
@@ -168,7 +172,7 @@ namespace Mescp.Models
             if (_Fgs.Count > 0)
             {
                 this.Fa = App.Workspace.AppMethod.Fa(_Fgs, _Gws);
-                this.Fac = App.Workspace.AppMethod.Fac(this.Fa, fgMax, fgMin);
+                this.Fae = App.Workspace.AppMethod.Fae(this.Fa, fgMax, fgMin);
             }
 
             return;

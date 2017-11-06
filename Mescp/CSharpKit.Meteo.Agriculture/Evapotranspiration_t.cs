@@ -22,9 +22,10 @@ namespace CSharpKit.Meteo.Agriculture
 {
     /// <summary>
     /// Evapotranspiration - 蒸散
-    ///     需要指定站点的9个参数
+    /// 需要指定站点的9个参数
+    /// TODO:完善后移入Kit
     /// </summary>
-    public class Evapotranspiration
+    public class Evapotranspiration_t
     {
         #region 属性参数
 
@@ -53,17 +54,13 @@ namespace CSharpKit.Meteo.Agriculture
         /// </summary>
         public double Tmin { get; set; }
         /// <summary>
-        /// 风速(m/s)
-        /// </summary>
-        public double Ws { get; set; }
-        /// <summary>
         /// 实际水汽压(hPa)
         /// </summary>
         public double E { get; set; }
         /// <summary>
-        /// 日照时数(h)
+        /// 风速(m/s)
         /// </summary>
-        public double Hos { get; set; }
+        public double Ws { get; set; }
 
         #endregion
 
@@ -83,7 +80,7 @@ namespace CSharpKit.Meteo.Agriculture
             double tmin = this.Tmin;        //最低气温(℃)
             double ea = this.E;             //实际水汽压(hPa)
             double v = this.Ws;             //风速(m/s)
-            double s = this.Hos;            //实际日照时数(h)
+            //double s = this.Hos;            //实际日照时数(h)
             //------------------------------------
             double a1 = 0.408 * Delta(ea, tavg) * Rn(tmax, tmin, ea, lat, dt);
             double a2 = 900.0 * Gama(Ph(alt)) * U2(v, 10) * (Es(tmax, tmin) / 10 - ea / 10) / (tavg + 273);

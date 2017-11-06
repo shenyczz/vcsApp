@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CSharpKit.Meteo.Agriculture;
+using Mescp.Models;
 
 namespace Mescp
 {
@@ -32,14 +34,50 @@ namespace Mescp
         /// Fr - 降水适宜度模型
         /// </summary>
         /// <remarks>
-        /// 由于单日的降水不能反映降水对玉米的影响，因而选取连续10日的蒸散和降水数据
-        /// 滚动分析(算术和)降水对玉米的影响情况。
+        /// 由于单日的降水不能反映降水对玉米的影响，
+        /// 因而选取连续10日的蒸散和降水数据,滚动分析(算术和)降水对玉米的影响情况。
         /// 用第10日的降水和蒸散情况表示当日的降水适宜度情况
+        /// 1.计算连续10日蒸散和 => W
+        /// 2.计算连续10日降水和 => R
+        /// 
+        ///      |-- 1 (R>W)
+        /// Fr = |
+        ///      |-- R / W
         /// </remarks>
         /// <returns></returns>
-        public double Fr()
+        public double Fr(XStation xStation, DateTime currentDateTime)
         {
-            return 1;
+            TimeSpan timeSpan = TimeSpan.FromDays(1);
+
+            double W = 0, R = 0;
+
+            DateTime dtBeg = currentDateTime - TimeSpan.FromDays(10);
+            DateTime dtEnd = currentDateTime;
+            for (DateTime dt = dtBeg; dt <= dtEnd; dt += timeSpan)
+            {
+                MeteoElement me = xStation.MeteoElements.Find(p => p.DateTime == dt);
+                if (me == null)
+                    continue;
+
+                Evapotranspiration_t eca = new Evapotranspiration_t()
+                {
+                    DateTime = dt,
+                    Lat = xStation.Lat,
+                    Alt = xStation.Alt,
+                    T = me.T,
+                    Tmax = me.Tmax,
+                    Tmin = me.Tmin,
+                    E = me.E,
+                    Ws = me.Ws,
+                };
+
+                W += eca.Et0();
+                R += me.R;
+            }
+
+            double x = W;
+
+            return W > R ? R / W : 1;
         }
 
         /// <summary>
@@ -111,7 +149,7 @@ namespace Mescp
         }
 
         /// <summary>
-        /// Fa - 气候适应度
+        /// Fae - 气候适应度
         ///     -1：未知
         ///      0：不适宜
         ///      1：次适宜
@@ -121,7 +159,7 @@ namespace Mescp
         /// <param name="fmax"></param>
         /// <param name="fmin"></param>
         /// <returns></returns>
-        public int Fac(double fz, double fmax, double fmin)
+        public int Fae(double fz, double fmax, double fmin)
         {
             int v = -1;
 

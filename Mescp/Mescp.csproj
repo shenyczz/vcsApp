@@ -142,7 +142,7 @@
     <Compile Include="AboutBox.xaml.cs">
       <DependentUpon>AboutBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CSharpKit.Meteo.Agriculture\Evapotranspiration.cs" />
+    <Compile Include="CSharpKit.Meteo.Agriculture\Evapotranspiration_t.cs" />
     <Compile Include="Misc\AppHelper.cs" />
     <Compile Include="Misc\AppMethod.cs" />
     <Compile Include="Misc\AppTools.cs" />
@@ -413,10 +413,10 @@
     <Resource Include="Assets\m.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="_Doc\axin.txt" />
+    <Resource Include="_Doc\AxinFormat.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="_Doc\mescp问题.txt" />
+    <Resource Include="_Doc\Mescp_q.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="_Doc\Sql.txt" />
@@ -441,6 +441,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\b02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="_Doc\SqlFields.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.0\build\net451\System.Data.SQLite.Core.targets')" />

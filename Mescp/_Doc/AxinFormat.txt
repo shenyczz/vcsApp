@@ -2,10 +2,10 @@
 [文件头]
 FID  FormatCode  Comment
 yyyy mm dd HH MM SS MS
-Period  Layer  ProductCode  ElementCode
-TotalNum  ElementNum  Flag
+TimePeriod  Layer  ProductCode  ElementCode
+StationCount  ElementCount  Flag
 CID C1  C2  C3 … Cn  Cb
-ClipArea  X1 Y1  X2 Y2 … Xn Yn
+CAID X1 Y1  X2 Y2 … Xn Yn
 
 [数据]
 站点  经度  纬度  海拔  站点级别 要素值1…N  站点名称

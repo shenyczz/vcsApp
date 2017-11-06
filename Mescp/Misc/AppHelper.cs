@@ -240,7 +240,7 @@ namespace Mescp
                         station.Name = row["StationName"].ToString();
                         station.Lon = double.Parse(row["Lon"].ToString()) * 0.01;
                         station.Lat = double.Parse(row["Lat"].ToString()) * 0.01;
-                        station.Alt = double.Parse(row["Alt"].ToString());
+                        station.Alt = double.Parse(row["Alt"].ToString()) * 0.1;
 
                         string rgs= row["Region"].ToString();
                         if (string.IsNullOrEmpty(rgs))
@@ -296,15 +296,18 @@ namespace Mescp
 
         public void Test()
         {
+            //MessageBox.Show("Test");
+
             //IMap map = App.Workspace.MapViewModel.Map;
             //ILayer layer = map.LayerManager.Layers.Find(l => l.Id == "t123");
             //IVision vision = layer.Vision;
             //App.Workspace.PropertyViewModel.VisionProperties = vision.CustomProperties;
 
-            //MessageBox.Show("Test");
-            //PingGu();
-            App.Workspace.MapViewModel.ClearChecked();
-            App.Workspace.PrimiviteViewModel.ClearChecked();
+            //App.Workspace.MapViewModel.ClearChecked();
+            //App.Workspace.PrimiviteViewModel.ClearChecked();
+
+            PingGu();
+
         }
 
 
@@ -382,9 +385,9 @@ namespace Mescp
                 cnn.Open();
 
                 // 2.CommandText
-                string strFields = string.Format("[iiiii],[ObvDate],[P],[T],[Tmax],[Tmin],[U],[E],[R],[S]");
+                string strFields = string.Format("[iiiii],[ObvDate],[T],[Tmax],[Tmin],[E],[S],[F10],[R]");
                 string strTables = string.Format("[MeteDay{0}]", "2010S");
-                string strWheres = string.Format("[ObvDate]>={0}0601 AND [ObvDate]<={0}0930 AND [iiiii] IN ({1})", year, strIN);
+                string strWheres = string.Format("[ObvDate]>={0}0501 AND [ObvDate]<={0}1030 AND [iiiii] IN ({1})", year, strIN);
                 string strOders = string.Format("[ObvDate],[iiiii]");
                 string strSql = string.Format("SELECT {0} FROM {1} WHERE {2} ORDER BY {3}",
                     strFields, strTables, strWheres, strOders);
@@ -438,16 +441,15 @@ namespace Mescp
                             me.ObvTime = 0;
                             me.DateTime = this.ToDateTime((int)me.ObvDate, (int)me.ObvTime);
 
-                            me.P = 0.1 * double.Parse(row["P"].ToString());         //气压
-
                             me.T = 0.1 * double.Parse(row["T"].ToString());         //温度
                             me.Tmax = 0.1 * double.Parse(row["Tmax"].ToString());   //最高温度
                             me.Tmin = 0.1 * double.Parse(row["Tmin"].ToString());   //最低温度
 
-                            me.U = 0.1 * double.Parse(row["U"].ToString());         //风速
                             me.E = 0.1 * double.Parse(row["E"].ToString());         //水汽压
+                            me.Ws = 0.1 * double.Parse(row["F10"].ToString());      //风速
+                            me.Hos = 0.1 * double.Parse(row["S"].ToString());       //日照
+
                             me.R = 0.1 * double.Parse(row["R"].ToString());         //降水
-                            me.S = 0.1 * double.Parse(row["S"].ToString());         //日照
                         }
 
                         meteoElements.Add(me);
@@ -473,12 +475,23 @@ namespace Mescp
                     p.CropWorkspaces = cropWorkspaces;  //作物工作空间
                 });
 
-                //计算站点
-                xStations.ForEach(p =>
+                // 
+                string stemp = "";
+                try
                 {
-                    p.DoIt();
-                });
+                    //计算站点
+                    xStations.ForEach(p =>
+                    {
+                        stemp = p.Id;
+                        p.DoIt();
+                    });
+                }
+                catch (Exception)
+                {
+                    throw new Exception(stemp);
+                }
 
+                //取得所有站点发育期适宜度的最大最小值
                 double max, min;
                 max = double.NegativeInfinity;
                 min = double.PositiveInfinity;
@@ -490,31 +503,30 @@ namespace Mescp
                         min = Math.Min(min, p.Fa);
                     }
                 });
+
+                //评估(0.2max+0.8min、0.8max+0.2min) => 不适宜、次适宜、适宜
                 xStations.ForEach(p =>
                 {
-                    p.Fac = App.Workspace.AppMethod.Fac(p.Fa, max, min);
+                    p.Fae = App.Workspace.AppMethod.Fae(p.Fa, max, min);
                 });
 
                 //======================
-                XStation[] xa0 = xStations.FindAll(p => p.Fac == 0).ToArray();     //不适宜
-                XStation[] xa1 = xStations.FindAll(p => p.Fac == 1).ToArray();     //次适宜
-                XStation[] xa2 = xStations.FindAll(p => p.Fac == 2).ToArray();     //适宜
-                XStation[] xa3 = xStations.FindAll(p => p.Fac == -1).ToArray();    //未知
+                XStation[] xa0 = xStations.FindAll(p => p.Fae == 0).ToArray();     //不适宜
+                XStation[] xa1 = xStations.FindAll(p => p.Fae == 1).ToArray();     //次适宜
+                XStation[] xa2 = xStations.FindAll(p => p.Fae == 2).ToArray();     //适宜
+                XStation[] xa3 = xStations.FindAll(p => p.Fae == -1).ToArray();    //未知
                 //======================
                 //下面绘图
-                //this.FillCountyColor(xStations);    //绘图
+                this.FillCountyColor(xStations);    //绘图（行政区填充）
 
-                //图例怎么办?
-                //
-                //
                 //下面输出站点文件
                 //
                 string s = System.IO.Path.Combine(App.OutputPath, "30.txt");
                 OutputStationFile(xStations, s);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Error in Test(...)");
+                throw new Exception("Error in Test(...)" + ex.Message);
             }
         }
 
@@ -524,6 +536,8 @@ namespace Mescp
         /// <param name="xStations"></param>
         private void FillCountyColor(List<XStation> xStations)
         {
+            double a1 = 4.29;
+            double a2 = 13.26;
             try
             {
                 IMap map = App.Workspace.MapViewModel.Map;
@@ -536,8 +550,8 @@ namespace Mescp
                 ShapeFile shapeFile = dataInstance as ShapeFile;
 
                 //AxinColortabFile 颜色表文件
-                //TODO:调色板文件是硬路径。。。
-                AxinColortabFile axinColortabFile = new AxinColortabFile(@"D:\sfxCode\vcs\vcsApp\Mescp\bin\Code\Palettes\6822.pal");
+                string s = System.IO.Path.Combine(App.StartupPath, "Palettes\\6822.pal");
+                AxinColortabFile axinColortabFile = new AxinColortabFile(s);
                 IPalette palette = axinColortabFile.Palette;    // 调色板
 
                 foreach(XStation xs in xStations)
@@ -545,8 +559,21 @@ namespace Mescp
                     List<IFeature> features = shapeFile.Features.FindAll(f => f.Id == xs.Id);
                     features.ForEach(p =>
                     {
-                        int f = xs.Fac;    //站点适宜度值
+                        double f = xs.Fa;    //站点适宜度值
                         System.Drawing.Color clr = palette.GetColor(f, System.Drawing.Color.Green);
+
+                        clr = System.Drawing.Color.White;
+
+                        int count = palette.Items.Count;
+                        for (int i = 0; i < count; i++)
+                        {
+                            if (f < palette.Items[i].Value)
+                            {
+                                clr = palette.Items[i].Color;
+                                break;
+                            }
+                        }
+
                         p.Tag = clr;
                     });
                 }
@@ -561,19 +588,6 @@ namespace Mescp
             }
         }
 
-        /*
-            第30类文件 – 离散点数据
-            [文件头]
-            FID  FormatCode  Comment
-            yyyy mm dd HH MM SS MS
-            TimePeriod  Layer  ProductCode  ElementCode
-            TotalNum  ElementNum  Flag
-            CID C1  C2  C3 … Cn  Cb
-            ClipArea  X1 Y1  X2 Y2 … Xn Yn
-
-            [数据]
-            站点  经度  纬度  海拔  站点级别 要素值1…N  站点名称
-         */
          /// <summary>
          /// 输出站点数据文件
          /// </summary>
@@ -581,6 +595,20 @@ namespace Mescp
          /// <param name="fileName"></param>
         private void OutputStationFile(List<XStation> xStations, string fileName)
         {
+            /*
+                第30类文件 – 离散点数据
+                [文件头]
+                FID  FormatCode  Comment
+                yyyy mm dd HH MM SS MS
+                TimePeriod  Layer  ProductCode  ElementCode
+                TotalNum  ElementNum  Flag
+                CID C1  C2  C3 … Cn  Cb
+                ClipArea  X1 Y1  X2 Y2 … Xn Yn
+
+                [数据]
+                站点  经度  纬度  海拔  站点级别 要素值1…N  站点名称
+             */
+            //填充数据
             AxinStationFile f = new AxinStationFile();
             xStations.ForEach(p =>
             {
@@ -603,6 +631,7 @@ namespace Mescp
                 }
             });
 
+            //数据信息
             AxinStationFileDataInfo axin30di = f.DataInfo as AxinStationFileDataInfo;
             {
                 axin30di.FileId = AxinConstants.FileLogo;
@@ -636,11 +665,6 @@ namespace Mescp
                 axin30di.ClipArea.YClipMin = 31.36;
                 axin30di.ClipArea.YClipMax = 36.38;
             }
-
-            /*
-             4 110.37 31.36	116.66 31.36  116.66 36.38  110.37 36.38
-             9999    1.000    5.000   35.000   15.000
-             */
 
             f.DataProcessor.SaveAs(fileName);
 
