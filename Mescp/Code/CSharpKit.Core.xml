@@ -946,6 +946,11 @@
             Contour
             </summary>
         </member>
+        <member name="P:CSharpKit.Geometrics.Contour.ContourTopology">
+            <summary>
+            等值线和矩形边界的拓扑关系
+            </summary>
+        </member>
         <member name="P:CSharpKit.Geometrics.Contour.Extent">
             <summary>
             重载包围盒属性
@@ -961,6 +966,11 @@
             面积
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:CSharpKit.Geometrics.Contour.Perimeter">
+            <summary>
+            周长
+            </summary>
         </member>
         <member name="M:CSharpKit.Geometrics.Contour.Offset(System.Double,System.Double)">
             <summary>
@@ -1186,6 +1196,7 @@
         <member name="T:CSharpKit.Geometrics.Legend">
             <summary>
             Legend
+            TODO:[syc-20171104]只显示选中图层的图例
             </summary>
         </member>
         <member name="P:CSharpKit.Geometrics.Legend.Content">
@@ -1378,7 +1389,7 @@
             <param name="dx">X坐标向的偏移量</param>
             <param name="dy">Y坐标向的偏移量</param>
         </member>
-        <member name="T:CSharpKit.Palettes.IndexingPalette">
+        <member name="T:CSharpKit.Palettes.IndexPalette">
             <summary>
             IndexingPalette - 索引调色板
             </summary>
@@ -1388,57 +1399,49 @@
             LinearPalette - 线性调色板
             </summary>
         </member>
-        <member name="T:CSharpKit.Palettes.Palette">
+        <member name="T:CSharpKit.Palettes.PaletteBase">
             <summary>
             Palette
             </summary>
         </member>
-        <member name="M:CSharpKit.Palettes.Palette.#ctor">
+        <member name="M:CSharpKit.Palettes.PaletteBase.#ctor">
             <summary>
             默认构造函数
             </summary>
         </member>
-        <member name="P:CSharpKit.Palettes.Palette.Items">
+        <member name="P:CSharpKit.Palettes.PaletteBase.Items">
             <summary>
             调色板条目
             </summary>
         </member>
-        <member name="P:CSharpKit.Palettes.Palette.PaletteType">
+        <member name="P:CSharpKit.Palettes.PaletteBase.PaletteType">
             <summary>
             调色板类型
             </summary>
         </member>
-        <member name="P:CSharpKit.Palettes.Palette.TransparentColor">
+        <member name="P:CSharpKit.Palettes.PaletteBase.TransparentColor">
             <summary>
             透明色
             </summary>
         </member>
-        <member name="P:CSharpKit.Palettes.Palette.HasTransparentColor">
+        <member name="P:CSharpKit.Palettes.PaletteBase.HasTransparentColor">
             <summary>
             有透明色
             </summary>
         </member>
-        <member name="M:CSharpKit.Palettes.Palette.NumbersOfValidItem">
-            <summary>
-            有效条目数量
-            </summary>
-            <param name="spv_min"></param>
-            <returns></returns>
-        </member>
-        <member name="M:CSharpKit.Palettes.Palette.GetColor(System.Double)">
-            <summary>
-            取得指定值的颜色
-            </summary>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:CSharpKit.Palettes.Palette.GetColor(System.Double,System.Drawing.Color)">
+        <member name="M:CSharpKit.Palettes.PaletteBase.GetColor(System.Double,System.Drawing.Color)">
             <summary>
             取得指定值的颜色
             </summary>
             <param name="value"></param>
             <param name="defaultColor"></param>
             <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Palettes.PaletteBase.GetValidItemCount">
+            <summary>
+            取得有效条目数量
+            </summary>
+            <returns>有效条目数量</returns>
         </member>
         <member name="T:CSharpKit.Palettes.PaletteItem">
             <summary>
@@ -1465,6 +1468,22 @@
             RainbowPalette - 彩虹调色板
             </summary>
         </member>
+        <member name="M:CSharpKit.Palettes.RainbowPalette.GetColor(System.Double,System.Drawing.Color)">
+            <summary>
+            取得对应颜色
+            </summary>
+            <param name="value">数值</param>
+            <param name="colorDefault">默认颜色</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Palettes.RainbowPalette.LookupColor(System.Double,System.Drawing.Color)">
+            <summary>
+            采用插值方法在颜色表中查找数值value对应的颜色
+            </summary>
+            <param name="value"></param>
+            <param name="colorDefault"></param>
+            <returns></returns>
+        </member>
         <member name="T:CSharpKit.Palettes.SegmentPalette">
             <summary>
             SegmentPalette - 分段调色板
@@ -1472,8 +1491,19 @@
         </member>
         <member name="T:CSharpKit.Palettes.StandardPalette">
             <summary>
-            StandardPalette
+            StandardPalette - 标准调色板
             </summary>
+        </member>
+        <member name="M:CSharpKit.Palettes.StandardPalette.GetColor(System.Double,System.Drawing.Color)">
+            <summary>
+            取得数值对应的颜色
+            </summary>
+            <remarks>
+            如果没有找到则返回默认颜色
+            </remarks>
+            <param name="value">数值</param>
+            <param name="colorDefault">默认颜色</param>
+            <returns>颜色值</returns>
         </member>
         <member name="P:CSharpKit.Target.Id">
             <summary>
@@ -1518,12 +1548,20 @@
             <summary>
             选择图元条目
             </summary>
-            <param name="obj"></param>
+            <param name="vision"></param>
+        </member>
+        <member name="T:CSharpKit.Vision.Mapping.LayerManager">
+            <summary>
+            图层管理
+            </summary>
         </member>
         <member name="P:CSharpKit.Vision.Mapping.LayerManager.Owner">
             <summary>
             拥有者
             </summary>
+            <remarks>
+            一般情况下时Map
+            </remarks>
         </member>
         <member name="P:CSharpKit.Vision.Mapping.LayerManager.PrimiviteLayer">
             <summary>
@@ -1534,6 +1572,9 @@
             <summary>
             当前图层
             </summary>
+            <remarks>
+            操作针对当前图层，比如添加图例时
+            </remarks>
         </member>
         <member name="E:CSharpKit.Vision.Mapping.LayerManager.LayerChanged">
             <summary>
@@ -1542,7 +1583,8 @@
         </member>
         <member name="E:CSharpKit.Vision.Mapping.LayerManager.PrimiviteSelected">
             <summary>
-            选择图元条目(应该移到图层中)
+            选择图元条目
+            TODO:[syc-20171104]应该移到图层中?
             </summary>
         </member>
         <member name="M:CSharpKit.Vision.Mapping.LayerManager.PrimiviteSelectedHandler(CSharpKit.Vision.VisionSelectedEventArgs)">
@@ -1550,6 +1592,20 @@
             选择图元条目事件处理程序
             </summary>
             <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.LayerManager.GetLayer(System.Int32)">
+            <summary>
+            取得指定索引的图层
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.LayerManager.GetLayer(System.String)">
+            <summary>
+            取得指定ID的图层
+            </summary>
+            <param name="uid">图层的唯一ID</param>
+            <returns></returns>
         </member>
         <member name="M:CSharpKit.Vision.Mapping.LayerManager.Render(CSharpKit.Vision.Presentation.IRenderEngine)">
             <summary>

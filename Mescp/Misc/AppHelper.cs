@@ -276,7 +276,7 @@ namespace Mescp
 
         private DataSet _dsHenanClimate = new DataSet("HenanClimate");
         static string ip0 = "10.10.10.100";
-        //static string ip1 = "172.18.152.243";
+        static string ip1 = "172.18.152.243";
         string _DataSourceIP = ip0;
 
         #endregion
@@ -363,6 +363,7 @@ namespace Mescp
                 return;
             }
 
+            //_DataSourceIP = ip1;    //172.18.152.243
             if (!App.Workspace.AppTools.Ping(_DataSourceIP))
             {
                 MessageBox.Show(string.Format("网络: {0} 不畅通\n无法获取监测数据", _DataSourceIP));
@@ -536,8 +537,8 @@ namespace Mescp
         /// <param name="xStations"></param>
         private void FillCountyColor(List<XStation> xStations)
         {
-            double a1 = 4.29;
-            double a2 = 13.26;
+            //double a1 = 4.29;
+            //double a2 = 13.26;
             try
             {
                 IMap map = App.Workspace.MapViewModel.Map;
@@ -550,30 +551,17 @@ namespace Mescp
                 ShapeFile shapeFile = dataInstance as ShapeFile;
 
                 //AxinColortabFile 颜色表文件
-                string s = System.IO.Path.Combine(App.StartupPath, "Palettes\\6822.pal");
+                string s = System.IO.Path.Combine(App.StartupPath, "Palettes\\6822.pal");   //使用索引调色板
                 AxinColortabFile axinColortabFile = new AxinColortabFile(s);
                 IPalette palette = axinColortabFile.Palette;    // 调色板
 
-                foreach(XStation xs in xStations)
+                foreach (XStation xs in xStations)
                 {
                     List<IFeature> features = shapeFile.Features.FindAll(f => f.Id == xs.Id);
                     features.ForEach(p =>
                     {
-                        double f = xs.Fa;    //站点适宜度值
-                        System.Drawing.Color clr = palette.GetColor(f, System.Drawing.Color.Green);
-
-                        clr = System.Drawing.Color.White;
-
-                        int count = palette.Items.Count;
-                        for (int i = 0; i < count; i++)
-                        {
-                            if (f < palette.Items[i].Value)
-                            {
-                                clr = palette.Items[i].Color;
-                                break;
-                            }
-                        }
-
+                        double f = xs.Fae;    //站点适宜度值
+                        System.Drawing.Color clr = palette.GetColor(f, System.Drawing.Color.Black);
                         p.Tag = clr;
                     });
                 }

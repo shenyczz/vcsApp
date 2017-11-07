@@ -1372,10 +1372,9 @@
             <summary>
             计算目标的新位置(包括外界矩形)
             </summary>
-            <param name="mapEngine"></param>
-            <param name="target"></param>
             <param name="xOffset"></param>
             <param name="yOffset"></param>
+            <param name="vision"></param>
         </member>
         <member name="M:CSharpKit.Devices.Input.WfmMouseListener.BuildLegend(CSharpKit.Vision.IVision)">
             <summary>
@@ -1607,9 +1606,17 @@
             图元绘制
             </summary>
         </member>
+        <member name="M:CSharpKit.Vision.Presentation.WfmGeometryVisionRenderer.DrawChildVision(CSharpKit.Vision.Mapping.IMap,CSharpKit.Vision.IGeometryVision)">
+            <summary>
+            图元视觉的绘制是绘制其孩子视觉
+            </summary>
+            <param name="map"></param>
+            <param name="childVision"></param>
+        </member>
         <member name="M:CSharpKit.Vision.Presentation.WfmGeometryVisionRenderer.drawGeometry(CSharpKit.Vision.Mapping.IMap,CSharpKit.Vision.LegendVision)">
             <summary>
             绘制图例
+            TODO:[syc-20171104]一个图层只能添加一次图例（需图例和图层具有相同ID？）
             </summary>
             <param name="map"></param>
             <param name="legendVision"></param>

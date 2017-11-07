@@ -66,7 +66,7 @@ namespace Mescp.Models
         /// </summary>
         public int Fae { get; set; }
 
-        public string FacStrting
+        public string FaeStrting
         {
             get
             {
@@ -184,7 +184,7 @@ namespace Mescp.Models
 
         public override string ToString()
         {
-            return string.Format("{0} {1} {2} {3:f3}", Id, Name, FacStrting, Fa);
+            return string.Format("{0} {1} {2}:{3} {4:f3}", Id, Name, Fae, FaeStrting, Fa);
         }
     }
 

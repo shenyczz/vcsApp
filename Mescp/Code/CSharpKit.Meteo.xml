@@ -115,7 +115,6 @@
             <summary>
             净短波辐射(MJ.m^-2.d^-1)
             </summary>
-            <param name="hos">日照时数(h)</param>
             <param name="lat">纬度(度)</param>
             <param name="dateTime">日期</param>
             <returns>ok</returns>
@@ -280,7 +279,7 @@
             <summary>
             
             </summary>
-            <param name="reckonParam"></param>
+            <param name="reckonParameter"></param>
             <param name="sh">土壤湿度(%)</param>
             <param name="et">潜在蒸散</param>
         </member>
@@ -399,7 +398,7 @@
             计算饱和水汽压-温度曲线斜率(hPa/℃)
             </summary>
             <param name="ea">实际气压(hPa)</param>
-            <param name="tavg">日平均气温(℃)</param>
+            <param name="tmean">日平均气温(℃)</param>
             <returns>ok</returns>
         </member>
         <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.Ph(System.Double)">

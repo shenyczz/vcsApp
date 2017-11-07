@@ -157,8 +157,8 @@ namespace Mescp.ViewModels
 
             try
             {
-                String fileName = System.IO.Path.Combine(App.OutputPath, "30.txt");
-                fileName = System.IO.Path.Combine(App.OutputPath, "301.txt");
+                //String fileName = System.IO.Path.Combine(App.OutputPath, "30.txt");
+                String fileName = System.IO.Path.Combine(App.OutputPath, "301.txt");
                 //String fileName = System.IO.Path.Combine(App.OutputPath, "300.txt");
                 //String fileName = System.IO.Path.Combine(App.OutputPath, "300_9999.txt");
                 IProvider provider = new AxinFileProvider(fileName);
@@ -177,7 +177,7 @@ namespace Mescp.ViewModels
                 };
 
                 map.LayerManager.Add(new Layer("t123", vision));
-                //map.LayerManager.CurrentLayer = null;
+                App.Workspace.PropertyViewModel.VisionProperties = vision.CustomProperties;
             }
             catch { }
 

@@ -298,7 +298,7 @@
             <summary>
             构造函数
             </summary>
-            <param name="customPropertyName"></param>
+            <param name="propertyName"></param>
         </member>
         <member name="T:CSharpKit.ComponentModel.CustomPropertyCollection">
             <summary>
@@ -828,7 +828,7 @@
             <summary>
             Rgb --> Argb
             </summary>
-            <param name="argb"></param>
+            <param name="rgb"></param>
             <returns></returns>
         </member>
         <member name="M:CSharpKit.Rgb.FromString(System.String)">
@@ -947,15 +947,11 @@
             <summary>
             装载
             </summary>
-            <param name="cnnString"></param>
-            <returns></returns>
         </member>
         <member name="M:CSharpKit.Data.IDataProcessor.Save">
             <summary>
             保存
             </summary>
-            <param name="stream"></param>
-            <returns></returns>
         </member>
         <member name="M:CSharpKit.Data.IDataProcessor.SaveAs(System.String)">
             <summary>
@@ -1107,7 +1103,7 @@
             <summary>
             选择图元
             </summary>
-            <param name="obj"></param>
+            <param name="vision"></param>
         </member>
         <member name="P:CSharpKit.Vision.Mapping.ILayerManager.PrimiviteLayer">
             <summary>
@@ -1121,8 +1117,22 @@
         </member>
         <member name="M:CSharpKit.Vision.Mapping.ILayerManager.GetExtent">
             <summary>
-            计算
+            取得所有图层包围盒并集
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.ILayerManager.GetLayer(System.Int32)">
+            <summary>
+            取得指定索引的图层
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.ILayerManager.GetLayer(System.String)">
+            <summary>
+            取得指定ID的图层
+            </summary>
+            <param name="uid">图层的唯一ID</param>
             <returns></returns>
         </member>
         <member name="E:CSharpKit.Vision.Mapping.ILayerManager.LayerChanged">
@@ -2120,12 +2130,10 @@
             有透明色
             </summary>
         </member>
-        <member name="M:CSharpKit.Palettes.IPalette.NumbersOfValidItem">
+        <member name="P:CSharpKit.Palettes.IPalette.ValidItemCount">
             <summary>
             有效条目数量
             </summary>
-            <param name="spv_min"></param>
-            <returns></returns>
         </member>
         <member name="M:CSharpKit.Palettes.IPalette.GetColor(System.Double,System.Drawing.Color)">
             <summary>
@@ -2170,14 +2178,14 @@
             索引调色板
             </summary>
         </member>
-        <member name="F:CSharpKit.Palettes.PaletteType.Rainbow">
-            <summary>
-            彩虹调色板
-            </summary>
-        </member>
         <member name="F:CSharpKit.Palettes.PaletteType.Segment">
             <summary>
             分段调色板
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Palettes.PaletteType.Rainbow">
+            <summary>
+            彩虹调色板
             </summary>
         </member>
         <member name="F:CSharpKit.Palettes.PaletteType.Linear">
