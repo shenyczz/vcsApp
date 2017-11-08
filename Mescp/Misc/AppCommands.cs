@@ -113,30 +113,32 @@ namespace Mescp
 
 
 
-        #region TestCommand
+        #region YearChangedCommand
 
-        private RelayCommand _TestCommand;
-        public ICommand TestCommand
+        private RelayCommand _YearChangedCommand;
+        public ICommand YearChangedCommand
         {
             get
             {
-                if (_TestCommand == null)
+                if (_YearChangedCommand == null)
                 {
-                    _TestCommand = new RelayCommand(p => OnTest(p), p => CanTest(p));
+                    _YearChangedCommand = new RelayCommand(p => OnYearChanged(p), p => CanYearChanged(p));
                 }
 
-                return _TestCommand;
+                return _YearChangedCommand;
             }
         }
 
-        private void OnTest(Object parameter)
+        private void OnYearChanged(Object parameter)
         {
-            //AboutBox aboutBox = new AboutBox(App.Current.MainWindow);
-            //aboutBox.ShowDialog();
-            App.Workspace.AppHelper.Test();
+            RibbonGallery rg = parameter as RibbonGallery;
+            Models.YClass yclass = rg.SelectedItem as YClass;
+            App.Workspace.AppData.Year = int.Parse(yclass.Year);
+
+            Console.WriteLine(App.Workspace.AppData.Year);
         }
 
-        private Boolean CanTest(Object parameter)
+        private Boolean CanYearChanged(Object parameter)
         {
             return true;
         }

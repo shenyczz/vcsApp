@@ -15,15 +15,20 @@
     <p:RibbonGroupErm/>
     <!--2.评价时段管理-->
     <p:RibbonGroupEpm/>
+    
     <!--3.玉米品种管理-->
-    <p:RibbonGroupCvm/>
+    <!--<p:RibbonGroupCvm/>-->
     <!--4.种植布局区划-->
-    <p:RibbonGroupPlz/>
+    <!--<p:RibbonGroupPlz/>-->
     <!--5.生长适宜评价-->
-    <p:RibbonGroupGse/>
+    <!--<p:RibbonGroupGse/>-->
 
     <!--系统-->
     <p:RibbonGroupSys/>
+
+    <!--测试-->
+    <p:RibbonGroupTest/>
+    
     <!--帮助-->
     <p:RibbonGroupHelp/>
 

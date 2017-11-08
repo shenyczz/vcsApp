@@ -8,11 +8,6 @@
         Label="保存图像"
         LargeImageSource="..\Assets\save.png"
         Command="{Binding MapViewModel.SaveImageCommand}"/>
-    
-    <RibbonButton
-        Label="测试"
-        LargeImageSource="..\Assets\LargeIcon.png"
-        Command="{Binding AppCommands.TestCommand}"/>
 
 
 </RibbonGroup>

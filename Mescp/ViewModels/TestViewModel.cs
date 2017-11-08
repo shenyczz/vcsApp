@@ -21,6 +21,7 @@ using Mescp.Models;
 
 namespace Mescp.ViewModels
 {
+    [Obsolete("没有使用",true)]
     public class TestViewModel : ViewModelBase
     {
         public TestViewModel()
@@ -45,8 +46,7 @@ namespace Mescp.ViewModels
 
         private void OnTest(Object parameter)
         {
-            //System.Windows.Controls.Ribbon.RibbonGallery rg = parameter as System.Windows.Controls.Ribbon.RibbonGallery;
-            //Region xs = rg.SelectedItem as Region;
+            //
         }
         private Boolean CanTest(Object parameter)
         {

@@ -1,0 +1,26 @@
+﻿<RibbonGroup
+    x:Class="Mescp.Parts.RibbonGroupTest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Mescp.Parts"
+    Header="Test Group">
+
+    <RibbonControlGroup Margin="5">
+        <StackPanel>
+            <RibbonRadioButton
+                 Margin="5"
+                Label="站点填充"
+                IsChecked="{Binding AppData.IsStation}"/>
+            <RibbonRadioButton
+                 Margin="5"
+                Label="等高线色斑图"
+                IsChecked="{Binding AppData.IsContour}"/>
+        </StackPanel>
+    </RibbonControlGroup>
+
+        <RibbonButton
+            Label="评估测试"
+            LargeImageSource="..\Assets\LargeIcon.png"
+            Command="{Binding TestCommands.TestCommand}"/>
+
+</RibbonGroup>

@@ -67,9 +67,4 @@ namespace Mescp.Models
 
     }
 
-
-    public class MeteoElementCollection : List<MeteoElement>
-    {
-
-    }
 }

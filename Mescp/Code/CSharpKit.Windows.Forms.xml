@@ -1232,27 +1232,25 @@
             <summary>
             选择对象
             </summary>
-            <param name="target"></param>
+            <param name="vision"></param>
         </member>
         <member name="M:CSharpKit.Devices.Input.WfmMouseListener.DeleteTarget(CSharpKit.Vision.IVision)">
             <summary>
             删除对象
             </summary>
-            <param name="target"></param>
+            <param name="vision"></param>
         </member>
         <member name="M:CSharpKit.Devices.Input.WfmMouseListener.HoverTarget(CSharpKit.Vision.IVision)">
             <summary>
             盘旋几何图形对象
             </summary>
-            <param name="mapEngine"></param>
-            <param name="target"></param>
+            <param name="vision"></param>
         </member>
         <member name="M:CSharpKit.Devices.Input.WfmMouseListener.MoveTarget(CSharpKit.Vision.IVision)">
             <summary>
             移动目标
             </summary>
-            <param name="mapEngine"></param>
-            <param name="target"></param>
+            <param name="vision"></param>
         </member>
         <member name="M:CSharpKit.Devices.Input.WfmMouseListener.AddLine">
             <summary>

@@ -1,29 +1,34 @@
 ﻿<RibbonGroup
+    x:Class="Mescp.Parts.RibbonGroupEpm"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Mescp"
-    xmlns:local1="clr-namespace:Mescp.Parts"
-    x:Class="Mescp.Parts.RibbonGroupEpm"
     Header="评价时段">
 
-    <StackPanel Orientation="Horizontal">
-        <StackPanel Margin="5">
+    <Grid>
 
-            <DatePicker x:Name="d1" Margin="0,5,0,0"
-                    SelectedDate="{Binding AppData.DtBeg}"
-                    local:UIEventToCommand.Event="SelectedDateChanged"
-                    local:UIEventToCommand.Command="{Binding}"
-                    />
-            <DatePicker x:Name="d2" Margin="0,5,0,0"
-                    SelectedDate="{Binding AppData.DtEnd}"
-                    />
-        </StackPanel>
-        <StackPanel Margin="5">
-            <TextBox Width="100"
-                     Text="{Binding AppData.Year}"/>
-        </StackPanel>
-    </StackPanel>
+        <TextBox x:Name="_txtYear" Width="20" Visibility="Hidden"/>
 
-    
+        <StackPanel>
+            <RibbonComboBox Margin="0,5,0,0"
+                            Label="年份"
+                            SmallImageSource="{Binding}"
+                            SelectionBoxWidth="80"
+                            IsEditable="False">
+                <RibbonGallery MaxColumnCount="1"
+                               SelectedValue="{Binding ElementName=_txtYear,Path=Text}"
+                               SelectedValuePath="Year"
+                               local:UIEventToCommand.Event="SelectionChanged"
+                               local:UIEventToCommand.Command="{Binding AppCommands.YearChangedCommand}">
+                    <RibbonGalleryCategory
+                        DisplayMemberPath="Year"
+                        ItemsSource="{Binding Path=AppData.Years}"/>
+                </RibbonGallery>
+            </RibbonComboBox>
+        </StackPanel>
+        
+    </Grid>
 
 </RibbonGroup>
+
+<!--DisplayMemberPath="RgnName"-->

@@ -18,7 +18,10 @@ namespace Mescp
     {
         internal AppData()
         {
-            this.Year = DateTime.Now.Year;
+            this._Year = -1;
+            //this.Year = DateTime.Now.Year;
+            IsStation = true;
+            IsContour = !IsStation;
         }
 
         // 配置数据库
@@ -213,7 +216,7 @@ namespace Mescp
 
         #endregion
 
-        #region 评价时段
+        #region 评价时段--已经不使用
 
         #region 评价起始日期
 
@@ -241,9 +244,75 @@ namespace Mescp
 
         #region 评价年份
 
-        public int Year { get; set; }
+        int _Year;
+        public int Year
+        {
+            get
+            {
+                if (_Year < 0)
+                {
+                    _Year = DateTime.Now.Year;
+                }
+                return _Year;
+            }
+            set
+            {
+                _Year = value;
+            }
+        }
+
+        List<YClass> _Years;
+        public List<YClass> Years
+        {
+            get
+            {
+                if (null == _Years)
+                {
+                    _Years = new List<YClass>();
+
+                    int yearCount = 10;
+                    TimeSpan ts = TimeSpan.FromDays(365 * yearCount);
+                    DateTime dtBeg = DateTime.Now - ts;
+                    DateTime dtEnd = DateTime.Now;
+                    for (int i = dtBeg.Year; i <= dtEnd.Year; i++)
+                    {
+                        YClass yc = new YClass();
+                        yc.Year = i.ToString();
+                        _Years.Add(yc);
+                    }
+                }
+                return _Years;
+            }
+        }
+
+        #endregion
+
+        #region 图形显示--是站点填充还是等高线色板图
+
+        public Boolean IsStation { get; set; }
+        public Boolean IsContour { get; set; }
+
+        #endregion
+
+        #region 操作图层ID
+
+        private readonly string _LayerID1 = "a123456789";
+
+        public String LayerID1
+        {
+            get { return _LayerID1; }
+        }
+
+        private readonly string _LayerID2 = "_H_123456789_H_";
+
+        public String LayerID2
+        {
+            get { return _LayerID2; }
+        }
 
         #endregion
 
     }
+
+
 }

@@ -24,6 +24,7 @@ using CSharpKit.Vision.Presentation;
 using CSharpKit.Win32;
 using CSharpKit.Windows.Input;
 using Microsoft.Win32;
+using System.Windows;
 
 namespace Mescp.ViewModels
 {
@@ -35,12 +36,6 @@ namespace Mescp.ViewModels
 
             InitializeMap();
             InitializeMapData();
-        }
-
-        private readonly string _LayerID = "a123456789";
-        public String LayerID
-        {
-            get { return _LayerID; }
         }
 
 
@@ -117,7 +112,7 @@ namespace Mescp.ViewModels
                     Transparency = 0,
                 };
 
-                map.LayerManager.Add(new Layer(_LayerID, vision));
+                map.LayerManager.Add(new Layer(App.Workspace.AppData.LayerID1, vision));
             }
             catch (Exception ex)
             {
@@ -157,9 +152,7 @@ namespace Mescp.ViewModels
 
             try
             {
-                //String fileName = System.IO.Path.Combine(App.OutputPath, "30.txt");
-                String fileName = System.IO.Path.Combine(App.OutputPath, "301.txt");
-                //String fileName = System.IO.Path.Combine(App.OutputPath, "300.txt");
+                String fileName = System.IO.Path.Combine(App.OutputPath, "2010.txt");
                 //String fileName = System.IO.Path.Combine(App.OutputPath, "300_9999.txt");
                 IProvider provider = new AxinFileProvider(fileName);
                 IVision vision = new AxinVision(provider.DataInstance?.DataInfo.Comment)
@@ -176,10 +169,12 @@ namespace Mescp.ViewModels
                     Foreground = System.Drawing.Color.White,
                 };
 
-                map.LayerManager.Add(new Layer("t123", vision));
+                map.LayerManager.Add(new Layer(App.Workspace.AppData.LayerID2, vision));
                 App.Workspace.PropertyViewModel.VisionProperties = vision.CustomProperties;
             }
-            catch { }
+            catch
+            {
+            }
 
             #endregion
 

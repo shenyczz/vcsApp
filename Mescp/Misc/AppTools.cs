@@ -23,5 +23,22 @@ namespace Mescp
 
             return (reply.Status == IPStatus.Success);
         }
+
+        //string strTables = string.Format("[MeteDay{0}]", "2010S");
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="year">评估年份</param>
+        /// <returns></returns>
+        public String ConvertTableName(int year)
+        {
+            string tableName = "";
+            //---------------------------------------------
+            int iCentury = year / 100;              //世纪
+            int iYears = ((year % 100) / 10) * 10;  //年代
+            tableName = string.Format("MeteDay{0}{1:D02}S", iCentury, iYears);
+            //---------------------------------------------
+            return tableName;
+        }
     }
 }

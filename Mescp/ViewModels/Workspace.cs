@@ -19,6 +19,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Mescp.ViewModels;
+using Mescp.Misc;
 
 namespace Mescp.ViewModels
 {
@@ -274,7 +275,6 @@ namespace Mescp.ViewModels
 
         #endregion
 
-        //
         #region PrimiviteViewModel
 
         private PrimiviteViewModel _PrimiviteViewModel;
@@ -287,6 +287,26 @@ namespace Mescp.ViewModels
                     _PrimiviteViewModel = new PrimiviteViewModel();
                 }
                 return _PrimiviteViewModel;
+            }
+        }
+
+        #endregion
+
+
+
+
+        #region TestCommands
+
+        private TestCommands _TestCommands;
+        public TestCommands TestCommands
+        {
+            get
+            {
+                if (_TestCommands == null)
+                {
+                    _TestCommands = new TestCommands();
+                }
+                return _TestCommands;
             }
         }
 

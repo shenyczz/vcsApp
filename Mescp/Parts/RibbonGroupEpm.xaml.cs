@@ -23,6 +23,8 @@ namespace Mescp.Parts
         public RibbonGroupEpm()
         {
             InitializeComponent();
+
+            this._txtYear.Text = DateTime.Now.Year.ToString();
         }
     }
 }
