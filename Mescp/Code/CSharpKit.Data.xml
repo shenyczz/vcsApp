@@ -781,7 +781,7 @@
             <summary>
             语言驱动
             </summary>
-            <param name="dbasecode"></param>
+            <param name="dbaseCode"></param>
             <returns></returns>
         </member>
         <member name="M:CSharpKit.Data.Esri.XBaseFile.GetSchemaTable">

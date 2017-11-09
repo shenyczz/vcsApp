@@ -296,14 +296,14 @@ namespace Mescp
 
         #region 操作图层ID
 
-        private readonly string _LayerID1 = "a123456789";
+        private readonly string _LayerID1 = "_ID1_31BF3856AD36_1DI_";
 
         public String LayerID1
         {
             get { return _LayerID1; }
         }
 
-        private readonly string _LayerID2 = "_H_123456789_H_";
+        private readonly string _LayerID2 = "_ID2_B77A5C561934_2DI_";
 
         public String LayerID2
         {

@@ -29,6 +29,8 @@ namespace Mescp.Views
             //propertyGrid.BackColor = System.Drawing.Color.WhiteSmoke;
             //propertyGrid.CategoryForeColor = System.Drawing.Color.Blue;  // 类别标题的文本颜色
             //propertyGrid.CommandsBackColor = System.Drawing.Color.Red;
+            //propertyGrid.ToolbarVisible = false;
+            propertyGrid.PropertySort = PropertySort.Categorized;
         }
 
         #region Properties

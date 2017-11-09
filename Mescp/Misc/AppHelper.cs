@@ -15,6 +15,7 @@ using CSharpKit.Palettes;
 using CSharpKit.Vision;
 using CSharpKit.Vision.Mapping;
 using Mescp.Models;
+using CSharpKit.Vision.Presentation;
 
 namespace Mescp
 {
@@ -278,7 +279,7 @@ namespace Mescp
 
         static string ip0 = "10.10.10.100";
         static string ip1 = "172.18.152.243";
-        string _DataSourceIP = ip0;
+        string _DataSourceIP = ip1;
 
         private string _OutputFileName;
 
@@ -317,11 +318,15 @@ namespace Mescp
             Prepare();
 
             //清除站点填充
-            this.FillStationColor(_XStations, true);
-            if (App.Workspace.AppData.IsContour)
+            //this.FillStationColor(_XStations, true);
+            //if (App.Workspace.AppData.IsContour)
+            //    return;
+
+            GetData(_DataSourceIP);
+
+            if (_MeteoElements == null || _MeteoElements.Count == 0)
                 return;
 
-            GetMeteoElementCollection(_DataSourceIP);
 
             XStationSetup();
 
@@ -339,21 +344,20 @@ namespace Mescp
         /// </summary>
         private void Prepare()
         {
-            // 1.区域(当前)
+            //1.区域(当前)
             _CurrentRegion = App.Workspace.AppData.CurrentRegion;
-            // 2.作物(当前)
+            //2.作物(当前)
             _CurrentCrop = App.Workspace.AppData.CurrentCrop;
-            // 3.品种(当前)
+            //3.品种(当前)
             _CurrentCropCultivar = App.Workspace.AppData.CurrentCropCultivar;
 
-            // 4.发育期集合(当前品种)
+            //4.发育期集合(当前品种)
             _CropGrwps = (from p in App.Workspace.AppData.CropGrwps
                           where p.CropID == _CurrentCrop.CropID
                           orderby p.GrwpID// descending
-                          select p)
-                                        .ToList();
+                          select p).ToList();
 
-            // 5.工作空间集合(当前区域、当前作物、当前品种)
+            //5.工作空间集合(当前区域、当前作物、当前品种)
             _CropWorkspaces = App.Workspace.AppData.CropWorkspaces.FindAll
                 (
                     p => p.RgnID == _CurrentRegion.RgnID
@@ -361,14 +365,17 @@ namespace Mescp
                       && p.CultivarID == _CurrentCropCultivar.CultivarID
                 );
 
-            // 6.站点集合(当前区域)
-            _XStations = App.Workspace.AppData.XStations.FindAll(p => p.Region.Contains(_CurrentRegion.RgnID));
+            //6.站点集合(当前区域)
+            _XStations = App.Workspace.AppData.XStations.FindAll
+                (
+                    p => p.Region.Contains(_CurrentRegion.RgnID)
+                );
         }
 
         /// <summary>
         /// 取得气象要素集合 => _MeteoElements
         /// </summary>
-        private void GetMeteoElementCollection(string dataSource)
+        private void GetData(string dataSource)
         {
             // 评估年份
             int eYear = App.Workspace.AppData.Year;
@@ -550,12 +557,14 @@ namespace Mescp
                 p.Fae = App.Workspace.AppMethod.Fae(p.Fa, max, min);
             });
 
+#if DEBUG
             //TODO:====================================Test
             XStation[] xa0 = _XStations.FindAll(p => p.Fae == 0).ToArray();     //不适宜
             XStation[] xa1 = _XStations.FindAll(p => p.Fae == 1).ToArray();     //次适宜
             XStation[] xa2 = _XStations.FindAll(p => p.Fae == 2).ToArray();     //适宜
             XStation[] xa3 = _XStations.FindAll(p => p.Fae == -1).ToArray();    //未知
             //=========================================
+#endif
         }
 
         /// <summary>
@@ -565,7 +574,14 @@ namespace Mescp
         {
             // 评估年份
             int eYear = App.Workspace.AppData.Year;
-            _OutputFileName = System.IO.Path.Combine(App.OutputPath, string.Format("{0}.txt", eYear));
+
+            //输出文件名称
+            if (App.Workspace.AppData.IsStation)
+                _OutputFileName = System.IO.Path.Combine(App.OutputPath, string.Format("{0}.txt", eYear));
+
+            if (App.Workspace.AppData.IsContour)
+                _OutputFileName = System.IO.Path.Combine(App.OutputPath, string.Format("{0}_9999.txt", eYear));
+
 
             OutputStationFile(_XStations, _OutputFileName);
         }
@@ -582,6 +598,7 @@ namespace Mescp
             else if (App.Workspace.AppData.IsContour)
             {
                 this.FillStationColor(_XStations, true);     //清除行政区填充
+                this.FillStationContour();
             }
 
         }
@@ -607,7 +624,10 @@ namespace Mescp
                 站点  经度  纬度  海拔  站点级别 要素值1…N  站点名称
              */
 
-            //填充数据
+            // 评估年份
+            int eYear = App.Workspace.AppData.Year;
+
+            //填充数据 StationInfos
             AxinStationFile fileAxinStation = new AxinStationFile();
             xStations.ForEach(p =>
             {
@@ -637,13 +657,13 @@ namespace Mescp
                 axin30di.FileId = AxinConstants.FileLogo;
                 axin30di.FormatCode = AxinConstants.FormatCode_Tin;
                 axin30di.Comment = "永优玉米评估";
-                axin30di.DateTime = DateTime.Now;
+                axin30di.DateTime = new DateTime(eYear, 1, 1);
                 axin30di.TimePeriod = 0;
                 axin30di.Layer = 999;
                 axin30di.ProductCode = 6824;    //使用分段调色板
                 axin30di.ElementCode = 0;       //0：透明背景 1：插值背景
-                axin30di.StationCount = fileAxinStation.StationInfos.Count;
-                axin30di.ElementCount = 2;
+                axin30di.StationCount = fileAxinStation.StationInfos.Count; //站点数量
+                axin30di.ElementCount = 2;      //要素数量
                 axin30di.Flag = 1;              //具有站点名称字段
 
                 //等值线
@@ -652,11 +672,6 @@ namespace Mescp
                 axin30di.ContourInfo.ContourValues[1] = 8.8;
                 axin30di.ContourInfo.ContourValues[2] = 13.3;
                 axin30di.ContourInfo.ContourBoldValue = 0;
-                //axin30di.ContourInfo.ContourNums = 9999;
-                //axin30di.ContourInfo.ContourInterval = 1;
-                //axin30di.ContourInfo.ContourMin = 5;
-                //axin30di.ContourInfo.ContourMax = 35;
-                //axin30di.ContourInfo.ContourBoldValue = 15;
 
                 //剪切区
                 axin30di.ClipArea.Id = 9999;
@@ -664,18 +679,30 @@ namespace Mescp
                 axin30di.ClipArea.XClipMax = 116.66;
                 axin30di.ClipArea.YClipMin = 31.36;
                 axin30di.ClipArea.YClipMax = 36.38;
+
+                if(App.Workspace.AppData.IsContour)
+                {
+                    axin30di.ProductCode = 1;   //自动生成调色板1
+
+                    axin30di.ContourInfo.ContourNums = 9999;
+                    axin30di.ContourInfo.ContourInterval = 1;
+                    axin30di.ContourInfo.ContourMin = 5;
+                    axin30di.ContourInfo.ContourMax = 20;
+                    axin30di.ContourInfo.ContourBoldValue = 0;
+                }
+
             }
 
             fileAxinStation.DataProcessor.SaveAs(fileName);
 
-
-            //MessageBox.Show("ok");
+            //END_OF_FUNCTION
         }
 
         /// <summary>
         /// 填充县级颜色
         /// </summary>
         /// <param name="xStations"></param>
+        /// TODO:根据文件填充
         private void FillStationColor(List<XStation> xStations, Boolean clear)
         {
             //double a1 = 4.3;
@@ -703,7 +730,8 @@ namespace Mescp
                     {
                         double f = xs.Fae;    //站点适宜度值
                         System.Drawing.Color clr = palette.GetColor(f, System.Drawing.Color.Black);
-                        p.Tag = clear ? System.Drawing.Color.Transparent : clr;
+                        p.Tag = clr;
+                        if (clear) p.Tag = null;
                     });
                 }
 
@@ -715,6 +743,47 @@ namespace Mescp
             {
                 throw;
             }
+        }
+
+        /// <summary>
+        /// 等高线填充
+        /// </summary>
+        private void FillStationContour()
+        {
+            IMap map = App.Workspace.MapViewModel.Map;
+            ILayer layer = map.LayerManager.GetLayer(App.Workspace.AppData.LayerID2);
+            if (layer != null)
+            {
+                map.LayerManager.Remove(layer);
+            }
+
+            try
+            {
+                String fileName = _OutputFileName;
+                IProvider provider = new AxinFileProvider(fileName);
+                IVision vision = new AxinVision(provider.DataInstance?.DataInfo.Comment)
+                {
+                    Provider = provider,
+                    Renderer = new WfmAxinVisionRenderer(),
+
+                    IsClip = true,
+                    IsColorContour = true,
+                    IsFillContour = true,
+                    //IsLabelContour = false,
+                    //IsDrawContour = false,
+                    Foreground = System.Drawing.Color.Yellow,
+                };
+
+                map.LayerManager.Add(new Layer(App.Workspace.AppData.LayerID2, vision));
+                App.Workspace.PropertyViewModel.VisionProperties = vision.CustomProperties;
+            }
+            catch (Exception ex)
+            {
+                string errMsg = ex.Message;
+            }
+
+            //End
+
         }
 
 
@@ -755,6 +824,12 @@ namespace Mescp
             int minute = HHMM % 100;
 
             return new DateTime(year, month, day, hour, minute, 0);
+        }
+
+        //生成文件名
+        private void GenerateFileName()
+        {
+
         }
 
         #endregion

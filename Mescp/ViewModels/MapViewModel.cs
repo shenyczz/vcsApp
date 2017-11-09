@@ -152,15 +152,20 @@ namespace Mescp.ViewModels
 
             try
             {
-                String fileName = System.IO.Path.Combine(App.OutputPath, "2010.txt");
-                //String fileName = System.IO.Path.Combine(App.OutputPath, "300_9999.txt");
+                String fileName;
+                fileName = "";
+                //fileName = System.IO.Path.Combine(App.OutputPath, "30_9999.txt");
+                //fileName = System.IO.Path.Combine(App.OutputPath, "40_9999.txt");
+                //fileName = System.IO.Path.Combine(App.OutputPath, "2007.txt");
+                //fileName = System.IO.Path.Combine(App.OutputPath, "2017_9999.txt");
+
                 IProvider provider = new AxinFileProvider(fileName);
                 IVision vision = new AxinVision(provider.DataInstance?.DataInfo.Comment)
                 {
                     Provider = provider,
                     Renderer = new WfmAxinVisionRenderer(),
 
-                    //IsClip = true,
+                    IsClip = true,
                     //IsColorContour = false,
                     IsFillContour = true,
                     //IsLabelContour = false,
@@ -172,8 +177,9 @@ namespace Mescp.ViewModels
                 map.LayerManager.Add(new Layer(App.Workspace.AppData.LayerID2, vision));
                 App.Workspace.PropertyViewModel.VisionProperties = vision.CustomProperties;
             }
-            catch
+            catch(Exception ex)
             {
+                string errMsg = ex.Message;
             }
 
             #endregion
