@@ -13,7 +13,7 @@ namespace Mescp.Models
     {
         public XStation()
         {
-            this.Region = "";
+            this.RegionID = "";
             this.Year = 0;
             this.Fa = -999;
 
@@ -28,6 +28,8 @@ namespace Mescp.Models
 
         #endregion
 
+        public string RegionID { get; set; }
+
         /// <summary>
         /// 发育期
         /// </summary>
@@ -41,20 +43,25 @@ namespace Mescp.Models
         /// </summary>
         public List<MeteoElement> MeteoElements { get; set; }
 
+        /// <summary>
+        /// 评估年份
+        /// </summary>
         public int Year { get; set; }
 
-        public string Region { get; set; }
 
         /// <summary>
         /// 整个发育期适宜度
         /// </summary>
         public Double Fa { get; set; }
 
-        ///// <summary>
-        ///// 所有站点发育期适宜度最大,最小值
-        ///// </summary>
-        //public Double Famax { get; set; }
-        //public Double Famin { get; set; }
+        /// <summary>
+        /// 所有站点发育期适宜度最小值
+        /// </summary>
+        public Double FaMax { get; set; }
+        /// <summary>
+        /// 所有站点发育期适宜度最小值
+        /// </summary>
+        public Double FaMin { get; set; }
 
 
         /// <summary>
@@ -65,7 +72,6 @@ namespace Mescp.Models
         ///  2：适宜
         /// </summary>
         public int Fae { get; set; }
-
         public string FaeStrting
         {
             get
@@ -89,6 +95,9 @@ namespace Mescp.Models
                 return s;
             }
         }
+
+
+
 
 
         public void DoIt()
@@ -157,9 +166,9 @@ namespace Mescp.Models
                     double fg = App.Workspace.AppMethod.Fg(_Fcs);
                     _Fgs.Add(fg);
 
-                    //顺手获取发育阶段适宜度的最大、最小值
-                    fgMax = Math.Max(fgMax, fg);
-                    fgMin = Math.Min(fgMin, fg);
+                    //顺手获取发育阶段适宜度的最大、最小值---使用历年统计值(常量，在配置文件中)
+                    //fgMax = Math.Max(fgMax, fg);
+                    //fgMin = Math.Min(fgMin, fg);
                 }
 
                 // 取得单个发育阶段权重
@@ -171,8 +180,8 @@ namespace Mescp.Models
             // 计算整个发育期适宜度
             if (_Fgs.Count > 0)
             {
-                this.Fa = App.Workspace.AppMethod.Fa(_Fgs, _Gws);
-                this.Fae = App.Workspace.AppMethod.Fae(this.Fa, fgMax, fgMin);
+                this.Fa = App.Workspace.AppMethod.Fa(_Fgs, _Gws);               //整个发育期适宜度
+                this.Fae = App.Workspace.AppMethod.Fae(Fa, FaMax, FaMin);  //整个发育期适宜度评估值
             }
 
             return;

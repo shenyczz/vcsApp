@@ -107,6 +107,8 @@ namespace Mescp
                     RgnID = row["RgnID"].ToString(),
                     RgnCode = row["RgnCode"].ToString(),
                     RgnName = row["RgnName"].ToString(),
+                    Cmin = double.Parse(row["Cmin"].ToString()),
+                    Cmax = double.Parse(row["Cmax"].ToString()),
                 });
             }
         }
@@ -206,6 +208,7 @@ namespace Mescp
             {
                 cropWorkspaces.Add(new CropWorkspace()
                 {
+                    RegionID= row["RegionID"].ToString(),
                     RgnID = row["RgnID"].ToString(),
                     CropID = row["CropID"].ToString(),
                     CultivarID = row["CultivarID"].ToString(),
@@ -243,15 +246,18 @@ namespace Mescp
                         station.Lat = double.Parse(row["Lat"].ToString()) * 0.01;
                         station.Alt = double.Parse(row["Alt"].ToString()) * 0.1;
 
-                        string rgs= row["Region"].ToString();
-                        if (string.IsNullOrEmpty(rgs))
-                        {
-                            station.Region = row["RgnID"].ToString();
-                        }
-                        else
-                        {
-                            station.Region = row["RgnID"].ToString() + "," + row["Region"].ToString();
-                        }
+                        station.RegionID = row["RegionID"].ToString();
+
+                        //string rgs = row["Region"].ToString();
+                        //if (string.IsNullOrEmpty(rgs))
+                        //{
+                        //    station.RegionID = row["RgnID"].ToString();
+                        //}
+                        //else
+                        //{
+                        //    station.RegionID = row["RgnID"].ToString() + "," + row["Region"].ToString();
+                        //}
+
                     }
                     stations.Add(station);
                 }
@@ -279,7 +285,7 @@ namespace Mescp
 
         static string ip0 = "10.10.10.100";
         static string ip1 = "172.18.152.243";
-        string _DataSourceIP = ip1;
+        string _DataSourceIP = ip0;
 
         private string _OutputFileName;
 
@@ -358,9 +364,15 @@ namespace Mescp
                           select p).ToList();
 
             //5.工作空间集合(当前区域、当前作物、当前品种)
+            //_CropWorkspaces = App.Workspace.AppData.CropWorkspaces.FindAll
+            //    (
+            //        p => p.RgnID == _CurrentRegion.RgnID
+            //          && p.CropID == _CurrentCrop.CropID
+            //          && p.CultivarID == _CurrentCropCultivar.CultivarID
+            //    );
             _CropWorkspaces = App.Workspace.AppData.CropWorkspaces.FindAll
                 (
-                    p => p.RgnID == _CurrentRegion.RgnID
+                    p => p.RegionID.Contains(_CurrentRegion.RgnID)
                       && p.CropID == _CurrentCrop.CropID
                       && p.CultivarID == _CurrentCropCultivar.CultivarID
                 );
@@ -368,8 +380,13 @@ namespace Mescp
             //6.站点集合(当前区域)
             _XStations = App.Workspace.AppData.XStations.FindAll
                 (
-                    p => p.Region.Contains(_CurrentRegion.RgnID)
+                    p => p.RegionID.Contains(_CurrentRegion.RgnID)
                 );
+            //_XStations.ForEach(p =>
+            //{
+            //    p.FaMax = _CurrentRegion.Cmax;
+            //    p.FaMin = _CurrentRegion.Cmin;
+            //});
         }
 
         /// <summary>
@@ -520,6 +537,8 @@ namespace Mescp
                 p.Year = eYear;                         //评估年份
                 p.CropGrwps = _CropGrwps;               //作物发育期
                 p.CropWorkspaces = _CropWorkspaces;     //作物工作空间
+                p.FaMax = _CurrentRegion.Cmax;          //发育期适宜度最小值
+                p.FaMin = _CurrentRegion.Cmin;          //发育期适宜度最大值
             });
 
             // 
@@ -539,23 +558,23 @@ namespace Mescp
             }
 
             //取得所有站点发育期适宜度的最大最小值
-            double max, min;
-            max = double.NegativeInfinity;
-            min = double.PositiveInfinity;
-            _XStations.ForEach(p =>
-            {
-                if (p.Fa > 0)
-                {
-                    max = Math.Max(max, p.Fa);
-                    min = Math.Min(min, p.Fa);
-                }
-            });
+            //double max, min;
+            //max = double.NegativeInfinity;
+            //min = double.PositiveInfinity;
+            //_XStations.ForEach(p =>
+            //{
+            //    if (p.Fa > 0)
+            //    {
+            //        max = Math.Max(max, p.Fa);
+            //        min = Math.Min(min, p.Fa);
+            //    }
+            //});
 
             //评估(0.2max+0.8min、0.8max+0.2min) => 0:不适宜、1:次适宜、2:适宜
-            _XStations.ForEach(p =>
-            {
-                p.Fae = App.Workspace.AppMethod.Fae(p.Fa, max, min);
-            });
+            //_XStations.ForEach(p =>
+            //{
+            //    p.Fae = App.Workspace.AppMethod.Fae(p.Fa, max, min);
+            //});
 
 #if DEBUG
             //TODO:====================================Test
@@ -897,7 +916,7 @@ namespace Mescp
                     );
 
                 // 6.站点集合(当前区域)
-                _XStations = App.Workspace.AppData.XStations.FindAll(p => p.Region.Contains(_CurrentRegion.RgnID));
+                _XStations = App.Workspace.AppData.XStations.FindAll(p => p.RegionID.Contains(_CurrentRegion.RgnID));
             }
 
             //清除站点填充

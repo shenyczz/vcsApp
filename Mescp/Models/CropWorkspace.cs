@@ -11,7 +11,13 @@ namespace Mescp.Models
     /// </summary>
     public class CropWorkspace : CropModelBase
     {
-        // 外键
+        /// <summary>
+        /// 区域组合ID
+        /// </summary>
+        public String RegionID { get; set; }
+        /// <summary>
+        /// 区域ID
+        /// </summary>
         public String RgnID { get; set; }
         public String CropID { get; set; }
         public String CultivarID { get; set; }

@@ -14,6 +14,8 @@ namespace Mescp.Models
         public String RgnID { get; set; }
         public String RgnCode { get; set; }
         public String RgnName { get; set; }
+        public Double Cmin { get; set; }
+        public Double Cmax { get; set; }
 
         public override string ToString()
         {

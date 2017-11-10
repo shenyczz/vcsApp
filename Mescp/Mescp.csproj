@@ -233,7 +233,6 @@
     <Compile Include="Views\PropertyView.xaml.cs">
       <DependentUpon>PropertyView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="_Doc\TODO.CS" />
     <Page Include="AboutBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -426,7 +425,7 @@
     <Resource Include="_Doc\AxinFormat.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="_Doc\Mescp_q.txt" />
+    <Resource Include="_Doc\Mescp_question.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="_Doc\Sql.txt" />
@@ -456,7 +455,7 @@
     <Resource Include="_Doc\SqlFields.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="_Doc\temp.txt" />
+    <Resource Include="_Doc\todo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.0\build\net451\System.Data.SQLite.Core.targets')" />
