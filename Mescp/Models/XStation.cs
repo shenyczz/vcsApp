@@ -28,6 +28,9 @@ namespace Mescp.Models
 
         #endregion
 
+        /// <summary>
+        /// 区域综合ID
+        /// </summary>
         public string RegionID { get; set; }
 
         /// <summary>
@@ -55,11 +58,11 @@ namespace Mescp.Models
         public Double Fa { get; set; }
 
         /// <summary>
-        /// 所有站点发育期适宜度最小值
+        /// 所有站点整个育期适宜度最大值
         /// </summary>
         public Double FaMax { get; set; }
         /// <summary>
-        /// 所有站点发育期适宜度最小值
+        /// 所有站点整个发育期适宜度最小值
         /// </summary>
         public Double FaMin { get; set; }
 
@@ -96,6 +99,10 @@ namespace Mescp.Models
             }
         }
 
+        public override string ToString()
+        {
+            return string.Format("{0} {1} {2}:{3} {4:f3}", Id, Name, Fae, FaeStrting, Fa);
+        }
 
 
 
@@ -122,10 +129,6 @@ namespace Mescp.Models
             int year = this.Year;
             int grwpCount = CropGrwps.Count;    //整个发育期发育阶段数量
             TimeSpan timeSpan = TimeSpan.FromDays(1);
-
-            //发育阶段适宜度的最大、最小值
-            double fgMax = double.MinValue;
-            double fgMin = double.MaxValue;
 
             _Fgs.Clear();
             _Gws.Clear();
@@ -165,10 +168,6 @@ namespace Mescp.Models
                 {
                     double fg = App.Workspace.AppMethod.Fg(_Fcs);
                     _Fgs.Add(fg);
-
-                    //顺手获取发育阶段适宜度的最大、最小值---使用历年统计值(常量，在配置文件中)
-                    //fgMax = Math.Max(fgMax, fg);
-                    //fgMin = Math.Min(fgMin, fg);
                 }
 
                 // 取得单个发育阶段权重
@@ -180,8 +179,8 @@ namespace Mescp.Models
             // 计算整个发育期适宜度
             if (_Fgs.Count > 0)
             {
-                this.Fa = App.Workspace.AppMethod.Fa(_Fgs, _Gws);               //整个发育期适宜度
-                this.Fae = App.Workspace.AppMethod.Fae(Fa, FaMax, FaMin);  //整个发育期适宜度评估值
+                this.Fa = App.Workspace.AppMethod.Fa(_Fgs, _Gws);           //整个发育期适宜度
+                this.Fae = App.Workspace.AppMethod.Fae(Fa, FaMax, FaMin);   //整个发育期适宜度评估值
             }
 
             return;
@@ -191,10 +190,6 @@ namespace Mescp.Models
 
 
 
-        public override string ToString()
-        {
-            return string.Format("{0} {1} {2}:{3} {4:f3}", Id, Name, Fae, FaeStrting, Fa);
-        }
     }
 
 

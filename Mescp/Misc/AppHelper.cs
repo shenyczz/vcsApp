@@ -107,8 +107,13 @@ namespace Mescp
                     RgnID = row["RgnID"].ToString(),
                     RgnCode = row["RgnCode"].ToString(),
                     RgnName = row["RgnName"].ToString(),
+                    XClipMin = double.Parse(row["XClipMin"].ToString()),
+                    XClipMax = double.Parse(row["XClipMax"].ToString()),
+                    YClipMin = double.Parse(row["YClipMin"].ToString()),
+                    YClipMax = double.Parse(row["YClipMax"].ToString()),
                     Cmin = double.Parse(row["Cmin"].ToString()),
                     Cmax = double.Parse(row["Cmax"].ToString()),
+                    PalCode = int.Parse(row["PalCode"].ToString()),
                 });
             }
         }
@@ -303,20 +308,7 @@ namespace Mescp
 
         public void Test()
         {
-            //MessageBox.Show("Test");
-
-            //IMap map = App.Workspace.MapViewModel.Map;
-            //ILayer layer = map.LayerManager.Layers.Find(l => l.Id == "t123");
-            //IVision vision = layer.Vision;
-            //App.Workspace.PropertyViewModel.VisionProperties = vision.CustomProperties;
-
-            //App.Workspace.MapViewModel.ClearChecked();
-            //App.Workspace.PrimiviteViewModel.ClearChecked();
-
-            //MessageBox.Show("PingGu");
-
             PingGu();
-
         }
 
         public void PingGu()
@@ -358,18 +350,14 @@ namespace Mescp
             _CurrentCropCultivar = App.Workspace.AppData.CurrentCropCultivar;
 
             //4.发育期集合(当前品种)
+            _CropGrwps?.Clear();
             _CropGrwps = (from p in App.Workspace.AppData.CropGrwps
                           where p.CropID == _CurrentCrop.CropID
                           orderby p.GrwpID// descending
                           select p).ToList();
 
             //5.工作空间集合(当前区域、当前作物、当前品种)
-            //_CropWorkspaces = App.Workspace.AppData.CropWorkspaces.FindAll
-            //    (
-            //        p => p.RgnID == _CurrentRegion.RgnID
-            //          && p.CropID == _CurrentCrop.CropID
-            //          && p.CultivarID == _CurrentCropCultivar.CultivarID
-            //    );
+            _CropWorkspaces?.Clear();
             _CropWorkspaces = App.Workspace.AppData.CropWorkspaces.FindAll
                 (
                     p => p.RegionID.Contains(_CurrentRegion.RgnID)
@@ -378,15 +366,11 @@ namespace Mescp
                 );
 
             //6.站点集合(当前区域)
+            _XStations?.Clear();
             _XStations = App.Workspace.AppData.XStations.FindAll
                 (
                     p => p.RegionID.Contains(_CurrentRegion.RgnID)
                 );
-            //_XStations.ForEach(p =>
-            //{
-            //    p.FaMax = _CurrentRegion.Cmax;
-            //    p.FaMin = _CurrentRegion.Cmin;
-            //});
         }
 
         /// <summary>
@@ -523,6 +507,7 @@ namespace Mescp
             //设置站点气象要素数据
             _XStations.ForEach(p =>
             {
+                p.MeteoElements?.Clear();
                 p.MeteoElements = (from me in _MeteoElements
                                    where me.StationId == p.Id
                                    orderby me.DateTime// descending
@@ -629,22 +614,8 @@ namespace Mescp
         /// <param name="fileName"></param>
         private void OutputStationFile(List<XStation> xStations, string fileName)
         {
-            /*
-                第30类文件 – 离散点数据
-                [文件头]
-                FID  FormatCode  Comment
-                yyyy mm dd HH MM SS MS
-                TimePeriod  Layer  ProductCode  ElementCode
-                TotalNum  ElementNum  Flag
-                CID C1  C2  C3 … Cn  Cb
-                ClipArea  X1 Y1  X2 Y2 … Xn Yn
-
-                [数据]
-                站点  经度  纬度  海拔  站点级别 要素值1…N  站点名称
-             */
-
-            // 评估年份
-            int eYear = App.Workspace.AppData.Year;
+            int eYear = App.Workspace.AppData.Year; //评估年份
+            Region curRegion = _CurrentRegion;      //当前区域
 
             //填充数据 StationInfos
             AxinStationFile fileAxinStation = new AxinStationFile();
@@ -679,36 +650,37 @@ namespace Mescp
                 axin30di.DateTime = new DateTime(eYear, 1, 1);
                 axin30di.TimePeriod = 0;
                 axin30di.Layer = 999;
-                axin30di.ProductCode = 6824;    //使用分段调色板
-                axin30di.ElementCode = 0;       //0：透明背景 1：插值背景
+                //axin30di.ProductCode = 6824;    //使用分段调色板
+                axin30di.ProductCode = curRegion.PalCode;   //使用分段调色板
+                axin30di.ElementCode = 1;                   //0：透明背景 1：插值背景
                 axin30di.StationCount = fileAxinStation.StationInfos.Count; //站点数量
                 axin30di.ElementCount = 2;      //要素数量
                 axin30di.Flag = 1;              //具有站点名称字段
 
                 //等值线
                 axin30di.ContourInfo.ContourNums = 3;
-                axin30di.ContourInfo.ContourValues[0] = 4.3;
-                axin30di.ContourInfo.ContourValues[1] = 8.8;
-                axin30di.ContourInfo.ContourValues[2] = 13.3;
+                axin30di.ContourInfo.ContourValues[0] = double.Parse((0.8 * curRegion.Cmin + 0.2 * curRegion.Cmax).ToString("F1"));
+                axin30di.ContourInfo.ContourValues[1] = double.Parse((0.5 * curRegion.Cmin + 0.5 * curRegion.Cmax).ToString("F1"));
+                axin30di.ContourInfo.ContourValues[2] = double.Parse((0.2 * curRegion.Cmin + 0.8 * curRegion.Cmax).ToString("F1"));
                 axin30di.ContourInfo.ContourBoldValue = 0;
 
                 //剪切区
                 axin30di.ClipArea.Id = 9999;
-                axin30di.ClipArea.XClipMin = 110.33;
-                axin30di.ClipArea.XClipMax = 116.66;
-                axin30di.ClipArea.YClipMin = 31.36;
-                axin30di.ClipArea.YClipMax = 36.38;
+                axin30di.ClipArea.XClipMin = curRegion.XClipMin;
+                axin30di.ClipArea.XClipMax = curRegion.XClipMax;
+                axin30di.ClipArea.YClipMin = curRegion.YClipMin;
+                axin30di.ClipArea.YClipMax = curRegion.YClipMax;
 
-                if(App.Workspace.AppData.IsContour)
-                {
-                    axin30di.ProductCode = 1;   //自动生成调色板1
+                //if(App.Workspace.AppData.IsContour)
+                //{
+                //    axin30di.ProductCode = 1;   //自动生成调色板1
 
-                    axin30di.ContourInfo.ContourNums = 9999;
-                    axin30di.ContourInfo.ContourInterval = 1;
-                    axin30di.ContourInfo.ContourMin = 5;
-                    axin30di.ContourInfo.ContourMax = 20;
-                    axin30di.ContourInfo.ContourBoldValue = 0;
-                }
+                //    axin30di.ContourInfo.ContourNums = 9999;
+                //    axin30di.ContourInfo.ContourInterval = 1;
+                //    axin30di.ContourInfo.ContourMin = 5;
+                //    axin30di.ContourInfo.ContourMax = 20;
+                //    axin30di.ContourInfo.ContourBoldValue = 0;
+                //}
 
             }
 
@@ -721,7 +693,6 @@ namespace Mescp
         /// 填充县级颜色
         /// </summary>
         /// <param name="xStations"></param>
-        /// TODO:根据文件填充
         private void FillStationColor(List<XStation> xStations, Boolean clear)
         {
             //double a1 = 4.3;
@@ -738,7 +709,7 @@ namespace Mescp
                 ShapeFile shapeFile = dataInstance as ShapeFile;
 
                 //AxinColortabFile 颜色表文件
-                string s = System.IO.Path.Combine(App.StartupPath, "Palettes\\6822.pal");   //使用索引调色板
+                string s = System.IO.Path.Combine(App.StartupPath, "Palettes\\6801.pal");   //使用索引调色板
                 AxinColortabFile axinColortabFile = new AxinColortabFile(s);
                 IPalette palette = axinColortabFile.Palette;    // 调色板
 
@@ -785,12 +756,16 @@ namespace Mescp
                     Provider = provider,
                     Renderer = new WfmAxinVisionRenderer(),
 
+                    Transparency = 0,
+
                     IsClip = true,
                     IsColorContour = true,
                     IsFillContour = true,
                     //IsLabelContour = false,
                     //IsDrawContour = false,
+
                     Foreground = System.Drawing.Color.Yellow,
+
                 };
 
                 map.LayerManager.Add(new Layer(App.Workspace.AppData.LayerID2, vision));

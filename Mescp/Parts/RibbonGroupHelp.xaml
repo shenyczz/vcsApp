@@ -6,7 +6,7 @@
 
     <RibbonButton
         Label="关于"
-        LargeImageSource="../Assets/help.ico"
+        LargeImageSource="../Assets/sys_help.png"
         Command="{Binding AppCommands.AboutCommand}"/>
 
 </RibbonGroup>

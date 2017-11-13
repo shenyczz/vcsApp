@@ -19,9 +19,9 @@ namespace Mescp
         internal AppData()
         {
             this._Year = -1;
-            //this.Year = DateTime.Now.Year;
-            IsStation = true;
-            IsContour = !IsStation;
+
+            IsContour = true;
+            IsStation = !IsContour;
         }
 
         // 配置数据库
@@ -287,24 +287,28 @@ namespace Mescp
 
         #endregion
 
-        #region 图形显示--是站点填充还是等高线色板图
+        #region 图形显示--是等高线色斑图还是站点填充图
 
-        public Boolean IsStation { get; set; }
         public Boolean IsContour { get; set; }
+        public Boolean IsStation { get; set; }
 
         #endregion
 
         #region 操作图层ID
 
         private readonly string _LayerID1 = "_ID1_31BF3856AD36_1DI_";
-
+        /// <summary>
+        /// 站点填充图层
+        /// </summary>
         public String LayerID1
         {
             get { return _LayerID1; }
         }
 
         private readonly string _LayerID2 = "_ID2_B77A5C561934_2DI_";
-
+        /// <summary>
+        /// 等高线图层
+        /// </summary>
         public String LayerID2
         {
             get { return _LayerID2; }

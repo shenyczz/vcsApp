@@ -6,7 +6,7 @@
 
     <RibbonButton
         Label="Waiting for CVM"
-        LargeImageSource="../Assets\m.png"
+        LargeImageSource="../Assets/tools.png"
         Command="{Binding}"/>
 
 </RibbonGroup>

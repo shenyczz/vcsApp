@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <RibbonButton
-        SmallImageSource="../Assets/help.ico"
+        SmallImageSource="../Assets/sys_help.png"
         Command="{Binding AppCommands.AboutCommand}"/>
 
 </StackPanel>

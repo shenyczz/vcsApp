@@ -6,7 +6,7 @@
 
     <RibbonButton
         Label="保存图像"
-        LargeImageSource="..\Assets\save.png"
+        LargeImageSource="..\Assets\sys_save.png"
         Command="{Binding MapViewModel.SaveImageCommand}"/>
 
 

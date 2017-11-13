@@ -4,6 +4,21 @@
         <name>CSharpKit</name>
     </assembly>
     <members>
+        <member name="T:CSharpKit.ByteOrder">
+            <summary>
+            字节序
+            </summary>
+        </member>
+        <member name="F:CSharpKit.ByteOrder.BigEndian">
+            <summary>
+            BigEndian
+            </summary>
+        </member>
+        <member name="F:CSharpKit.ByteOrder.LittleEndian">
+            <summary>
+            LittleEndian
+            </summary>
+        </member>
         <member name="T:CSharpKit.ClipArea">
             <summary>
             ClipArea - 剪切区
@@ -2024,7 +2039,7 @@
         </member>
         <member name="T:CSharpKit.Geometrics.IGeometry">
             <summary>
-            IGeometry - 几何图形接口
+            几何图形<c>Geometry</c>接口。
             </summary>
         </member>
         <member name="P:CSharpKit.Geometrics.IGeometry.Extent">
@@ -2641,6 +2656,46 @@
             使控件具有焦点
             </summary>
             <returns></returns>
+        </member>
+        <member name="F:KitAssemblyConsts.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="F:KitAssemblyConsts.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="F:KitAssemblyConsts.Configuration">
+            <summary>
+            配置
+            </summary>
+        </member>
+        <member name="F:KitAssemblyConsts.Company">
+            <summary>
+            公司
+            </summary>
+        </member>
+        <member name="F:KitAssemblyConsts.Product">
+            <summary>
+            产品
+            </summary>
+        </member>
+        <member name="F:KitAssemblyConsts.Copyright">
+            <summary>
+            版权
+            </summary>
+        </member>
+        <member name="F:KitAssemblyConsts.Trademark">
+            <summary>
+            商标
+            </summary>
+        </member>
+        <member name="F:KitAssemblyConsts.Culture">
+            <summary>
+            文化
+            </summary>
         </member>
     </members>
 </doc>

@@ -6,7 +6,7 @@
 
     <RibbonButton
         Label="Waiting for GSE"
-        LargeImageSource="../Assets\m.png"
+        LargeImageSource="../Assets/tools.png"
         Command="{Binding}"/>
 
 </RibbonGroup>

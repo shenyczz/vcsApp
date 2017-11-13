@@ -4,50 +4,39 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Header="地理信息">
 
-    <!--<RibbonToggleButton>
-    </RibbonToggleButton>-->
-
     <RibbonButton
         x:Name="Cancel"
         Label="取消"
-        SmallImageSource="../Assets/Arrow.png"
+        SmallImageSource="../Assets/map_Arrow.png"
         Command="{Binding MapViewModel.CancelCommand}"/>
     <RibbonButton
         x:Name="Home"
         Label="复位"
-        SmallImageSource="../Assets/Home.png"
+        SmallImageSource="../Assets/map_Home.png"
         Command="{Binding MapViewModel.ResetCommand}"/>
     <RibbonButton
         x:Name="Refresh"
         Label="刷新"
-        SmallImageSource="../Assets/Refresh.png"
+        SmallImageSource="../Assets/map_Refresh.png"
         Command="{Binding MapViewModel.RefreshCommand}"/>
     
     <RibbonRadioButton
         x:Name="ZoomIn"
         Label="放大"
-        SmallImageSource="../Assets/ZoomIn.png"
+        SmallImageSource="../Assets/map_ZoomIn.png"
         IsChecked="{Binding MapViewModel.IsChecked_ZoomIn}"
         Command="{Binding MapViewModel.ZoomInCommand}"/>
     <RibbonRadioButton
         x:Name="ZoomOut"
         Label="缩小"
-        SmallImageSource="../Assets/ZoomOut.png"
+        SmallImageSource="../Assets/map_ZoomOut.png"
         IsChecked="{Binding MapViewModel.IsChecked_ZoomOut}"
         Command="{Binding MapViewModel.ZoomOutCommand}"/>
     <RibbonToggleButton
         x:Name="ZoomPan"
         Label="移动"
-        SmallImageSource="../Assets/ZoomPan.png"
+        SmallImageSource="../Assets/map_ZoomPan.png"
         IsChecked="{Binding MapViewModel.IsCheckedZoomPan}"
         Command="{Binding MapViewModel.ZoomPanCommand}"/>
-
-    <!--<RibbonRadioButton
-        x:Name="SelectTarget"
-        Label="选择图形"
-        ToolTip="选择图形"
-        LargeImageSource="../Assets/g13.png"
-        IsChecked="{Binding PrimiviteViewModel.IsCheckedSelectTarget}"
-        Command="{Binding PrimiviteViewModel.SelectTargetCommand}"/>-->
 
 </RibbonGroup>

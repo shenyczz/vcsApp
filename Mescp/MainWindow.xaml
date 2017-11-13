@@ -8,7 +8,7 @@
     xmlns:anchor="http://schemas.csharpkit.com/windows/anchoring/xaml"
     xmlns:p="clr-namespace:Mescp.Parts"
     xmlns:sl="clr-namespace:Mescp.Selectors"
-    Icon="Assets\claw.png"
+    Icon="Assets/sys_claw.png"
     WindowState="Maximized"
     ResizeMode="CanResizeWithGrip"
     Height="350" Width="525"

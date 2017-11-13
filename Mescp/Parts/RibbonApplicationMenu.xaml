@@ -14,7 +14,7 @@
     
     <RibbonApplicationMenuItem
         Header="关于"
-        ImageSource="../Assets/help.ico"
+        ImageSource="../Assets/sys_help.png"
         Command="{Binding AppCommands.AboutCommand}"/>
 
 </RibbonApplicationMenu>

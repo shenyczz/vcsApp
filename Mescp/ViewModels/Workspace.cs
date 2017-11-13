@@ -218,7 +218,7 @@ namespace Mescp.ViewModels
                 {
                     System.Windows.Media.Imaging.BitmapImage bi = new System.Windows.Media.Imaging.BitmapImage();
                     bi.BeginInit();
-                    bi.UriSource = new Uri("pack://application:,,,/Assets/globe.png");
+                    bi.UriSource = new Uri("pack://application:,,,/Assets/map_globe.png");
                     bi.EndInit();
                     _MapViewModel = new MapViewModel()
                     {

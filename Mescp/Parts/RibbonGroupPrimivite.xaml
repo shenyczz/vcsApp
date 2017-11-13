@@ -6,25 +6,25 @@
 
     <RibbonToggleButton
         x:Name="SelectTarget"
-        Label="选择图形"
-        ToolTip="选择图形"
-        LargeImageSource="../Assets/b10.png"
+        Label="选择"
+        ToolTip="选择图元"
+        LargeImageSource="../Assets/prim_select.png"
         IsChecked="{Binding PrimiviteViewModel.IsCheckedSelectTarget}"
         Command="{Binding PrimiviteViewModel.SelectTargetCommand}"/>
 
     <RibbonRadioButton
         x:Name="MoveTarget"
-        Label="移动图元"
+        Label="移动"
         ToolTip="移动图元"
-        LargeImageSource="../Assets/b24.png"
+        LargeImageSource="../Assets/prim_move.png"
         IsChecked="{Binding PrimiviteViewModel.IsCheckedMoveTarget}"
         Command="{Binding PrimiviteViewModel.MoveTargetCommand}"/>
 
     <RibbonRadioButton
         x:Name="DeleteTarget"
-        Label="删除元素"
-        ToolTip="删除图形"
-        LargeImageSource="../Assets/delete.png"
+        Label="删除"
+        ToolTip="删除图元"
+        LargeImageSource="../Assets/prim_delete.png"
         IsChecked="{Binding PrimiviteViewModel.IsCheckedDeleteTarget}"
         Command="{Binding PrimiviteViewModel.DeleteTargetCommand}"/>
 
@@ -32,7 +32,7 @@
         x:Name="DrawLabel"
         Label="添加标注"
         ToolTip="添加标注"
-        LargeImageSource="../Assets/b02.png"
+        LargeImageSource="../Assets/prim_label.png"
         IsChecked="{Binding PrimiviteViewModel.IsCheckedDrawLabel}"
         Command="{Binding PrimiviteViewModel.DrawLabelCommand}"/>
     
@@ -40,7 +40,7 @@
         x:Name="DrawLegend"
         Label="添加图例"
         ToolTip="添加图例"
-        LargeImageSource="../Assets/Tools.png"
+        LargeImageSource="../Assets/prim_legend.png"
         IsChecked="{Binding PrimiviteViewModel.IsCheckedDrawLegend}"
         Command="{Binding PrimiviteViewModel.DrawLegendCommand}"/>
 

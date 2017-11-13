@@ -1143,6 +1143,26 @@
             高度(像素)
             </summary>
         </member>
+        <member name="M:CSharpKit.Geometrics.GeometryBase.CompareTo(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+            <exception cref="!:"></exception>
+        </member>
+        <member name="M:CSharpKit.Geometrics.GeometryBase.CompareTo(CSharpKit.Geometrics.IGeometry)">
+            <summary>
+            
+            </summary>
+            <param name="other">An object to compare with this instance.</param>
+            <returns>
+            A value that indicates the relative order of the objects being compared.
+            [小于0] This instance precedes other in the sort order.
+            [等于0] This instance occurs in the same position in the sort order as other.
+            [大于0] This instance follows other in the sort order.
+            </returns>
+        </member>
         <member name="M:CSharpKit.Geometrics.GeometryBase.Offset(System.Double,System.Double)">
             <summary>
             使图形偏移指定的量
@@ -1187,11 +1207,6 @@
             </summary>
             <param name="dx">X坐标的偏移量</param>
             <param name="dy">Y坐标的偏移量</param>
-        </member>
-        <member name="T:CSharpKit.Geometrics.LegendType">
-            <summary>
-            图例类型 POINT
-            </summary>
         </member>
         <member name="T:CSharpKit.Geometrics.Legend">
             <summary>

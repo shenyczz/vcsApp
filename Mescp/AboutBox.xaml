@@ -5,6 +5,7 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         ShowInTaskbar="False"
+        WindowStyle="ToolWindow"
         Title="关于"
         >
     
@@ -35,7 +36,7 @@
             
             <Border Grid.Row="0" Background="White">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Assets/LargeIcon.png"/>
+                    <Image Source="/Assets/sys_LargeIcon.png"/>
                     <TextBlock
                         Margin="15,0,0,0"
                         Text="永优玉米种植布局和生长气象评价系统"
