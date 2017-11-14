@@ -542,18 +542,18 @@ namespace Mescp
                 throw new Exception("Error in  XStationSetup(...)" + stemp);
             }
 
-            //取得所有站点发育期适宜度的最大最小值
-            //double max, min;
-            //max = double.NegativeInfinity;
-            //min = double.PositiveInfinity;
-            //_XStations.ForEach(p =>
-            //{
-            //    if (p.Fa > 0)
-            //    {
-            //        max = Math.Max(max, p.Fa);
-            //        min = Math.Min(min, p.Fa);
-            //    }
-            //});
+            //取得所有站点发育期适宜度的最大最小值 - 还有用
+            double max, min;
+            max = double.NegativeInfinity;
+            min = double.PositiveInfinity;
+            _XStations.ForEach(p =>
+            {
+                if (p.Fa > 0)
+                {
+                    max = Math.Max(max, p.Fa);
+                    min = Math.Min(min, p.Fa);
+                }
+            });
 
             //评估(0.2max+0.8min、0.8max+0.2min) => 0:不适宜、1:次适宜、2:适宜
             //_XStations.ForEach(p =>

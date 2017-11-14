@@ -215,8 +215,9 @@
     <Compile Include="Misc\UIEventToCommand.cs" />
     <Compile Include="Misc\AppCommands.cs" />
     <Compile Include="Misc\AppData.cs" />
+    <Compile Include="ViewModels\Base\DataGridViewModelBase.cs" />
     <Compile Include="ViewModels\Base\VmMapPrimiviteBase.cs" />
-    <Compile Include="ViewModels\DocumentViewModel.cs" />
+    <Compile Include="ViewModels\Base\DocumentViewModel.cs" />
     <Compile Include="ViewModels\LayerViewModel.cs" />
     <Compile Include="ViewModels\MapViewModel.cs" />
     <Compile Include="ViewModels\Base\PaneViewModel.cs" />

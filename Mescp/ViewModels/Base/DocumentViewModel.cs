@@ -20,8 +20,7 @@ using System.Threading.Tasks;
 
 namespace Mescp.ViewModels
 {
-    public class DocumentViewModel : PaneViewModel
+    public abstract class DocumentViewModel : PaneViewModel
     {
-        protected DocumentViewModel() { }
     }
 }

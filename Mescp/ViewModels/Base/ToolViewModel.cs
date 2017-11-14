@@ -27,7 +27,7 @@ namespace Mescp.ViewModels
             this.IsVisible = true;
         }
 
-        public String Name { get; set; }
+        //public String Name { get; set; }
 
 
         #region IsVisible

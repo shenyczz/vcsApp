@@ -270,7 +270,7 @@ namespace Mescp
                 {
                     _Years = new List<YClass>();
 
-                    int yearCount = 10;
+                    int yearCount = 17;
                     TimeSpan ts = TimeSpan.FromDays(365 * yearCount);
                     DateTime dtBeg = DateTime.Now - ts;
                     DateTime dtEnd = DateTime.Now;

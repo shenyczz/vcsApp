@@ -21,9 +21,8 @@ using System.Windows.Media;
 
 namespace Mescp.ViewModels
 {
-    public class PaneViewModel : ViewModelBase
+    public abstract class PaneViewModel : ViewModelBase
     {
-        protected PaneViewModel() { }
 
         #region Title
 
@@ -125,5 +124,6 @@ namespace Mescp.ViewModels
         }
 
         #endregion
+
     }
 }
