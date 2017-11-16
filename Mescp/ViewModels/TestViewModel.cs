@@ -28,6 +28,24 @@ namespace Mescp.ViewModels
         {
         }
 
+        #region Test
+
+        private Boolean _Test;
+        public Boolean Test
+        {
+            get
+            {
+                return _Test;
+            }
+            set
+            {
+                _Test = value;
+                RaisePropertyChanged("Test");
+            }
+        }
+
+        #endregion
+
         #region TestCommand
 
         private RelayCommand _TestCommand;
@@ -56,23 +74,6 @@ namespace Mescp.ViewModels
         #endregion
 
 
-        #region Test
-
-        private Boolean _Test;
-        public Boolean Test
-        {
-            get
-            {
-                return _Test;
-            }
-            set
-            {
-                _Test = value;
-                RaisePropertyChanged("Test");
-            }
-        }
-
-        #endregion
 
     }
 }

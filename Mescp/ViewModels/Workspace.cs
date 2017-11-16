@@ -32,13 +32,17 @@ namespace Mescp.ViewModels
 
         protected Workspace()
         {
-            this.Tools = new List<ToolViewModel>();
-            this.Documents = new ObservableCollection<DocumentViewModel>();
+            this.Documents = new ObservableCollection<DocumentViewModel>()
+            {
+                this.MapViewModel,
+                this.EvaluateReportViewModel,
+            };
 
-            this.Documents.Add(this.MapViewModel);
-
-            this.Tools.Add(this.PropertyViewModel);
-            //this.Tools.Add(this.LayerViewModel);
+            this.Tools = new List<ToolViewModel>()
+            {
+                //this.LayerViewModel,
+                this.PropertyViewModel,
+            };
 
             _MapHelper = new MapHelper();
         }
@@ -229,6 +233,26 @@ namespace Mescp.ViewModels
                 }
 
                 return _MapViewModel;
+            }
+        }
+
+        #endregion
+
+        #region EvaluateReportViewModel
+
+        private EvaluReportViewModel _EvaluaReportViewModel;
+        public EvaluReportViewModel EvaluateReportViewModel
+        {
+            get
+            {
+                if (_EvaluaReportViewModel == null)
+                {
+                    _EvaluaReportViewModel = new EvaluReportViewModel()
+                    {
+                        Title = "评估报告",
+                    };
+                }
+                return _EvaluaReportViewModel;
             }
         }
 

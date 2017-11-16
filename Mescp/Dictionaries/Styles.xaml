@@ -5,10 +5,20 @@
     >
     
     <Style x:Key="SA">
-        
     </Style>
-    
-    <!--地图 Style-->
+
+    <!--Style 停靠工具栏-->
+    <Style x:Key="ToolViewStyle" TargetType="{x:Type anchor:LayoutAnchorableItem}">
+        <Setter Property="Title" Value="{Binding Model.Title}"/>
+        <Setter Property="ToolTip" Value="{Binding Model.ToolTip}"/>
+        <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
+        <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
+        <Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}"/>
+        <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}"/>
+        <Setter Property="Visibility" Value="{Binding Model.IsVisible, Mode=TwoWay, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter={x:Static Visibility.Hidden}}"/>
+    </Style>
+
+    <!--Style 地图-->
     <Style x:Key="MapViewStyle" TargetType="{x:Type anchor:LayoutItem}">
         <Setter Property="Title" Value="{Binding Model.Title}"/>
         <Setter Property="ToolTip" Value="{Binding Model.ToolTip}"/>
@@ -18,16 +28,16 @@
         <Setter Property="CanClose" Value="False"/>
         <Setter Property="CanFloat" Value="False"/>
     </Style>
-    
-    <!--停靠工具栏 Style-->
-    <Style x:Key="ToolViewStyle" TargetType="{x:Type anchor:LayoutAnchorableItem}">
+
+    <!--Style 评估-->
+    <Style x:Key="style_EvaluateReportView" TargetType="{x:Type anchor:LayoutItem}">
         <Setter Property="Title" Value="{Binding Model.Title}"/>
         <Setter Property="ToolTip" Value="{Binding Model.ToolTip}"/>
         <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
         <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
-        <Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}"/>
         <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}"/>
-        <Setter Property="Visibility" Value="{Binding Model.IsVisible, Mode=TwoWay, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter={x:Static Visibility.Hidden}}"/>
+        <Setter Property="CanClose" Value="true"/>
+        <Setter Property="CanFloat" Value="False"/>
     </Style>
 
 </ResourceDictionary>

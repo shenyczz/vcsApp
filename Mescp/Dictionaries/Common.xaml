@@ -2,13 +2,15 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cvt="clr-namespace:CSharpKit.Windows.Converters;assembly=CSharpKit.Windows"
-    xmlns:cvtLocal="clr-namespace:Mescp.Converters"
+    xmlns:localcvt="clr-namespace:Mescp.Converters"
     >
 
     <!--Converters-->
     <cvt:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-    <cvtLocal:ActiveDocumentConverter x:Key="ActiveDocumentConverter"/>
-    
+    <localcvt:ActiveDocumentConverter x:Key="ActiveDocumentConverter"/>
+    <localcvt:SuitabilityConverter x:Key="SuitabilityConverter"/>
+    <localcvt:SuitabilityColorConverter x:Key="SuitabilityColorConverter"/>
+
     <!--<Brushes-->
     <SolidColorBrush x:Key="AppBackGround" Color="White"/>
 

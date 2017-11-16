@@ -142,6 +142,7 @@
     <Compile Include="AboutBox.xaml.cs">
       <DependentUpon>AboutBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\SuitabilityColorConverter.cs" />
     <Compile Include="CSharpKit.Meteo.Agriculture\Evapotranspiration_t.cs" />
     <Compile Include="Misc\AppHelper.cs" />
     <Compile Include="Misc\AppMethod.cs" />
@@ -150,6 +151,7 @@
     <Compile Include="Converters\ActiveDocumentConverter.cs" />
     <Compile Include="Misc\LayoutInitializer.cs" />
     <Compile Include="Misc\MapHelper.cs" />
+    <Compile Include="Converters\SuitabilityConverter.cs" />
     <Compile Include="Misc\TestCommands.cs" />
     <Compile Include="Models\Crop.cs" />
     <Compile Include="Models\CropCultivar.cs" />
@@ -157,6 +159,7 @@
     <Compile Include="Models\CropWorkspace.cs" />
     <Compile Include="Models\MeteoElement.cs" />
     <Compile Include="Models\Region.cs" />
+    <Compile Include="Models\Suitability.cs" />
     <Compile Include="Models\XStation.cs" />
     <Compile Include="Models\YClass.cs" />
     <Compile Include="Parts\CRibbon.xaml.cs">
@@ -218,6 +221,7 @@
     <Compile Include="ViewModels\Base\DataGridViewModelBase.cs" />
     <Compile Include="ViewModels\Base\VmMapPrimiviteBase.cs" />
     <Compile Include="ViewModels\Base\DocumentViewModel.cs" />
+    <Compile Include="ViewModels\EvaluReportViewModel.cs" />
     <Compile Include="ViewModels\LayerViewModel.cs" />
     <Compile Include="ViewModels\MapViewModel.cs" />
     <Compile Include="ViewModels\Base\PaneViewModel.cs" />
@@ -227,12 +231,18 @@
     <Compile Include="ViewModels\Base\ToolViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
     <Compile Include="ViewModels\Workspace.cs" />
+    <Compile Include="Views\EvaluateReportView.xaml.cs">
+      <DependentUpon>EvaluateReportView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MapView.xaml.cs">
       <DependentUpon>MapView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\CropModelBase.cs" />
     <Compile Include="Views\PropertyView.xaml.cs">
       <DependentUpon>PropertyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="AboutBox.xaml">
       <SubType>Designer</SubType>
@@ -330,11 +340,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\EvaluateReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MapView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PropertyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -461,6 +479,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\sys_LargeIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="_Doc\mvvm.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.0\build\net451\System.Data.SQLite.Core.targets')" />

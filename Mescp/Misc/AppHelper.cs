@@ -770,6 +770,7 @@ namespace Mescp
 
                 map.LayerManager.Add(new Layer(App.Workspace.AppData.LayerID2, vision));
                 App.Workspace.PropertyViewModel.VisionProperties = vision.CustomProperties;
+                App.Workspace.EvaluateReportViewModel.StationInfos = (provider.DataInstance as AxinStationFile).StationInfos;
             }
             catch (Exception ex)
             {

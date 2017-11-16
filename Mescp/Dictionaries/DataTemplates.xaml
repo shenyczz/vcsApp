@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:v="clr-namespace:Mescp.Views"
     >
-    
-    <!--文档窗口 Header 头模板-->
+
+    <!--DataTemplate 文档窗口Header模板-->
     <DataTemplate x:Key="DocumentHeaderTemplate">
         <StackPanel Orientation="Horizontal">
             <Image Source="{Binding IconSource}" Margin="0,0,3,0" Width="18" Height="18"/>
@@ -12,7 +12,7 @@
         </StackPanel>
     </DataTemplate>
 
-    <!--工具窗口 Header 模板-->
+    <!--DataTemplate 工具窗口Header模板-->
     <DataTemplate x:Key="ToolViewHeaderTemplate">
         <StackPanel Orientation="Horizontal">
             <Image Source="{Binding IconSource}" Margin="0,0,3,0" Width="18" Height="18"/>
@@ -20,17 +20,24 @@
         </StackPanel>
     </DataTemplate>
 
-    <!--地图视图 DataTemplate-->
+    <!--DataTemplate 地图视图-->
     <DataTemplate x:Key="MapViewDataTemplate">
         <v:MapView Map="{Binding Map,Mode=OneTime}" Background="White"/>
     </DataTemplate>
 
-    <!--图层视图 DataTemplate-->
+    <!--DataTemplate 评估报告-->
+    <DataTemplate x:Key="DT_EvaluReportView">
+        <v:EvaluateReportView/>
+    </DataTemplate>
+    
+    
+    
+    <!--DataTemplate 图层视图-->
     <DataTemplate x:Key="LayerViewDataTemplate">
-        <TextBlock>fkfkfkfkfkfk</TextBlock>
+        <TextBlock>LayerViewDataTemplate</TextBlock>
     </DataTemplate>
 
-    <!--属性视图 DataTemplate-->
+    <!--DataTemplate 属性视图-->
     <DataTemplate x:Key="PropertyViewDataTemplate">
         <!--依赖属性 Properties 绑定到 ViewModel的VisionProperties属性-->
         <v:PropertyView Properties="{Binding VisionProperties}"/>

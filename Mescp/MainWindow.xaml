@@ -53,17 +53,19 @@
             <anchor:DockingManager.LayoutItemTemplateSelector>
                 <sl:PaneDataTemplateSelector
                     MapDataTemplate="{StaticResource MapViewDataTemplate}"
+                    EvaluReportDataTemplate="{StaticResource DT_EvaluReportView}"
                     LayerDataTemplate="{StaticResource LayerViewDataTemplate}"
                     PropertyDataTemplate="{StaticResource PropertyViewDataTemplate}"
-                    ></sl:PaneDataTemplateSelector>
+                    />
             </anchor:DockingManager.LayoutItemTemplateSelector>
 
             <!--布局项目容器 Style 选择器-->
             <anchor:DockingManager.LayoutItemContainerStyleSelector>
                 <sl:PaneStyleSelector
                     MapViewStyle="{StaticResource MapViewStyle}"
+                    EvaluReportViewStyle="{StaticResource style_EvaluateReportView}"
                     ToolViewStyle="{StaticResource ToolViewStyle}"
-                    ></sl:PaneStyleSelector>
+                    />
             </anchor:DockingManager.LayoutItemContainerStyleSelector>
 
             <!--布局更新策略-->

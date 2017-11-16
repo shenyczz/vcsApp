@@ -45,6 +45,8 @@ namespace Mescp.Selectors
         /// </summary>
         public DataTemplate MapDataTemplate { get; set; }
 
+        public DataTemplate EvaluReportDataTemplate { get; set; }
+
         /// <summary>
         /// 图层数据模板
         /// </summary>
@@ -55,10 +57,13 @@ namespace Mescp.Selectors
         /// </summary>
         public DataTemplate PropertyDataTemplate { get; set; }
 
-        public override System.Windows.DataTemplate SelectTemplate(object item, DependencyObject container)
+        public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
             if (item is MapViewModel)
                 return MapDataTemplate;
+
+            if (item is EvaluReportViewModel)
+                return EvaluReportDataTemplate;
 
             if (item is LayerViewModel)
                 return LayerDataTemplate;

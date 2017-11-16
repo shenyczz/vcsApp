@@ -1,0 +1,8 @@
+﻿
+1.DataTemplate			- 数据模板
+2.Style					- 样式
+3.Model					- 模块(M)
+4.View					- 试图(V)
+5.ViewModel				-     (VM)
+6.DataTemplateSelector	- 数据模板选择器
+7.StyleSelector			- 样式选择器
