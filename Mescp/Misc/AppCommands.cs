@@ -49,37 +49,6 @@ namespace Mescp
         #endregion
 
 
-        #region CultivarChangedCommand
-
-        private RelayCommand _CultivarChangedCommand;
-        public ICommand CultivarChangedCommand
-        {
-            get
-            {
-                if (_CultivarChangedCommand == null)
-                {
-                    _CultivarChangedCommand = new RelayCommand(p => OnCultivarChanged(p), p => CanCultivarChanged(p));
-                }
-
-                return _CultivarChangedCommand;
-            }
-        }
-
-        void OnCultivarChanged(Object parameter)
-        {
-            RibbonGallery rg = parameter as RibbonGallery;
-            CropCultivar cropCultivar = rg.SelectedItem as CropCultivar;
-            App.Workspace.AppData.CurrentCropCultivar = cropCultivar;
-        }
-
-        private Boolean CanCultivarChanged(Object parameter)
-        {
-            return true;
-        }
-
-        #endregion
-
-
         #region RegionChangedCommand
 
         private RelayCommand _RegionChangedCommand;
@@ -111,7 +80,35 @@ namespace Mescp
 
         #endregion
 
+        #region CultivarChangedCommand
 
+        private RelayCommand _CultivarChangedCommand;
+        public ICommand CultivarChangedCommand
+        {
+            get
+            {
+                if (_CultivarChangedCommand == null)
+                {
+                    _CultivarChangedCommand = new RelayCommand(p => OnCultivarChanged(p), p => CanCultivarChanged(p));
+                }
+
+                return _CultivarChangedCommand;
+            }
+        }
+
+        void OnCultivarChanged(Object parameter)
+        {
+            RibbonGallery rg = parameter as RibbonGallery;
+            CropCultivar cropCultivar = rg.SelectedItem as CropCultivar;
+            App.Workspace.AppData.CurrentCropCultivar = cropCultivar;
+        }
+
+        private Boolean CanCultivarChanged(Object parameter)
+        {
+            return true;
+        }
+
+        #endregion
 
         #region YearChangedCommand
 
@@ -145,9 +142,59 @@ namespace Mescp
 
         #endregion
 
+        #region EvaluateCommand
 
+        private RelayCommand _EvaluateCommand;
+        public ICommand EvaluateCommand
+        {
+            get
+            {
+                if (_EvaluateCommand == null)
+                {
+                    _EvaluateCommand = new RelayCommand(p => OnEvaluate(p), p => CanEvaluate(p));
+                }
 
+                return _EvaluateCommand;
+            }
+        }
 
+        private void OnEvaluate(Object parameter)
+        {
+            App.Workspace.EvaluReportViewModel.Evaluate();
+        }
+        private Boolean CanEvaluate(Object parameter)
+        {
+            return true;
+        }
+
+        #endregion
+
+        #region TestCommand
+
+        private RelayCommand _TestCommand;
+        public ICommand TestCommand
+        {
+            get
+            {
+                if (_TestCommand == null)
+                {
+                    _TestCommand = new RelayCommand(p => OnTest(p), p => CanTest(p));
+                }
+
+                return _TestCommand;
+            }
+        }
+
+        private void OnTest(Object parameter)
+        {
+            App.Workspace.AppHelper.Test();
+        }
+        private Boolean CanTest(Object parameter)
+        {
+            return true;
+        }
+
+        #endregion
 
 
     }

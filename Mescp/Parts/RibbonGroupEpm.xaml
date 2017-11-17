@@ -25,6 +25,7 @@
                         ItemsSource="{Binding Path=AppData.Years}"/>
                 </RibbonGallery>
             </RibbonComboBox>
+            
         </StackPanel>
         
     </Grid>

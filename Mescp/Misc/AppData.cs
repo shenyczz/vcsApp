@@ -20,8 +20,8 @@ namespace Mescp
         {
             this._Year = -1;
 
-            IsContour = true;
-            IsStation = !IsContour;
+            _IsContour = true;
+            _IsStation = !IsContour;
         }
 
         // 配置数据库
@@ -289,8 +289,27 @@ namespace Mescp
 
         #region 图形显示--是等高线色斑图还是站点填充图
 
-        public Boolean IsContour { get; set; }
-        public Boolean IsStation { get; set; }
+        Boolean _IsContour;
+        public Boolean IsContour
+        {
+            get { return _IsContour; }
+            set
+            {
+                _IsContour = value;
+                App.Workspace.MapViewModel.Presentation();  //数据呈现
+            }
+        }
+
+        Boolean _IsStation;
+        public Boolean IsStation
+        {
+            get { return _IsStation; }
+            set
+            {
+                _IsStation = value;
+                App.Workspace.MapViewModel.Presentation();  //数据呈现
+            }
+        }
 
         #endregion
 
@@ -315,6 +334,48 @@ namespace Mescp
         }
 
         #endregion
+
+
+
+        #region 远程数据库
+
+        static string ip0 = "10.10.10.100";
+        static string ip1 = "172.18.152.243";
+
+        string _RemoteDataSource = ip0;
+        string _RemoteInitialCatalog = "HenanClimate";
+        string _RemoteUserID = "nqzx";
+        string _RemotePassword = "KyCen5946";
+
+        public String RemoteDataSource
+        {
+            get
+            {
+                return _RemoteDataSource;
+            }
+        }
+
+        public String RemoteConnectionString
+        {
+            get
+            {
+                string cnnString = string.Format(@"Data Source={0}; Initial Catalog={1}; User ID={2}; Password={3};",
+                                                  RemoteDataSource,         //[0]Data Source
+                                                  _RemoteInitialCatalog,    //[1]Initial Catalog
+                                                  _RemoteUserID,            //[2]User ID
+                                                  _RemotePassword);         //[3]Password
+                return cnnString;
+            }
+        }
+
+        /// <summary>
+        /// SQL语句CommandText
+        /// </summary>
+        //public String RemoteCommandText { get; set; }
+
+        #endregion
+
+
 
     }
 

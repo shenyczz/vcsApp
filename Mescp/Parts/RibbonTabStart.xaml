@@ -21,7 +21,7 @@
     <!--4.种植布局区划-->
     <!--<p:RibbonGroupPlz/>-->
     <!--5.生长适宜评价-->
-    <!--<p:RibbonGroupGse/>-->
+    <p:RibbonGroupGse/>
 
     <!--系统-->
     <p:RibbonGroupSys/>

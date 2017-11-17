@@ -4,9 +4,21 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Header="生长适宜评价">
 
+        <StackPanel>
+            <RibbonRadioButton
+                Margin="5"
+                Label="色斑图"
+                IsChecked="{Binding AppData.IsContour}"/>
+            <RibbonRadioButton
+                Margin="5"
+                Label="站点填充图"
+                IsChecked="{Binding AppData.IsStation}"/>
+        </StackPanel>
+
     <RibbonButton
-        Label="Waiting for GSE"
-        LargeImageSource="../Assets/tools.png"
-        Command="{Binding}"/>
+            Margin="5"
+            Label="评估测试"
+            LargeImageSource="..\Assets\LargeIcon.png"
+            Command="{Binding AppCommands.EvaluateCommand}"/>
 
 </RibbonGroup>

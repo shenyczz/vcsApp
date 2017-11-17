@@ -20,22 +20,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Mescp.ViewModels;
 using Mescp.Misc;
+using CSharpKit.Windows.Input;
+using System.Windows.Input;
 
 namespace Mescp.ViewModels
 {
     public class Workspace : ViewModelBase
     {
-        static Workspace()
-        {
-            _Instance = new Workspace();
-        }
-
         protected Workspace()
         {
             this.Documents = new ObservableCollection<DocumentViewModel>()
             {
                 this.MapViewModel,
-                this.EvaluateReportViewModel,
+                //this.EvaluReportViewModel,
             };
 
             this.Tools = new List<ToolViewModel>()
@@ -43,19 +40,67 @@ namespace Mescp.ViewModels
                 //this.LayerViewModel,
                 this.PropertyViewModel,
             };
-
-            _MapHelper = new MapHelper();
         }
+
 
         #region Instance
 
         private static Workspace _Instance;
         public static Workspace Instance
         {
-            get { return _Instance; }
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new Workspace();
+                }
+                return _Instance;
+            }
         }
 
         #endregion
+
+        
+
+        #region Documents
+
+        public ObservableCollection<DocumentViewModel> Documents { get; private set; }
+
+        #endregion
+
+        #region Tools
+
+        public List<ToolViewModel> Tools
+        { get; private set; }
+
+        #endregion
+
+        #region ActiveDocument
+
+        private DocumentViewModel _ActiveDocument;
+        public DocumentViewModel ActiveDocument
+        {
+            get { return _ActiveDocument; }
+            set
+            {
+                if (_ActiveDocument != value)
+                {
+                    _ActiveDocument = value;
+                    RaisePropertyChanged("ActiveDocument");
+
+                    OnActiveDocumentChanged(_ActiveDocument);
+                }
+            }
+        }
+        protected void OnActiveDocumentChanged(object sender)
+        {
+            Console.WriteLine(this.ActiveDocument.ToString());
+            MapViewModel.IsMapViewModel = this.ActiveDocument is MapViewModel;
+        }
+
+        #endregion
+
+
 
         #region AppCommands
 
@@ -111,24 +156,6 @@ namespace Mescp.ViewModels
 
         #endregion
 
-        #region AppMethod
-
-        AppMethod _AppMethod;
-        public AppMethod AppMethod
-        {
-            get
-            {
-                if (_AppMethod == null)
-                {
-                    _AppMethod = new AppMethod();
-                }
-
-                return _AppMethod;
-            }
-        }
-
-        #endregion
-
         #region AppTools
 
         AppTools _AppTools;
@@ -147,68 +174,42 @@ namespace Mescp.ViewModels
 
         #endregion
 
-        #region MapHelper
+        #region BusinessMethords
 
-        private MapHelper _MapHelper;
-        public MapHelper MapHelper
+        BusinessMethords _BusinessMethords;
+        public BusinessMethords BusinessMethords
         {
             get
             {
-                if (_MapHelper == null)
+                if (_BusinessMethords == null)
                 {
-                    _MapHelper = new MapHelper();
+                    _BusinessMethords = new BusinessMethords();
                 }
 
-                return _MapHelper;
+                return _BusinessMethords;
             }
         }
 
         #endregion
 
+        #region MapHelper
 
-        #region Documents
+        //private MapHelper _MapHelper;
+        //public MapHelper MapHelper
+        //{
+        //    get
+        //    {
+        //        if (_MapHelper == null)
+        //        {
+        //            _MapHelper = new MapHelper();
+        //        }
 
-        public ObservableCollection<DocumentViewModel> Documents { get; private set; }
-
-        #endregion
-
-        #region Tools
-
-        public List<ToolViewModel> Tools
-        { get; private set; }
-
-        #endregion
-
-
-        #region ActiveDocument
-
-        private DocumentViewModel _ActiveDocument;
-        public DocumentViewModel ActiveDocument
-        {
-            get { return _ActiveDocument; }
-            set
-            {
-                if (_ActiveDocument != value)
-                {
-                    _ActiveDocument = value;
-                    RaisePropertyChanged("ActiveDocument");
-
-                    if (ActiveDocumentChanged != null)
-                    {
-                        ActiveDocumentChanged(this, EventArgs.Empty);
-                    }
-                }
-            }
-        }
-
-        public event EventHandler ActiveDocumentChanged;
-        private void OnActiveDocumentChanged(object sender, EventArgs e)
-        {
-            Console.WriteLine(this.ActiveDocument.ToString());
-            MapViewModel.IsMapViewModel = this.ActiveDocument is MapViewModel;
-        }
+        //        return _MapHelper;
+        //    }
+        //}
 
         #endregion
+
 
 
         #region MapViewModel
@@ -240,19 +241,19 @@ namespace Mescp.ViewModels
 
         #region EvaluateReportViewModel
 
-        private EvaluReportViewModel _EvaluaReportViewModel;
-        public EvaluReportViewModel EvaluateReportViewModel
+        private EvaluReportViewModel _EvaluReportViewModel;
+        public EvaluReportViewModel EvaluReportViewModel
         {
             get
             {
-                if (_EvaluaReportViewModel == null)
+                if (_EvaluReportViewModel == null)
                 {
-                    _EvaluaReportViewModel = new EvaluReportViewModel()
+                    _EvaluReportViewModel = new EvaluReportViewModel()
                     {
                         Title = "评估报告",
                     };
                 }
-                return _EvaluaReportViewModel;
+                return _EvaluReportViewModel;
             }
         }
 
@@ -318,20 +319,17 @@ namespace Mescp.ViewModels
 
 
 
+        #region Public Functions
 
-        #region TestCommands
-
-        private TestCommands _TestCommands;
-        public TestCommands TestCommands
+        public void Close(DocumentViewModel vm)
         {
-            get
-            {
-                if (_TestCommands == null)
-                {
-                    _TestCommands = new TestCommands();
-                }
-                return _TestCommands;
-            }
+            this.Documents.Remove(vm);
+        }
+
+        public void ChangeFilePath(string filePath)
+        {
+            App.Workspace.MapViewModel.FilePath = filePath;
+            App.Workspace.EvaluReportViewModel.FilePath = filePath;
         }
 
         #endregion

@@ -29,15 +29,15 @@
         <Setter Property="CanFloat" Value="False"/>
     </Style>
 
-    <!--Style 评估-->
-    <Style x:Key="style_EvaluateReportView" TargetType="{x:Type anchor:LayoutItem}">
+    <!--Style 数据表格-->
+    <Style x:Key="DataGridViewStyle" TargetType="{x:Type anchor:LayoutItem}">
         <Setter Property="Title" Value="{Binding Model.Title}"/>
         <Setter Property="ToolTip" Value="{Binding Model.ToolTip}"/>
         <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
         <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
-        <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}"/>
         <Setter Property="CanClose" Value="true"/>
         <Setter Property="CanFloat" Value="False"/>
+        <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}"/>
     </Style>
 
 </ResourceDictionary>

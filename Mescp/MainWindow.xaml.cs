@@ -19,10 +19,15 @@ namespace Mescp
             //DirectoryInfo di = fi.Directory;
             //string fn = di.FullName;
 
-            App.Workspace = Workspace.Instance;
-            this.DataContext = Workspace.Instance;
-
+            this.DataContext = App.Workspace;
             Console.WriteLine("MainWindow()");
+
+            //_fillColor = (Color)feature.Tag;
+            System.Drawing.Color c = (System.Drawing.Color)System.Drawing.Color.Transparent;
+#pragma warning disable CS0183 // "is" 表达式的给定表达式始终是所提供的类型
+            bool b = c is System.Drawing.Color;
+#pragma warning restore CS0183 // "is" 表达式的给定表达式始终是所提供的类型
+
         }
 
     }

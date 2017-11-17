@@ -26,7 +26,7 @@ namespace Mescp.Selectors
     public class PaneStyleSelector : StyleSelector
     {
         public Style MapViewStyle { get; set; }
-        public Style EvaluReportViewStyle { get; set; }
+        public Style DataGridViewStyle { get; set; }
         public Style ToolViewStyle { get; set; }
 
         public override Style SelectStyle(object item, DependencyObject container)
@@ -34,8 +34,8 @@ namespace Mescp.Selectors
             if (item is MapViewModel)
                 return MapViewStyle;
 
-            if (item is EvaluReportViewModel)
-                return EvaluReportViewStyle;
+            if (item is DataGridViewModelBase)
+                return DataGridViewStyle;
 
             if (item is ToolViewModel)
                 return ToolViewStyle;

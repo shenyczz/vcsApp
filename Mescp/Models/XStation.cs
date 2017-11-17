@@ -16,8 +16,9 @@ namespace Mescp.Models
             this.RegionID = "";
             this.Year = 0;
             this.Fa = -999;
-
             this.Fae = -1;
+            this.FaMax = 0;
+            this.FaMin = 0;
         }
 
         #region Private Fields
@@ -56,6 +57,7 @@ namespace Mescp.Models
         /// 整个发育期适宜度
         /// </summary>
         public Double Fa { get; set; }
+        public int Fae { get; set; }
 
         /// <summary>
         /// 所有站点整个育期适宜度最大值
@@ -74,7 +76,6 @@ namespace Mescp.Models
         ///  1：次适宜
         ///  2：适宜
         /// </summary>
-        public int Fae { get; set; }
         public string FaeStrting
         {
             get
@@ -148,12 +149,12 @@ namespace Mescp.Models
                     if (me == null)
                         continue;
 
-                    double ft = App.Workspace.AppMethod.Ft(me.T, cropWorkspace.T0, cropWorkspace.Tl, cropWorkspace.Th); //温度适宜度
-                    double fr = App.Workspace.AppMethod.Fr(this, dt);                                          //降水适宜度
-                    double fs = App.Workspace.AppMethod.Fs(me.Hos, double.Parse(cropWorkspace.ThrSunlight));              //日照适宜度
+                    double ft = App.Workspace.BusinessMethords.Ft(me.T, cropWorkspace.T0, cropWorkspace.Tl, cropWorkspace.Th); //温度适宜度
+                    double fr = App.Workspace.BusinessMethords.Fr(this, dt);                                          //降水适宜度
+                    double fs = App.Workspace.BusinessMethords.Fs(me.Hos, double.Parse(cropWorkspace.ThrSunlight));              //日照适宜度
 
                     //日适宜度
-                    double fc = App.Workspace.AppMethod.Fc(ft, fr, fs);
+                    double fc = App.Workspace.BusinessMethords.Fc(ft, fr, fs);
                     //=====================================test
                     //if (double.IsNaN(fc))
                     //{
@@ -166,7 +167,7 @@ namespace Mescp.Models
                 // 计算单个发育阶段适宜度Fg,并保存到_Fgs
                 if (_Fcs.Count > 0)
                 {
-                    double fg = App.Workspace.AppMethod.Fg(_Fcs);
+                    double fg = App.Workspace.BusinessMethords.Fg(_Fcs);
                     _Fgs.Add(fg);
                 }
 
@@ -179,8 +180,8 @@ namespace Mescp.Models
             // 计算整个发育期适宜度
             if (_Fgs.Count > 0)
             {
-                this.Fa = App.Workspace.AppMethod.Fa(_Fgs, _Gws);           //整个发育期适宜度
-                this.Fae = App.Workspace.AppMethod.Fae(Fa, FaMax, FaMin);   //整个发育期适宜度评估值
+                this.Fa = App.Workspace.BusinessMethords.Fa(_Fgs, _Gws);           //整个发育期适宜度
+                this.Fae = App.Workspace.BusinessMethords.Fae(Fa, FaMax, FaMin);   //整个发育期适宜度评估值
             }
 
             return;

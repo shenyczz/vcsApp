@@ -7,6 +7,7 @@ using CSharpKit.Vision.Mapping;
 
 namespace Mescp
 {
+    [Obsolete("Not in use",true)]
     public class MapHelper
     {
         public void OnMapRendered(IMap map)

@@ -85,7 +85,7 @@ namespace Mescp.ViewModels
         }
         private Boolean CanMoveTarget(Object parameter)
         {
-            return true;
+            return App.Workspace.MapViewModel.IsMapViewModel;
         }
 
         #endregion
@@ -175,7 +175,7 @@ namespace Mescp.ViewModels
         }
         private Boolean CanDrawLegend(Object parameter)
         {
-            return true;
+            return App.Workspace.MapViewModel.IsMapViewModel;
         }
 
         #endregion

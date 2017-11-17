@@ -25,6 +25,8 @@ using CSharpKit.Win32;
 using CSharpKit.Windows.Input;
 using Microsoft.Win32;
 using System.Windows;
+using CSharpKit.Palettes;
+using System.Collections.Generic;
 
 namespace Mescp.ViewModels
 {
@@ -37,10 +39,6 @@ namespace Mescp.ViewModels
             InitializeMap();
             InitializeMapData();
         }
-
-
-
-
 
 
         #region Map
@@ -188,14 +186,6 @@ namespace Mescp.ViewModels
 
         private void Map_Rendered(object sender, EventArgs e)
         {
-            //IMap map = App.Workspace?.MapViewModel?.Map;
-            //if (map == null)
-            //    return;
-
-            //ILayer layer = map.LayerManager.Layers.Find(l => l.Id == "t123");
-            //IVision vision = layer?.Vision;
-            //App.Workspace.PropertyViewModel.VisionProperties = vision?.CustomProperties;
-
             //Console.WriteLine("地图绘制完成事件!");
         }
 
@@ -238,7 +228,6 @@ namespace Mescp.ViewModels
         {
             InitializeMapData();
             Map.Reset();
-            //Map.Refresh(true);
         }
 
         #endregion
@@ -494,6 +483,209 @@ namespace Mescp.ViewModels
 
         #endregion
 
+
+
+
+        protected override void OnFilePathChanged(string filePath)
+        {
+            LoadData(filePath);
+
+            Presentation();
+        }
+
+        #region Presentation - 数据呈现
+
+        private IProvider _Provider;
+
+
+        public void Presentation()
+        {
+            IProvider provider = _Provider;
+            if (provider == null)
+                return;
+
+            if (App.Workspace.AppData.IsContour)
+            {
+                DisableStationColor(App.Workspace.AppData.LayerID1);
+                this.FillStationContour(provider);
+            }
+
+            if (App.Workspace.AppData.IsStation)
+            {
+                this.DisableStationContour(App.Workspace.AppData.LayerID2);
+                this.FillStationColor(provider);    //行政区填充
+            }
+
+
+        }
+
+
+        private void LoadData(string filePath)
+        {
+            IProvider provider = null;
+
+            try
+            {
+                provider = new AxinFileProvider(filePath);
+            }
+            catch (Exception)
+            {
+            }
+
+            _Provider = provider;
+        }
+
+        private void FillStationContour(IProvider provider)
+        {
+            try
+            {
+                IMap map = App.Workspace.MapViewModel.Map;
+                ILayer layer = map.LayerManager.GetLayer(App.Workspace.AppData.LayerID2);
+                if (layer != null)
+                {
+                    map.LayerManager.Remove(layer);
+                }
+
+                IVision vision = new AxinVision(provider.DataInstance?.DataInfo.Comment)
+                {
+                    Provider = provider,
+                    Renderer = new WfmAxinVisionRenderer(),
+
+                    Transparency = 0,
+
+                    IsClip = true,
+                    IsColorContour = true,
+                    IsFillContour = true,       //填充等高线
+                    IsLabelContour = true,   //标注等高线
+                    IsDrawContour = true,    //绘制等高线
+
+                    Foreground = System.Drawing.Color.Yellow,
+
+                };
+
+                map.LayerManager.Add(new Layer(App.Workspace.AppData.LayerID2, vision));
+
+                App.Workspace.PropertyViewModel.VisionProperties = null;
+                App.Workspace.PropertyViewModel.VisionProperties = vision.CustomProperties;
+                App.Workspace.EvaluReportViewModel.StationInfos = (provider.DataInstance as AxinStationFile).StationInfos;
+            }
+            catch (Exception ex)
+            {
+                string errMsg = ex.Message;
+            }
+        }
+
+        private void FillStationColor(IProvider provider)
+        {
+            try
+            {
+                List<StationInfo> stationInfos = (provider.DataInstance as AxinStationFile).StationInfos;
+                if (stationInfos == null || stationInfos.Count == 0)
+                    return;
+
+                //AxinColortabFile 颜色表文件
+                string s = System.IO.Path.Combine(App.StartupPath, "Palettes\\6801.pal");   //使用索引调色板
+                AxinColortabFile axinColortabFile = new AxinColortabFile(s);
+                IPalette palette = axinColortabFile.Palette;    // 调色板
+
+                //查找县界图层
+                IMap map = App.Workspace.MapViewModel.Map;
+                ILayer layer = map.LayerManager.GetLayer(App.Workspace.AppData.LayerID1);
+                IVision vision = layer.Vision;
+
+                // 取得Shape文件提供者
+                ShapeFile shapeFile = vision.Provider.DataInstance as ShapeFile;
+                shapeFile.Features.ForEach(p =>
+                {
+                    p.Tag = null;
+                });
+
+                foreach (StationInfo si in stationInfos)
+                {
+                    List<IFeature> features = shapeFile.Features.FindAll(p => p.Id == si.Id);
+                    features.ForEach(p =>
+                    {
+                        double fae = si.ElementValues[1];    //站点适宜度值
+                        System.Drawing.Color clr = palette.GetColor(fae, System.Drawing.Color.Black);
+                        p.Tag = clr;
+                    });
+                }
+
+                //刷新地图
+                map.Refresh(true);
+
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+
+        private void DisableStationContour(string layerId)
+        {
+            try
+            {
+                IMap map = App.Workspace.MapViewModel.Map;
+                ILayer layer = map.LayerManager.GetLayer(layerId);
+                IVision vision = layer.Vision;
+
+                vision.IsDrawContour = false;
+                vision.IsFillContour = false;
+                vision.IsLabelContour = false;
+
+                App.Workspace.PropertyViewModel.VisionProperties = null;
+                App.Workspace.PropertyViewModel.VisionProperties = vision.CustomProperties;
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void DisableStationColor(string layerId)
+        {
+            try
+            {
+                IMap map = App.Workspace.MapViewModel.Map;
+                ILayer layer = map.LayerManager.GetLayer(layerId);
+                IVision vision = layer.Vision;
+                ShapeFile shapeFile = vision.Provider.DataInstance as ShapeFile;
+
+                List<IFeature> features = shapeFile.Features;
+                features.ForEach(p =>
+                {
+                    p.Tag = null;
+                });
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+
+        [Obsolete("Not in use",true)]
+        private void EnableStationColor(string layerId, bool enable)
+        {
+            try
+            {
+                IMap map = App.Workspace.MapViewModel.Map;
+                ILayer layer = map.LayerManager.GetLayer(layerId);
+                IVision vision = layer.Vision;
+                vision.IsFill = enable;
+
+                //ShapeFile shapeFile = vision?.Provider?.DataInstance as ShapeFile;
+                //List<IFeature> features = shapeFile.Features;
+                //features.ForEach(p =>
+                //{
+                //    p.Tag = null;
+                //});
+
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        #endregion
 
     }
 }

@@ -145,7 +145,7 @@
     <Compile Include="Converters\SuitabilityColorConverter.cs" />
     <Compile Include="CSharpKit.Meteo.Agriculture\Evapotranspiration_t.cs" />
     <Compile Include="Misc\AppHelper.cs" />
-    <Compile Include="Misc\AppMethod.cs" />
+    <Compile Include="Misc\BusinessMethords.cs" />
     <Compile Include="Misc\AppTools.cs" />
     <Compile Include="Misc\Class1.cs" />
     <Compile Include="Converters\ActiveDocumentConverter.cs" />
@@ -225,7 +225,7 @@
     <Compile Include="ViewModels\LayerViewModel.cs" />
     <Compile Include="ViewModels\MapViewModel.cs" />
     <Compile Include="ViewModels\Base\PaneViewModel.cs" />
-    <Compile Include="ViewModels\Base\PrimiviteViewModel.cs" />
+    <Compile Include="ViewModels\PrimiviteViewModel.cs" />
     <Compile Include="ViewModels\PropertyViewModel.cs" />
     <Compile Include="ViewModels\TestViewModel.cs" />
     <Compile Include="ViewModels\Base\ToolViewModel.cs" />

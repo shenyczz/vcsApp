@@ -177,8 +177,6 @@ namespace Mescp.ViewModels
 
         #endregion
 
-        //
-
 
     }
 }

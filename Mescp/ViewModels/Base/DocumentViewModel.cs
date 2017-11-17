@@ -12,6 +12,10 @@
  *  WebSite: 
  *
 ******************************************************************************/
+using CSharpKit.Data;
+using CSharpKit.Data.Esri;
+using CSharpKit.Vision;
+using CSharpKit.Vision.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +26,24 @@ namespace Mescp.ViewModels
 {
     public abstract class DocumentViewModel : PaneViewModel
     {
+        #region FilePath
+
+        private String _FilePath;
+        public String FilePath
+        {
+            get { return _FilePath; }
+            set
+            {
+                _FilePath = value;
+                RaisePropertyChanged("FilePath");
+
+                OnFilePathChanged(_FilePath);
+            }
+        }
+
+        protected virtual void OnFilePathChanged(String filePath) { }
+
+        #endregion
+
     }
 }

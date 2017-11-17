@@ -5,23 +5,10 @@
     xmlns:local="clr-namespace:Mescp.Parts"
     Header="Test Group">
 
-    <RibbonControlGroup Margin="5" Padding="5">
-        <StackPanel>
-            <RibbonRadioButton
-                Margin="5"
-                Label="等高线色斑图"
-                IsChecked="{Binding AppData.IsContour}"/>
-            <RibbonRadioButton
-                Margin="5"
-                Label="站点填充图"
-                IsChecked="{Binding AppData.IsStation}"/>
-        </StackPanel>
-    </RibbonControlGroup>
-
-        <RibbonButton
+    <RibbonButton
             Margin="5"
             Label="评估测试"
             LargeImageSource="..\Assets\LargeIcon.png"
-            Command="{Binding TestCommands.TestCommand}"/>
+            Command="{Binding AppCommands.TestCommand}"/>
 
 </RibbonGroup>

@@ -8,32 +8,32 @@ using System.Windows.Input;
 
 namespace Mescp.Misc
 {
+    [Obsolete("Not in use",true)]
     public class TestCommands
     {
         #region TestCommand
 
-        private RelayCommand _TestCommand;
-        public ICommand TestCommand
-        {
-            get
-            {
-                if (_TestCommand == null)
-                {
-                    _TestCommand = new RelayCommand(p => OnTest(p), p => CanTest(p));
-                }
+        //private RelayCommand _TestCommand;
+        //public ICommand TestCommand
+        //{
+        //    get
+        //    {
+        //        if (_TestCommand == null)
+        //        {
+        //            _TestCommand = new RelayCommand(p => OnTest(p), p => CanTest(p));
+        //        }
 
-                return _TestCommand;
-            }
-        }
+        //        return _TestCommand;
+        //    }
+        //}
 
-        private void OnTest(Object parameter)
-        {
-            App.Workspace.AppHelper.Test();
-        }
-        private Boolean CanTest(Object parameter)
-        {
-            return true;
-        }
+        //private void OnTest(Object parameter)
+        //{
+        //}
+        //private Boolean CanTest(Object parameter)
+        //{
+        //    return true;
+        //}
 
         #endregion
     }

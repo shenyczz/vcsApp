@@ -24,10 +24,6 @@ namespace Mescp.ViewModels
     [Obsolete("没有使用",true)]
     public class TestViewModel : ViewModelBase
     {
-        public TestViewModel()
-        {
-        }
-
         #region Test
 
         private Boolean _Test;

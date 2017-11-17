@@ -63,7 +63,7 @@
             <anchor:DockingManager.LayoutItemContainerStyleSelector>
                 <sl:PaneStyleSelector
                     MapViewStyle="{StaticResource MapViewStyle}"
-                    EvaluReportViewStyle="{StaticResource style_EvaluateReportView}"
+                    DataGridViewStyle="{StaticResource DataGridViewStyle}"
                     ToolViewStyle="{StaticResource ToolViewStyle}"
                     />
             </anchor:DockingManager.LayoutItemContainerStyleSelector>

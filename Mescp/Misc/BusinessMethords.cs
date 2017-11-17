@@ -8,7 +8,10 @@ using Mescp.Models;
 
 namespace Mescp
 {
-    public class AppMethod
+    /// <summary>
+    /// 业务方法
+    /// </summary>
+    public class BusinessMethords
     {
         /// <summary>
         /// Ft - 气温适宜度模型

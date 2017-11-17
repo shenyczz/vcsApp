@@ -21,9 +21,6 @@ namespace Mescp
             //splashScreen.Show(false, true);
             splashScreen.Close(TimeSpan.FromSeconds(5));
 
-            // 初始化工作空间
-            //App.Workspace = Mescp.ViewModels.Workspace.Instance;
-
             //设置应用程序路径
             KitHelper.AppPath = App.StartupPath;
         }
@@ -56,7 +53,7 @@ namespace Mescp
 
         public static IMap Map { get; set; }
 
-        public static Workspace Workspace { get; set; }
+        public static Workspace Workspace { get { return Workspace.Instance; } }
 
         [System.Runtime.InteropServices.DllImport("Libs/KSuiteCore100u.dll")]
         public static extern IntPtr CaptureRect(IntPtr handle, ref CSharpKit.Win32.RECT rect);
