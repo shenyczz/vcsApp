@@ -81,7 +81,8 @@ namespace Mescp.ViewModels
             List<XStation> xStations = _XStations;
 
             SetupXStation(xStations);
-            SetupXStation(xStations, eYear, currentRegion, cropGrwps, cropWorkspaces);
+            SetupXStation(xStations, eYear);
+            SetupXStation(xStations, currentRegion, cropGrwps, cropWorkspaces);
 
             string cmdText = GenerateCommandText(xStations, eYear);
             string cnnString = App.Workspace.AppData.RemoteConnectionString;
@@ -136,6 +137,7 @@ namespace Mescp.ViewModels
                 (
                     p => p.RegionID.Contains(_CurrentRegion.RgnID)
                 );
+
         }
 
         /// <summary>
@@ -162,18 +164,58 @@ namespace Mescp.ViewModels
             // CommandText
             string strFields = string.Format("[iiiii],[ObvDate],[T],[Tmax],[Tmin],[E],[S],[F10],[R]");
             string strTables = string.Format("[{0}]", App.Workspace.AppTools.ConvertTableName(eYear));
-            string strWheres = string.Format("[ObvDate]>={0}0501 AND [ObvDate]<={0}1030 AND [iiiii] IN ({1})", eYear, strStationIn);
+            string strWheres = string.Format("[ObvDate]>={0}0501 AND [ObvDate]<={0}1030 AND [iiiii] IN ({1})", eYear, strStationIn);    //5.1 -- 10.30
             string strOders = string.Format("[ObvDate],[iiiii]");
             string strSql = string.Format("SELECT {0} FROM {1} WHERE {2} ORDER BY {3}",
                                            strFields, strTables, strWheres, strOders);
 
-            //App.Workspace.AppData.RemoteCommandText = strSql;
             cmdText = strSql;
 
             return cmdText;
 
             //FUN_END
         }
+        /// <summary>
+        /// 生成查询字符串 - CommandText
+        /// </summary>
+        /// <param name="xStations"></param>
+        /// <param name="dt0"></param>
+        /// <param name="dt1"></param>
+        /// <returns></returns>
+        private string GenerateCommandText(List<XStation> xStations, DateTime dt0, DateTime dt1)
+        {
+            string cmdText = "";
+
+            // 构建选定站点ID字符串，用于SQL语句条件
+            // 格式如('57083','57090','53889')
+            string strStationIn = App.Workspace.AppTools.GetStationIn(_XStations);
+            if (string.IsNullOrEmpty(strStationIn))
+            {
+                MessageBox.Show("没有找到符合当前区域条件的配置站点数据!", "提示");
+                return cmdText;
+            }
+
+            int yyyymmdd0 = dt0.Year * 10000 + dt0.Month * 100 + dt0.Day;
+            int yyyymmdd1 = dt1.Year * 10000 + dt1.Month * 100 + dt1.Day;
+
+            // CommandText
+            string strFields = string.Format("[iiiii],[ObvDate],[T],[Tmax],[Tmin],[E],[S],[F10],[R]");
+            string strTables = string.Format("[{0}]", App.Workspace.AppTools.ConvertTableName(dt0.Year));
+            string strWheres = string.Format("[ObvDate]>={0} AND [ObvDate]<={1} AND [iiiii] IN ({2})",
+                yyyymmdd0, yyyymmdd1, strStationIn);
+            string strOders = string.Format("[ObvDate],[iiiii]");
+            string strSql = string.Format("SELECT {0} FROM {1} WHERE {2} ORDER BY {3}",
+                                           strFields, strTables, strWheres, strOders);
+
+            cmdText = strSql;
+
+            return cmdText;
+
+            //
+            //End
+            //
+        }
+
 
         #region SetupXStation - 设置XStation参数
 
@@ -183,6 +225,13 @@ namespace Mescp.ViewModels
             {
                 p.Fa = -999;
                 p.Fae = -1;
+            });
+        }
+        private void SetupXStation(List<XStation> xStations, int year)
+        {
+            xStations.ForEach(p =>
+            {
+                p.Year = year;                         //评估年份
             });
         }
         private void SetupXStation(List<XStation> xStations, List<MeteoElement> meteoElements)
@@ -236,12 +285,11 @@ namespace Mescp.ViewModels
 
             //end
         }
-        private void SetupXStation(List<XStation> xStations, int year, Region currentRegion, List<CropGrwp> cropGrwps, List<CropWorkspace> cropWorkspaces)
+        private void SetupXStation(List<XStation> xStations, Region currentRegion, List<CropGrwp> cropGrwps, List<CropWorkspace> cropWorkspaces)
         {
             //设置站点参数
             xStations.ForEach(p =>
             {
-                p.Year = year;                         //评估年份
                 p.CropGrwps = cropGrwps;               //作物发育期
                 p.CropWorkspaces = cropWorkspaces;     //作物工作空间
                 p.FaMax = currentRegion.Cmax;          //发育期适宜度最小值
@@ -425,6 +473,7 @@ namespace Mescp.ViewModels
                 App.Workspace.EvaluReportViewModel.ToolTip = filePath;
                 //App.Workspace.ActiveDocument = App.Workspace.EvaluReportViewModel;    //切换活动文档
                 //
+
             }
             catch (Exception ex)
             {
@@ -435,6 +484,208 @@ namespace Mescp.ViewModels
 
 
 
+        public void Evaluate2()
+        {
+            DateTime dtBeg = App.Workspace.AppData.EvlDateTimeBeg;
+            DateTime dtEnd = App.Workspace.AppData.EvlDateTimeEnd;
+
+            //MessageBox.Show(
+            //    string.Format("Evaluate2({0} - {1})",
+            //    dtBeg.ToString("yyyy-MM-dd"),
+            //    dtEnd.ToString("yyyy-MM-dd")));
+
+            string ip = App.Workspace.AppData.RemoteDataSource;
+            if (!App.Workspace.AppTools.Ping(ip))
+            {
+                MessageBox.Show(string.Format("网络: {0} 不畅通\n无法获取监测数据", ip));
+                return;
+            }
+
+            Prepare();
+
+            Region currentRegion = _CurrentRegion;
+            List<CropGrwp> cropGrwps = _CropGrwps;
+            List<CropWorkspace> cropWorkspaces = _CropWorkspaces;
+            List<XStation> xStations = _XStations;
+
+            SetupXStation(xStations);
+            SetupXStation(xStations, currentRegion, cropGrwps, cropWorkspaces);
+
+            string cmdText = GenerateCommandText(xStations, dtBeg, dtEnd);
+            string cnnString = App.Workspace.AppData.RemoteConnectionString;
+            List<MeteoElement> meteoElements = App.Workspace.AppHelper.GetMeteoElementCollection(cnnString, cmdText, xStations);
+
+            if (meteoElements == null || meteoElements.Count == 0)
+            {
+                MessageBox.Show("没有得到气象要素数据!");
+                return;
+            }
+
+            SetupXStation(xStations, meteoElements);
+
+            DoXStation2(xStations, dtBeg, dtEnd);
+
+            SaveData2(dtBeg, dtEnd);
+
+            //
+            //END
+            //
+        }
+
+        private void DoXStation2(List<XStation> xStations, DateTime dtBeg, DateTime dtEnd)
+        {
+            string stemp = "";
+            try
+            {
+                //计算站点
+                xStations.ForEach(p =>
+                {
+                    stemp = p.Id;
+                    p.DoIt2(dtBeg, dtEnd);
+                });
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error in  DoXStation(...)" + stemp);
+            }
+
+#if DEBUG
+
+            //取得所有站点发育期适宜度的最大最小值 - 还有用
+            double max, min;
+            max = double.NegativeInfinity;
+            min = double.PositiveInfinity;
+            //xStations.ForEach(p =>
+            //{
+            //    if (p.Fa > 0)
+            //    {
+            //        max = Math.Max(max, p.Fa);
+            //        min = Math.Min(min, p.Fa);
+            //    }
+            //});
+
+            //TODO:====================================Test
+            XStation[] xa0 = xStations.FindAll(p => p.Fae == 0).ToArray();     //不适宜
+            XStation[] xa1 = xStations.FindAll(p => p.Fae == 1).ToArray();     //次适宜
+            XStation[] xa2 = xStations.FindAll(p => p.Fae == 2).ToArray();     //适宜
+            XStation[] xa3 = xStations.FindAll(p => p.Fae == -1).ToArray();    //未知
+            //=========================================
+#endif
+            //end
+        }
+
+        private void SaveData2(DateTime dtBeg, DateTime dtEnd)
+        {
+            string filePath = System.IO.Path.Combine(App.OutputPath, "1.txt");
+            List<XStation> xStations = _XStations;
+            OutputStationFile2(xStations, filePath);
+
+            //改变
+            App.Workspace.MapViewModel.FilePath = filePath;
+
+            /*
+             int eYear = App.Workspace.AppData.Year;
+             Region region = _CurrentRegion;
+             Crop crop = _CurrentCrop;
+             CropCultivar cropCultivar = _CurrentCropCultivar;
+             string fileName = App.Workspace.AppTools.GenerateFileName(eYear, region, crop, cropCultivar);
+             string filePath = System.IO.Path.Combine(App.OutputPath, fileName);
+
+             List<XStation> xStations = _XStations;
+
+             OutputStationFile(xStations, filePath);
+
+             //改变
+             App.Workspace.ChangeFilePath(filePath);
+             */
+
+            //
+            //end
+            //
+        }
+
+        private void OutputStationFile2(List<XStation> xStations, string fileName)
+        {
+            Region curRegion = _CurrentRegion;                      //当前区域
+                                                                    //Axin站点文件
+            AxinStationFile fileAxinStation = new AxinStationFile();
+
+            //站点信息 - StationInfos
+            xStations.ForEach(p =>
+            {
+                StationInfo si = new StationInfo();
+                {
+                    si.Id = p.Id;
+                    si.Name = p.Name;
+                    si.Lon = p.Lon;
+                    si.Lat = p.Lat;
+
+                    si.ElementCount = 2;                //要素数量
+                    si.ElementValues[0] = p.FcAvg;      //要素值
+                    si.ElementValues[1] = 1;            //要素评估值
+                    si.CurrentElementIndex = 0;
+                    si.CurrentElementValue = si.ElementValues[0];
+                }
+
+                if (si.CurrentElementValue > 0 && si.CurrentElementValue != -999 && !(si.CurrentElementValue is double.NaN))
+                {
+                    fileAxinStation.StationInfos.Add(si);
+                }
+            });
+
+            //数据信息 - DataInfo
+            AxinStationFileDataInfo axin30di = fileAxinStation.DataInfo as AxinStationFileDataInfo;
+            {
+                axin30di.FileId = AxinConstants.FileLogo;
+                axin30di.FormatCode = AxinConstants.FormatCode_Tin;
+                axin30di.Comment = string.Format("永优玉米评估");
+
+                axin30di.DateTime = new DateTime(1970, 1, 1);
+                axin30di.TimePeriod = 0;
+                axin30di.Layer = 999;
+                axin30di.ProductCode = 1;   //自动生成调色版，调色板颜色从红色过度到淡绿
+                axin30di.ElementCode = 1;                   //0：透明背景 1：插值背景
+                axin30di.StationCount = fileAxinStation.StationInfos.Count; //站点数量
+                axin30di.ElementCount = 2;      //要素数量
+                axin30di.Flag = 1;              //具有站点名称字段
+
+                //等值线
+                axin30di.ContourInfo.ContourNums = 9999;
+                axin30di.ContourInfo.ContourValues[0] = 0.05;
+                axin30di.ContourInfo.ContourValues[1] = 0.10;
+                axin30di.ContourInfo.ContourValues[2] = 0.50;
+                axin30di.ContourInfo.ContourBoldValue = 0;
+
+                //剪切区
+                axin30di.ClipArea.Id = 9999;
+                axin30di.ClipArea.XClipMin = curRegion.XClipMin;
+                axin30di.ClipArea.XClipMax = curRegion.XClipMax;
+                axin30di.ClipArea.YClipMin = curRegion.YClipMin;
+                axin30di.ClipArea.YClipMax = curRegion.YClipMax;
+            }
+
+            //保存数据
+            fileAxinStation.DataProcessor.SaveAs(fileName);
+
+            /*
+             int year = App.Workspace.AppData.Year;                  //评估年份
+             Region curRegion = _CurrentRegion;                      //当前区域
+             Crop curCrop = _CurrentCrop;                            //当前作物
+             CropCultivar curCropCultivar = _CurrentCropCultivar;    //当前作物品种
+
+             //数据信息 - DataInfo
+             AxinStationFileDataInfo axin30di = fileAxinStation.DataInfo as AxinStationFileDataInfo;
+             {
+             }
+
+             //保存数据
+             fileAxinStation.DataProcessor.SaveAs(fileName);
+             */
+
+            //
+            //END_OF_FUNCTION
+            //
+        }
 
     }
 }

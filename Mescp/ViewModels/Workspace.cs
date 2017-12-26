@@ -239,7 +239,7 @@ namespace Mescp.ViewModels
 
         #endregion
 
-        #region EvaluateReportViewModel
+        #region EvaluateReportViewModel - 评估报告
 
         private EvaluReportViewModel _EvaluReportViewModel;
         public EvaluReportViewModel EvaluReportViewModel

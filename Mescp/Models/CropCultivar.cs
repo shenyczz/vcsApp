@@ -23,8 +23,8 @@ namespace Mescp.Models
         }
     }
 
-    public class CropCultivarCollection : List<CropCultivar>
-    {
-    }
+    //public class CropCultivarCollection : List<CropCultivar>
+    //{
+    //}
 
 }

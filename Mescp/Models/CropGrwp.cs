@@ -21,10 +21,20 @@ namespace Mescp.Models
 
         public String CropID { get; set; }
 
-        public String GrwpID { get; set; }
-        public String GrwpCode { get; set; }
-        public String GrwpName { get; set; }
+        //
 
+        /// <summary>
+        /// 发育期ID
+        /// </summary>
+        public String GrwpID { get; set; }
+        /// <summary>
+        /// 发育期代码
+        /// </summary>
+        public String GrwpCode { get; set; }
+        /// <summary>
+        /// 发育期名称
+        /// </summary>
+        public String GrwpName { get; set; }
         /// <summary>
         /// 发育期跨度
         /// 格式：mm.dd-mm.dd
@@ -63,6 +73,12 @@ namespace Mescp.Models
             }
         }
 
+        //
+
+
+        /// <summary>
+        /// 年跨度
+        /// </summary>
         public int SpanYear
         {
             get
@@ -71,6 +87,9 @@ namespace Mescp.Models
             }
         }
 
+        /// <summary>
+        /// 月
+        /// </summary>
         public int[] SpanMonth
         {
             get
@@ -79,6 +98,9 @@ namespace Mescp.Models
             }
         }
 
+        /// <summary>
+        /// 日
+        /// </summary>
         public int[] SpanDay
         {
             get
@@ -88,6 +110,11 @@ namespace Mescp.Models
         }
 
 
+        /// <summary>
+        /// 开始发育期
+        /// </summary>
+        /// <param name="year"></param>
+        /// <returns></returns>
         public DateTime GrwpBeg(int year)
         {
             int yyyy = year;
@@ -97,6 +124,11 @@ namespace Mescp.Models
             DateTime dt = new DateTime(yyyy, mm, dd);
             return dt;
         }
+        /// <summary>
+        /// 结束发育期
+        /// </summary>
+        /// <param name="year"></param>
+        /// <returns></returns>
         public DateTime GrwpEnd(int year)
         {
             int yyyy = year+ SpanYear;
@@ -110,12 +142,12 @@ namespace Mescp.Models
 
         public override string ToString()
         {
-            return String.Format("{0} {1}：[{2}]", GrwpID,GrwpName, GrwpSpan);
+            return String.Format("{0} {1}：[{2}]", GrwpID, GrwpName, GrwpSpan);
         }
     }
 
-    public class CropGrwpCollection : List<CropGrwp>
-    {
-    }
+    //public class CropGrwpCollection : List<CropGrwp>
+    //{
+    //}
 
 }

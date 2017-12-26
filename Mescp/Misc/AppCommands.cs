@@ -24,6 +24,7 @@ namespace Mescp
 {
     public class AppCommands
     {
+
         #region AboutCommand
 
         private RelayCommand _AboutCommand;
@@ -170,6 +171,35 @@ namespace Mescp
         #endregion
 
 
+        #region Evaluate2Command
+
+        private RelayCommand _Evaluate2Command;
+        public ICommand Evaluate2Command
+        {
+            get
+            {
+                if (_Evaluate2Command == null)
+                {
+                    _Evaluate2Command = new RelayCommand(p => OnEvaluate2(p), p => CanEvaluate2(p));
+                }
+
+                return _Evaluate2Command;
+            }
+        }
+
+        private void OnEvaluate2(Object parameter)
+        {
+            App.Workspace.EvaluReportViewModel.Evaluate2();
+        }
+        private Boolean CanEvaluate2(Object parameter)
+        {
+            return true;
+        }
+
+        #endregion
+
+
+        /* TestCommand
 
         #region TestCommand
 
@@ -197,7 +227,7 @@ namespace Mescp
         }
 
         #endregion
-
+        */
 
     }
 }

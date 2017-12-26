@@ -27,10 +27,10 @@
             </RibbonComboBox>
 
             <RibbonButton
-            Margin="5"
-            Label="评估"
-            SmallImageSource="..\Assets\LargeIcon.png"
-            Command="{Binding AppCommands.EvaluateCommand}"/>
+                Margin="5"
+                Label="年度评估"
+                SmallImageSource="..\Assets\LargeIcon.png"
+                Command="{Binding AppCommands.EvaluateCommand}"/>
         </StackPanel>
 
     </Grid>

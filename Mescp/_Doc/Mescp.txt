@@ -1,6 +1,6 @@
 ﻿
 【玉米种植布局和生长气象评价系统】
-Meteorological evaluation system for maize(corn) planting distribution and growth - MESCP
+Meteorological evaluation system for maize(corn) planting distribution and growth - MESCP(Mescp)
 
 1.评价区域管理(Evaluation of regional management - ERM)
 2.评价时段管理(Evaluation period management - EPM)
@@ -16,7 +16,7 @@ Meteorological evaluation system for maize(corn) planting distribution and growt
 320000	江苏
 
 
-地理信息42-湖北
+地理信息42 - 湖北
 
 
 提取各站点整个发育阶段的气象资料

@@ -11,10 +11,16 @@ namespace Mescp.Models
     /// </summary>
     public class CropWorkspace : CropModelBase
     {
+        public CropWorkspace()
+        {
+            //this.CropGrwp = new CropGrwp();
+        }
+
         /// <summary>
         /// 区域组合ID
         /// </summary>
         public String RegionID { get; set; }
+
         /// <summary>
         /// 区域ID
         /// </summary>
@@ -23,9 +29,11 @@ namespace Mescp.Models
         public String CultivarID { get; set; }
 
         // 发育期
-        public String GrwpID { get; set; }
-        public String GrwpName { get; set; }
-        public String GrwpSpan { get; set; }
+        //public String GrwpID { get; set; }
+        //public String GrwpName { get; set; }
+        //public String GrwpSpan { get; set; }
+
+        public CropGrwp CropGrwp { get; set; }
 
         #region 降水阈值
 
@@ -99,8 +107,8 @@ namespace Mescp.Models
 
     }
 
-    public class CropWorkspaceCollection : List<CropWorkspace>
-    {
-    }
+    //public class CropWorkspaceCollection : List<CropWorkspace>
+    //{
+    //}
 
 }

@@ -22,6 +22,19 @@ namespace Mescp
 
             _IsContour = true;
             _IsStation = !IsContour;
+
+            // 
+            int year = this.Year;
+            List<CropGrwp> cropGrwps = this.CropGrwps.FindAll(p => p.CropID == "C02");
+            CropGrwp cg1 = cropGrwps[0];
+            CropGrwp cg2 = cropGrwps[cropGrwps.Count - 1];
+
+            this.EvlDateTimeBeg = cg1.GrwpBeg(year);
+            this.EvlDateTimeEnd = cg2.GrwpEnd(year);
+
+            //
+            //end
+            //
         }
 
         // 配置数据库
@@ -110,7 +123,7 @@ namespace Mescp
                 if (_CropCultivars == null || _CropCultivars.Count == 0)
                 {
                     _CropCultivars = new List<CropCultivar>();
-                    App.Workspace.AppHelper.GetCropCultivars(_CropCultivars, CurrentCrop);
+                    App.Workspace.AppHelper.GetCropCultivars(_CropCultivars, this.CurrentCrop);
                 }
                 return _CropCultivars;
             }
@@ -216,31 +229,6 @@ namespace Mescp
 
         #endregion
 
-        #region 评价时段--已经不使用
-
-        #region 评价起始日期
-
-        private DateTime _dBeg = DateTime.Now;
-        public DateTime DtBeg
-        {
-            get { return _dBeg; }
-            set { _dBeg = value; }
-        }
-
-        #endregion
-
-        #region 评价终止日期
-
-        private DateTime _dEnd = DateTime.Now + TimeSpan.FromDays(10);
-        public DateTime DtEnd
-        {
-            get { return _dEnd; }
-            set { _dEnd = value; }
-        }
-
-        #endregion
-
-        #endregion
 
         #region 评价年份
 
@@ -287,7 +275,31 @@ namespace Mescp
 
         #endregion
 
-        #region 图形显示--是等高线色斑图还是站点填充图
+        #region 评价时段
+
+        private DateTime _dBeg = DateTime.Now;
+        /// <summary>
+        /// 评估起始日期
+        /// </summary>
+        public DateTime EvlDateTimeBeg
+        {
+            get { return _dBeg; }
+            set { _dBeg = value; }
+        }
+
+        private DateTime _dEnd = DateTime.Now + TimeSpan.FromDays(30);
+        /// <summary>
+        /// 评估终止日期
+        /// </summary>
+        public DateTime EvlDateTimeEnd
+        {
+            get { return _dEnd; }
+            set { _dEnd = value; }
+        }
+
+        #endregion
+
+        #region 图形显示 -- 是等高线色斑图还是站点填充图
 
         Boolean _IsContour;
         public Boolean IsContour
@@ -336,7 +348,6 @@ namespace Mescp
         #endregion
 
 
-
         #region 远程数据库
 
         static string ip = "10.10.10.100";
@@ -349,10 +360,7 @@ namespace Mescp
 
         public String RemoteDataSource
         {
-            get
-            {
-                return _RemoteDataSource;
-            }
+            get { return _RemoteDataSource; }
         }
 
         public String RemoteConnectionString

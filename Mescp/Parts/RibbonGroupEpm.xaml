@@ -3,39 +3,39 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Mescp"
-    Header="评价时段">
+    Header="阶段评估">
 
-    <!--
     <Grid>
 
-        <TextBox x:Name="_txtYear" Width="20" Visibility="Hidden"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
 
-        <StackPanel>
-            <RibbonComboBox Margin="0,5,0,0"
-                            Label="年份"
-                            SmallImageSource="{Binding}"
-                            SelectionBoxWidth="80"
-                            IsEditable="False">
-                <RibbonGallery MaxColumnCount="1"
-                               SelectedValue="{Binding ElementName=_txtYear,Path=Text}"
-                               SelectedValuePath="Year"
-                               local:UIEventToCommand.Event="SelectionChanged"
-                               local:UIEventToCommand.Command="{Binding AppCommands.YearChangedCommand}">
-                    <RibbonGalleryCategory
-                        DisplayMemberPath="Year"
-                        ItemsSource="{Binding Path=AppData.Years}"/>
-                </RibbonGallery>
-            </RibbonComboBox>
+        <StackPanel Grid.Column="0" VerticalAlignment="Center">
+            <DatePicker
+                Margin="3"
+                Focusable="False"
+                SelectedDateFormat="Long"
+                SelectedDate="{Binding AppData.EvlDateTimeBeg}"
+                />
+            
+            <DatePicker
+                Margin="3"
+                Focusable="False"
+                SelectedDateFormat="Long"
+                SelectedDate="{Binding AppData.EvlDateTimeEnd}"
+                />
+        </StackPanel>
 
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
             <RibbonButton
-            Margin="5"
-            Label="评估测试"
-            SmallImageSource="..\Assets\LargeIcon.png"
-            Command="{Binding AppCommands.EvaluateCommand}"/>
+                Margin="0,10,0,0"
+                Label="阶段评估"
+                LargeImageSource="..\Assets\LargeIcon.png"
+                Command="{Binding AppCommands.Evaluate2Command}"/>
         </StackPanel>
         
     </Grid>
-    
-    -->
 
 </RibbonGroup>

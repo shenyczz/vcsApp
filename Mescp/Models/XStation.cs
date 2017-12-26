@@ -73,7 +73,6 @@ namespace Mescp.Models
         /// </summary>
         public Double FaMin { get; set; }
 
-
         /// <summary>
         /// 评价结果
         /// -1：未知
@@ -125,7 +124,7 @@ namespace Mescp.Models
 
 #if DEBUG
             if (this.Id == "57189")
-            {
+            {//鹤壁
                 int yyy = 0;
                 yyy++;
             }
@@ -135,6 +134,11 @@ namespace Mescp.Models
             int year = this.Year;
             int grwpCount = CropGrwps.Count;    //整个发育期发育阶段数量
             TimeSpan timeSpan = TimeSpan.FromDays(1);
+
+            //TODO:test - 整个发育期起始、终止日期(条件：区域、作物、品种)
+            DateTime dt0 = CropWorkspaces[0].CropGrwp.GrwpBeg(year);
+            DateTime dt1 = CropWorkspaces[grwpCount-1].CropGrwp.GrwpEnd(year);
+            //====
 
             _Fgs.Clear();
             _Gws.Clear();
@@ -188,9 +192,62 @@ namespace Mescp.Models
         }
 
 
-        public void DoIt(DateTime dt1, DateTime dt2)
-        {
 
+
+        public double FcAll { get; set; }
+        public double FcAvg { get; set; }
+
+        public void DoIt2(DateTime dtBeg, DateTime dtEnd)
+        {
+            List<Double> fcs = new List<Double>();     //日适宜度集合
+            TimeSpan timeSpan = TimeSpan.FromDays(1);
+
+            for (DateTime dt = dtBeg; dt <= dtEnd; dt += timeSpan)
+            {
+                MeteoElement me = MeteoElements.Find(p => p.DateTime == dt);
+                if (me == null)
+                    continue;
+
+                //TODO:查找日期对应的发育期所在的工作空间
+                CropWorkspace cropWorkspace = this.FindCropWorkspace(CropWorkspaces, dt);
+                if (cropWorkspace == null)
+                    continue;
+
+                double ft = App.Workspace.BusinessMethords.Ft(me.T, cropWorkspace.T0, cropWorkspace.Tl, cropWorkspace.Th); //温度适宜度
+                double fr = App.Workspace.BusinessMethords.Fr(this, dt);                                          //降水适宜度
+                double fs = App.Workspace.BusinessMethords.Fs(me.Hos, double.Parse(cropWorkspace.ThrSunlight));              //日照适宜度
+
+                //日适宜度
+                double fc = App.Workspace.BusinessMethords.Fc(ft, fr, fs);
+
+                fcs.Add(fc);
+            }
+
+            int j = 0;
+            double fca = 0;
+            fcs.ForEach(p =>
+            {
+                //if (p > 0.01)
+                {
+                    fca += p;
+                    j++;
+                }
+            });
+            double fcavg = fca / j;
+
+            this.FcAll = fca;
+            this.FcAvg = fcavg;
+
+
+            return;
+            //
+            //End
+            //
+        }
+
+        private CropWorkspace FindCropWorkspace(List<CropWorkspace> cropWorkspaces, DateTime dt)
+        {
+            return cropWorkspaces[0];
         }
 
 

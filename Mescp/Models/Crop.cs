@@ -21,8 +21,8 @@ namespace Mescp.Models
         }
     }
 
-    public class CropCollection : List<Crop>
-    {
-    }
+    //public class CropCollection : List<Crop>
+    //{
+    //}
 
 }
