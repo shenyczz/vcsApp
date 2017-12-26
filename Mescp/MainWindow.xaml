@@ -44,8 +44,8 @@
             <!--布局-->
             <anchor:LayoutRoot>
                 <anchor:LayoutPanel>
-                    <anchor:LayoutAnchorablePane DockWidth="260"/>
                     <anchor:LayoutDocumentPane/>
+                    <anchor:LayoutAnchorablePane DockWidth="260"/>
                 </anchor:LayoutPanel>
             </anchor:LayoutRoot>
 

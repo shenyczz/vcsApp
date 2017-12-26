@@ -24,7 +24,7 @@ namespace Mescp.Parts
         {
             InitializeComponent();
 
-            this._txtYear.Text = DateTime.Now.Year.ToString();
+            //this._txtYear.Text = DateTime.Now.Year.ToString();
         }
     }
 }

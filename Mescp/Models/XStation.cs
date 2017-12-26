@@ -14,6 +14,7 @@ namespace Mescp.Models
         public XStation()
         {
             this.RegionID = "";
+
             this.Year = 0;
             this.Fa = -999;
             this.Fae = -1;
@@ -35,6 +36,11 @@ namespace Mescp.Models
         public string RegionID { get; set; }
 
         /// <summary>
+        /// 替代站点
+        /// </summary>
+        public string ReplaceSite { get; set; }
+
+        /// <summary>
         /// 发育期
         /// </summary>
         public List<CropGrwp> CropGrwps { get; set; }
@@ -51,7 +57,6 @@ namespace Mescp.Models
         /// 评估年份
         /// </summary>
         public int Year { get; set; }
-
 
         /// <summary>
         /// 整个发育期适宜度
@@ -118,13 +123,13 @@ namespace Mescp.Models
             if (MeteoElements.Count <= 0)
                 return;
 
-            //============================================test
+#if DEBUG
             if (this.Id == "57189")
             {
                 int yyy = 0;
                 yyy++;
             }
-            //============================================
+#endif
 
             // 计算各个发育阶段适宜度
             int year = this.Year;
@@ -155,12 +160,7 @@ namespace Mescp.Models
 
                     //日适宜度
                     double fc = App.Workspace.BusinessMethords.Fc(ft, fr, fs);
-                    //=====================================test
-                    //if (double.IsNaN(fc))
-                    //{
-                    //    int xxx = 0;
-                    //}
-                    //=====================================
+
                     _Fcs.Add(fc);
                 }
 
@@ -188,6 +188,10 @@ namespace Mescp.Models
         }
 
 
+        public void DoIt(DateTime dt1, DateTime dt2)
+        {
+
+        }
 
 
 

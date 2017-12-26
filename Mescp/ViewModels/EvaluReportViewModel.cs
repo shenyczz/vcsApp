@@ -12,7 +12,7 @@ using CSharpKit.Data;
 namespace Mescp.ViewModels
 {
     /// <summary>
-    /// 评估报告 - VmEvaluReport
+    /// 评估报告 - EvaluReportViewModel
     /// </summary>
     public class EvaluReportViewModel : DataGridViewModelBase
     {
@@ -22,9 +22,6 @@ namespace Mescp.ViewModels
 
         #region Private Fields
 
-        //private string _OutputFileName; //评估结果输出文件名
-        //private string _CommandText;    //查询字符串
-
         private Region _CurrentRegion;                  //区域
         private Crop _CurrentCrop;                      //作物
         private CropCultivar _CurrentCropCultivar;      //作物品种
@@ -33,8 +30,6 @@ namespace Mescp.ViewModels
         private List<CropWorkspace> _CropWorkspaces;    //工作空间集合(当前区域、当前作物、当前品种)
 
         private List<XStation> _XStations;              //站点集合(当前区域)
-
-        //private List<MeteoElement> _MeteoElements;
 
         #endregion
 
@@ -62,6 +57,9 @@ namespace Mescp.ViewModels
 
 
 
+        /// <summary>
+        /// 评估
+        /// </summary>
         public void Evaluate()
         {
             // 评估年份
@@ -107,6 +105,9 @@ namespace Mescp.ViewModels
 
 
 
+        /// <summary>
+        /// 准备数据
+        /// </summary>
         private void Prepare()
         {
             //1.区域(当前)
@@ -117,14 +118,12 @@ namespace Mescp.ViewModels
             _CurrentCropCultivar = App.Workspace.AppData.CurrentCropCultivar;
 
             //4.发育期集合(当前品种)
-            _CropGrwps?.Clear();
             _CropGrwps = (from p in App.Workspace.AppData.CropGrwps
                           where p.CropID == _CurrentCrop.CropID
                           orderby p.GrwpID// descending
                           select p).ToList();
 
             //5.工作空间集合(当前区域、当前作物、当前品种)
-            _CropWorkspaces?.Clear();
             _CropWorkspaces = App.Workspace.AppData.CropWorkspaces.FindAll
                 (
                     p => p.RegionID.Contains(_CurrentRegion.RgnID)
@@ -133,17 +132,20 @@ namespace Mescp.ViewModels
                 );
 
             //6.站点集合(当前区域)
-            _XStations?.Clear();
             _XStations = App.Workspace.AppData.XStations.FindAll
                 (
                     p => p.RegionID.Contains(_CurrentRegion.RgnID)
                 );
         }
 
+        /// <summary>
+        /// 生成查询字符串 - CommandText
+        /// </summary>
+        /// <param name="xStations"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
         private string GenerateCommandText(List<XStation> xStations, int year)
         {
-            //FUN_BEGIN
-
             string cmdText = "";
             // 评估年份
             int eYear = year;
@@ -173,6 +175,8 @@ namespace Mescp.ViewModels
             //FUN_END
         }
 
+        #region SetupXStation - 设置XStation参数
+
         private void SetupXStation(List<XStation> xStations)
         {
             xStations.ForEach(p =>
@@ -194,6 +198,43 @@ namespace Mescp.ViewModels
                                    .ToList()
                                    ;
             });
+
+            //没有数据的站点用临近站点替代
+            foreach (XStation xs in xStations)
+            {
+
+                if (xs.MeteoElements == null || xs.MeteoElements.Count == 0)
+                {
+                    string rs = xs.ReplaceSite;
+                    string[] rsa = rs.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    foreach (string sid in rsa)
+                    {
+                        if (!string.IsNullOrEmpty(sid))
+                        {
+                            XStation sta = xStations.Find(p => p.Id == sid);
+                            xs.MeteoElements = sta.MeteoElements;
+                            foreach(MeteoElement me in xs.MeteoElements)
+                            {
+                                //计算使用 MeteoElement 的 DateTime
+                                //me.StationId = xs.Id;
+                                //me.StationName = xs.Name;
+                            }
+
+                            break;
+                        }
+                    }
+
+                    //XStation sta = xStations.Find(p => p.Id == staid);
+                    //xs.MeteoElements = sta.MeteoElements;
+                }
+            }
+
+#if DEBUG
+            int x = 0;
+#endif
+
+            //end
         }
         private void SetupXStation(List<XStation> xStations, int year, Region currentRegion, List<CropGrwp> cropGrwps, List<CropWorkspace> cropWorkspaces)
         {
@@ -208,6 +249,12 @@ namespace Mescp.ViewModels
             });
         }
 
+        #endregion
+
+        /// <summary>
+        /// 针对每个站点进行计算
+        /// </summary>
+        /// <param name="xStations"></param>
         private void DoXStation(List<XStation> xStations)
         {
             string stemp = "";
@@ -225,6 +272,7 @@ namespace Mescp.ViewModels
                 throw new Exception("Error in  DoXStation(...)" + stemp);
             }
 
+#if DEBUG
             //取得所有站点发育期适宜度的最大最小值 - 还有用
             double max, min;
             max = double.NegativeInfinity;
@@ -239,7 +287,6 @@ namespace Mescp.ViewModels
             });
 
 
-#if DEBUG
             //TODO:====================================Test
             XStation[] xa0 = xStations.FindAll(p => p.Fae == 0).ToArray();     //不适宜
             XStation[] xa1 = xStations.FindAll(p => p.Fae == 1).ToArray();     //次适宜
@@ -247,6 +294,7 @@ namespace Mescp.ViewModels
             XStation[] xa3 = xStations.FindAll(p => p.Fae == -1).ToArray();    //未知
             //=========================================
 #endif
+            //end
         }
 
         private void SaveData()
@@ -265,18 +313,25 @@ namespace Mescp.ViewModels
             //改变
             App.Workspace.ChangeFilePath(filePath);
 
-            //
             //end
-            //
         }
 
+        /// <summary>
+        /// 输出评估结果到磁盘文件
+        /// </summary>
+        /// <param name="xStations"></param>
+        /// <param name="fileName"></param>
         private void OutputStationFile(List<XStation> xStations, string fileName)
         {
-            int year = App.Workspace.AppData.Year; //评估年份
-            Region curRegion = _CurrentRegion;      //当前区域
+            int year = App.Workspace.AppData.Year;                  //评估年份
+            Region curRegion = _CurrentRegion;                      //当前区域
+            Crop curCrop = _CurrentCrop;                            //当前作物
+            CropCultivar curCropCultivar = _CurrentCropCultivar;    //当前作物品种
 
-            //填充数据 StationInfos
+            //Axin站点文件
             AxinStationFile fileAxinStation = new AxinStationFile();
+
+            //站点信息 - StationInfos
             xStations.ForEach(p =>
             {
                 StationInfo si = new StationInfo();
@@ -299,12 +354,13 @@ namespace Mescp.ViewModels
                 }
             });
 
-            //数据信息
+            //数据信息 - DataInfo
             AxinStationFileDataInfo axin30di = fileAxinStation.DataInfo as AxinStationFileDataInfo;
             {
                 axin30di.FileId = AxinConstants.FileLogo;
                 axin30di.FormatCode = AxinConstants.FormatCode_Tin;
-                axin30di.Comment = "永优玉米评估";
+                axin30di.Comment = string.Format("永优玉米评估-{0}-{1}-{2}",
+                    curRegion.RgnName, curCrop.CropName, curCropCultivar.CultivarName);
                 axin30di.DateTime = new DateTime(year, 1, 1);
                 axin30di.TimePeriod = 0;
                 axin30di.Layer = 999;
@@ -330,6 +386,7 @@ namespace Mescp.ViewModels
                 axin30di.ClipArea.YClipMax = curRegion.YClipMax;
             }
 
+            //保存数据
             fileAxinStation.DataProcessor.SaveAs(fileName);
 
             //
@@ -338,9 +395,11 @@ namespace Mescp.ViewModels
         }
 
 
-
-
-        //TODO:waiting...
+        /// <summary>
+        /// 文件改变时显示评估报告view
+        /// 其能够自动更新列表内容
+        /// </summary>
+        /// <param name="filePath"></param>
         protected override void OnFilePathChanged(string filePath)
         {
             try
@@ -364,7 +423,8 @@ namespace Mescp.ViewModels
                 this.StationInfos = axinStationFile?.StationInfos;
 
                 App.Workspace.EvaluReportViewModel.ToolTip = filePath;
-                //App.Workspace.ActiveDocument = App.Workspace.EvaluReportViewModel;
+                //App.Workspace.ActiveDocument = App.Workspace.EvaluReportViewModel;    //切换活动文档
+                //
             }
             catch (Exception ex)
             {

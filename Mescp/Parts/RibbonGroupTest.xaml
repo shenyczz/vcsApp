@@ -7,7 +7,7 @@
 
     <RibbonButton
             Margin="5"
-            Label="评估测试"
+            Label="测试"
             LargeImageSource="..\Assets\LargeIcon.png"
             Command="{Binding AppCommands.TestCommand}"/>
 

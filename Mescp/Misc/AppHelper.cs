@@ -252,17 +252,7 @@ namespace Mescp
                         station.Alt = double.Parse(row["Alt"].ToString()) * 0.1;
 
                         station.RegionID = row["RegionID"].ToString();
-
-                        //string rgs = row["Region"].ToString();
-                        //if (string.IsNullOrEmpty(rgs))
-                        //{
-                        //    station.RegionID = row["RgnID"].ToString();
-                        //}
-                        //else
-                        //{
-                        //    station.RegionID = row["RgnID"].ToString() + "," + row["Region"].ToString();
-                        //}
-
+                        station.ReplaceSite= row["ReplaceSite"].ToString();
                     }
                     stations.Add(station);
                 }
@@ -277,6 +267,8 @@ namespace Mescp
 
     }
 
+
+
     /// <summary>
     /// 远程数据库
     /// AppHelper - partial_1[HenanClimate]
@@ -285,25 +277,14 @@ namespace Mescp
     {
         #region Private Fields
 
-
-        static string ip0 = "10.10.10.100";
-        static string ip1 = "172.18.152.243";
-        string _DataSourceIP = ip0;
-
-        private string _OutputFileName;
-
-        private Region _CurrentRegion;                  //区域
-        private Crop _CurrentCrop;                      //作物
-        private CropCultivar _CurrentCropCultivar;      //作物品种
-        private List<XStation> _XStations;              //站点集合(当前区域)
-        private List<CropGrwp> _CropGrwps;              //发育期集合((当前作物品种))
-        private List<CropWorkspace> _CropWorkspaces;    //工作空间集合(当前区域、当前作物、当前品种)
-
         #endregion
 
         #region Protected Properties
 
         private DataSet _DsHenanClimate;
+        /// <summary>
+        /// 河南气候数据集
+        /// </summary>
         protected DataSet DsHenanClimate
         {
             get
@@ -337,8 +318,7 @@ namespace Mescp
 
         public void Test()
         {
-            //MessageBox.Show("AppHelper.Test()");
-            ClearStationColor();
+            MessageBox.Show("AppHelper.Test()");
         }
 
         /// <summary>
@@ -350,7 +330,7 @@ namespace Mescp
         /// <returns></returns>
         public List<MeteoElement> GetMeteoElementCollection(string cnnString, string cmdText, List<XStation> xStations)
         {
-            List<MeteoElement> meteoElements = MeteoElements;
+            List<MeteoElement> meteoElements = this.MeteoElements;
             meteoElements.Clear();
 
             try
@@ -433,6 +413,9 @@ namespace Mescp
 
 
 
+        /// <summary>
+        /// ////////////////////////////////////////////////////////////
+        /// </summary>
         //TODO:评估移到 EvaluReportViewModel
 
 
@@ -463,17 +446,6 @@ namespace Mescp
 
 
         /*
-
-
-
-
-
-
-
-
-
-
-
 
 
     public void Test()

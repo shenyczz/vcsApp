@@ -192,6 +192,9 @@
     <Compile Include="Parts\RibbonGroupPrimivite.xaml.cs">
       <DependentUpon>RibbonGroupPrimivite.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Parts\RibbonGroupSop.xaml.cs">
+      <DependentUpon>RibbonGroupSop.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Parts\RibbonGroupSys.xaml.cs">
       <DependentUpon>RibbonGroupSys.xaml</DependentUpon>
     </Compile>
@@ -240,9 +243,6 @@
     <Compile Include="Models\CropModelBase.cs" />
     <Compile Include="Views\PropertyView.xaml.cs">
       <DependentUpon>PropertyView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="AboutBox.xaml">
       <SubType>Designer</SubType>
@@ -312,6 +312,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Parts\RibbonGroupSop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Parts\RibbonGroupSys.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -349,10 +353,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PropertyView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

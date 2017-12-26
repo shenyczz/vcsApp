@@ -339,10 +339,10 @@ namespace Mescp
 
         #region 远程数据库
 
-        static string ip0 = "10.10.10.100";
-        static string ip1 = "172.18.152.243";
+        static string ip = "10.10.10.100";
+        //static string ip = "172.18.152.243";
 
-        string _RemoteDataSource = ip0;
+        string _RemoteDataSource = ip;
         string _RemoteInitialCatalog = "HenanClimate";
         string _RemoteUserID = "nqzx";
         string _RemotePassword = "KyCen5946";
@@ -367,11 +367,6 @@ namespace Mescp
                 return cnnString;
             }
         }
-
-        /// <summary>
-        /// SQL语句CommandText
-        /// </summary>
-        //public String RemoteCommandText { get; set; }
 
         #endregion
 

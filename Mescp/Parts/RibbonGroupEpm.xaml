@@ -5,6 +5,7 @@
     xmlns:local="clr-namespace:Mescp"
     Header="评价时段">
 
+    <!--
     <Grid>
 
         <TextBox x:Name="_txtYear" Width="20" Visibility="Hidden"/>
@@ -25,11 +26,16 @@
                         ItemsSource="{Binding Path=AppData.Years}"/>
                 </RibbonGallery>
             </RibbonComboBox>
-            
+
+            <RibbonButton
+            Margin="5"
+            Label="评估测试"
+            SmallImageSource="..\Assets\LargeIcon.png"
+            Command="{Binding AppCommands.EvaluateCommand}"/>
         </StackPanel>
         
     </Grid>
+    
+    -->
 
 </RibbonGroup>
-
-<!--DisplayMemberPath="RgnName"-->

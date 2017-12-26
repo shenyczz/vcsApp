@@ -1,0 +1,23 @@
+﻿<RibbonGroup
+    x:Class="Mescp.Parts.RibbonGroupSop"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Mescp"
+    Header="显示选项">
+
+    <Grid>
+        
+        <StackPanel>
+            <RibbonRadioButton
+            Margin="5"
+            Label="等高填充图"
+            IsChecked="{Binding AppData.IsContour}"/>
+            
+            <RibbonRadioButton
+            Margin="5"
+            Label="站点填充图"
+            IsChecked="{Binding AppData.IsStation}"/>
+        </StackPanel>
+        
+    </Grid>
+</RibbonGroup>
