@@ -1,0 +1,692 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharpKit.Maths</name>
+    </assembly>
+    <members>
+        <member name="T:CSharpKit.Maths.ContourTracing.ContourBuilder">
+            <summary>
+            ContourBuilder - 等值线构造器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourBuilder.Grid">
+            <summary>
+            网格信息
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourBuilder.GridValues">
+            <summary>
+            格点数据
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourBuilder.ContourManager">
+            <summary>
+            等值线管理器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourBuilder.ContourTracer">
+            <summary>
+            等值线追踪器
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourBuilder.GetContourPlexCollection(CSharpKit.Maths.ContourTracing.ContourStates)">
+            <summary>
+            等值线集
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourBuilder.Clear">
+            <summary>
+            清空数据
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourBuilder.BuildContours">
+            <summary>
+            构造等值线
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourBuilder.ComputeBoundingBox">
+            <summary>
+            计算包围盒
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourBuilder.ConvertToCloseContour">
+            <summary>
+            把所有等值线转化为闭合的曲线,用于绘制等值线色斑图
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourBuilder.FindCurve(CSharpKit.Geometrics.ContourPlexCollection,System.String)">
+            <summary>
+            取得指定标记的曲线
+            </summary>
+            <param name="contours">等值线集合</param>
+            <param name="idCurve">曲线标识</param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Maths.ContourTracing.ContourManager">
+            <summary>
+            ContourManager - 等值线管理器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourManager.TraceValues">
+            <summary>
+            追踪值集合
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourManager.SetTraceValue(System.Double[])">
+            <summary>
+            设置要追踪的等值线值
+            </summary>
+            <param name="va">等值线值数组</param>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourManager.SetTraceValue(System.Double,System.Double,System.Double)">
+            <summary>
+            设置要追踪的等值线值
+            </summary>
+            <param name="vInterval">等值线值间隔</param>
+            <param name="vBeg">起始等值线值</param>
+            <param name="vEnd">终止等值线值</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourManager.SetTraceValue(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            设置要追踪的等值线值
+            </summary>
+            <param name="collection">等值线值集合</param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Maths.ContourTracing.ContourStates">
+            <summary>
+            等值线状态
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Maths.ContourTracing.ContourTracer">
+            <summary>
+            ContourTracer - 等值线追踪器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourTracer.Grid">
+            <summary>
+            网格信息
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourTracer.GridValue">
+            <summary>
+            格点数据
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourTracer.TraceValue">
+            <summary>
+            追踪值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourTracer.ContourPlex">
+            <summary>
+            等值线
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.Tracing">
+            <summary>
+            追踪等值线
+            </summary>
+            <returns></returns>
+            <remarks>
+            每次追踪一组指定值的等值线
+            </remarks>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.PrepareSide">
+            <summary>
+            为xSide和ySide分配内存空间
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.InterpolateTracingValue">
+            <summary>
+            扫描网格的纵、横边，并线性插值计算等值点
+            </summary>
+            <returns>成功返回 True,否则返回 False</returns>
+            <remarks>
+            <para></para>
+            <para>将各边上的等值点情况存储于m_xSide和m_ySide数组中,xSide存储所有横边上的等值线情况, ySide存储所有纵边上的等值点情况。</para>
+            <para>在插值计算时，对『与追踪值相等的数据』要进行修正处理后才计算，但在做修正处理时不要改变原来的数据</para>
+            <para>网格点标识如下:</para>
+            <para>
+            (i+1,j)·--------·(i+1,j+1)
+                    |        |
+                    |        |
+                    |        |
+                    |        |
+             (i,j) ·--------·(i,j+1)
+            </para>
+            <para>i:表示行号(向上增加)</para>
+            <para>j:表示列号(向右增加)</para>
+            <para>标识一个网格交点时，行号在前，列号在右，如：(i,j)</para>
+            <para>xSide,ySide中存储r值，(w为追踪值)</para>
+            <para>对于网格横边，r = (w - pData[i][j]) / (pData[i][j+1]-pData[i][j]);</para>
+            <para>对于网格纵边，r = (w - pData[i][j]) / (pData[i+1][j]-pData[i][j]);</para>
+            <para>由于浮点运算的误差，xSide[i][j],ySide[i][j]有可能等于 1.0 或 0.0 </para>
+            <para>考虑如下情况：</para>
+            <para>(1)当追踪值与网格点上的值很接近(但不相等)时，由于运算误差，就会等于1.0,比如追踪0值时，遇到如下边:</para>
+            <para>     20 ·--------·-0.00000016</para>
+            <para>此边上有0值，但计算 (0-20)/(-0.00000016-20) == 1.0 </para>
+            <para></para>
+            <para>(2)当网格边上两端点上的值相差很悬殊时,比如追踪2值，遇到如下边：</para>
+            <para>     1.70141E+038 ·--------·1</para>
+            <para>此边上有2值，计算(2-1.70141E+038) / (1-1.70141E+038) == 1.0</para>
+            <para></para>
+            <para>网格边上有等值点时，理论上比例值不会等于0或1,但由于计算误差，我们在算法中判断时，认为0或1也是有等值点的</para>
+            <para>所以xSide,ySide中存储的值是[0,1]的闭区间，不是(0,1)的开区间</para>
+            </remarks>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.TracingOpenedContour">
+            <summary>
+            分4种情况追踪开路等值线
+            </summary>
+            <returns>成功返回 True,否则返回 False</returns>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.TracingClosedContour">
+            <summary>
+            追踪闭路等值线
+            </summary>
+            <returns>成功返回 True,否则返回 False</returns>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.TracingOneOpenedContour">
+            <summary>
+            追踪一组非闭合的等值线
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.TracingOneClosedContour(System.Int32,System.Int32)">
+            <summary>
+            追踪一条闭合等值线
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.IsContourPoint(System.Double)">
+            <summary>
+            是否等值线点
+            </summary>
+            <param name="flag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.CalcOnePointCoord(System.Int32,System.Int32,System.Boolean,System.Double@,System.Double@)">
+            <summary>
+            计算出等值线头的坐标
+            </summary>
+            <param name="i">行</param>
+            <param name="j">列</param>
+            <param name="bHorizon">水平边/垂直边</param>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.TracingNextPoint(CSharpKit.Geometrics.Contour@)">
+            <summary>
+            追踪下一个等值点 a3
+            </summary>
+            <param name="curve"></param>
+            <remarks>
+            <para></para>
+            <para>1.先确定出等值线的前进方向(自下向上、由左向右、自上向下、由右向左，其中之一)</para>
+            <para>2.再追踪下一个等值点</para>
+            <para>前进方向可以如下判定：</para>
+            <para>if( 当前点.行号 > 前一点.行号 ) { 下---->上 }</para>
+            <para>if( 当前点.列号 > 前一点.列号 ) { 左---->右 }</para>
+            <para>if( 当前点在横边上 ) { 上---->下 }</para>
+            <para>else { 右---->左 }</para>
+            <para></para>
+            </remarks>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.FromBottom2TopTracing">
+            <summary>
+            自下向上追踪等值线
+            </summary>
+            <remarks>
+            <para></para>
+            <para>等值线自下向上前进时，网格单元的情况如下：</para>
+            <para></para>
+                               横边(i+1,j)
+                               xSide[i+1][j]
+            
+                                    ↑
+                         (i+1,j)    ∣    (i+1,j+1)
+                             |-----------|
+                             |           |
+             纵边(i,j)---→  |           | ←----纵边(i,j+1)
+             ySide[i][j]	 |           |       ySide[i][j+1]
+                             |           |
+                             |-----·----|    
+                         (i,j)      ↖     (i,j+1)
+                                      ＼
+                                        等前等值点(P2)
+            <para></para>
+            <para>当前等值点(用P2表示)在网格单元的底边上，那么下一等值点(用P3表示)所在的位置有三种情况：</para>
+            <para>1.在纵边(i,j)上</para>
+            <para>2.在纵边(i,j+1)上</para>
+            <para>3.在横边(i+1,j)上</para>
+            <para>但实际追踪时只能选择其中之一,程序判断的依据即是：ySide[i][j] 、 ySide[i][j+1] 、xSide[i+1][j] </para>
+            <para>假设纵边(i,j)上存在等值点P31, 纵边(i,j+1)上存在等值点P33, 横边(i+1,j)上存在等值点P32</para>
+            <para>选择的次序如下：</para>
+            <para>1.当P31，P33都存在时，选择靠近网格底边者为P3(比较ySide[i][j]、ySide[i][j+1])</para>
+            <para>2.若P31,P33靠近底边的距离相同，则选择与P2点距离近者为P3</para>
+            <para>3.当P31,P33中只有一个存在时，则存在点即为P3</para>
+            <para>4.当无P31,P33存在时，对边必定存在P32作为P3</para>
+            <para></para>
+            </remarks>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.FromBottom2TopTracingV2">
+            <summary>
+            自下向上追踪等值线 Version 2
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.FromTop2BottomTracing">
+            <summary>
+            由上向下追踪等值线
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.FromTop2BottomTracingV2">
+            <summary>
+            由上向下追踪等值线 Version 2
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.FromLeft2RightTracing">
+            <summary>
+            由左向右追踪等值线
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.FromLeft2RightTracingV2">
+            <summary>
+            由左向右追踪等值线 Version 2
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.FromRight2LeftTracing">
+            <summary>
+            由右向左追踪等值线
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.FromRight2LeftTracingV2">
+            <summary>
+            由右向左追踪等值线 Version 2
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.ContourTracing.ContourTracer.HandlingAfterNextPointFounded(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            当下一个等值点找到后做相应的处理
+            </summary>
+            <param name="i">等值点所在边的编号(行)</param>
+            <param name="j">等值点所在边的编号(列)</param>
+            <param name="bHorizon">指明所在边是横边还是纵边</param>
+            <remarks>
+            <para>当下一个等值点找到后做相应的处理,如下：</para>
+            <para>1.记录该等值点的i,j</para>
+            <para>2.计算并保存该等值点的坐标</para>
+            <para>3.标志该等值点所在边的已经搜索过</para>
+            </remarks>
+        </member>
+        <member name="T:CSharpKit.Maths.Interpolation.G2VInterpolater">
+            <summary>
+            规则网格点到离散点插值器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.G2VInterpolater.GridParam">
+            <summary>
+            格点参数
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.G2VInterpolater.Xtarget">
+            <summary>
+            目标数据 X 坐标集
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.G2VInterpolater.Ytarget">
+            <summary>
+            目标数据 Y 坐标集
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.G2VInterpolater.Vtarget">
+            <summary>
+            目标数据 V 坐标集
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Maths.Interpolation.G2VInterpolater._Xsource">
+            <summary>
+            源数据 X 坐标集
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Maths.Interpolation.G2VInterpolater._Ysource">
+            <summary>
+            源数据 Y 坐标集
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Maths.Interpolation.G2VInterpolater._Vsource">
+            <summary>
+            源数据 V 坐标集
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.G2VInterpolater.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.G2VInterpolater.Transact">
+            <summary>
+            插值处理
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.G2VInterpolater.ParseGridParam">
+            <summary>
+            解析网格参数
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Maths.Interpolation.GridDensify1">
+            <summary>
+            网格加密
+            </summary>
+            <remarks>
+            if it works, I know it was written by
+            ShenYongchen(shenyczz@163.com),lives in Zhengzhou,Henan.
+            if not, then I don't know nothing.
+            </remarks>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.GridDensify1.GridParamIntpu">
+            <summary>
+            输入网格
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.GridDensify1.GridParamOutput">
+            <summary>
+            输出网格
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.GridDensify1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.GridDensify1.Transact">
+            <summary>
+            实施网格加密
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.GridDensify1.PrepareGridParamOutput">
+            <summary>
+            准备输出网格参数
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.GridDensify1.InterpolateOnePoint(System.Double,System.Double)">
+            <summary>
+            对某个点插值
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.GridDensify1.Distance(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            计算两点距离
+            </summary>
+            <param name="x0"></param>
+            <param name="y0"></param>
+            <param name="x1"></param>
+            <param name="y1"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Maths.Interpolation.GridExtract">
+            <summary>
+            格点抽取
+            </summary>
+            <remarks>
+            if it works, I know it was written by
+            ShenYongchen(shenyczz@163.com),lives in Zhengzhou,Henan.
+            if not, then I don't know nothing.
+            </remarks>
+        </member>
+        <member name="T:CSharpKit.Maths.Interpolation.GridParam">
+            <summary>
+            格点参数
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.GridParam.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.GridParam.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="xmin"></param>
+            <param name="ymin"></param>
+            <param name="xmax"></param>
+            <param name="ymax"></param>
+            <param name="xinterval"></param>
+            <param name="yinterval"></param>
+            <param name="vgrid"></param>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.GridParam.#ctor(System.Int32,System.Int32,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            参数构造函数
+            </summary>
+            <param name="xnumber"></param>
+            <param name="ynumber"></param>
+            <param name="x0"></param>
+            <param name="y0"></param>
+            <param name="xinterval"></param>
+            <param name="yinterval"></param>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.GridParam.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double[0:,0:])">
+            <summary>
+            
+            </summary>
+            <param name="xmin"></param>
+            <param name="ymin"></param>
+            <param name="xmax"></param>
+            <param name="ymax"></param>
+            <param name="xinterval"></param>
+            <param name="yinterval"></param>
+            <param name="vgrid"></param>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.GridParam.#ctor(System.Int32,System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double[0:,0:])">
+            <summary>
+            
+            </summary>
+            <param name="xnumber"></param>
+            <param name="ynumber"></param>
+            <param name="xmin"></param>
+            <param name="ymin"></param>
+            <param name="xinterval"></param>
+            <param name="yinterval"></param>
+            <param name="vgrid"></param>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.GridParam.Xnumber">
+            <summary>
+            X 方向格点数量
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.GridParam.Ynumber">
+            <summary>
+            Y 方向格点数量
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.GridParam.Xmin">
+            <summary>
+            网格点 X 向最小值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.GridParam.Ymin">
+            <summary>
+            网格点 y 向最小值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.GridParam.Xmax">
+            <summary>
+            网格点 x 向最大值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.GridParam.Ymax">
+            <summary>
+            网格点 y 向最大值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.GridParam.Xinterval">
+            <summary>
+            X 方向网格点间隔
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.GridParam.Yinterval">
+            <summary>
+            Y 方向网格点间隔
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.GridParam.Vgrid">
+            <summary>
+            格点值
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Maths.Interpolation.KrigingInterpolater">
+            <summary>
+            Kriging 插值算法
+            </summary>
+            <remarks>
+            if it works, I know it was written by
+            ShenYongchen(shenyczz@163.com),lives in Zhengzhou,Henan.
+            if not, then I don't know nothing.
+            </remarks>
+        </member>
+        <member name="T:CSharpKit.Maths.Interpolation.V2GInterpolater">
+            <summary>
+            离散点到规则网格点插值器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.V2GInterpolater.Xsource">
+            <summary>
+            源数据 X 坐标集
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.V2GInterpolater.Ysource">
+            <summary>
+            源数据 Y 坐标集
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.V2GInterpolater.Vsource">
+            <summary>
+            源数据 V 坐标集
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.V2GInterpolater.GridParam">
+            <summary>
+            格点参数
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Maths.Interpolation.V2GInterpolater._Xtarget">
+            <summary>
+            目标数据 X 坐标集
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Maths.Interpolation.V2GInterpolater._Ytarget">
+            <summary>
+            目标数据 Y 坐标集
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Maths.Interpolation.V2GInterpolater._Vtarget">
+            <summary>
+            目标数据 V 坐标集
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.V2GInterpolater.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.V2GInterpolater.Transact">
+            <summary>
+            插值处理
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.V2GInterpolater.ParseGridParam">
+            <summary>
+            解析网格参数
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Maths.Interpolation.V2VInterpolater">
+            <summary>
+            离散点插值器
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Maths.Interpolation.V2VInterpolater.Node">
+            <summary>
+            节点结构
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.V2VInterpolater.Xsource">
+            <summary>
+            源数据 X 坐标集
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.V2VInterpolater.Ysource">
+            <summary>
+            源数据 Y 坐标集
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.V2VInterpolater.Vsource">
+            <summary>
+            源数据 V 坐标集
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.V2VInterpolater.Xtarget">
+            <summary>
+            目标数据 X 坐标集
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.V2VInterpolater.Ytarget">
+            <summary>
+            目标数据 Y 坐标集
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.V2VInterpolater.Vtarget">
+            <summary>
+            目标数据 V 坐标集
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.Interpolation.V2VInterpolater.NumbersOfPoint">
+            <summary>
+            距离插值点最近的最少源数据点数
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Maths.Interpolation.V2VInterpolater._NodeList">
+            <summary>
+            节点链
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.V2VInterpolater.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.V2VInterpolater.Transact">
+            <summary>
+            插值处理
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.V2VInterpolater.InterpolateOnePoint(System.Double,System.Double)">
+            <summary>
+            插值一个点
+            </summary>
+            <param name="x">被插值点的x坐标</param>
+            <param name="y">被插值点的y坐标</param>
+            <returns>被插值点要素值</returns>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.V2VInterpolater.GressmanWeight(System.Double,System.Double)">
+            <summary>
+            Gressman权重
+            </summary>
+            <param name="radius">扫描半径</param>
+            <param name="distance">两点间距离</param>
+            <returns>Gressman权重</returns>
+        </member>
+        <member name="M:CSharpKit.Maths.Interpolation.V2VInterpolater.GaussWeight(System.Double,System.Double)">
+            <summary>
+            高斯权重
+            </summary>
+            <param name="radius">扫描半径</param>
+            <param name="distance">两点间距离</param>
+            <returns>高斯权重</returns>
+        </member>
+    </members>
+</doc>

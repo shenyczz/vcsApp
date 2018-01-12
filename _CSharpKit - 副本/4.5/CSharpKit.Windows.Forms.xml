@@ -1,0 +1,1633 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharpKit.Windows.Forms</name>
+    </assembly>
+    <members>
+        <member name="T:CSharpKit.Windows.Forms.Controls.MapControl">
+            <summary>
+            地图控件
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Controls.MapControl.Map">
+            <summary>
+            地图
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Windows.Forms.Controls.MapControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Controls.MapControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Controls.MapControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.IDockForm">
+            <summary>
+            IDockForm - 停靠窗体接口
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.IDockForm.Close">
+            <summary>
+            关闭
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.IDockForm.Refresh">
+            <summary>
+            刷新
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.IDockForm.Show(CSharpKit.Windows.Forms.Docking.DockPanel)">
+            <summary>
+            显示
+            </summary>
+            <param name="dockPanel"></param>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.IGisForm">
+            <summary>
+            IGisForm
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.ILayerForm">
+            <summary>
+            ILayerForm
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.IPropertyForm">
+            <summary>
+            IPropertyForm
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.IPropertyForm.PropertyGrid">
+            <summary>
+            属性网格
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.IPropertyForm.RefreshVisionProperty(CSharpKit.Vision.IVision)">
+            <summary>
+            刷新属性
+            </summary>
+            <param name="vision"></param>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.PropertyFormBase.RefreshVisionProperty(CSharpKit.Vision.IVision)">
+            <summary>
+            刷新属性
+            </summary>
+            <param name="vision"></param>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.TreeViewDockFormBase.TreeView">
+            <summary>
+            树视图
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.DockContent">
+            <summary>
+            DockContent - 停靠内容
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.DockContentHandler">
+            <summary>
+            停靠内容处理器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.DockContentHandler.CloseButtonVisible">
+            <summary>
+            Determines whether the close button is visible on the content
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.DockPane.AppearanceStyle">
+            <summary>
+            外观风格
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.DockPane.HitTestArea">
+            <summary>
+            单击测试
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.DockPanel.DockBackColor">
+            <summary>
+            Determines the color with which the client rectangle will be drawn.
+            If you take this property instead of the BackColor it will not have any influence on the borders to the surrounding controls (DockPane).
+            If you use BackColor the borders to the surrounding controls (DockPane) will also change there colors.
+            Alternatively you can use both of them (BackColor to draw the define the color of the borders and DockBackColor to define the color of the client rectangle). 
+            For Backgroundimages: Set your prefered Image, then set the DockBackColor and the BackColor to the same Color (Control)
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.DockPanel.DragHandlerBase">
+            <summary>
+            DragHandlerBase is the base class for drag handlers. The derived class should:
+              1. Define its public method BeginDrag. From within this public BeginDrag method,
+                 DragHandlerBase.BeginDrag should be called to initialize the mouse capture
+                 and message filtering.
+              2. Override the OnDragging and OnEndDrag methods.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.DockPanelSkin">
+            <summary>
+            The skin to use when displaying the DockPanel.
+            The skin allows custom gradient color schemes to be used when drawing the
+            DockStrips and Tabs.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.DockPanelSkin.AutoHideStripSkin">
+            <summary>
+            The skin used to display the auto hide strips and tabs.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.DockPanelSkin.DockPaneStripSkin">
+            <summary>
+            The skin used to display the Document and ToolWindow style DockStrips and Tabs.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.AutoHideStripSkin">
+            <summary>
+            The skin used to display the auto hide strip and tabs.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.AutoHideStripSkin.DockStripGradient">
+            <summary>
+            The gradient color skin for the DockStrips.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.AutoHideStripSkin.TabGradient">
+            <summary>
+            The gradient color skin for the Tabs.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.DockPaneStripSkin">
+            <summary>
+            The skin used to display the document and tool strips and tabs.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.DockPaneStripSkin.DocumentGradient">
+            <summary>
+            The skin used to display the Document style DockPane strip and tab.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.DockPaneStripSkin.ToolWindowGradient">
+            <summary>
+            The skin used to display the ToolWindow style DockPane strip and tab.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.DockPaneStripToolWindowGradient">
+            <summary>
+            The skin used to display the DockPane ToolWindow strip and tab.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.DockPaneStripToolWindowGradient.ActiveCaptionGradient">
+            <summary>
+            The skin used to display the active ToolWindow caption.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.DockPaneStripToolWindowGradient.InactiveCaptionGradient">
+            <summary>
+            The skin used to display the inactive ToolWindow caption.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.DockPaneStripGradient">
+            <summary>
+            The skin used to display the DockPane strip and tab.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.DockPaneStripGradient.DockStripGradient">
+            <summary>
+            The gradient color skin for the DockStrip.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.DockPaneStripGradient.ActiveTabGradient">
+            <summary>
+            The skin used to display the active DockPane tabs.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.DockPaneStripGradient.InactiveTabGradient">
+            <summary>
+            The skin used to display the inactive DockPane tabs.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.TabGradient">
+            <summary>
+            The skin used to display the dock pane tab
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.TabGradient.TextColor">
+            <summary>
+            The text color.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.DockPanelGradient">
+            <summary>
+            The gradient color skin.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.DockPanelGradient.StartColor">
+            <summary>
+            The beginning gradient color.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.DockPanelGradient.EndColor">
+            <summary>
+            The ending gradient color.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.DockPanelGradient.LinearGradientMode">
+            <summary>
+            The gradient mode to display the colors.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.DocumentTabStripLocation">
+            <summary>
+            The location to draw the DockPaneStrip for Document style windows.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.IDockContent">
+            <summary>
+            停靠内容
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.INestedPanesContainer">
+            <summary>
+            镶嵌窗格容器
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.IDragSource">
+            <summary>
+            拖动源
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.IDockDragSource">
+            <summary>
+            停靠拖动源
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.ISplitterDragSource">
+            <summary>
+            分割拖动源
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PaneDiamond">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PaneDiamond_Bottom">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PaneDiamond_Fill">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PaneDiamond_HotSpot">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PaneDiamond_HotSpotIndex">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PaneDiamond_Left">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PaneDiamond_Right">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PaneDiamond_Top">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PanelBottom">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PanelBottom_Active">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PanelFill">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PanelFill_Active">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PanelLeft">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PanelLeft_Active">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PanelRight">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PanelRight_Active">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PanelTop">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockIndicator_PanelTop_Active">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockPane_AutoHide">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockPane_Close">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockPane_Dock">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockPane_Option">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Resources.DockPane_OptionOverflow">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Docking.Strings">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.Category_Docking">
+            <summary>
+              查找类似 Docking 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.Category_DockingNotification">
+            <summary>
+              查找类似 Docking Notification 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.Category_PropertyChanged">
+            <summary>
+              查找类似 Property Changed 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockAreaEditor_FloatCheckBoxText">
+            <summary>
+              查找类似 (Float) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContent_AllowEndUserDocking_Description">
+            <summary>
+              查找类似 Determines if end user drag and drop docking is allowed. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContent_AutoHidePortion_Description">
+            <summary>
+              查找类似 The size to display the content in auto hide mode. Value &lt; 1 to specify the size in portion; value &gt;= 1 to specify the size in pixel. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContent_CloseButton_Description">
+            <summary>
+              查找类似 Enable/Disable the close button of the content. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContent_CloseButtonVisible_Description">
+            <summary>
+              查找类似 Shows or hides the close button of the content. This property does not function with System MDI Document Style. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContent_Constructor_InvalidForm">
+            <summary>
+              查找类似 The form must be of type IDockContent. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContent_DockAreas_Description">
+            <summary>
+              查找类似 Gets or sets a value indicating in which area of the DockPanel the content allowed to show. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContent_DockStateChanged_Description">
+            <summary>
+              查找类似 Occurs when the value of DockState property changed. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContent_HideOnClose_Description">
+            <summary>
+              查找类似 Indicates the content will be hidden instead of being closed. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContent_ShowHint_Description">
+            <summary>
+              查找类似 The desired docking state when first showing. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContent_TabPageContextMenu_Description">
+            <summary>
+              查找类似 Context menu displayed for the dock pane tab strip. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContent_TabText_Description">
+            <summary>
+              查找类似 The tab text displayed in the dock pane. If not set, the Text property will be used. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContent_ToolTipText_Description">
+            <summary>
+              查找类似 The text displayed when mouse hovers over the tab. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContentHandler_AutoHidePortion_OutOfRange">
+            <summary>
+              查找类似 The provided value is out of range. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContentHandler_DockAreas_InvalidValue">
+            <summary>
+              查找类似 Invalid Value: The value of DockAreas conflicts with current DockState. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContentHandler_DockPane_InvalidValue">
+            <summary>
+              查找类似 The pane is invalid. Check the IsFloat and DockPanel properties of this dock pane. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContentHandler_FloatPane_InvalidValue">
+            <summary>
+              查找类似 The pane is invalid. Check the IsFloat and DockPanel properties of this dock pane. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContentHandler_IsFloat_InvalidValue">
+            <summary>
+              查找类似 Invalid value, conflicts with DockableAreas  property. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContentHandler_SetDockState_InvalidState">
+            <summary>
+              查找类似 The dock state is invalid. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContentHandler_SetDockState_NullPanel">
+            <summary>
+              查找类似 The dock panel is null. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContentHandler_Show_InvalidBeforeContent">
+            <summary>
+              查找类似 Invalid beforeContent, it must be contained by the pane. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContentHandler_Show_InvalidDockState">
+            <summary>
+              查找类似 Invalid DockState: Content can not be showed as &quot;Unknown&quot; or &quot;Hidden&quot;. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContentHandler_Show_InvalidPrevPane">
+            <summary>
+              查找类似 The previous pane is invalid. It can not be null, and its docking state must not be auto-hide. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContentHandler_Show_NullDockPanel">
+            <summary>
+              查找类似 DockPanel can not be null. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContentHandler_Show_NullPane">
+            <summary>
+              查找类似 The Pane can not be null. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockContentHandler_ShowHint_InvalidValue">
+            <summary>
+              查找类似 Invalid value, check DockableAreas property. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockHandler_TabPageContextMenuStrip_Description">
+            <summary>
+              查找类似 Context menu displayed for the dock pane tab strip. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockIndicator_ToolTipText">
+            <summary>
+              查找类似 Press SHIFT for docking to full side. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPane_ActiveContent_InvalidValue">
+            <summary>
+              查找类似 Invalid Content: ActiveContent must be one of the visible contents, or null if there is no visible content. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPane_Constructor_NullContent">
+            <summary>
+              查找类似 Invalid argument: Content can not be &quot;null&quot;. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPane_Constructor_NullDockPanel">
+            <summary>
+              查找类似 Invalid argument: The content&apos;s DockPanel can not be &quot;null&quot;. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPane_DockTo_InvalidContainer">
+            <summary>
+              查找类似 The specified container conflicts with the IsFloat property. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPane_DockTo_NoPrevPane">
+            <summary>
+              查找类似 The previous pane does not exist in the nested docking pane collection. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPane_DockTo_NullContainer">
+            <summary>
+              查找类似 The container can not be null. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPane_DockTo_NullPrevPane">
+            <summary>
+              查找类似 The previous pane can not be null when the nested docking pane collection is not empty. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPane_DockTo_SelfPrevPane">
+            <summary>
+              查找类似 The previous pane can not be itself. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPane_FloatWindow_InvalidValue">
+            <summary>
+              查找类似 FloatWindow property can not be set to &quot;null&quot; when DockState is DockState.Float. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPane_SetContentIndex_InvalidContent">
+            <summary>
+              查找类似 Invalid Content: Content not within the collection. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPane_SetContentIndex_InvalidIndex">
+            <summary>
+              查找类似 Invalid Index: The index is out of range. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPane_SetDockState_InvalidState">
+            <summary>
+              查找类似 The state for the dock pane is invalid. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPaneCaption_ToolTipAutoHide">
+            <summary>
+              查找类似 Auto Hide 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPaneCaption_ToolTipClose">
+            <summary>
+              查找类似 Close 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPaneCaption_ToolTipOptions">
+            <summary>
+              查找类似 Options 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_ActiveAutoHideContent_InvalidValue">
+            <summary>
+              查找类似 Invalid Content: The content must be auto-hide state and associates with this DockPanel. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_ActiveContentChanged_Description">
+            <summary>
+              查找类似 Occurs when the value of ActiveContentProperty changed. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_ActiveDocumentChanged_Description">
+            <summary>
+              查找类似 Occurs when the value of ActiveDocument property changed. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_ActivePaneChanged_Description">
+            <summary>
+              查找类似 Occurs when the value of ActivePane property changed. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_AllowEndUserDocking_Description">
+            <summary>
+              查找类似 Determines if the drag and drop docking is allowed. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_AllowEndUserNestedDocking_Description">
+            <summary>
+              查找类似 Determines if the drag and drop nested docking is allowed. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_ContentAdded_Description">
+            <summary>
+              查找类似 Occurs when a content added to the DockPanel. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_ContentRemoved_Description">
+            <summary>
+              查找类似 Occurs when a content removed from the DockPanel. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_DefaultFloatWindowSize_Description">
+            <summary>
+              查找类似 The default size of float window. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_Description">
+            <summary>
+              查找类似 Provides Visual Studio .Net style docking. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_DockBottomPortion_Description">
+            <summary>
+              查找类似 Size of the bottom docking window. Value &lt; 1 to specify the size in portion; value &gt; 1 to specify the size in pixels. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_DockLeftPortion_Description">
+            <summary>
+              查找类似 Size of the left docking window. Value &lt; 1 to specify the size in portion; value &gt; 1 to specify the size in pixels. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_DockPanelSkin">
+            <summary>
+              查找类似 The visual skin to use when displaying the docked windows. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_DockRightPortion_Description">
+            <summary>
+              查找类似 Size of the right docking window. Value &lt; 1 to specify the size in portion; value &gt; 1 to specify the size in pixels. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_DockTopPortion_Description">
+            <summary>
+              查找类似 Size of the top docking window. Value &lt; 1 to specify the size in portion; value &gt; 1 to specify the size in pixels. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_DocumentStyle_Description">
+            <summary>
+              查找类似 The style of the document window. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_DocumentTabStripLocation">
+            <summary>
+              查找类似 Determines where the tab strip for Document style content is drawn. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_LoadFromXml_AlreadyInitialized">
+            <summary>
+              查找类似 The DockPanel has already been initialized. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_LoadFromXml_InvalidFormatVersion">
+            <summary>
+              查找类似 The configuration file&apos;s version is invalid. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_LoadFromXml_InvalidXmlFormat">
+            <summary>
+              查找类似 The XML file format is invalid. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_ParentForm_Invalid">
+            <summary>
+              查找类似 Invalid parent form. When using DockingMdi or SystemMdi document style, the DockPanel control must be the child control of the main MDI container form. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_Persistor_XmlFileComment1">
+            <summary>
+              查找类似 DockPanel configuration file. Author: Weifen Luo, all rights reserved. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_Persistor_XmlFileComment2">
+            <summary>
+              查找类似 !!! AUTOMATICALLY GENERATED FILE. DO NOT MODIFY !!! 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_RightToLeftLayout_Description">
+            <summary>
+              查找类似 Indicates whether the control layout is right-to-left when the RightToLeft property is set to Yes. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_SetPaneIndex_InvalidIndex">
+            <summary>
+              查找类似 Invalid Index: The index is out of range. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_SetPaneIndex_InvalidPane">
+            <summary>
+              查找类似 Invalid Pane: DockPane not within the collection. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPanel_ShowDocumentIcon_Description">
+            <summary>
+              查找类似 Determines if the document icon will be displayed in the tab strip. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPaneStrip_ToolTipClose">
+            <summary>
+              查找类似 Close 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.DockPaneStrip_ToolTipWindowList">
+            <summary>
+              查找类似 Window List 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.FloatWindow_Constructor_NullDockPanel">
+            <summary>
+              查找类似 Invalid argument: DockPanel can not be &quot;null&quot;. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.FloatWindow_SetPaneIndex_InvalidIndex">
+            <summary>
+              查找类似 Invalid Index: The index is out of range. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.FloatWindow_SetPaneIndex_InvalidPane">
+            <summary>
+              查找类似 Invalid Pane: DockPane not within the collection. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.Strings.IDockDragSource_DockTo_InvalidPanel">
+            <summary>
+              查找类似 Invalid DockPanel. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Docking.VS2005DockPaneCaption.CloseButtonVisible">
+            <summary>
+            Determines whether the close button is visible on the content
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Docking.VS2005DockPaneStrip.CalculateTabs_Document">
+            <summary>
+            Calculate which tabs are displayed and in what order.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.DockFormManagerBase">
+            <summary>
+            DockFormManagerBase - 停靠窗体管理器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.DockFormManagerBase.GisForm">
+            <summary>
+            地理信息窗体
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.DockFormManagerBase.LayerForm">
+            <summary>
+            图层窗体
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.DockFormManagerBase.PropertyForm">
+            <summary>
+            属性窗体
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.DockFormManagerBase.DeserializeDockContent">
+            <summary>
+            停靠内容(反)序列化委托
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.DockFormManagerBase.GetContentFromPersistString(System.String)">
+            <summary>
+            从文件中取得停靠内容
+            </summary>
+            <param name="persistString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.DocumentBase">
+            <summary>
+            Document
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.DocumentBase.New(System.Object,System.EventArgs)">
+            <summary>
+            新建
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.DocumentBase.Open(System.Object,System.EventArgs)">
+            <summary>
+            打开
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.DocumentBase.Save(System.Object,System.EventArgs)">
+            <summary>
+            保存
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.DocumentBase.SaveAs(System.Object,System.EventArgs)">
+            <summary>
+            保存为
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.DocumentBase.Print(System.Object,System.EventArgs)">
+            <summary>
+            打印
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.IDockFormManager.GisForm">
+            <summary>
+            地理信息窗体
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.IDockFormManager.LayerForm">
+            <summary>
+            图层窗体
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.IDockFormManager.PropertyForm">
+            <summary>
+            属性窗体
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.IDockFormManager.DeserializeDockContent">
+            <summary>
+            停靠内容反序列化委托
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.IMainForm">
+            <summary>
+            IMainForm - 主窗体接口
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.IMainForm.DockPanel">
+            <summary>
+            停靠面板
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.IMainForm.MainMenuStrip">
+            <summary>
+            菜单系统
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.IMainForm.Initialize">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.IMainForm.ApplicationIdle(System.Object,System.EventArgs)">
+            <summary>
+            应用程序空闲
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.MainFormBase">
+            <summary>
+            MainFormBase - 
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.MainFormBase.DockPanel">
+            <summary>
+            停靠面板
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.MainFormBase.DockPanelConfigFile">
+            <summary>
+            停靠窗口配置文件
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.MainFormBase.ToolStripContainer">
+            <summary>
+            工具栏容器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.MainFormBase.ToolStripStandard">
+            <summary>
+            标准工具栏
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.MainFormBase.ToolStripRoam">
+            <summary>
+            漫游工具栏
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.MainFormBase.ToolStripPrimivite">
+            <summary>
+            图元工具栏
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.MainFormBase.ToolStripRoamAndPrimivite">
+            <summary>
+            漫游和图元工具栏
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.MainFormBase.StatusStrip">
+            <summary>
+            状态栏
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.MainFormBase.ToolStripStatusLabelWelcom">
+            <summary>
+            状态栏标签 - 欢迎
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.MainFormBase.ToolStripStatusLabelCoordinate">
+            <summary>
+            状态栏标签 - 坐标
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.MainFormBase.ToolStripProgressBar">
+            <summary>
+            状态栏标签 - 进度条
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.MainFormBase.ToolStripStatusLabelProgressInfo">
+            <summary>
+            状态栏标签 - 进度信息
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MainFormBase.Initialize">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MainFormBase.InitializeNormal">
+            <summary>
+            一般初始化
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MainFormBase.InitializeMainMenuStrip">
+            <summary>
+            初始化主菜单栏
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MainFormBase.InitializeStatusStrip">
+            <summary>
+            初始化状态栏
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MainFormBase.InitializeToolStripContainer">
+            <summary>
+            初始化工具栏容器
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MainFormBase.FillContainer">
+            <summary>
+            填充工具栏容器
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MainFormBase.InitializeDockPanel">
+            <summary>
+            初始化停靠面板
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MainFormBase.AddMenu(CSharpKit.Windows.Forms.Framework.MenuBase)">
+            <summary>
+            添加菜单
+            </summary>
+            <param name="menu"></param>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MainFormBase.AddToolStrip(System.Windows.Forms.ToolStrip)">
+            <summary>
+            添加工具栏
+            </summary>
+            <param name="toolStrip"></param>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MainFormBase.ApplicationIdle(System.Object,System.EventArgs)">
+            <summary>
+            应用程序空闲
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MainFormBase.OnApplicationIdle(System.Object,System.EventArgs)">
+            <summary>
+            当应用程序空闲时调用
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.MenuStripBase">
+            <summary>
+            MenuStripBase - 菜单栏基类
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.MenuStripStandard">
+            <summary>
+            MenuStripStandard - 标准菜单栏
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.MenuBase">
+            <summary>
+            MenuBase
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.MenuEdit">
+            <summary>
+            MenuEdit
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MenuEdit.Initialize">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.MenuFile">
+            <summary>
+            MenuFile
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MenuFile.Initialize">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.MenuHelp">
+            <summary>
+            MenuHelp
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MenuHelp.Initialize">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.MenuMapRoam">
+            <summary>
+            MenuMapRoam - 地图漫游菜单
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.MenuPrimivite">
+            <summary>
+            MenuPrimivite - 图元菜单
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.MenuTools">
+            <summary>
+            MenuTools
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MenuTools.Initialize">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.MenuView">
+            <summary>
+            MenuView
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MenuView.Initialize">
+            <summary>
+            初始化 
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.MenuWindows">
+            <summary>
+            MenuWindows
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.MenuWindows.Initialize">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.ToolStripBase">
+            <summary>
+            ToolStripBase - 工具栏基类
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.ToolStripBase.Initialize">
+            <summary>
+            条目显示风格
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.ToolStripPrimivite">
+            <summary>
+            ToolStripPrimivite - 图源工具拦
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.ToolStripRoam">
+            <summary>
+            ToolStripRoam - 漫游工具栏
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.ToolStripRoamAndPrimiviteBase">
+            <summary>
+            ToolStripRoamAndPrimivite - 漫游和图元工具栏
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.ToolStripRoamAndPrimivite">
+            <summary>
+            ToolStripRoamAndPrimivite - 漫游和图元工具栏
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.ToolStripStandard">
+            <summary>
+            ToolStripStandard - 标准工具栏
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.ToolStripStandard.toolStripStandard_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            工具栏绘制
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:CSharpKit.Windows.Forms.Framework.WfmApplication">
+            <summary>
+            WfmApplication - WinForms 应用程序
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.WfmApplication.MainForm">
+            <summary>
+            主窗体
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.WfmApplication.Document">
+            <summary>
+            文档
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.WfmApplication.DockFormManager">
+            <summary>
+            停靠窗体管理器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Framework.WfmApplication.Map">
+            <summary>
+            地图(在GisForm 中设置)
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Framework.WfmApplication.IsInDesignMode">
+            <summary>
+            设计模式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.SelectTarget(CSharpKit.Vision.IVision)">
+            <summary>
+            选择对象
+            </summary>
+            <param name="vision"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.DeleteTarget(CSharpKit.Vision.IVision)">
+            <summary>
+            删除对象
+            </summary>
+            <param name="vision"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.HoverTarget(CSharpKit.Vision.IVision)">
+            <summary>
+            盘旋几何图形对象
+            </summary>
+            <param name="vision"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.MoveTarget(CSharpKit.Vision.IVision)">
+            <summary>
+            移动目标
+            </summary>
+            <param name="vision"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.AddLine">
+            <summary>
+            添加线段
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.AddRect">
+            <summary>
+            添加矩形
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.AddEllipse">
+            <summary>
+            添加椭圆
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.AddPolyline">
+            <summary>
+            添加折线
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.AddPolygon">
+            <summary>
+            添加多边形
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.AddCurve">
+            <summary>
+            添加曲线
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.AddCloseCurve">
+            <summary>
+            添加曲线
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.AddAnyShape">
+            <summary>
+            添加任意形状
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.AddLabel">
+            <summary>
+            添加标注
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.AddLayerLegend">
+            <summary>
+            添加图层图例
+            </summary>
+            <remarks>
+            添加当前图层的图例
+            在图元图层中，视觉的孩子保存了各种视觉对象(IGeometryVision)
+            </remarks>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.AddLayerLegend(CSharpKit.Vision.Mapping.ILayer,System.Drawing.Point)">
+            <summary>
+            在指定位置添加图例
+            </summary>
+            <param name="layer"></param>
+            <param name="point"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.AddCustomLegend">
+            <summary>
+            添加自定义图例
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.moveGeometry(CSharpKit.Vision.LineVision)">
+            <summary>
+            移动线段
+            </summary>
+            <param name="line"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.moveGeometry(CSharpKit.Vision.RectVision)">
+            <summary>
+            绘制矩形
+            </summary>
+            <param name="rect"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.moveGeometry(CSharpKit.Vision.EllipseVision)">
+            <summary>
+            绘制椭圆
+            </summary>
+            <param name="ellipse"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.moveGeometry(CSharpKit.Vision.PolylineVision)">
+            <summary>
+            绘制折线
+            </summary>
+            <param name="polyline"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.moveGeometry(CSharpKit.Vision.PolygonVision)">
+            <summary>
+            绘制多边形
+            </summary>
+            <param name="polygon"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.moveGeometry(CSharpKit.Vision.CurveVision)">
+            <summary>
+            绘制曲线
+            </summary>
+            <param name="contour"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.moveGeometry(CSharpKit.Vision.LabelVision)">
+            <summary>
+            绘制标注
+            </summary>
+            <param name="label"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.moveGeometry(CSharpKit.Vision.LegendVision)">
+            <summary>
+            绘制图例
+            </summary>
+            <param name="legend"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.ComputeTargetLocation(System.Int32,System.Int32,CSharpKit.Vision.IVision@)">
+            <summary>
+            计算目标的新位置(包括外界矩形)
+            </summary>
+            <param name="xOffset"></param>
+            <param name="yOffset"></param>
+            <param name="vision"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.WfmMouseListener.BuildLegend(CSharpKit.Vision.IVision)">
+            <summary>
+            生成图例图片
+            </summary>
+            <param name="vision">IVision对象，用于取得调色板</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Extentions.CSKExtentions_wfm_TreeView.CascadingTreeNode(System.Windows.Forms.TreeView,System.Windows.Forms.TreeViewEventArgs)">
+            <summary>
+            级联选择树节点
+            </summary>
+            <param name="treeView"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:CSharpKit.Vision.Palettes.IndexPalette">
+            <summary>
+            IndexPalette
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.Palettes.IPalette">
+            <summary>
+            IPalette
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Palettes.IPalette.Items">
+            <summary>
+            调色板条目
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Palettes.IPalette.PaletteType">
+            <summary>
+            调色板类型
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Palettes.IPalette.TransparentColor">
+            <summary>
+            透明色
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Palettes.IPalette.HasTransparentColor">
+            <summary>
+            有透明色
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Palettes.IPalette.NumbersOfValidItem">
+            <summary>
+            有效条目数量
+            </summary>
+            <param name="spv_min"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Vision.Palettes.IPalette.GetColor(System.Double,System.Drawing.Color)">
+            <summary>
+            取得指定值的颜色
+            </summary>
+            <param name="value"></param>
+            <param name="defaultColor"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Vision.Palettes.LinearPalette">
+            <summary>
+            LinearPalette - 线性调色板
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.Palettes.Palette">
+            <summary>
+            Palette
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Palettes.Palette.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Palettes.Palette.Items">
+            <summary>
+            调色板条目
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Palettes.Palette.PaletteType">
+            <summary>
+            调色板类型
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Palettes.Palette.TransparentColor">
+            <summary>
+            透明色
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Palettes.Palette.HasTransparentColor">
+            <summary>
+            有透明色
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Palettes.Palette.NumbersOfValidItem">
+            <summary>
+            有效条目数量
+            </summary>
+            <param name="spv_min"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Vision.Palettes.Palette.GetColor(System.Double)">
+            <summary>
+            取得指定值的颜色
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Vision.Palettes.Palette.GetColor(System.Double,System.Drawing.Color)">
+            <summary>
+            取得指定值的颜色
+            </summary>
+            <param name="value"></param>
+            <param name="defaultColor"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Vision.Palettes.PaletteItem">
+            <summary>
+            PaletteItem - 调色板条目
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Palettes.PaletteItem.Value">
+            <summary>
+            数值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Palettes.PaletteItem.Color">
+            <summary>
+            颜色
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Palettes.PaletteItem.Comment">
+            <summary>
+            注释
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.Palettes.PaletteType">
+            <summary>
+            PaletteType - 调色板类型
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Palettes.PaletteType.Unknown">
+            <summary>
+            未知调色板
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Palettes.PaletteType.Standard">
+            <summary>
+            标准调色板
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Palettes.PaletteType.Indexing">
+            <summary>
+            索引调色板
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Palettes.PaletteType.Rainbow">
+            <summary>
+            彩虹调色板
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Palettes.PaletteType.Segment">
+            <summary>
+            分段调色板
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Palettes.PaletteType.Linear">
+            <summary>
+            线性调色板
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.Palettes.RainbowPalette">
+            <summary>
+            RainbowPalette - 彩虹调色板
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.Palettes.SegmentPalette">
+            <summary>
+            SegmentPalette
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.Palettes.StandardPalette">
+            <summary>
+            StandardPalette
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.Presentation.WfmAxinVisionRenderer">
+            <summary>
+            Axin 文件绘制
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.WfmAxinVisionRenderer.FillContour(CSharpKit.Geometrics.Contour,System.Drawing.Color)">
+            <summary>
+            填充等值线
+            </summary>
+            <param name="contour"></param>
+            <param name="color"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.WfmAxinVisionRenderer.DrawContour(CSharpKit.Geometrics.Contour,System.Drawing.Color,System.Boolean)">
+            <summary>
+            绘制等高线
+            </summary>
+            <param name="contour">等高线</param>
+            <param name="color">颜色</param>
+            <param name="bold">加粗</param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.WfmAxinVisionRenderer.LabelContour(CSharpKit.Geometrics.Contour,System.Drawing.Color)">
+            <summary>
+            标注等值线
+            </summary>
+            <param name="contour"></param>
+            <param name="color"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.WfmAxinVisionRenderer.DrawTin(CSharpKit.Vision.Presentation.IRenderEngine)">
+            <summary>
+            绘制离散站点等值线
+            </summary>
+            <param name="renderEngine"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.WfmAxinVisionRenderer.DrawTin_7777(CSharpKit.Vision.Presentation.IRenderEngine)">
+            <summary>
+            填充站点所在行政区
+            </summary>
+            <param name="renderEngine"></param>
+        </member>
+        <member name="T:CSharpKit.Vision.Presentation.WfmGeometryVisionRenderer">
+            <summary>
+            图元绘制
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.WfmGeometryVisionRenderer.DrawChildVision(CSharpKit.Vision.Mapping.IMap,CSharpKit.Vision.IGeometryVision)">
+            <summary>
+            图元视觉的绘制是绘制其孩子视觉
+            </summary>
+            <param name="map"></param>
+            <param name="childVision"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.WfmGeometryVisionRenderer.drawGeometry(CSharpKit.Vision.Mapping.IMap,CSharpKit.Vision.LegendVision)">
+            <summary>
+            绘制图例
+            TODO:[syc-20171104]一个图层只能添加一次图例（需图例和图层具有相同ID？）
+            </summary>
+            <param name="map"></param>
+            <param name="legendVision"></param>
+        </member>
+        <member name="T:CSharpKit.Vision.Presentation.WfmShapeVisionRenderer">
+            <summary>
+            ArcGIS Shape 绘制
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.GxRasterVision">
+            <summary>
+            GxRasterVision - 栅格视觉
+            </summary>
+        </member>
+    </members>
+</doc>

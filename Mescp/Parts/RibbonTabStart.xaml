@@ -11,23 +11,23 @@
     <!--图元操作-->
     <p:RibbonGroupPrimivite/>
     
-    <!--显示选项-->
+    <!--显示选项[等高线 OR 站点填图]-->
     <p:RibbonGroupSop/>
 
-    <!--评价区域管理-->
+    <!--区域品种选择-->
     <p:RibbonGroupErm/>
-    
-    <!--生长适宜评价-->
+
+    <!--年份评估-->
     <p:RibbonGroupGse/>
 
-    <!--2.评价时段管理-->
+    <!--时段评估-->
     <p:RibbonGroupEpm/>
-    
+
+    <!--种植区划-->
+    <p:RibbonGroupPlz/>
+
     <!--3.玉米品种管理-->
     <!--<p:RibbonGroupCvm/>-->
-    
-    <!--4.种植布局区划-->
-    <!--<p:RibbonGroupPlz/>-->
 
     <!--系统-->
     <p:RibbonGroupSys/>

@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharpKit.Vision</name>
+    </assembly>
+    <members>
+        <member name="T:CSharpKit.Vision.AxinVision">
+            <summary>
+            AxinVision - 自定义数据视觉
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.GeometryVision.Offset(System.Double,System.Double)">
+            <summary>
+            偏移
+            </summary>
+            <param name="dx"></param>
+            <param name="dy"></param>
+        </member>
+        <member name="P:CSharpKit.Vision.LabelVision.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.LabelVision.Font">
+            <summary>
+            字体
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.PrimiviteVision">
+            <summary>
+            图元视觉
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.AxinVisionRenderer.Render(CSharpKit.Vision.Presentation.IRenderEngine)">
+            <summary>
+            渲染
+            </summary>
+            <param name="renderEngine">渲染引擎</param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.AxinVisionRenderer.OnRenderAxinVision(CSharpKit.Vision.Presentation.IRenderEngine)">
+            <summary>
+            视觉渲染(在WFM和WPF中渲染方法有差异)
+            </summary>
+            <param name="renderEngine"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.GeometryVisionRenderer.Render(CSharpKit.Vision.Presentation.IRenderEngine)">
+            <summary>
+            渲染
+            </summary>
+            <param name="renderEngine">渲染引擎</param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.RasterVisionRendererBase.Render(CSharpKit.Vision.Presentation.IRenderEngine)">
+            <summary>
+            渲染
+            </summary>
+            <param name="renderEngine">渲染引擎</param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.ShapeVisionRenderer.Render(CSharpKit.Vision.Presentation.IRenderEngine)">
+            <summary>
+            渲染
+            </summary>
+            <param name="renderEngine">渲染引擎</param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.ViewToWorld(System.Double@,System.Double@)">
+            <summary>
+            客户区坐标转换为世界坐标
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.WorldToView(System.Double@,System.Double@)">
+            <summary>
+            世界坐标转换为客户区坐标
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.SetViewBound(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            设置视图范围
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.Reset">
+            <summary>
+            复位
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.Refresh(System.Boolean)">
+            <summary>
+            刷新
+            </summary>
+            <param name="redraw"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.ZoomIn(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            放大
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="w"></param>
+            <param name="h"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.ZoomOut(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            缩小
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="w"></param>
+            <param name="h"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.ZoomPan(System.Int32,System.Int32)">
+            <summary>
+            移动
+            </summary>
+            <param name="dx"></param>
+            <param name="dy"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.SetClipRect(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            设置剪切矩形
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="w"></param>
+            <param name="h"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.GetClipRect(System.Double@,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            取得剪切矩形
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="w"></param>
+            <param name="h"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.Render(System.Object,System.EventArgs)">
+            <summary>
+            渲染
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.OnApplicationIdle(System.Object,System.EventArgs)">
+            <summary>
+            应用程序空闲
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.BuildClipPath">
+            <summary>
+            构造剪切路径
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.ComputeDataExtent">
+            <summary>
+            计算数据范围
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.MapEngine.ComputeWorldExtent">
+            <summary>
+            数据范围 => 世界范围
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.RasterVision">
+            <summary>
+            RasterVision - 栅格视觉
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.ShapeVision">
+            <summary>
+            Shape视觉
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.ShapeVision.IsClipPathData">
+            <summary>
+            是否剪切路径 
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.VectorVision">
+            <summary>
+            VectorVision - 矢量视觉
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -153,6 +153,7 @@
     <Compile Include="Misc\MapHelper.cs" />
     <Compile Include="Converters\SuitabilityConverter.cs" />
     <Compile Include="Misc\TestCommands.cs" />
+    <Compile Include="Models\Compartment.cs" />
     <Compile Include="Models\Crop.cs" />
     <Compile Include="Models\CropCultivar.cs" />
     <Compile Include="Models\CropGrwp.cs" />

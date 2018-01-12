@@ -199,7 +199,35 @@ namespace Mescp
         #endregion
 
 
-        /* TestCommand
+
+        #region Evaluate3Command
+
+        private RelayCommand _Evaluate3Command;
+        public ICommand Evaluate3Command
+        {
+            get
+            {
+                if (_Evaluate3Command == null)
+                {
+                    _Evaluate3Command = new RelayCommand(p => OnEvaluate3(p), p => CanEvaluate3(p));
+                }
+
+                return _Evaluate3Command;
+            }
+        }
+
+        private void OnEvaluate3(Object parameter)
+        {
+            App.Workspace.EvaluReportViewModel.Evaluate3();
+        }
+        private Boolean CanEvaluate3(Object parameter)
+        {
+            return true;
+        }
+
+        #endregion
+
+
 
         #region TestCommand
 
@@ -227,7 +255,6 @@ namespace Mescp
         }
 
         #endregion
-        */
 
     }
 }

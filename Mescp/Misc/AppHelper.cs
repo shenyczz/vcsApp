@@ -16,6 +16,10 @@ using CSharpKit.Vision;
 using CSharpKit.Vision.Mapping;
 using Mescp.Models;
 using CSharpKit.Vision.Presentation;
+using CSharpKit.Maths.Interpolation;
+using System.IO;
+
+using CSharpKit.Extentions;
 
 namespace Mescp
 {
@@ -83,6 +87,10 @@ namespace Mescp
                 // sp_Station
                 cmd.CommandText = "sp_Station";
                 da.Fill(_dsMescpConfig, "TStation");
+
+                // sp_SFAll
+                cmd.CommandText = "sp_SFAll";
+                da.Fill(_dsMescpConfig, "TSFAll");
 
                 cnn.Close(); 
 
@@ -278,9 +286,51 @@ namespace Mescp
             }
         }
 
+        // Compartment
+        public void GetCompartments(List<Compartment> compartments)
+        {
+
+            DataRowCollection rows = _dsMescpConfig.Tables["TSFAll"].Rows;
+            if (rows.Count <= 0)
+                return;
+
+            compartments.Clear();
+            foreach (DataRow row in rows)
+            {
+                try
+                {
+                    Compartment cpm = new Compartment();
+                    {
+                        cpm.SFID = row["SFID"].ToString();
+                        cpm.CultivarID = row["CultivarID"].ToString();
+                        cpm.PeriodID = row["PeriodID"].ToString();
+
+                        cpm.A_MIN = row["A_MIN"].ToString().ToDouble();
+                        cpm.A_MAX = row["A_MAX"].ToString().ToDouble();
+                        cpm.B_MIN = row["B_MIN"].ToString().ToDouble();
+                        cpm.B_MAX = row["B_MAX"].ToString().ToDouble();
+                        cpm.Wgt = row["Wgt"].ToString().ToDouble();
+
+                        cpm.Flag = row["Flag"].ToString();
+                    }
+                    compartments.Add(cpm);
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Error in GetCompartments()!");
+                }
+            }
+
+            // END
+        }
+
         #endregion
 
     }
+
+
+
+
 
 
 
@@ -435,31 +485,6 @@ namespace Mescp
         public void Test()
         {
             MessageBox.Show("AppHelper.Test()");
-        }
-
-
-
-        [Obsolete("No used",true)]
-        private void ClearStationColor()
-        {
-            try
-            {
-                IMap map = App.Workspace.MapViewModel.Map;
-                ILayer layer = map.LayerManager.GetLayer(App.Workspace.AppData.LayerID1);
-                IVision vision = layer.Vision;
-                ShapeFile shapeFile = vision?.Provider?.DataInstance as ShapeFile;
-                List<IFeature> features = shapeFile.Features;
-                features.ForEach(p =>
-                {
-                    p.Tag = System.Drawing.Color.Blue;
-                });
-
-                //刷新地图
-                map.Refresh(true);
-            }
-            catch (Exception)
-            {
-            }
         }
 
     }

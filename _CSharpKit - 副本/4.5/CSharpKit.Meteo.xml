@@ -1,0 +1,556 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharpKit.Meteo</name>
+    </assembly>
+    <members>
+        <member name="T:CSharpKit.Meteo.Agriculture.Evapotranspiration">
+            <summary>
+            Evapotranspiration - 蒸散
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Meteo.Agriculture.Evapotranspiration.DateTime">
+            <summary>
+            日期
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Meteo.Agriculture.Evapotranspiration.Lat">
+            <summary>
+            纬度(°)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Meteo.Agriculture.Evapotranspiration.Alt">
+            <summary>
+            海拔(m)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Meteo.Agriculture.Evapotranspiration.Tavg">
+            <summary>
+            平均气温(℃)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Meteo.Agriculture.Evapotranspiration.Tmax">
+            <summary>
+            最高气温(℃)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Meteo.Agriculture.Evapotranspiration.Tmin">
+            <summary>
+            最低气温(℃)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Meteo.Agriculture.Evapotranspiration.Ws">
+            <summary>
+            风速(m/s)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Meteo.Agriculture.Evapotranspiration.ea">
+            <summary>
+            实际水汽压(hPa)
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.et0">
+            <summary>
+            潜在蒸散(mm·d-1)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.delta(System.Double,System.Double)">
+            <summary>
+            计算饱和水汽压-温度曲线斜率(hPa/℃)
+            </summary>
+            <param name="ea">实际气压(hPa)</param>
+            <param name="tavg">日平均气温(℃)</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.gama(System.Double)">
+            <summary>
+            计算干湿表常数(hPa/℃)
+            </summary>
+            <param name="ph">本站气压(hPa)</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.ph(System.Double)">
+            <summary>
+            计算本站气压(hPa)
+            </summary>
+            <param name="alt">站点海拔(m)</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.u2(System.Double,System.Double)">
+            <summary>
+            计算2m高度处平均风速(m/s) [对于常规气象台站，u为10米高度处风速,z=10m]
+            </summary>
+            <param name="u">风速(m/s)</param>
+            <param name="z">观测高度(m)</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.es(System.Double,System.Double)">
+            <summary>
+            计算饱和水汽压(hPa)
+            </summary>
+            <param name="tmax">最高气温(℃)</param>
+            <param name="tmin">最低气温(℃)</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.e0(System.Double)">
+            <summary>
+            计算水汽压(hPa)
+            </summary>
+            <param name="t">气温(℃)</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.Rn(System.Double,System.Double,System.Double,System.Double,System.DateTime)">
+            <summary>
+            作物冠层表面净辐射(MJ.m^-2.d^-1)
+            </summary>
+            <param name="tmax">最高温度(℃)</param>
+            <param name="tmin">最低温度(℃)</param>
+            <param name="ea">实际水汽压(hPa)</param>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.Rns(System.Double,System.Double,System.Double,System.DateTime)">
+            <summary>
+            净短波辐射(MJ.m^-2.d^-1)
+            </summary>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.Rnl(System.Double,System.Double,System.Double,System.Double,System.DateTime)">
+            <summary>
+            净长波辐射(MJ.m^-2.d^-1)
+            </summary>
+            <param name="tmax">最高温度(℃)</param>
+            <param name="tmin">最低温度(℃)</param>
+            <param name="ea">实际水汽压(hPa)</param>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.Ra(System.Double,System.DateTime)">
+            <summary>
+            太阳总辐射(MJ.m^-2.d^-1)
+            </summary>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.Rs(System.Double,System.Double,System.Double,System.DateTime)">
+            <summary>
+            太阳辐射(MJ.m^-2.d^-1)
+            </summary>
+            <param name="tmax">最高温度(℃)</param>
+            <param name="tmin">最低温度(℃)</param>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.Rso(System.Double,System.DateTime)">
+            <summary>
+            晴空辐射(MJ.m^-2.d^-1)
+            </summary>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.SolarDeclinationAngle(System.DateTime)">
+            <summary>
+            太阳赤纬角(磁偏角)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.DistanceSolarEarth(System.DateTime)">
+            <summary>
+            日地相对距离
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.Evapotranspiration.SunsetAngle(System.Double,System.DateTime)">
+            <summary>
+            日落角度
+            </summary>
+            <param name="lat"></param>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Meteo.Agriculture.ReckonParameter">
+            <summary>
+            ReckonParameter - 墒情推算参数
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.dateTime">
+            <summary>
+            日期
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Meteo.Agriculture.ReckonParameter.Station">
+            <summary>
+            站点结构变量
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Meteo.Agriculture.ReckonParameter.SoilDepth">
+            <summary>
+            土壤深度(0.1m、0.2m、0.3m、0.4m、0.5m)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.tc">
+            <summary>
+            田间持水量(%)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.ds">
+            <summary>
+            凋萎湿度(%)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.rz">
+            <summary>
+            土壤容重(g/cm^3)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.cropInterception">
+            <summary>
+            作物截留量(mm)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.cropCoef">
+            <summary>
+            作物系数
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.cropReCoef">
+            <summary>
+            作物系数修正系数
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.rain">
+            <summary>
+            降水量(mm)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.tmean">
+            <summary>
+            平均气温(℃)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.tmax">
+            <summary>
+            最高气温(℃)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.tmin">
+            <summary>
+            最低气温(℃)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.e">
+            <summary>
+            水汽压(hPa)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.ws">
+            <summary>
+            10米风速(m/s)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.hos">
+            <summary>
+            日照时数(h)[hours of sunshine]
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Meteo.Agriculture.ReckonParameter.sh">
+            <summary>
+            土壤湿度(%);
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Meteo.Agriculture.SmcReckoner">
+            <summary>
+            土壤墒情推算器 - partial.1
+            </summary>
+            <summary>
+            土壤墒情推算器 - partial.2
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.Reckon(CSharpKit.Meteo.Agriculture.ReckonParameter,System.Double@,System.Double@)">
+            <summary>
+            
+            </summary>
+            <param name="reckonParameter"></param>
+            <param name="sh">土壤湿度(%)</param>
+            <param name="et">潜在蒸散</param>
+        </member>
+        <member name="P:CSharpKit.Meteo.Agriculture.SmcReckoner._reckonParameter">
+            <summary>
+            推算参数
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.Transact">
+            <summary>
+            执行推算
+            </summary>
+            <returns>土壤湿度(%)</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.W0(System.Double,System.Double,System.Double)">
+            <summary>
+            根据土壤湿度(%)计算时段初土壤含水量(mm)
+            </summary>
+            <param name="sh">用烘干法测得的重量土壤湿度(%)</param>
+            <param name="rz">土壤容重(g/cm^3)</param>
+            <param name="h">土层厚度(m)</param>
+            <returns>时段初土壤含水量(mm)</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.W(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            计算时段末土壤含水量(mm)
+            </summary>
+            <param name="w0">时段初土壤含水量(mm)</param>
+            <param name="rx">时段内有效降水量(mm)</param>
+            <param name="g">时段内地下水补给量(mm)</param>
+            <param name="et">时段内作物耗水量(mm)</param>
+            <returns>时段末土壤含水量(mm)</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.RX(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            计算时段内有效降水量(mm)
+            </summary>
+            <param name="rr">时段内实测降水量(mm)</param>
+            <param name="tt">径流量(mm)</param>
+            <param name="ll">深层渗漏量(mm)</param>
+            <param name="it">植被截留量(mm)</param>
+            <returns>降水量(mm)</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.G(System.Double)">
+            <summary>
+            时段内地下水补给量(mm)
+            </summary>
+            <param name="h">土层厚度(m)</param>
+            <returns>地下水补给量(mm)</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.ET(System.Double,System.Double,System.Double)">
+            <summary>
+            作物日耗水量(mm)
+            </summary>
+            <param name="kc">生育阶段水分供应充足情况下的作物系数</param>
+            <param name="ks">土壤水分胁迫修正系数</param>
+            <param name="et0">参考作物蒸散量(mm)</param>
+            <returns>耗水量(mm)</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.sh(System.Double,System.Double,System.Double)">
+            <summary>
+            根据土壤含水量(mm)计算土壤湿度(%)
+            </summary>
+            <param name="ww">土壤含水量(mm)</param>
+            <param name="ro">土壤容重(g/cm^3)</param>
+            <param name="h">土层厚度(m)</param>
+            <returns>土壤湿度(%)</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.TT">
+            <summary>
+            径流量(mm)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.LL(System.Double,System.Double,System.Double)">
+            <summary>
+            深层渗漏量(mm)
+            </summary>
+            <param name="rain">降雨量(mm)</param>
+            <param name="sh">土壤湿度(%)</param>
+            <param name="tc">田间持水量(%)</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.KS(System.Double,System.Double,System.Double)">
+            <summary>
+            土壤水分胁迫修正系数
+            </summary>
+            <param name="Qi">土壤湿度(%)</param>
+            <param name="Qk">土壤水分胁迫的临界湿度(%)</param>
+            <param name="Qf">土壤凋萎湿度</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.ET0">
+            <summary>
+            参考作物蒸散量(利用Penman-Monteith计算潜在蒸散)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.e0(System.Double)">
+            <summary>
+            计算水汽压(hPa)
+            </summary>
+            <param name="t">气温(℃)</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.es(System.Double,System.Double)">
+            <summary>
+            计算饱和水汽压(hPa)
+            </summary>
+            <param name="tmax">最高气温(℃)</param>
+            <param name="tmin">最低气温(℃)</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.delta(System.Double,System.Double)">
+            <summary>
+            计算饱和水汽压-温度曲线斜率(hPa/℃)
+            </summary>
+            <param name="ea">实际气压(hPa)</param>
+            <param name="tmean">日平均气温(℃)</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.Ph(System.Double)">
+            <summary>
+            计算本站气压(hPa)
+            </summary>
+            <param name="alt">站点海拔(m)</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.gama(System.Double)">
+            <summary>
+            计算干湿表常数(hPa/℃)
+            </summary>
+            <param name="ph">本站气压(hPa)</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.U2(System.Double,System.Double)">
+            <summary>
+            计算2m高度处平均风速(m/s) [对于常规气象台站，u为10米高度处风速,z=10m]
+            </summary>
+            <param name="u">风速(m/s)</param>
+            <param name="z">观测高度(m)</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.JD(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            计算儒略日
+            </summary>
+            <param name="year">年</param>
+            <param name="month">月</param>
+            <param name="day">日</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.DR(System.DateTime)">
+            <summary>
+            日地相对距离
+            </summary>
+            <param name="dateTime">日期</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.declSun(System.DateTime)">
+            <summary>
+            太阳磁偏角(rad) [Declination]
+            </summary>
+            <param name="dateTime">日期</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.SunsetAngle(System.Double,System.DateTime)">
+            <summary>
+            日落时角度(rad)
+            </summary>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.PSD(System.Double,System.DateTime)">
+            <summary>
+            可照时数(h) [possible sunshine duration]
+            </summary>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.Ra(System.Double,System.DateTime)">
+            <summary>
+            太阳总辐射(MJ.m^-2.d^-1)
+            </summary>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.Rs(System.Double,System.Double,System.Double,System.DateTime)">
+            <summary>
+            太阳辐射(MJ.m^-2.d^-1)
+            </summary>
+            <param name="tmax">最高温度(℃)</param>
+            <param name="tmin">最低温度(℃)</param>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.Rns(System.Double,System.Double,System.Double,System.DateTime)">
+            <summary>
+            净短波辐射(MJ.m^-2.d^-1)
+            </summary>
+            <param name="tmax">最高温度(℃)</param>
+            <param name="tmin">最低温度(℃)</param>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.Rs(System.Double,System.Double,System.DateTime)">
+            <summary>
+            太阳辐射(MJ.m^-2.d^-1)
+            </summary>
+            <param name="hos">日照时数(h)</param>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.Rns(System.Double,System.Double,System.DateTime)">
+            <summary>
+            净短波辐射(MJ.m^-2.d^-1)
+            </summary>
+            <param name="hos">日照时数(h)</param>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns>ok</returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.Rso(System.Double,System.DateTime)">
+            <summary>
+            晴空辐射(MJ.m^-2.d^-1) calculated (Equation 36 or 37) clear-sky radiation [MJ m-2 day-1]
+            </summary>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.Rnl(System.Double,System.Double,System.Double,System.Double,System.DateTime)">
+            <summary>
+            净长波辐射(MJ.m^-2.d^-1)
+            </summary>
+            <param name="tmax">最高温度(℃)</param>
+            <param name="tmin">最低温度(℃)</param>
+            <param name="ea">实际水汽压(hPa)</param>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.Rn(System.Double,System.Double,System.Double,System.Double,System.DateTime)">
+            <summary>
+            作物冠层表面净辐射(MJ.m^-2.d^-1)
+            </summary>
+            <param name="tmax">最高温度(℃)</param>
+            <param name="tmin">最低温度(℃)</param>
+            <param name="ea">实际水汽压(hPa)</param>
+            <param name="lat">纬度(度)</param>
+            <param name="dateTime">日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.SH2W(System.Double)">
+            <summary>
+            土壤湿度(%)转换为含水量(mm)
+            </summary>
+            <param name="sh"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Meteo.Agriculture.SmcReckoner.W2SH(System.Double)">
+            <summary>
+            含水量(mm)转换为土壤湿度(%)
+            </summary>
+            <param name="w"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

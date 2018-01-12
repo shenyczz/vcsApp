@@ -156,6 +156,7 @@ namespace Mescp.ViewModels
                 //fileName = System.IO.Path.Combine(App.OutputPath, "40_9999.txt");
                 //fileName = System.IO.Path.Combine(App.OutputPath, "2007.txt");
                 //fileName = System.IO.Path.Combine(App.OutputPath, "2017_9999.txt");
+                //fileName = System.IO.Path.Combine(App.OutputPath, "1.txt");
 
                 IProvider provider = new AxinFileProvider(fileName);
                 IVision vision = new AxinVision(provider.DataInstance?.DataInfo.Comment)
@@ -492,6 +493,7 @@ namespace Mescp.ViewModels
 
             Presentation();
         }
+
 
         #region Presentation - 数据呈现
 

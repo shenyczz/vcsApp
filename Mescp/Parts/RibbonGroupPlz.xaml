@@ -2,11 +2,12 @@
     x:Class="Mescp.Parts.RibbonGroupPlz"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Header="种植布局区划">
+    Header="种植区划">
 
     <RibbonButton
-        Label="Waiting for PLZ"
-        LargeImageSource="../Assets/tools.png"
-        Command="{Binding}"/>
+        Margin="0,5,0,0"
+        Label="品种区划"
+        LargeImageSource="..\Assets\LargeIcon.png"
+        Command="{Binding AppCommands.Evaluate3Command}"/>
 
 </RibbonGroup>

@@ -100,5 +100,37 @@ namespace Mescp
         }
 
         #endregion
+
+        /*
+
+        #region Test1Command
+
+        private RelayCommand _Test1Command;
+        public ICommand Test1Command
+        {
+            get
+            {
+                if (_Test1Command == null)
+                {
+                    _Test1Command = new RelayCommand(p => OnTest(p), p => CanTest(p));
+                }
+
+                return _Test1Command;
+            }
+        }
+
+        private void OnTest1(Object parameter)
+        {
+            App.Workspace.AppHelper.Test();
+        }
+        private Boolean CanTest1(Object parameter)
+        {
+            return true;
+        }
+
+        #endregion
+
+        */
+
     }
 }

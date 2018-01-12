@@ -1,0 +1,2701 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharpKit</name>
+    </assembly>
+    <members>
+        <member name="T:CSharpKit.ByteOrder">
+            <summary>
+            字节序
+            </summary>
+        </member>
+        <member name="F:CSharpKit.ByteOrder.BigEndian">
+            <summary>
+            BigEndian
+            </summary>
+        </member>
+        <member name="F:CSharpKit.ByteOrder.LittleEndian">
+            <summary>
+            LittleEndian
+            </summary>
+        </member>
+        <member name="T:CSharpKit.ClipArea">
+            <summary>
+            ClipArea - 剪切区
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ClipArea.Id">
+            <summary>
+            剪切区域标识
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ClipArea.ClipPointCount">
+            <summary>
+            剪切区坐标点数量
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ClipArea.XClip">
+            <summary>
+            剪切区域X坐标集
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ClipArea.YClip">
+            <summary>
+            剪切区域Y坐标集
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ClipArea.XClipMin">
+            <summary>
+            剪切区X最小值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ClipArea.YClipMin">
+            <summary>
+            剪切区Y最小值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ClipArea.XClipMax">
+            <summary>
+            剪切区X最大值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ClipArea.YClipMax">
+            <summary>
+            剪切区Y最大值
+            </summary>
+        </member>
+        <member name="T:CSharpKit.KitConstants">
+            <summary>
+            KitConstants - 工具包常量
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Grid">
+            <summary>
+            Grid - 网格
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Grid.MinX">
+            <summary>
+            网格点 X 向最小值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Grid.MinY">
+            <summary>
+            网格点 Y 向最小值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Grid.MaxX">
+            <summary>
+            网格点 X 向最大值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Grid.MaxY">
+            <summary>
+            网格点 y 向最大值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Grid.XInterval">
+            <summary>
+            X 方向网格点间隔
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Grid.YInterval">
+            <summary>
+            Y 方向网格点间隔
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Grid.Width">
+            <summary>
+            网格宽度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Grid.Height">
+            <summary>
+            网格高度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.IHasOwner.Owner">
+            <summary>
+            拥有者
+            </summary>
+        </member>
+        <member name="T:CSharpKit.KitHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CSharpKit.KitHelper.AppPath">
+            <summary>
+            应用程序路径
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Station">
+            <summary>
+            Station - 站点
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Station.Id">
+            <summary>
+            站点ID
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Station.Name">
+            <summary>
+            站点名称
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Station.Lon">
+            <summary>
+            经度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Station.Lat">
+            <summary>
+            纬度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Station.Alt">
+            <summary>
+            海拔
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Station.Level">
+            <summary>
+            级别
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Station.Tag">
+            <summary>
+            附加标签
+            </summary>
+        </member>
+        <member name="T:CSharpKit.StationInfo">
+            <summary>
+            StationInfo
+            </summary>
+        </member>
+        <member name="P:CSharpKit.StationInfo.ElementCount">
+            <summary>
+            要素数量
+            </summary>
+        </member>
+        <member name="P:CSharpKit.StationInfo.ElementValues">
+            <summary>
+            要素值
+            </summary>
+        </member>
+        <member name="T:CSharpKit.UserType">
+            <summary>
+            UserType - 用户类型
+            </summary>
+        </member>
+        <member name="T:CSharpKit.ComponentModel.CustomProperty">
+            <summary>
+            CustomProperty - 自定义属性项
+            </summary>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomProperty.#ctor(System.String,System.Object)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="name">属性名称</param>
+            <param name="defaultValue">属性值</param>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.Tag">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.Category">
+            <summary>
+            类别
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.DisplayName">
+            <summary>
+            显示的名称。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.Browsable">
+            <summary>
+            指示该成员是否可浏览的值，
+            如 System.ComponentModel.BrowsableAttribute 中所指定的
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.ReadOnly">
+            <summary>
+            只读
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.Editor">
+            <summary>
+            编辑器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.EditorType">
+            <summary>
+            编辑器类型
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.Converter">
+            <summary>
+            类型转换器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.DefaultValue">
+            <summary>
+            默认属性
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.ObjectSource">
+            <summary>
+            源对象
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.PropertyNames">
+            <summary>
+            属性名称
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomProperty.PropertyInfos">
+            <summary>
+            属性信息
+            </summary>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomProperty.ResetValue">
+            <summary>
+            重置
+            </summary>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomProperty.GetHashCode">
+            <summary>
+            返回哈希码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomProperty.ToString">
+            <summary>
+            转换为字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="E:CSharpKit.ComponentModel.CustomProperty.ValueChanged">
+            <summary>
+            属性改变事件
+            </summary>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomProperty.FireEvent_ValueChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            点燃属性值改变事件
+            </summary>
+        </member>
+        <member name="T:CSharpKit.ComponentModel.CustomPropertyChangedEventArgs">
+            <summary>
+            CustomPropertyChangedEventArgs - 为自定义属性改变事件提供参数
+            </summary>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyChangedEventArgs.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="T:CSharpKit.ComponentModel.CustomPropertyCollection">
+            <summary>
+            PropertyItemCollection - 属性项集合
+            </summary>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomPropertyCollection.Item(System.String)">
+            <summary>
+            名称索引器
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.Contains(System.String)">
+            <summary>
+            包含指定名称的属性项
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="E:CSharpKit.ComponentModel.CustomPropertyCollection.CustomPropertyChanged">
+            <summary>
+            事件 - 属性项改变
+            </summary>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.FireEvent_PropertyItemChanged(System.Object,System.EventArgs)">
+            <summary>
+            点燃属性改变事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.item_ValueChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            属性条目事件处理
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.GetAttributes">
+            <summary>
+            返回此组件实例的自定义特性的集合。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.GetClassName">
+            <summary>
+            返回此组件实例的类名。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.GetComponentName">
+            <summary>
+            返回此组件实例的名称。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.GetConverter">
+            <summary>
+            返回此组件实例的类型转换器。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.GetDefaultEvent">
+            <summary>
+            返回此组件实例的默认事件。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.GetDefaultProperty">
+            <summary>
+            返回此组件实例的默认属性。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.GetEditor(System.Type)">
+            <summary>
+            返回此组件实例的指定类型的编辑器。
+            </summary>
+            <param name="editorBaseType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.GetEvents">
+            <summary>
+            返回此组件实例的事件。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.GetEvents(System.Attribute[])">
+            <summary>
+            将指定的特性数组用作筛选器来返回此组件实例的事件。
+            </summary>
+            <param name="attributes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.GetProperties">
+            <summary>
+            返回此组件实例的属性。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.GetProperties(System.Attribute[])">
+            <summary>
+            返回将特性数组用作筛选器的此组件实例的属性。
+            </summary>
+            <param name="attributes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyCollection.GetPropertyOwner(System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            返回包含指定的属性描述符所描述的属性的对象。
+            </summary>
+            <param name="pd"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.ComponentModel.CustomPropertyDescriptor">
+            <summary>
+            PropertyItemDescriptor - 属性条目描述器
+            提供类上的属性的抽象化。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomPropertyDescriptor.Category">
+            <summary>
+            获取该成员所属的类别的名称，如 System.ComponentModel.CategoryAttribute 中所指定的。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomPropertyDescriptor.Description">
+            <summary>
+            获取成员的说明，如 System.ComponentModel.DescriptionAttribute 中所指定的。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomPropertyDescriptor.DisplayName">
+            <summary>
+            可以显示在窗口（如“属性”窗口）中的名称。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomPropertyDescriptor.DesignTimeOnly">
+            <summary>
+            是否只能在设计时设置该成员
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomPropertyDescriptor.IsBrowsable">
+            <summary>
+            指示该成员是否可浏览
+            </summary>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyDescriptor.GetEditor(System.Type)">
+            <summary>
+            获取指定类型的编辑器
+            </summary>
+            <param name="editorBaseType"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomPropertyDescriptor.Converter">
+            <summary>
+            获取该属性的类型转换器
+            </summary>
+            <returns>
+            一个 System.ComponentModel.TypeConverter，用于转换该属性的 System.Type
+            </returns>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomPropertyDescriptor.ComponentType">
+            <summary>
+            获取该属性绑定到的组件的类型。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomPropertyDescriptor.IsReadOnly">
+            <summary>
+            获取指示该属性是否为只读的值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ComponentModel.CustomPropertyDescriptor.PropertyType">
+            <summary>
+            属性类型
+            </summary>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyDescriptor.CanResetValue(System.Object)">
+            <summary>
+            重置对象时是否更改其值。
+            </summary>
+            <param name="component">要测试重置功能的组件。</param>
+            <returns>如果重置组件更改其值，则为 true；否则为 false</returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyDescriptor.GetValue(System.Object)">
+            <summary>
+            获取组件上的属性的当前值
+            </summary>
+            <param name="component">具有为其检索值的属性的组件</param>
+            <returns>给定组件的属性的值</returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyDescriptor.ResetValue(System.Object)">
+            <summary>
+            重置为默认值
+            </summary>
+            <param name="component"></param>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyDescriptor.SetValue(System.Object,System.Object)">
+            <summary>
+            将组件的值设置为一个不同的值
+            </summary>
+            <param name="component">具有要进行设置的属性值的组件。</param>
+            <param name="value">新值</param>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.CustomPropertyDescriptor.ShouldSerializeValue(System.Object)">
+            <summary>
+            是否需要永久保存此属性的值
+            </summary>
+            <param name="component"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.ComponentModel.INotifyCustomPropertyChanged">
+            <summary>
+            INotifyCustomPropertyChanged - 向客户端发出某一自定义属性值已更改的通知
+            </summary>
+        </member>
+        <member name="E:CSharpKit.ComponentModel.INotifyCustomPropertyChanged.CustomPropertyChanged">
+            <summary>
+            事件 - 自定义属性值更改
+            </summary>
+        </member>
+        <member name="T:CSharpKit.ComponentModel.ListConverter">
+            <summary>
+            ListConverter
+            </summary>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.ListConverter.#ctor(System.Object[])">
+            <summary>
+            构造函数
+            </summary>
+            <param name="objects"></param>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.ListConverter.GetStandardValuesSupported(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            使用指定的上下文返回此对象是否支持可以从列表中选取的标准值集
+            </summary>
+            <param name="context">提供格式上下文</param>
+            <returns>
+            如果应调用 System.ComponentModel.TypeConverter.GetStandardValues()
+            来查找对象支持的一组公共值，则为true；否则，为 false
+            </returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.ListConverter.GetStandardValuesExclusive(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            使用指定的上下文返回此对象是否支持可以从列表中选取的标准值集
+            </summary>
+            <param name="context">提供格式上下文</param>
+            <returns>
+            如果应调用 System.ComponentModel.TypeConverter.GetStandardValues()
+            来查找对象支持的一组公共值，则为 true；否则，为 false。
+            </returns>
+        </member>
+        <member name="M:CSharpKit.ComponentModel.ListConverter.GetStandardValues(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            当与格式上下文一起提供时，返回此类型转换器设计用于的数据类型的标准值集合
+            </summary>
+            <param name="context">
+            提供格式上下文的 System.ComponentModel.ITypeDescriptorContext，
+            可用来提取有关从中调用此转换器的环境的附加信息.
+            此参数或其属性(Property) 可以为 null
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Angle">
+            <summary>
+            角
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Angle.Zero">
+            <summary>
+            A zeroed angle
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Angle.MinValue">
+            <summary>
+            Minimum value for angle
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Angle.MaxValue">
+            <summary>
+            Maximum value for angle
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Angle.NaN">
+            <summary>
+            Angle containing Not a Number
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Angle.Radians">
+            <summary>
+            弧度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Angle.Degrees">
+            <summary>
+            度
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Angle.Normalize">
+            <summary>
+            Normalizes the angle so it is between 0 and 360
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Angle.ToStringDms">
+            <summary>
+            Converts degrees to degrees/minutes/seconds
+            </summary>
+            <returns>String on format dd^mm'ss.sss"</returns>
+        </member>
+        <member name="M:CSharpKit.Angle.FromRadians(System.Double)">
+            <summary>
+            Creates a new angle from angle in radians.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Angle.FromDegrees(System.Double)">
+            <summary>
+            Creates a new angle from angle in degrees.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Angle.Abs(CSharpKit.Angle)">
+            <summary>
+            Returns the absolute value of the specified angle
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Angle.IsNaN(CSharpKit.Angle)">
+            <summary>
+            Checks for angle containing "Not a Number"
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Argb">
+            <summary>
+            Argb
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Argb.B">
+            <summary>
+            B 分量 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Argb.G">
+            <summary>
+            G 分量 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Argb.R">
+            <summary>
+            R 分量 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Argb.A">
+            <summary>
+            A 分量
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Argb.GetHashCode">
+            <summary>
+            哈希码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Argb.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Argb.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Argb.op_Implicit(System.Int32)~CSharpKit.Argb">
+            <summary>
+            32位整数隐式转换为Argb [implicit/explicit]
+            </summary>
+            <param name="iv">32位整数</param>
+            <returns>Argb结构值</returns>
+        </member>
+        <member name="M:CSharpKit.Argb.op_Implicit(CSharpKit.Argb)~System.Int32">
+            <summary>
+            Argb隐式转换32位整数
+            </summary>
+            <param name="argb">Argb结构值</param>
+            <returns>32位整数值</returns>
+        </member>
+        <member name="M:CSharpKit.Argb.op_Explicit(CSharpKit.Argb)~CSharpKit.Rgb">
+            <summary>
+            Argb --> Rgb
+            </summary>
+            <param name="argb"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Argb.FromString(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="strRgb"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Point3D">
+            <summary>
+            Point3D - 3d 点
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Point3D.Norm">
+            <summary>
+            模(L2 norm)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Point3D.Norm2">
+            <summary>
+            模平方
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Point3D.Normalize">
+            <summary>
+            标准化
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Point3D.Equals(System.Object)">
+            <summary>
+            相等比较
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Point3D.GetHashCode">
+            <summary>
+            取得对象的哈希表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Point3D.Cross(CSharpKit.Point3D,CSharpKit.Point3D)">
+            <summary>
+            叉积
+            </summary>
+            <param name="P1"></param>
+            <param name="P2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Point3D.Dot(CSharpKit.Point3D,CSharpKit.Point3D)">
+            <summary>
+            点积
+            </summary>
+            <param name="P1"></param>
+            <param name="P2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Point3D.GetAngle(CSharpKit.Point3D,CSharpKit.Point3D)">
+            <summary>
+            角度
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Quaternion4d">
+            <summary>
+            Quaternion4d - 四元数
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Quaternion4d.Normalize">
+            <summary>
+            标准化
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Quaternion4d.QuaternionToEuler(CSharpKit.Quaternion4d)">
+            <summary>
+            Transforms a rotation in quaternion form to a set of Euler angles 
+            </summary>
+            <returns>The rotation transformed to Euler angles, X=Yaw, Y=Pitch, Z=Roll (radians)</returns>
+        </member>
+        <member name="T:CSharpKit.Rgb">
+            <summary>
+            Rgb - RGB 结构
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Rgb.Blue">
+            <summary>
+            B 分量 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Rgb.Green">
+            <summary>
+            G 分量 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Rgb.Red">
+            <summary>
+            R 分量 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Rgb.Reserved">
+            <summary>
+            A 分量
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Rgb.GetHashCode">
+            <summary>
+            哈希码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Rgb.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Rgb.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Rgb.op_Explicit(CSharpKit.Rgb)~CSharpKit.Argb">
+            <summary>
+            Rgb --> Argb
+            </summary>
+            <param name="rgb"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Rgb.FromString(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="strRgb"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.CoordinateSystems.ICoordinateSystem">
+            <summary>
+            ICoordinateSystem - 坐标系统接口
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.FeatureDataTable">
+            <summary>
+            FeatureDataTable - 专题数据表
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.FeatureDataTable.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.FeatureDataTable.#ctor(System.String)">
+            <summary>
+            参数构造函数 - 用指定的表名和命名空间初始化
+            </summary>
+            <param name="tableName">表的名称。
+            如果 tableName 为 null 或是空字符串,则在添加到 FeatureDataTableCollection 中时指定默认名称</param>
+        </member>
+        <member name="M:CSharpKit.Data.FeatureDataTable.#ctor(System.String,System.String)">
+            <summary>
+            参数构造函数 - 用指定的表名和命名空间初始化
+            </summary>
+            <param name="tableName">表的名称。
+            如果 tableName 为 null 或是空字符串,则在添加到 FeatureDataTableCollection 中时指定默认名称</param>
+            <param name="tableNamespace">存储在 FeatureDataTable 中的数据的 XML 表示形式的命名空间。</param>
+        </member>
+        <member name="T:CSharpKit.Data.IDataInfo">
+            <summary>
+            IDataInfo - 数据信息接口
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IDataInfo.DateTime">
+            <summary>
+            日期时间
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IDataInfo.Comment">
+            <summary>
+            注释
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IDataInfo.FormatCode">
+            <summary>
+            格式代码
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IDataInfo.ProductCode">
+            <summary>
+            产品代码
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IDataInfo.Extent">
+            <summary>
+            数据范围
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IDataInfo.Grid">
+            <summary>
+            网格信息
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IDataInfo.ContourInfo">
+            <summary>
+            等值线信息
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.IDataInstance">
+            <summary>
+            IDataInstance - 数据实例接口
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IDataInstance.ConnectionString">
+            <summary>
+            连接字符串
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IDataInstance.DataProcessor">
+            <summary>
+            数据处理器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IDataInstance.DataInfo">
+            <summary>
+            数据信息
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IDataInstance.Palette">
+            <summary>
+            调色板
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.IDataProcessor">
+            <summary>
+            IDataProcessor - 数据处理器接口
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IDataProcessor.IsLoad">
+            <summary>
+            是否装载
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.IDataProcessor.Load">
+            <summary>
+            装载
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.IDataProcessor.Save">
+            <summary>
+            保存
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.IDataProcessor.SaveAs(System.String)">
+            <summary>
+            另存为
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CSharpKit.Data.IFileDataInstance.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.IFileDataProcessor">
+            <summary>
+            IFileDataProcessor - 文件数据处理器
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Data.IProvider">
+            <summary>
+            IProvider - 数据提供者接口
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IProvider.ConnectionString">
+            <summary>
+            连接字符串
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IProvider.DataInstance">
+            <summary>
+            数据实例
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Data.IProvider.IsOpen">
+            <summary>
+            是否打开
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Data.IProvider.Open">
+            <summary>
+            打开
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Data.IProvider.Open(System.String)">
+            <summary>
+            带参数打开
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:CSharpKit.Data.IProvider.Close">
+            <summary>
+            关闭
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Devices.Input.IMouseListener.LastPoint">
+            <summary>
+            鼠标最后位置
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Devices.Input.IMouseListener.LButtonPoint">
+            <summary>
+            鼠标左键按下时位置(用于拖动)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Devices.Input.IMouseListener.RButtonPoint">
+            <summary>
+            鼠标右键按下时位置
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Devices.Input.IMouseListener.IsDragging">
+            <summary>
+            鼠标拖动
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Devices.Input.IMouseListener.IsWheeling">
+            <summary>
+            滚轮
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Devices.Input.IMouseListener.IsDoubleClick">
+            <summary>
+            是否双击
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Devices.Input.IMouseListener.IsLeftButtonDown">
+            <summary>
+            左键按下
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Devices.Input.IMouseListener.IsRightButtonDown">
+            <summary>
+            右键按下
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Devices.Input.IMouseListener.IsFinishedGeometry">
+            <summary>
+            完成图形
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.IMouseListener.MouseDown(System.Object,System.EventArgs)">
+            <summary>
+            鼠标按下
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.IMouseListener.MouseUp(System.Object,System.EventArgs)">
+            <summary>
+            鼠标释放
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.IMouseListener.MouseMove(System.Object,System.EventArgs)">
+            <summary>
+            鼠标移动
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.IMouseListener.MouseWheel(System.Object,System.EventArgs)">
+            <summary>
+            鼠标转轮转动
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.IMouseListener.MouseEnter(System.Object,System.EventArgs)">
+            <summary>
+            鼠标进入
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Devices.Input.IMouseListener.MouseLeave(System.Object,System.EventArgs)">
+            <summary>
+            鼠标离开
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:CSharpKit.Vision.VisionSelectedEventArgs">
+            <summary>
+            VisionSelectedEventArgs - 选择对象事件参数
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.ILayer.SelectPrimivite(CSharpKit.Vision.IVision)">
+            <summary>
+            选择图元
+            </summary>
+            <param name="vision"></param>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.ILayerManager.PrimiviteLayer">
+            <summary>
+            图元图层
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.ILayerManager.CurrentLayer">
+            <summary>
+            当前图层
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.ILayerManager.GetExtent">
+            <summary>
+            取得所有图层包围盒并集
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.ILayerManager.GetLayer(System.Int32)">
+            <summary>
+            取得指定索引的图层
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.ILayerManager.GetLayer(System.String)">
+            <summary>
+            取得指定ID的图层
+            </summary>
+            <param name="uid">图层的唯一ID</param>
+            <returns></returns>
+        </member>
+        <member name="E:CSharpKit.Vision.Mapping.ILayerManager.LayerChanged">
+            <summary>
+            图层改变事件
+            </summary>
+        </member>
+        <member name="E:CSharpKit.Vision.Mapping.ILayerManager.PrimiviteSelected">
+            <summary>
+            选择图元
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.Container">
+            <summary>
+            地图容器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.DrawBuffer">
+            <summary>
+            渲染缓冲区
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.DrawingPosition">
+            <summary>
+            绘制位置
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.IsRedraw">
+            <summary>
+            重新绘制
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.IsZooming">
+            <summary>
+            正在缩放
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.IsMoving">
+            <summary>
+            正在移动
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.MapTool">
+            <summary>
+            地图工具
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.View">
+            <summary>
+            视图
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.OldView">
+            <summary>
+            旧视图
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.DataBound">
+            <summary>
+            数据范围
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.WorldBound">
+            <summary>
+            世界坐标范围
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.LayerManager">
+            <summary>
+            图层管理器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.MouseListener">
+            <summary>
+            鼠标监听器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.RenderEngine">
+            <summary>
+            渲染引擎
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.ClipPath">
+            <summary>
+            剪切路径
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMap.IsRebuildClip">
+            <summary>
+            重建剪切区路径
+            </summary>
+        </member>
+        <member name="E:CSharpKit.Vision.Mapping.IMap.Initialized">
+            <summary>
+            初始化完成
+            </summary>
+        </member>
+        <member name="E:CSharpKit.Vision.Mapping.IMap.Rendering">
+            <summary>
+            即将渲染
+            </summary>
+        </member>
+        <member name="E:CSharpKit.Vision.Mapping.IMap.Rendered">
+            <summary>
+            渲染结束
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.Initialize">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.ViewToWorld(System.Double@,System.Double@)">
+            <summary>
+            视图坐标转换为世界坐标
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.WorldToView(System.Double@,System.Double@)">
+            <summary>
+            世界坐标转换为视图坐标
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.SetViewBound(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            设置视图尺寸
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="w"></param>
+            <param name="h"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.Reset">
+            <summary>
+            复位
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.Refresh(System.Boolean)">
+            <summary>
+            刷新
+            </summary>
+            <param name="isRedraw"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.ZoomIn(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            放大(拉窗口)
+            </summary>
+            <param name="x">拉窗口x</param>
+            <param name="y">拉窗口y</param>
+            <param name="w">拉窗口w</param>
+            <param name="h">拉窗口h</param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.ZoomOut(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            缩小(拉窗口)
+            </summary>
+            <param name="x">拉窗口x</param>
+            <param name="y">拉窗口y</param>
+            <param name="w">拉窗口w</param>
+            <param name="h">拉窗口h</param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.ZoomPan(System.Int32,System.Int32)">
+            <summary>
+            移动
+            </summary>
+            <param name="dx"></param>
+            <param name="dy"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.SetClipRect(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            设置剪切矩形
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="w"></param>
+            <param name="h"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.GetClipRect(System.Double@,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            取得剪切矩形
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="w"></param>
+            <param name="h"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.Paint(System.Object,System.EventArgs)">
+            <summary>
+            绘制
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.MouseDown(System.Object,System.EventArgs)">
+            <summary>
+            鼠标按下
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.MouseUp(System.Object,System.EventArgs)">
+            <summary>
+            鼠标释放
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.MouseMove(System.Object,System.EventArgs)">
+            <summary>
+            鼠标移动
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.MouseWheel(System.Object,System.EventArgs)">
+            <summary>
+            鼠标转轮转动
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.MouseEnter(System.Object,System.EventArgs)">
+            <summary>
+            鼠标进入
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.MouseLeave(System.Object,System.EventArgs)">
+            <summary>
+            鼠标离开
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.BuildClipPath">
+            <summary>
+            构造剪切路径
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMap.ClearLegend">
+            <summary>
+            清除图例
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.IMapContainer.Map">
+            <summary>
+            地图
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMapContainer.GetWidth">
+            <summary>
+            取得宽度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMapContainer.GetHeight">
+            <summary>
+            取得高度
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMapContainer.Invalidate">
+            <summary>
+            刷新
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMapContainer.MoveMap(System.Int32,System.Int32)">
+            <summary>
+            移动地图
+            </summary>
+            <param name="dx"></param>
+            <param name="dy"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMapContainer.DrawZoomRectangle(CSharpKit.Win32.RECT)">
+            <summary>
+            绘制缩放矩形
+            </summary>
+            <param name="rect"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Mapping.IMapContainer.MouseCapture(System.Boolean)">
+            <summary>
+            鼠标捕获
+            </summary>
+            <param name="isCapture">
+            true - 捕获鼠标
+            false- 释放鼠标
+            </param>
+        </member>
+        <member name="T:CSharpKit.Vision.Mapping.LayerChangedEventArgs">
+            <summary>
+            LayerChangedEventArgs
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.LayerChangedEventArgs.Layer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.LayerChangedEventArgs.LayerChangedType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.Mapping.LayerType">
+            <summary>
+            LayerType - 图层类型
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.LayerType.None">
+            <summary>
+            无
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.LayerType.Primivite">
+            <summary>
+            图元
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.LayerType.Overlay">
+            <summary>
+            覆盖物
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.LayerType.Traffic">
+            <summary>
+            交通
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.Mapping.MapTool">
+            <summary>
+            MapTool - 地图工具
+            </summary>
+            <summary>
+            MapTool - 地图工具 - MapController
+            </summary>
+            <summary>
+            MapTool - 地图工具 - PrimiviteController
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.MapTool.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.Mapping.MapTool.Tag">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.Mapping.MapTool.MapController">
+            <summary>
+            地图控制
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.MapController.Controller">
+            <summary>
+            选择目标
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.MapController.Cancel">
+            <summary>
+            取消
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.MapController.Reset">
+            <summary>
+            复位
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.MapController.Refresh">
+            <summary>
+            刷新
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.MapController.ZoomIn">
+            <summary>
+            放大
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.MapController.ZoomOut">
+            <summary>
+            缩小
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.MapController.ZoomPan">
+            <summary>
+            移动
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Vision.Mapping.MapTool.PrimiviteController">
+            <summary>
+            图元控制
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.Controller">
+            <summary>
+            选择目标
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.SelectTarget">
+            <summary>
+            选择目标
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.DeleteTarget">
+            <summary>
+            删除目标
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.MoveTarget">
+            <summary>
+            移动目标
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.DrawPoint">
+            <summary>
+            绘制点
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.DrawLine">
+            <summary>
+            绘制线段
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.DrawRect">
+            <summary>
+            绘制矩形
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.DrawEllipse">
+            <summary>
+            绘制椭圆
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.DrawPolyline">
+            <summary>
+            绘制折线
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.DrawPolygon">
+            <summary>
+            绘制多边形
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.DrawCurve">
+            <summary>
+            绘制曲线
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.DrawCurveClose">
+            <summary>
+            绘制闭合曲线
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.DrawAnyShape">
+            <summary>
+            绘制任意形状
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.DrawAnyShapeClose">
+            <summary>
+            绘制任意形状
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.DrawLabel">
+            <summary>
+            绘制标注
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.DrawLegend">
+            <summary>
+            绘制图例
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.DrawCustomLegend">
+            <summary>
+            绘制自定义图例
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Mapping.MapTool.PrimiviteController.ClearAll">
+            <summary>
+            清除所有图元
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.IRenderable.Render(CSharpKit.Vision.Presentation.IRenderEngine)">
+            <summary>
+            渲染
+            </summary>
+            <param name="renderEngine">渲染引擎</param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.IRenderEngine.ViewToWorld(System.Double@,System.Double@)">
+            <summary>
+            视图坐标转换为世界坐标
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.IRenderEngine.WorldToView(System.Double@,System.Double@)">
+            <summary>
+            世界坐标转换为视图坐标
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.IRenderEngine.SetViewBound(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            设置视图范围
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.IRenderEngine.Reset">
+            <summary>
+            复位
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.IRenderEngine.Refresh(System.Boolean)">
+            <summary>
+            刷新
+            </summary>
+            <param name="redraw"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.IRenderEngine.ZoomIn(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            放大(拉窗口)
+            </summary>
+            <param name="x">拉窗口x</param>
+            <param name="y">拉窗口y</param>
+            <param name="w">拉窗口w</param>
+            <param name="h">拉窗口h</param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.IRenderEngine.ZoomOut(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            缩小(拉窗口)
+            </summary>
+            <param name="x">拉窗口x</param>
+            <param name="y">拉窗口y</param>
+            <param name="w">拉窗口w</param>
+            <param name="h">拉窗口h</param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.IRenderEngine.ZoomPan(System.Int32,System.Int32)">
+            <summary>
+            移动
+            </summary>
+            <param name="dx"></param>
+            <param name="dy"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.IRenderEngine.SetClipRect(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            设置剪切矩形
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="w"></param>
+            <param name="h"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.IRenderEngine.GetClipRect(System.Double@,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            取得剪切矩形
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="w"></param>
+            <param name="h"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.IRenderEngine.Render(System.Object,System.EventArgs)">
+            <summary>
+            绘制
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.IRenderEngine.OnApplicationIdle(System.Object,System.EventArgs)">
+            <summary>
+            应用程序空闲
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.Presentation.IRenderEngine.BuildClipPath">
+            <summary>
+            构造剪切路径
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Vision.Presentation.RenderPriority">
+            <summary>
+            RenderPriority - 渲染优先级
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Presentation.RenderPriority.Bottommost">
+            <summary>
+            最底层
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Presentation.RenderPriority.BackgroundImages">
+            <summary>
+            背景图像
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Presentation.RenderPriority.MatrixImages">
+            <summary>
+            母体图像
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Presentation.RenderPriority.TerrainMappedImages">
+            <summary>
+            地形图像
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Presentation.RenderPriority.SurfaceImages">
+            <summary>
+            表面图像
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Presentation.RenderPriority.SkyImages">
+            <summary>
+            天空图像
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Presentation.RenderPriority.AtmosphericImages">
+            <summary>
+            大气层图像
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Presentation.RenderPriority.VectorPaths">
+            <summary>
+            矢量路径
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Presentation.RenderPriority.Icons">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Presentation.RenderPriority.Placenames">
+            <summary>
+            地名
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Vision.Presentation.RenderPriority.Topmost">
+            <summary>
+            最顶层
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IFeature.Geometry">
+            <summary>
+            几何形状
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IGeometryVision.LineWidth">
+            <summary>
+            线宽
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.Provider">
+            <summary>
+            数据源
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.Parent">
+            <summary>
+            父亲
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.Children">
+            <summary>
+            孩子
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.Extent">
+            <summary>
+            范围
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.Renderer">
+            <summary>
+            渲染器
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.RenderPriority">
+            <summary>
+            绘制优先级
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.Opacity">
+            <summary>
+            不透明度(0-255)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.Transparency">
+            <summary>
+            透明度(0-100)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.Comment">
+            <summary>
+            注释
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.IsInitialized">
+            <summary>
+            是否初始化
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.IsAllowDeleted">
+            <summary>
+            允许删除
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.IsSelected">
+            <summary>
+            是否选择
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.IsFill">
+            <summary>
+            是否填充
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.IsVisible">
+            <summary>
+            是否可见
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.IsClip">
+            <summary>
+            剪切
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.IsShowInLayer">
+            <summary>
+            显示在图层树中
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Vision.IVision.CustomProperties">
+            <summary>
+            自定义属性集合
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Vision.IVision.GetExtent">
+            <summary>
+            获取范围
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Vision.IVision.Offset(System.Double,System.Double)">
+            <summary>
+            偏移
+            </summary>
+            <param name="dx"></param>
+            <param name="dy"></param>
+        </member>
+        <member name="M:CSharpKit.Vision.IVision.RemoveAllCustomProperty">
+            <summary>
+            移除全部自定义属性
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Extentions.CSKExtentions_String">
+            <summary>
+            字符串类功能扩展
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Geometrics.GeometryType">
+            <summary>
+            GeometryType - 几何图形类型
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.Geometry">
+            <summary>
+            几何图形(根)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.Point">
+            <summary>
+            点(0维)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.Line">
+            <summary>
+            线(1维)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.Surface">
+            <summary>
+            面(2维)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.Volume">
+            <summary>
+            体(3维)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.VectorGeometry">
+            <summary>
+            矢量图形
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.LineSegment">
+            <summary>
+            线段(由两个点组成)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.LineString">
+            <summary>
+            线串(由两个以上的点组成)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.LinearRing">
+            <summary>
+            线性环
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.Polyline">
+            <summary>
+            折线(同线串)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.Polygon">
+            <summary>
+            多边形
+            多边形是一个平坦的面，由1个外环(exterior boundary)和
+            0~n 个内环(interior boundaries)组成，每个内环定义为多
+            边形的一个洞(hole).
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.Curve1">
+            <summary>
+            光滑曲线
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.GeometryCollection">
+            <summary>
+            A GeometryCollection is a geometry that is a collection of 1 or more geometries.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.MultiPoint">
+            <summary>
+            A MultiPoint is a 0 dimensional geometric collection. The elements of a MultiPoint
+            are restricted to Points. The points are not connected or ordered.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.MultiCurve">
+            <summary>
+            A MultiCurve is a one-dimensional GeometryCollection whose elements are Curves.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.MultiSurface">
+            <summary>
+            A MultiSurface is a two-dimensional geometric collection whose elements are
+            surfaces. The interiors of any two surfaces in a MultiSurface may not intersect.
+            The boundaries of any two elements in a MultiSurface may intersect at most at a
+            finite number of points.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.MultiLineSegment">
+            <summary>
+            多线段
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.MultiLineString">
+            <summary>
+            A MultiLineString is a MultiCurve whose elements are LineStrings.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.MultiLinearRing">
+            <summary>
+            多环
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.MultiPolyline">
+            <summary>
+            多折线
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.MultiPolygon">
+            <summary>
+            A MultiPolygon is a MultiSurface whose elements are Polygons.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.TextGeometry">
+            <summary>
+            文本图形
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Geometrics.GeometryType.RasterGeometry">
+            <summary>
+            栅格图形
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Geometrics.IGeometry">
+            <summary>
+            几何图形<c>Geometry</c>接口。
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Geometrics.IGeometry.Extent">
+            <summary>
+            范围
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Geometrics.IGeometry.Location">
+            <summary>
+            左上角位置坐标(世界)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Geometrics.IGeometry.Width">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Geometrics.IGeometry.Height">
+            <summary>
+            高度 
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Geometrics.IGeometry.Offset(System.Double,System.Double)">
+            <summary>
+            使图形偏移指定的量
+            </summary>
+            <param name="dx">X坐标的偏移量</param>
+            <param name="dy">Y坐标的偏移量</param>
+        </member>
+        <member name="P:CSharpKit.Geometrics.IPoint.X">
+            <summary>
+            点X坐标
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Geometrics.IPoint.Y">
+            <summary>
+            点Y坐标
+            </summary>
+        </member>
+        <member name="M:CSharpKit.IExtent.Offset(System.Double,System.Double)">
+            <summary>
+            偏移
+            </summary>
+            <param name="dx"></param>
+            <param name="dy"></param>
+        </member>
+        <member name="M:CSharpKit.IExtent.PointInside(System.Double,System.Double)">
+            <summary>
+            点在范围内部
+            </summary>
+            <param name="x">点的x坐标</param>
+            <param name="y">点的y坐标</param>
+            <returns>true or false</returns>
+        </member>
+        <member name="T:CSharpKit.ITarget">
+            <summary>
+            ITarget
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ITarget.Id">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ITarget.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ITarget.Owner">
+            <summary>
+            拥有者
+            </summary>
+        </member>
+        <member name="P:CSharpKit.ITarget.Tag">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Palettes.IPalette">
+            <summary>
+            IPalette
+            TODO:[syc,20171103]反转彩虹调色板
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Palettes.IPalette.Items">
+            <summary>
+            调色板条目
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Palettes.IPalette.PaletteType">
+            <summary>
+            调色板类型
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Palettes.IPalette.TransparentColor">
+            <summary>
+            透明色
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Palettes.IPalette.HasTransparentColor">
+            <summary>
+            有透明色
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Palettes.IPalette.ValidItemCount">
+            <summary>
+            有效条目数量
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Palettes.IPalette.GetColor(System.Double,System.Drawing.Color)">
+            <summary>
+            取得指定值的颜色
+            </summary>
+            <param name="value"></param>
+            <param name="defaultColor"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CSharpKit.Palettes.IPaletteItem.Value">
+            <summary>
+            数值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Palettes.IPaletteItem.Color">
+            <summary>
+            颜色
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Palettes.IPaletteItem.Comment">
+            <summary>
+            注释
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Palettes.PaletteType">
+            <summary>
+            PaletteType - 调色板类型
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Palettes.PaletteType.Unknown">
+            <summary>
+            未知调色板
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Palettes.PaletteType.Standard">
+            <summary>
+            标准调色板
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Palettes.PaletteType.Indexing">
+            <summary>
+            索引调色板
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Palettes.PaletteType.Segment">
+            <summary>
+            分段调色板
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Palettes.PaletteType.Rainbow">
+            <summary>
+            彩虹调色板
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Palettes.PaletteType.Linear">
+            <summary>
+            线性调色板
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32.Enumerations.BinaryRasterOperations">
+            <summary>
+            BinaryRasterOperations - 二元光栅操作
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32.SetWindowPositionOptions">
+            <summary>
+            设置窗口位置选项
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32.SetWindowPosFlags1">
+            <summary>
+            Set Window Pos Flags
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.SynchronousWindowPosition">
+            <summary>If the calling thread and the thread that owns the window are attached to different input queues,
+            the system posts the request to the thread that owns the window. This prevents the calling thread from
+            blocking its execution while other threads process the request.</summary>
+            <remarks>SWP_ASYNCWINDOWPOS</remarks>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.DeferErase">
+            <summary>Prevents generation of the WM_SYNCPAINT message.</summary>
+            <remarks>SWP_DEFERERASE</remarks>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.SWP_DRAWFRAME">
+            <summary>Draws a frame (defined in the window's class description) around the window.</summary>
+            <remarks>SWP_DRAWFRAME</remarks>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.FrameChanged">
+            <summary>Applies new frame styles set using the SetWindowLong function. Sends a WM_NCCALCSIZE message to
+            the window, even if the window's size is not being changed. If this flag is not specified, WM_NCCALCSIZE
+            is sent only when the window's size is being changed.</summary>
+            <remarks>SWP_FRAMECHANGED</remarks>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.HideWindow">
+            <summary>Hides the window.</summary>
+            <remarks>SWP_HIDEWINDOW</remarks>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.DoNotActivate">
+            <summary>Does not activate the window. If this flag is not set, the window is activated and moved to the
+            top of either the topmost or non-topmost group (depending on the setting of the hWndInsertAfter
+            parameter).</summary>
+            <remarks>SWP_NOACTIVATE</remarks>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.DoNotCopyBits">
+            <summary>Discards the entire contents of the client area. If this flag is not specified, the valid
+            contents of the client area are saved and copied back into the client area after the window is sized or
+            repositioned.</summary>
+            <remarks>SWP_NOCOPYBITS</remarks>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.IgnoreMove">
+            <summary>Retains the current position (ignores X and Y parameters).</summary>
+            <remarks>SWP_NOMOVE</remarks>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.DoNotChangeOwnerZOrder">
+            <summary>Does not change the owner window's position in the Z order.</summary>
+            <remarks>SWP_NOOWNERZORDER</remarks>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.DoNotRedraw">
+            <summary>Does not redraw changes. If this flag is set, no repainting of any kind occurs. This applies to
+            the client area, the nonclient area (including the title bar and scroll bars), and any part of the parent
+            window uncovered as a result of the window being moved. When this flag is set, the application must
+            explicitly invalidate or redraw any parts of the window and parent window that need redrawing.</summary>
+            <remarks>SWP_NOREDRAW</remarks>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.DoNotReposition">
+            <summary>Same as the SWP_NOOWNERZORDER flag.</summary>
+            <remarks>SWP_NOREPOSITION</remarks>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.DoNotSendChangingEvent">
+            <summary>Prevents the window from receiving the WM_WINDOWPOSCHANGING message.</summary>
+            <remarks>SWP_NOSENDCHANGING</remarks>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.IgnoreResize">
+            <summary>Retains the current size (ignores the cx and cy parameters).</summary>
+            <remarks>SWP_NOSIZE</remarks>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.IgnoreZOrder">
+            <summary>Retains the current Z order (ignores the hWndInsertAfter parameter).</summary>
+            <remarks>SWP_NOZORDER</remarks>
+        </member>
+        <member name="F:CSharpKit.Win32.SetWindowPosFlags1.ShowWindow">
+            <summary>Displays the window.</summary>
+            <remarks>SWP_SHOWWINDOW</remarks>
+        </member>
+        <member name="T:CSharpKit.Win32.TernaryRasterOperations">
+            <summary>
+            三元光栅操作
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32.GdiPenStyle">
+            <summary>
+            GdiPenStyle - GDI 画笔风格
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32.WindowExStyle">
+            <summary>
+            WindowExStyle - 扩展的窗口风格
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32.WindowStyle">
+            <summary>
+            WindowStyle - 窗口风格
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Win32.Interop.DllInvoke.Invoke(System.String,System.Type)">
+            <summary>
+            调用
+            </summary>
+            <param name="apiName"></param>
+            <param name="t">委托函数的类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:CSharpKit.Win32.Interop.NativeMethods">
+            <summary>
+            NativeMethods
+            </summary>
+            <summary>
+            NativeMethod - delegate
+            </summary>
+            <summary>
+            NativeMethods - Custom
+            </summary>
+            <summary>
+            NativeMethods_Gdi32
+            </summary>
+            <summary>
+            NativeMethods - Kernel32.dll
+            </summary>
+            <summary>
+            NativeMethods - User32.dll
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32.Interop.NativeMethods.DllDescriptor">
+            <summary>
+            internal class that describes resource DLL range and name
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.Interop.NativeMethods.DllDescriptor.firstMessage">
+            <summary>
+            First message in the range reserved for this DLL
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.Interop.NativeMethods.DllDescriptor.lastMessage">
+            <summary>
+            Last message in the range reserved for this DLL
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.Interop.NativeMethods.DllDescriptor.dllName">
+            <summary>
+            The name of the DLL, e.g. "WINHTTP.DLL"
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Win32.Interop.NativeMethods.DllDescriptor.#ctor(System.Int32,System.Int32,System.String)">
+            <summary>
+            Describes a DLL that can be searched for error messages
+            </summary>
+            <param name="first">First error number in the range</param>
+            <param name="last">Last error number in the range</param>
+            <param name="dll">File name of the associated dll, e.g. WINHTTP.DLL</param>
+        </member>
+        <member name="P:CSharpKit.Win32.Interop.NativeMethods.IsAppStillIdle">
+            <summary>
+            Determine whether any window messages is queued.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Win32.Interop.NativeMethods.GetMessage(System.Int32)">
+            <summary>
+            Get message string given error number
+            </summary>
+            <param name="lastError">The error number</param>
+            <returns>Associated error message</returns>
+        </member>
+        <member name="M:CSharpKit.Win32.Interop.NativeMethods.PeekMessage(CSharpKit.Win32.NativeMessages.Message@,System.IntPtr,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            The PeekMessage function dispatches incoming sent messages, 
+            checks the thread message queue for a posted message, 
+            and retrieves the message (if any exist).
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32.NativeMessages">
+            <summary>
+            NativeMessages
+            </summary>
+            <summary>
+            NativeMessages - 常量
+            </summary>
+            <summary>
+            NativeMessages - mouse
+            </summary>
+            <summary>
+            NativeMessages - sys
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Win32.NativeMessages.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32.NativeMessages.Message">
+            <summary>
+            Contains message information from a thread's message queue.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32.Structures.BITMAP">
+            <summary>
+            BITMAP - 定义了一个逻辑位图.的高度、宽度、颜色和格式位值 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.Structures.BITMAP.bmType">
+            <summary>
+            指定位图类型。此成员必须为 0。
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.Structures.BITMAP.bmWidth">
+            <summary>
+            以像素为单位指定位图的宽度。  此宽度都必须大于 0。 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.Structures.BITMAP.bmHeight">
+            <summary>
+            光栅行指定位图的高度。  该高度都必须大于 0。 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.Structures.BITMAP.bmWidthBytes">
+            <summary>
+            在每光栅行指定字节数。
+            此值必须是偶数，因为图形设备(GDI)接口，假设位图的位值窗体整数 (2 字节) 值。
+            换言之， bmWidthBytes * 8 必须是下的倍数 16 大于或等于获取的值，当 bmWidth 成员乘以 bmBitsPixel 成员时。 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.Structures.BITMAP.bmPlanes">
+            <summary>
+            在位图指定颜色产生的数目。 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.Structures.BITMAP.bmBitsPixel">
+            <summary>
+            在必要的每帧的结束平面指定相邻颜色的位数定义像素。 
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Win32.MINMAXINFO">
+            <summary>
+            MINMAXINFO - 包含有关窗口的最大大小的信息和位置及其最小和最大跟踪的范围。 
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.MINMAXINFO.ptReserved">
+            <summary>
+            保留以供内部使用
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.MINMAXINFO.ptMaxSize">
+            <summary>
+            指定该最大化的宽度 (point.x) 和 " 最大化的高度 (point.y) 窗口。
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.MINMAXINFO.ptMaxPosition">
+            <summary>
+            指定最大化的窗口 (point.x) 的左边的位置和最大化的窗口 (point.y) 顶部的位置。
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.MINMAXINFO.ptMinTrackSize">
+            <summary>
+            指定最低履带宽度 (point.x) 和最小跟踪的高度 (point.y) 窗口。
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Win32.MINMAXINFO.ptMaxTrackSize">
+            <summary>
+            指定最大履带宽度 (point.x) 和最大值跟踪的高度 (point.y) 窗口。
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Maths.ContourTracing.ContourInfo">
+            <summary>
+            ContourInfo - 等值线信息
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourInfo.ContourNums">
+            <summary>
+            等值线数量(CID)
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourInfo.ContourFraction">
+            <summary>
+            自动规划等值线时的份数
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourInfo.ContourValues">
+            <summary>
+            等值线值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourInfo.ContourMin">
+            <summary>
+            等值线最小值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourInfo.ContourMax">
+            <summary>
+            等值线最大值
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourInfo.ContourInterval">
+            <summary>
+            等值线间隔
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Maths.ContourTracing.ContourInfo.ContourBoldValue">
+            <summary>
+            加粗显示的等值线值
+            </summary>
+        </member>
+        <member name="T:CSharpKit.BytesEncoder">
+            <summary>
+            BytesEncoder - 字节编码器
+            </summary>
+        </member>
+        <member name="M:CSharpKit.BytesEncoder.GetBigEndian(System.UInt16)">
+            <summary>
+            Returns the value encoded in Big Endian (PPC, XDR) format.
+            </summary>
+            <param name="value">Value to encode.</param>
+            <returns>Big-endian encoded value.</returns>
+        </member>
+        <member name="M:CSharpKit.BytesEncoder.GetLittleEndian(System.UInt16)">
+            <summary>
+            Returns the value encoded in Little Endian (x86, NDR) format.
+            </summary>
+            <param name="value">Value to encode.</param>
+            <returns>Little-endian encoded value.</returns>
+        </member>
+        <member name="M:CSharpKit.BytesEncoder.GetBigEndian(System.UInt32)">
+            <summary>
+            Returns the value encoded in Big Endian (PPC, XDR) format.
+            </summary>
+            <param name="value">Value to encode.</param>
+            <returns>Big-endian encoded value.</returns>
+        </member>
+        <member name="M:CSharpKit.BytesEncoder.GetBigEndian(System.Int32)">
+            <summary>
+            Returns the value encoded in Big Endian (PPC, XDR) format.
+            </summary>
+            <param name="value">Value to encode.</param>
+            <returns>Big-endian encoded value.</returns>
+        </member>
+        <member name="M:CSharpKit.BytesEncoder.GetLittleEndian(System.Int32)">
+            <summary>
+            Returns the value encoded in Little Endian (x86, NDR) format.
+            </summary>
+            <param name="value">Value to encode.</param>
+            <returns>Little-endian encoded value.</returns>
+        </member>
+        <member name="M:CSharpKit.BytesEncoder.GetLittleEndian(System.UInt32)">
+            <summary>
+            Returns the value encoded in Little Endian (x86, NDR) format.
+            </summary>
+            <param name="value">Value to encode.</param>
+            <returns>Little-endian encoded value.</returns>
+        </member>
+        <member name="M:CSharpKit.BytesEncoder.GetBigEndian(System.Double)">
+            <summary>
+            Returns the value encoded in Big Endian (PPC, XDR) format.
+            </summary>
+            <param name="value">Value to encode.</param>
+            <returns>Big-endian encoded value.</returns>
+        </member>
+        <member name="M:CSharpKit.BytesEncoder.GetLittleEndian(System.Double)">
+            <summary>
+            Returns the value encoded in Little Endian (x86, NDR) format.
+            </summary>
+            <param name="value">Value to encode.</param>
+            <returns>Little-endian encoded value.</returns>
+        </member>
+        <member name="M:CSharpKit.BytesEncoder.swapByteOrder(System.UInt16)">
+            <summary>
+            Swaps the byte order of a <see cref="T:System.UInt16"/>.
+            </summary>
+            <param name="value"><see cref="T:System.UInt16"/> to swap the bytes of.</param>
+            <returns>Byte order swapped <see cref="T:System.UInt16"/>.</returns>
+        </member>
+        <member name="M:CSharpKit.BytesEncoder.swapByteOrder(System.UInt32)">
+            <summary>
+            Swaps the byte order of a <see cref="T:System.UInt32"/>.
+            </summary>
+            <param name="value"><see cref="T:System.UInt32"/> to swap the bytes of.</param>
+            <returns>Byte order swapped <see cref="T:System.UInt32"/>.</returns>
+        </member>
+        <member name="M:CSharpKit.BytesEncoder.swapByteOrder(System.Int32)">
+            <summary>
+            Swaps the Byte order of an <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="value"><see cref="T:System.Int32"/> to swap the bytes of.</param>
+            <returns>Byte order swapped <see cref="T:System.Int32"/>.</returns>
+        </member>
+        <member name="M:CSharpKit.BytesEncoder.swapByteOrder(System.UInt64)">
+            <summary>
+            Swaps the byte order of a <see cref="T:System.Int64"/>.
+            </summary>
+            <param name="value"><see cref="T:System.Int64"/> to swap the bytes of.</param>
+            <returns>Byte order swapped <see cref="T:System.Int64"/>.</returns>
+        </member>
+        <member name="M:CSharpKit.BytesEncoder.swapByteOrder(System.Double)">
+            <summary>
+            Swaps the byte order of a <see cref="T:System.Double"/> (double precision IEEE 754)
+            </summary>
+            <param name="value"><see cref="T:System.Double"/> to swap.</param>
+            <returns>Byte order swapped <see cref="T:System.Double"/> value.</returns>
+        </member>
+        <member name="T:CSharpKit.Utility.TimeKeeper">
+            <summary>
+            TimeKeeper
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Utility.TimeKeeper.Enabled">
+            <summary>
+            使能
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Utility.TimeKeeper.CurrentTimeUtc">
+            <summary>
+            当前 UTC 时间
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Utility.TimeKeeper.TimeMultiplier">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Utility.TimeKeeper.Start">
+            <summary>
+            开始
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Utility.TimeKeeper.Stop">
+            <summary>
+            停止
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Windows.Forms.Controls.IMapControl.Handle">
+            <summary>
+            控件句柄
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Windows.Forms.Controls.IMapControl.Focus">
+            <summary>
+            使控件具有焦点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:KitAssemblyConsts.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="F:KitAssemblyConsts.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="F:KitAssemblyConsts.Configuration">
+            <summary>
+            配置
+            </summary>
+        </member>
+        <member name="F:KitAssemblyConsts.Company">
+            <summary>
+            公司
+            </summary>
+        </member>
+        <member name="F:KitAssemblyConsts.Product">
+            <summary>
+            产品
+            </summary>
+        </member>
+        <member name="F:KitAssemblyConsts.Copyright">
+            <summary>
+            版权
+            </summary>
+        </member>
+        <member name="F:KitAssemblyConsts.Trademark">
+            <summary>
+            商标
+            </summary>
+        </member>
+        <member name="F:KitAssemblyConsts.Culture">
+            <summary>
+            文化
+            </summary>
+        </member>
+    </members>
+</doc>

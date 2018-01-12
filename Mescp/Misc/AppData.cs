@@ -229,6 +229,24 @@ namespace Mescp
 
         #endregion
 
+        #region 区划
+
+        private List<Compartment> _Compartments;
+        public List<Compartment> Compartments
+        {
+            get
+            {
+                if (_Compartments == null)
+                {
+                    _Compartments = new List<Compartment>();
+                    App.Workspace.AppHelper.GetCompartments(_Compartments);
+                }
+                return _Compartments;
+            }
+        }
+
+        #endregion
+
 
         #region 评价年份
 

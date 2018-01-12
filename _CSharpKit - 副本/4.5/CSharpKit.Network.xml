@@ -1,0 +1,353 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSharpKit.Network</name>
+    </assembly>
+    <members>
+        <member name="T:CSharpKit.Network.Downloading.DownloadQueue">
+            <summary>
+            DownloadQueue - 下载队列
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.DownloadQueue.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref= "T:CSharpKit.Net.DownloadRequest"/> class 
+            with default data.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Network.Downloading.DownloadQueue.Requests">
+            <summary>
+            Request for download queue
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Network.Downloading.DownloadQueue.ActiveDownloads">
+            <summary>
+            Currently active downloads
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.DownloadQueue.Add(CSharpKit.Network.Downloading.DownloadRequest)">
+            <summary>
+            Add a download request to the queue.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.DownloadQueue.Remove(CSharpKit.Network.Downloading.DownloadRequest)">
+            <summary>
+            Removes a request from the download queue.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.DownloadQueue.Clear(System.Object)">
+            <summary>
+            Remove all requests with a certain owner.
+            </summary>
+            <param name="owner"></param>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.DownloadQueue.ServiceDownloadQueue">
+            <summary>
+            Starts downloads when there are threads available
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.DownloadQueue.GetNextDownloadRequest">
+            <summary>
+            Finds the next file to download	
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.DownloadQueue.OnComplete(CSharpKit.Network.Downloading.DownloadRequest)">
+            <summary>
+            Callback when download is complete.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Network.Downloading.DownloadRequest">
+            <summary>
+            DownloadRequest - 下载请求
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Network.Downloading.DownloadRequest.Queue">
+            <summary>
+            下载队列
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Network.Downloading.DownloadRequest.Owner">
+            <summary>
+            The object that created this request
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Network.Downloading.DownloadRequest.Progress">
+            <summary>
+            Value (0-1) indicating how far the download has progressed.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.DownloadRequest.Start">
+            <summary>
+            Starts processing this request
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.DownloadRequest.CalculateScore">
+            <summary>
+            Calculates the score of this request.  Used to prioritize downloads.  
+            Override in derived class to allow prioritization.
+            </summary>
+            <returns>Relative score or float.MinValue if request is no longer of interest.</returns>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.DownloadRequest.OnComplete">
+            <summary>
+            Derived classes should call this method to signal processing complete.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Network.Downloading.GeoSpatialDownloadRequest">
+            <summary>
+            GeoSpatialDownloadRequest
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorldWind.Net.WebDownload"/> class.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CSharpKit.Network.Downloading.WebDownload"/> class.
+            </summary>
+            <param name="url">The URL to download from.</param>
+        </member>
+        <member name="F:CSharpKit.Network.Downloading.WebDownload.ContentStream">
+            <summary>
+            Memory downloads fills this stream
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Network.Downloading.WebDownload.DownloadStartTime">
+            <summary>
+            The download start time (or MinValue if not yet started)
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Network.Downloading.WebDownload.dlThread">
+            <summary>
+            used to signal thread abortion; if true, the download thread was aborted
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Network.Downloading.WebDownload.ProgressCallback">
+            <summary>
+            Called when data is being received.  
+            Note that totalBytes will be zero if the server does not respond with content-length.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Network.Downloading.WebDownload.DebugCallback">
+            <summary>
+            Called to update debug window.
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Network.Downloading.WebDownload.DownloadEnded">
+            <summary>
+            Called when a download has ended with success or failure
+            </summary>
+        </member>
+        <member name="F:CSharpKit.Network.Downloading.WebDownload.CompleteCallback">
+            <summary>
+            Called when download is completed.  Call Verify from event handler to throw any exception.
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Network.Downloading.WebDownload.IsDownloadInProgress">
+            <summary>
+            Whether the download is currently being processed (active).
+            </summary>
+        </member>
+        <member name="P:CSharpKit.Network.Downloading.WebDownload.Exception">
+            <summary>
+            Contains the exception that occurred during download, or null if successful.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.BackgroundDownloadFile">
+            <summary>
+            Asynchronous download of HTTP data to file. 
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.BackgroundDownloadFile(CSharpKit.Network.Downloading.DownloadCompleteHandler)">
+            <summary>
+            Asynchronous download of HTTP data to file.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.BackgroundDownloadFile(CSharpKit.Network.Downloading.DownloadType)">
+            <summary>
+            Download image of specified type. (handles server errors for wms type)
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.BackgroundDownloadMemory">
+            <summary>
+            Asynchronous download of HTTP data to in-memory buffer. 
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.BackgroundDownloadMemory(CSharpKit.Network.Downloading.DownloadCompleteHandler)">
+            <summary>
+            Asynchronous download of HTTP data to in-memory buffer. 
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.BackgroundDownloadMemory(CSharpKit.Network.Downloading.DownloadType)">
+            <summary>
+            Download image of specified type. (handles server errors for WMS type)
+            </summary>
+            <param name="dlType">Type of download.</param>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.DownloadMemory">
+            <summary>
+            Synchronous download of HTTP data to in-memory buffer. 
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.DownloadMemory(CSharpKit.Network.Downloading.DownloadType)">
+            <summary>
+            Download image of specified type. (handles server errors for WMS type)
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.DownloadMemory(CSharpKit.Network.Downloading.DownloadProgressHandler)">
+            <summary>
+            HTTP downloads to memory.
+            </summary>
+            <param name="progressCallback">The progress callback.</param>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.DownloadFile(System.String)">
+            <summary>
+            Synchronous download of HTTP data to in-memory buffer. 
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.DownloadFile(System.String,CSharpKit.Network.Downloading.DownloadType)">
+            <summary>
+            Download image of specified type to a file. (handles server errors for WMS type)
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.SaveMemoryDownloadToFile(System.String)">
+            <summary>
+            Saves a http in-memory download to file.
+            </summary>
+            <param name="destinationFilePath">File to save the downloaded data to.</param>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.Cancel">
+            <summary>
+            Aborts the current download. 
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.Verify">
+            <summary>
+            If exceptions occurred they will be thrown by calling this function.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.Download">
+            <summary>
+            Synchronous HTTP download
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.HandleErrors">
+            <summary>
+            Handle server errors that don't get trapped by the web request itself.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.SaveException(System.Exception)">
+            <summary>
+            Log download error to log file
+            </summary>
+            <param name="exception"></param>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.SetMapServerError">
+            <summary>
+            Reads the xml response from the server and throws an error with the message.
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.OnProgressCallback(System.Int32,System.Int32)">
+            <summary>
+            Notify event subscribers of download progress.
+            </summary>
+            <param name="bytesRead">Number of bytes read.</param>
+            <param name="totalBytes">Total number of bytes for request or 0 if unknown.</param>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.OnDebugCallback(CSharpKit.Network.Downloading.WebDownload)">
+            <summary>
+            Called with detailed information about the download.
+            </summary>
+            <param name="wd">The WebDownload.</param>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.OnDownloadEnded(CSharpKit.Network.Downloading.WebDownload)">
+            <summary>
+            Called when downloading has ended.
+            </summary>
+            <param name="wd">The download.</param>
+        </member>
+        <member name="M:CSharpKit.Network.Downloading.WebDownload.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or
+            resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Network.ProxyHelper">
+            <summary>
+            Utility class - determines required proxy (if any) for download.
+            Currently able to handle:
+            - Explicit use of no proxy
+            - Retrieval of current Windows settings (default)
+            - Proxy authentication
+            - Proxy scripting (autoproxy)
+            - Proxy autodiscovery.
+            </summary>
+        </member>
+        <member name="T:CSharpKit.Network.ProxyHelper.WINHTTP_PROXY_INFO">
+            <summary>
+            Proxy information structure returned by WinHTTP interop
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.ProxyHelper.#ctor">
+            <summary>
+            Constructor (static class)
+            </summary>
+        </member>
+        <member name="M:CSharpKit.Network.ProxyHelper.DetermineProxyForUrl(System.String,System.Boolean,System.Boolean,System.String,System.String,System.String)">
+            <summary>
+            main working horse - determines proxy Url and sets up IWebProxy class complete with credentials 
+            </summary>
+            <param name="targetUrl">the file to download</param>
+            <param name="useDefaultProxy">whether to use Internet Explorer settings</param>
+            <param name="useDynamicProxy">If set, will download a script that provides the real proxy URL</param>
+            <param name="proxyUrl">Script URL (if useDynamicProxy is true) or proxy URL</param>
+            <param name="userName">User name (credentials)</param>
+            <param name="password">Password (credentials)</param>
+            <returns>An IWebProxy configured correspondingly</returns>
+        </member>
+        <member name="M:CSharpKit.Network.Utility.Computer.GetUserName">
+            <summary> 
+            操作系统的登录用户名 
+            </summary> 
+            <returns></returns> 
+        </member>
+        <member name="M:CSharpKit.Network.Utility.Computer.GetSystemType">
+            <summary> 
+            PC类型 
+            </summary> 
+            <returns></returns> 
+        </member>
+        <member name="M:CSharpKit.Network.Utility.Computer.GetTotalPhysicalMemory">
+            <summary> 
+            物理内存 
+            </summary> 
+            <returns></returns> 
+        </member>
+        <member name="M:CSharpKit.Network.Utility.Computer.GetComputerName">
+            <summary> 
+             
+            </summary> 
+            <returns></returns> 
+        </member>
+        <member name="M:CSharpKit.Network.Utility.IP_MAC_Class.GetMac">
+            <summary>
+            获取Mac
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Network.Utility.IP_MAC_Class.GetClientIPAddress">
+            <summary>
+            获取客户端内网IP地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSharpKit.Network.Utility.IP_MAC_Class.GetClientInternetIPAddress">
+            <summary>
+            获得客户端外网IP地址
+            </summary>
+            <returns>IP地址</returns>
+        </member>
+    </members>
+</doc>
