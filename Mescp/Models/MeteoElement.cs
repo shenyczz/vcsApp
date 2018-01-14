@@ -51,6 +51,10 @@ namespace Mescp.Models
         /// 降水
         /// </summary>
         public double R { get; set; }
+        /// <summary>
+        /// 相对湿度
+        /// </summary>
+        public double U { get; set; }
 
         /// <summary>
         /// 本站气压

@@ -13,7 +13,6 @@ namespace Mescp.Models
     {
         public CropWorkspace()
         {
-            //this.CropGrwp = new CropGrwp();
         }
 
         /// <summary>

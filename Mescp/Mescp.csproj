@@ -159,6 +159,7 @@
     <Compile Include="Models\CropGrwp.cs" />
     <Compile Include="Models\CropWorkspace.cs" />
     <Compile Include="Models\MeteoElement.cs" />
+    <Compile Include="Models\Period.cs" />
     <Compile Include="Models\Region.cs" />
     <Compile Include="Models\Suitability.cs" />
     <Compile Include="Models\XStation.cs" />

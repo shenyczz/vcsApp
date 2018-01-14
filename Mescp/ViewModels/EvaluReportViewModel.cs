@@ -33,6 +33,8 @@ namespace Mescp.ViewModels
 
         private List<XStation> _XStations;              //站点集合(当前区域)
 
+
+        private List<Period> _Periods;                  //周期
         private List<Compartment> _Compartments;        //区划
 
         #endregion
@@ -145,10 +147,15 @@ namespace Mescp.ViewModels
                     p => p.RegionID.Contains(_CurrentRegion.RgnID)
                 );
 
-            //7.区划
+            //7.周期
+            _Periods = App.Workspace.AppData.Periods;
+
+            //8.区划
             _Compartments = App.Workspace.AppData.Compartments.FindAll(p =>
             {
-                return true;
+                return true
+                      && p.CultivarID == _CurrentCropCultivar.CultivarID
+                      ;
             });
 
         }
@@ -175,7 +182,7 @@ namespace Mescp.ViewModels
             }
 
             // CommandText
-            string strFields = string.Format("[iiiii],[ObvDate],[T],[Tmax],[Tmin],[E],[S],[F10],[R]");
+            string strFields = string.Format("[iiiii],[ObvDate],[T],[Tmax],[Tmin],[E],[S],[F10],[R],[U]");
             string strTables = string.Format("[{0}]", App.Workspace.AppTools.ConvertTableName(eYear));
             string strWheres = string.Format("[ObvDate]>={0}0501 AND [ObvDate]<={0}1030 AND [iiiii] IN ({1})", eYear, strStationIn);    //5.1 -- 10.30
             string strOders = string.Format("[ObvDate],[iiiii]");
@@ -212,7 +219,7 @@ namespace Mescp.ViewModels
             int yyyymmdd1 = dt1.Year * 10000 + dt1.Month * 100 + dt1.Day;
 
             // CommandText
-            string strFields = string.Format("[iiiii],[ObvDate],[T],[Tmax],[Tmin],[E],[S],[F10],[R]");
+            string strFields = string.Format("[iiiii],[ObvDate],[T],[Tmax],[Tmin],[E],[S],[F10],[R],[U]");
             string strTables = string.Format("[{0}]", App.Workspace.AppTools.ConvertTableName(dt0.Year));
             string strWheres = string.Format("[ObvDate]>={0} AND [ObvDate]<={1} AND [iiiii] IN ({2})",
                 yyyymmdd0, yyyymmdd1, strStationIn);
@@ -297,6 +304,22 @@ namespace Mescp.ViewModels
 #endif
 
             //end
+        }
+        private void SetupXStation(List<XStation> xStations, List<Period> periods)
+        {
+            //设置站点参数
+            xStations.ForEach(p =>
+            {
+                p.Periods = periods;
+            });
+        }
+        private void SetupXStation(List<XStation> xStations, List<Compartment> compartments)
+        {
+            //设置站点参数
+            xStations.ForEach(p =>
+            {
+                p.Compartments = compartments;          //区划集合
+            });
         }
         private void SetupXStation(List<XStation> xStations, Region currentRegion, List<CropGrwp> cropGrwps, List<CropWorkspace> cropWorkspaces)
         {
@@ -682,108 +705,6 @@ namespace Mescp.ViewModels
             fileAxinStation.DataProcessor.SaveAs(fileName);
 
             return;
-
-            //TODO:下面区划测试
-            //------------------------插值
-            AxinStationFile f30 = new AxinStationFile(fileName);
-            //
-            // 站点数据插值到格点数据
-            //
-
-            List<StationInfo> stationInfos = f30.StationInfos;
-            AxinStationFileDataInfo dataInfo = f30.DataInfo as AxinStationFileDataInfo;
-            // 包围盒
-            IExtent extent = dataInfo.Extent;
-
-            double xInterval = 0.005;
-            double yInterval = 0.005;
-
-            double xmin = extent.MinX;
-            double ymin = extent.MinY;
-
-            double w = extent.Width;
-            double h = extent.Height;
-
-            double xmax = xmin + w + xInterval;
-            double ymax = ymin + h + yInterval;
-
-            // input data
-            int ni = stationInfos.Count;
-            double[] pxi = new double[ni];
-            double[] pyi = new double[ni];
-            double[] pvi = new double[ni];
-
-            int iCurrentElementIndex = f30.CurrentElementIndex;
-
-            for (int i = 0; i < ni; i++)
-            {
-                StationInfo si = stationInfos[i];
-                pxi[i] = si.Lon;
-                pyi[i] = si.Lat;
-                pvi[i] = si.ElementValues[iCurrentElementIndex];
-            }
-
-            //-----------------------------------------------------
-            // 1.声明类对象
-            V2GInterpolater v2g = new V2GInterpolater();
-            // 2.设置源数据
-            v2g.Xsource = pxi;
-            v2g.Ysource = pyi;
-            v2g.Vsource = pvi;
-            // 3.设置网格属性参数
-            v2g.GridParam = new GridParam(xmin, ymin, xmax, ymax, xInterval, yInterval);
-            // 4.插值
-            v2g.Transact();
-            //-----------------------------------------------------
-            //结果在 GridParam.Vgrid[,]
-            Double[,] vGrid = v2g.GridParam.Vgrid;
-
-            string f40 = "d:\\temp\\40.asc";
-            FileStream fs = new FileStream(f40, FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs, Encoding.Default);
-
-            try
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(string.Format("ncols {0}\r\n", v2g.GridParam.Vgrid.GetLength(1)));
-                sb.Append(string.Format("nrows {0}\r\n", v2g.GridParam.Vgrid.GetLength(0)));
-                sb.Append(string.Format("xllcorner {0}\r\n", v2g.GridParam.Xmin));
-                sb.Append(string.Format("yllcorner {0}\r\n", v2g.GridParam.Ymin));
-                sb.Append(string.Format("cellsize {0}\r\n", v2g.GridParam.Xinterval));
-                sb.Append(string.Format("nodata_value {0}\r\n", -9999));
-
-                sw.Write(sb.ToString());
-
-                sb.Clear();
-
-                int r = v2g.GridParam.Vgrid.GetLength(0);
-                int c = v2g.GridParam.Vgrid.GetLength(1);
-                for (int i = 0; i < r; i++)
-                {
-                    sb.Clear();
-
-                    for (int j = 0; j < c; j++)
-                    {
-                        sb.Append(string.Format("{0,6:F2}", v2g.GridParam.Vgrid[i, j] * 100));
-                    }
-
-                    sw.WriteLine(sb.ToString());
-                }
-
-            }
-            catch (Exception ex)
-            {
-                string errMsg = ex.Message;
-            }
-
-            sw.Close();
-            fs.Close();
-
-            return;
-
-            //
-            //END_OF_FUNCTION
-            //
         }
 
         #endregion
@@ -798,6 +719,7 @@ namespace Mescp.ViewModels
         {
             // 评估年份
             int eYear = App.Workspace.AppData.Year;
+            eYear = 2017;
 
             string ip = App.Workspace.AppData.RemoteDataSource;
             if (!App.Workspace.AppTools.Ping(ip))
@@ -808,12 +730,56 @@ namespace Mescp.ViewModels
 
             Prepare();
 
-            var v = this._Compartments;
+            Region currentRegion = _CurrentRegion;
+            List<CropGrwp> cropGrwps = _CropGrwps;
+            List<CropWorkspace> cropWorkspaces = _CropWorkspaces;
+            List<XStation> xStations = _XStations;
+            List<Period> periods = _Periods;
+            List<Compartment> compartments = _Compartments;
 
-            v[2].GetPLV(12);
+            SetupXStation(xStations);
+            SetupXStation(xStations, eYear);
+            SetupXStation(xStations, periods);
+            SetupXStation(xStations, compartments);
+            SetupXStation(xStations, currentRegion, cropGrwps, cropWorkspaces);
+
+            string cmdText = GenerateCommandText(xStations, eYear);
+            string cnnString = App.Workspace.AppData.RemoteConnectionString;
+            List<MeteoElement> meteoElements = App.Workspace.AppHelper.GetMeteoElementCollection(cnnString, cmdText, xStations);
+            if (meteoElements == null || meteoElements.Count == 0)
+            {
+                MessageBox.Show("没有得到气象要素数据!");
+                return;
+            }
+            SetupXStation(xStations, meteoElements);
+
+
+            DoXStation3(xStations);
 
             return;
         }
+
+        private void DoXStation3(List<XStation> xStations)
+        {
+
+            string stemp = "";
+            try
+            {
+                //计算站点
+                xStations.ForEach(p =>
+                {
+                    stemp = p.Id;
+                    p.DoIt3();
+                });
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error in  DoXStation3(...)" + stemp);
+            }
+
+            // END
+        }
+
 
         #endregion
 

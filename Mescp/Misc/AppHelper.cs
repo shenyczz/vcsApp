@@ -3,23 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 using System.Windows;
-using CSharpKit;
-using CSharpKit.Data;
-using CSharpKit.Data.Axin;
-using CSharpKit.Data.Esri;
-using CSharpKit.Maths.ContourTracing;
-using CSharpKit.Palettes;
-using CSharpKit.Vision;
-using CSharpKit.Vision.Mapping;
-using Mescp.Models;
-using CSharpKit.Vision.Presentation;
-using CSharpKit.Maths.Interpolation;
-using System.IO;
-
 using CSharpKit.Extentions;
+using Mescp.Models;
 
 namespace Mescp
 {
@@ -87,6 +73,10 @@ namespace Mescp
                 // sp_Station
                 cmd.CommandText = "sp_Station";
                 da.Fill(_dsMescpConfig, "TStation");
+
+                // sp_SFPeriod
+                cmd.CommandText = "sp_SFPeriod";
+                da.Fill(_dsMescpConfig, "TSFPeriod");
 
                 // sp_SFAll
                 cmd.CommandText = "sp_SFAll";
@@ -286,6 +276,35 @@ namespace Mescp
             }
         }
 
+        // Period
+        public void GetPeriods(List<Period> periods)
+        {
+            DataRowCollection rows = _dsMescpConfig.Tables["TSFPeriod"].Rows;
+            if (rows.Count <= 0)
+                return;
+
+            periods.Clear();
+            foreach (DataRow row in rows)
+            {
+                try
+                {
+                    Period period = new Period();
+                    {
+                        period.PeriodID = row["PeriodID"].ToString();
+                        period.PeriodCode = row["PeriodCode"].ToString().ToInt();
+                        period.PeriodName = row["PeriodName"].ToString();
+                    }
+                    periods.Add(period);
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Error in GetPeriods()!");
+                }
+            }
+
+            // END
+        }
+
         // Compartment
         public void GetCompartments(List<Compartment> compartments)
         {
@@ -448,11 +467,12 @@ namespace Mescp
                             me.Tmax = 0.1 * double.Parse(row["Tmax"].ToString());   //最高温度
                             me.Tmin = 0.1 * double.Parse(row["Tmin"].ToString());   //最低温度
 
-                            me.E = 0.1 * double.Parse(row["E"].ToString());         //水汽压
+                            me.E = 0.1 * double.Parse(row["E"].ToString());         //水汽压(hPa)
                             me.Ws = 0.1 * double.Parse(row["F10"].ToString());      //风速
                             me.Hos = 0.1 * double.Parse(row["S"].ToString());       //日照
 
                             me.R = 0.1 * double.Parse(row["R"].ToString());         //降水
+                            me.U = 1.0 * double.Parse(row["U"].ToString());         //相对湿度
                         }
 
                         meteoElements.Add(me);

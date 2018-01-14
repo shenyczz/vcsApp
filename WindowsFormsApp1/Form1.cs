@@ -250,7 +250,6 @@ namespace WindowsFormsApp1
         private void Cz(string f3, string f4)
         {
 
-            //TODO:下面区划测试
             //------------------------插值
             AxinStationFile f30 = new AxinStationFile(f3);
             //

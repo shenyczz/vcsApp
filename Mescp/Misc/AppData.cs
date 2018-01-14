@@ -229,7 +229,25 @@ namespace Mescp
 
         #endregion
 
-        #region 区划
+        #region 敏感因子 - 周期
+
+        private List<Period> _Periods;
+        public List<Period> Periods
+        {
+            get
+            {
+                if (_Periods == null)
+                {
+                    _Periods = new List<Period>();
+                    App.Workspace.AppHelper.GetPeriods(_Periods);
+                }
+                return _Periods;
+            }
+        }
+
+        #endregion
+
+        #region 敏感因子 - 区划
 
         private List<Compartment> _Compartments;
         public List<Compartment> Compartments

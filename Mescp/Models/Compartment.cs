@@ -35,7 +35,7 @@ namespace Mescp.Models
         /// <summary>
         /// 取得区划值
         /// </summary>
-        /// <param name="x"></param>
+        /// <param name="x">要素值</param>
         /// <returns></returns>
         public double GetPLV(double x)
         {
@@ -66,6 +66,12 @@ namespace Mescp.Models
             }
 
             return plv;
+        }
+
+
+        public override string ToString()
+        {
+            return string.Format("{0}", SFID);
         }
 
     }
